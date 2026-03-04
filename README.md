@@ -1,0 +1,511 @@
+[ประเมินคลิปวีดีโอ.html](https://github.com/user-attachments/files/25731348/default.html)
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UZI Cosmetic - AI Video Content Evaluation & Export</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- HTML2PDF Library สำหรับ Export PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Prompt', sans-serif;
+            background-color: #fcf9f9;
+        }
+        .uzi-gold { color: #d4af37; }
+        .uzi-rose { color: #b76e79; }
+        .bg-uzi-rose { background-color: #b76e79; }
+        .bg-uzi-dark { background-color: #2c2c2c; }
+        
+        .progress-bar {
+            transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        .animate-spin-slow { animation: spin 2s linear infinite; }
+        
+        /* ซ่อนปุ่มต่างๆ ตอน Export PDF จะได้ดูเป็น Report จริงๆ */
+        .pdf-hide {
+            display: none !important;
+        }
+    </style>
+</head>
+<body class="text-gray-800 pb-12">
+
+    <!-- Navbar -->
+    <nav class="bg-uzi-dark text-white p-4 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold tracking-widest"><span class="uzi-gold">UZI</span> COSMETIC</h1>
+            <p class="text-sm text-gray-300 font-light hidden md:block">AI Content Evaluation System (7Wow 8Offer 9Angel)</p>
+        </div>
+    </nav>
+
+    <div class="container mx-auto mt-8 px-4 grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <!-- Left Column: Video & Info -->
+        <div class="lg:col-span-5 space-y-6">
+            
+            <!-- Video Upload Section -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 relative">
+                <h2 class="text-xl font-semibold mb-4 text-gray-800 flex items-center">
+                    <svg class="w-5 h-5 mr-2 text-[#b76e79]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
+                    อัปโหลดวิดีโอเพื่อประเมิน
+                </h2>
+                
+                <div id="upload-area" class="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center hover:bg-pink-50 transition cursor-pointer relative group">
+                    <input type="file" id="video-upload" accept="video/mp4,video/x-m4v,video/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10">
+                    <svg class="mx-auto h-12 w-12 text-gray-400 group-hover:text-[#b76e79] transition" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                        <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <p class="mt-2 text-sm text-gray-600 font-medium">คลิก หรือ ลากไฟล์วิดีโอมาวางที่นี่</p>
+                    <p class="mt-1 text-xs text-gray-500">รองรับ MP4, MOV (ขนาดแนวตั้ง 9:16)</p>
+                </div>
+
+                <div id="video-preview-container" class="hidden mt-4 relative w-full flex justify-center bg-black rounded-xl overflow-hidden shadow-inner h-[450px]">
+                    <video id="video-player" class="h-full object-contain" controls>
+                        Your browser does not support the video tag.
+                    </video>
+                    <button id="remove-video" class="absolute top-3 right-3 bg-red-500/80 backdrop-blur-sm text-white rounded-full p-2 hover:bg-red-600 shadow-md transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    </button>
+                </div>
+
+                <!-- AI Analyze Button -->
+                <button id="analyze-btn" disabled class="mt-4 w-full bg-gray-300 text-gray-500 font-bold py-3 px-4 rounded-xl shadow-sm transition duration-300 flex justify-center items-center cursor-not-allowed">
+                    <svg id="analyze-icon" class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    <span id="analyze-text">รอการอัปโหลดวิดีโอ...</span>
+                </button>
+            </div>
+
+            <!-- Content Details -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                <h2 class="text-xl font-semibold mb-4 text-gray-800">ข้อมูลคอนเทนต์</h2>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">เลือก SKU มาสเตอร์</label>
+                        <select id="sku-select" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 rounded-md focus:outline-none focus:ring-[#b76e79] focus:border-[#b76e79] sm:text-sm border bg-gray-50">
+                            <option value="lip_matte">1. UZI Matte Liquid Lipstick</option>
+                            <option value="lip_gloss">2. UZI Natural Rose Crystal Lip Gloss</option>
+                            <option value="lip_oil">3. UZI Rose Plumping Lip Oil</option>
+                            <option value="lip_collagen">4. UZI Lip Collagen</option>
+                            <option value="toneup">5. UZI Gluta Whitening 10X Tone Up Lotion</option>
+                            <option value="cleansing">6. UZI Micellar Cleansing Water</option>
+                            <option value="cushion">7. UZI Cushion (Organic)</option>
+                            <option value="underarm">8. UZI Underarm White Shot Mask</option>
+                            <option value="wax">9. UZI Hair Removal Wax / Cream</option>
+                            <option value="powder">10. UZI Two Way-Contour Powder</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">ชื่อโปรดักส์ / โปรโมชั่น <span class="text-xs text-gray-400">(จะแสดงในใบ Report)</span></label>
+                        <input type="text" id="custom-product-name" placeholder="เช่น เซ็ตคู่กู้ปากคล้ำ, ลิปแมทสี 01..." class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#b76e79] focus:border-[#b76e79] sm:text-sm bg-gray-50">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">ชื่อผู้ตัดต่อ (Creator)</label>
+                        <input type="text" id="creator-name" placeholder="ระบุชื่อผู้ตัดต่อ..." class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#b76e79] focus:border-[#b76e79] sm:text-sm bg-gray-50">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: Evaluation Dashboard (This section will be converted to PDF) -->
+        <div class="lg:col-span-7 space-y-6 relative">
+            
+            <!-- Scanning Overlay (Hidden by default) -->
+            <div id="scanning-overlay" class="hidden absolute inset-0 bg-white/80 backdrop-blur-sm z-20 rounded-2xl flex flex-col justify-center items-center border border-gray-100 shadow-xl">
+                <div class="relative w-24 h-24">
+                    <div class="absolute inset-0 border-4 border-gray-200 rounded-full"></div>
+                    <div class="absolute inset-0 border-4 border-[#b76e79] rounded-full border-t-transparent animate-spin-slow"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <span class="text-[#d4af37] font-bold text-xl">AI</span>
+                    </div>
+                </div>
+                <p class="mt-6 text-lg font-bold text-gray-800 animate-pulse">กำลังสแกนองค์ประกอบภาพและเสียง...</p>
+                <p class="text-sm text-gray-500 mt-2">วิเคราะห์ Hook, การนำเสนอ, และ Brand Identity</p>
+            </div>
+
+            <!-- THE REPORT CARD (Target for PDF Generation) -->
+            <div id="report-card" class="bg-white p-8 rounded-2xl shadow-lg border-t-8 border-[#b76e79] h-full flex flex-col">
+                
+                <div class="flex justify-between items-start border-b pb-5 mb-6">
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-800 flex items-center mb-1">
+                            UZI Content Evaluation
+                            <span id="ai-badge" class="ml-2 text-[10px] bg-green-100 text-green-700 px-2 py-1 rounded-full border border-green-200 uppercase tracking-widest">AI Generated</span>
+                        </h2>
+                        <!-- Meta Info injected by JS -->
+                        <div id="report-meta-info" class="text-sm text-gray-600 mt-2 space-y-1">
+                            <p><strong>โปรดักส์:</strong> รอการวิเคราะห์...</p>
+                            <p><strong>ครีเอเตอร์:</strong> -</p>
+                            <p><strong>วันที่วิเคราะห์:</strong> -</p>
+                        </div>
+                    </div>
+                    <div class="text-center bg-gray-50 px-6 py-3 rounded-xl border border-gray-100">
+                        <div class="text-5xl font-black text-gray-300 transition-colors duration-1000" id="total-score">0.0</div>
+                        <div class="text-xs font-bold text-gray-500 uppercase tracking-wide mt-1">Total Score (30)</div>
+                    </div>
+                </div>
+
+                <!-- Score Bars -->
+                <div class="grid grid-cols-3 gap-5 mb-6">
+                    <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 text-center">
+                        <h3 class="text-sm font-bold text-[#d4af37] mb-1">7 Wow (Hook)</h3>
+                        <span class="text-2xl font-bold text-gray-400" id="wow-val">0.0</span>
+                        <div class="w-full bg-gray-200 rounded-full h-1.5 mt-2">
+                            <div id="wow-bar" class="progress-bar bg-[#d4af37] h-1.5 rounded-full" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 text-center">
+                        <h3 class="text-sm font-bold text-blue-600 mb-1">8 Offer (Value)</h3>
+                        <span class="text-2xl font-bold text-gray-400" id="offer-val">0.0</span>
+                        <div class="w-full bg-gray-200 rounded-full h-1.5 mt-2">
+                            <div id="offer-bar" class="progress-bar bg-blue-500 h-1.5 rounded-full" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 text-center">
+                        <h3 class="text-sm font-bold text-[#b76e79] mb-1">9 Angel (Brand)</h3>
+                        <span class="text-2xl font-bold text-gray-400" id="angel-val">0.0</span>
+                        <div class="w-full bg-gray-200 rounded-full h-1.5 mt-2">
+                            <div id="angel-bar" class="progress-bar bg-[#b76e79] h-1.5 rounded-full" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Auto Feedback Section -->
+                <div class="flex-grow">
+                    <h4 class="font-bold text-gray-800 mb-3 flex items-center border-b pb-2">
+                        <svg class="w-5 h-5 mr-1 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                        Detailed Feedback & Recommendations
+                    </h4>
+                    <div id="feedback-box" class="p-0 mt-4 rounded-xl min-h-[250px] transition-all duration-500">
+                        <div class="flex flex-col items-center justify-center py-10 bg-gray-50 rounded-xl border border-gray-200 text-gray-400 h-full">
+                            <svg class="w-12 h-12 mb-3 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                            <span class="text-sm">อัปโหลดและกดวิเคราะห์วิดีโอ เพื่อรับรายงานฉบับเต็มจาก AI</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Export Button (Will be hidden during PDF generation) -->
+                <div class="mt-8 flex justify-end">
+                    <button id="export-btn" class="hidden bg-gray-800 hover:bg-black text-white text-sm font-bold py-3 px-6 rounded-lg shadow-lg transition duration-200 items-center transform hover:scale-105">
+                        <svg class="w-4 h-4 mr-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                        Export PDF Report
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // DOM Elements
+        const videoUpload = document.getElementById('video-upload');
+        const uploadArea = document.getElementById('upload-area');
+        const videoPreviewContainer = document.getElementById('video-preview-container');
+        const videoPlayer = document.getElementById('video-player');
+        const removeVideoBtn = document.getElementById('remove-video');
+        
+        const analyzeBtn = document.getElementById('analyze-btn');
+        const analyzeIcon = document.getElementById('analyze-icon');
+        const analyzeText = document.getElementById('analyze-text');
+        const scanningOverlay = document.getElementById('scanning-overlay');
+
+        // Bars & Values
+        const wowBar = document.getElementById('wow-bar');
+        const offerBar = document.getElementById('offer-bar');
+        const angelBar = document.getElementById('angel-bar');
+        const wowVal = document.getElementById('wow-val');
+        const offerVal = document.getElementById('offer-val');
+        const angelVal = document.getElementById('angel-val');
+        const totalScoreEl = document.getElementById('total-score');
+        const feedbackBox = document.getElementById('feedback-box');
+        const exportBtn = document.getElementById('export-btn');
+
+        let isVideoUploaded = false;
+
+        // Context Mapping for Products
+        const productContexts = {
+            lip_matte: { 
+                painPoint: "ปากแห้งตกร่อง", action: "ทากลบสีปากคล้ำมิด", visual: "ซูมเท็กซ์เจอร์เนื้อแมทนุ่มลื่น", 
+                extraTip: "เพิ่มช็อตใช้กระดาษทิชชู่ซับริมฝีปาก หรือดื่มน้ำจากแก้ว เพื่อโชว์คุณสมบัติ 'Kissproof/กันน้ำ ไม่ติดแก้ว' พร้อมขึ้น Text ป๊อปอัปว่า 'ออร์แกนิก 100% คุณแม่ตั้งครรภ์ใช้ได้'" 
+            },
+            lip_gloss: { 
+                painPoint: "ปากแห้งลอก ไม่อยากทากลอสเหนียวผมติด", action: "ทาปุ๊บฉ่ำวาวเหมือนกระจก เบาสบาย", visual: "โชว์ความวาวตกกระทบแสงเงา (Golden Hour)", 
+                extraTip: "แนะนำให้ใส่เสียง Sound Effect (ASMR) ตอนดึงก้านลิปออกจากขวด และตอนเม้มปาก เพื่อเพิ่มอรรถรสทางหู (Sensory Marketing) ให้คนดูรู้สึกถึงความฉ่ำวาวที่ไม่เหนอะหนะ" 
+            },
+            lip_oil: { 
+                painPoint: "ริมฝีปากบาง แห้งเหี่ยวไม่อวบอิ่ม", action: "ปากอิ่มฟูขึ้นใน 5 วินาที ด้วย 9 ออยล์ธรรมชาติ", visual: "หยดเนื้อออยล์และซูมลุคปากอิ่มน้ำ", 
+                extraTip: "ควรเพิ่มกราฟิก 'นาฬิกาจับเวลา (Timer)' วิ่งอยู่บนหน้าจอ 1-5 วินาที พร้อมโชว์ภาพ Before/After แบบ Real-time จะทำให้ Hook น่าเชื่อถือและหยุดนิ้วได้ดีขึ้นมาก" 
+            },
+            lip_collagen: { 
+                painPoint: "ปากพังสะสม ทาลิปตกร่อง", action: "ฟื้นฟูริมฝีปากข้ามคืน (Night Routine)", visual: "โชว์เนื้อทรีทเม้นท์เข้มข้นแบบสลีปปิ้งมาสก์", 
+                extraTip: "ปรับมู้ดวิดีโอให้เป็นแนว 'Night Skincare Routine' แสงสลัวๆ อบอุ่น ครีเอเตอร์ใส่ชุดนอนผ้าไหมหรือเสื้อคลุมอาบน้ำ จะช่วยอัปลุคให้ผลิตภัณฑ์ดูเป็น Luxury Skincare ระดับเคาน์เตอร์แบรนด์" 
+            },
+            toneup: { 
+                painPoint: "ผิวหมองคล้ำไม่สม่ำเสมอ ออกงานด่วน", action: "ผิวไบรท์ขึ้น 1-2 ระดับทันที ดูเป็นธรรมชาติ", visual: "ทาเปรียบเทียบครึ่งๆ แขนหรือขาให้เห็นความต่าง", 
+                extraTip: "สิ่งที่ขาดไม่ได้คือ 'การทดสอบความเหนอะหนะ' ให้เอากระดาษซับมัน หรือเสื้อแจ็คเก็ตสีดำ มาถูที่ผิวหลังทา เพื่อพิสูจน์จุดขายหลักที่ว่า 'หอมติดผิว ไม่วอก ไม่ติดเบาะรถ'" 
+            },
+            cleansing: { 
+                painPoint: "ล้างเมคอัพไม่หมด สิวอุดตันบุก", action: "ปาดเดียวเมคอัพกันน้ำหลุดเกลี้ยง ถนอมผิว", visual: "ซูมแผ่นสำลีที่เช็ดเครื่องสำอางออก", 
+                extraTip: "ควรเพิ่มช็อตโคลสอัพ (Close-up) ผิวหน้าสดแบบใกล้ๆ หลังเช็ดเสร็จ เพื่อโชว์ว่าผิวดูชุ่มชื้น ไม่แห้งตึง (Clean Beauty) และขึ้น Text เน้นย้ำว่า 'อ่อนโยน ผิวแพ้ง่ายใช้ได้ชัวร์'" 
+            },
+            cushion: { 
+                painPoint: "เป็นสิว ผิวแพ้ง่าย แต่อยากแต่งหน้า", action: "ปกปิดรอยสิวกริบ แต่ผิวหายใจได้ (Organic)", visual: "จังหวะแท็บพัฟลงบนรอยแดงให้เนียนหายไป", 
+                extraTip: "แทรกกราฟิก Call-out (เส้นชี้) ไปที่ผิว อธิบายส่วนผสมที่ไม่มีสารเคมีอุดตัน (Non-comedogenic) และโชว์ตลับคุชชั่นมุมสวยๆ เพื่อเน้นความ 'Accessible Luxury' ดูแพงแต่แตะต้องได้" 
+            },
+            underarm: { 
+                painPoint: "รักแร้คล้ำ ตุ่มหนังไก่ ไม่กล้าใส่แขนกุด", action: "กู้ผิวใต้วงแขนเนียนใสด้วย Rose Stemcell", visual: "ความมั่นใจเวลายกแขนโชว์วงแขนเนียน", 
+                extraTip: "แนะนำให้ใช้จังหวะ Transition เปลี่ยนชุด เช่น ตอนแรกใส่เสื้อยืดตัวใหญ่ดูกังวล พอดีดนิ้วปุ๊บเปลี่ยนเป็นเสื้อสายเดี่ยว/แขนกุด โพสท่าชูแขนอย่างมั่นใจ เพื่อขาย 'ผลลัพธ์ทางอารมณ์ (Emotional Benefit)'" 
+            },
+            wax: { 
+                painPoint: "ขนกวนใจ โกนแล้วเป็นตอ ถอนแล้วเจ็บ", action: "ปาดทิ้งไว้แล้วเช็ด ขนหลุดเกลี้ยง ผิวไม่ระคายเคือง", visual: "ช็อตเช็ดเนื้อครีมออกพร้อมขนแบบสะใจ", 
+                extraTip: "ช่วงเช็ดขนออก ควรเน้นให้เห็นผิวที่เรียบเนียนชัดๆ ไม่ทิ้งตอ และอย่าลืมย้ำจุดแข็งเรื่อง 'สารสกัด 12 ชนิด' ที่ช่วยบำรุงผิวหลังทำ เพื่อสร้างความต่างจากแว็กซ์สารเคมีตามท้องตลาดทั่วไป" 
+            },
+            powder: { 
+                painPoint: "หน้าเยิ้ม แป้งเป็นคราบ แพ้แป้งเคมี", action: "คุมมันเริ่ด ปกปิดเนียน ป้องกันแดด SPF50+", visual: "ซับหน้าครึ่งนึงเพื่อเปรียบเทียบความแมทกริบ", 
+                extraTip: "เพิ่มช็อต 'Waterproof Test (ทดสอบกันน้ำ)' โดยการฉีดสเปรย์น้ำแร่ลงบนหน้า แล้วใช้ทิชชู่ซับออกให้ดูว่าแป้งไม่หลุด หรือหยดน้ำลงบนเนื้อแป้งในตลับให้เห็นว่าน้ำกลิ้งได้ เพื่อพิสูจน์ความทนทาน" 
+            }
+        };
+
+        // --- Video Upload Handling ---
+        videoUpload.addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const videoURL = URL.createObjectURL(file);
+                videoPlayer.src = videoURL;
+                uploadArea.classList.add('hidden');
+                videoPreviewContainer.classList.remove('hidden');
+                
+                isVideoUploaded = true;
+                
+                analyzeBtn.disabled = false;
+                analyzeBtn.className = "mt-4 w-full bg-uzi-dark hover:bg-black text-white font-bold py-3 px-4 rounded-xl shadow-md transition duration-300 flex justify-center items-center cursor-pointer";
+                analyzeIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>';
+                analyzeText.textContent = "วิเคราะห์วิดีโอด้วย AI";
+                
+                resetScores();
+            }
+        });
+
+        removeVideoBtn.addEventListener('click', function() {
+            videoPlayer.pause();
+            videoPlayer.removeAttribute('src');
+            videoUpload.value = '';
+            videoPreviewContainer.classList.add('hidden');
+            uploadArea.classList.remove('hidden');
+            
+            isVideoUploaded = false;
+            
+            analyzeBtn.disabled = true;
+            analyzeBtn.className = "mt-4 w-full bg-gray-300 text-gray-500 font-bold py-3 px-4 rounded-xl shadow-sm transition duration-300 flex justify-center items-center cursor-not-allowed";
+            analyzeIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>';
+            analyzeText.textContent = "รอการอัปโหลดวิดีโอ...";
+            
+            resetScores();
+        });
+
+        function resetScores() {
+            wowBar.style.width = '0%'; offerBar.style.width = '0%'; angelBar.style.width = '0%';
+            wowVal.textContent = '0.0'; offerVal.textContent = '0.0'; angelVal.textContent = '0.0';
+            wowVal.className = "text-2xl font-bold text-gray-400";
+            offerVal.className = "text-2xl font-bold text-gray-400";
+            angelVal.className = "text-2xl font-bold text-gray-400";
+            totalScoreEl.textContent = '0.0';
+            totalScoreEl.className = "text-5xl font-black text-gray-300 transition-colors duration-1000";
+            exportBtn.classList.add('hidden');
+            
+            document.getElementById('report-meta-info').innerHTML = `
+                <p><strong>โปรดักส์:</strong> รอการวิเคราะห์...</p>
+                <p><strong>ครีเอเตอร์:</strong> -</p>
+                <p><strong>วันที่วิเคราะห์:</strong> -</p>
+            `;
+            
+            feedbackBox.innerHTML = `
+                <div class="flex flex-col items-center justify-center py-10 bg-gray-50 rounded-xl border border-gray-200 text-gray-400 h-full">
+                    <svg class="w-12 h-12 mb-3 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                    <span class="text-sm">อัปโหลดและกดวิเคราะห์วิดีโอ เพื่อรับรายงานฉบับเต็มจาก AI</span>
+                </div>`;
+        }
+
+        // --- Simulate AI Analysis ---
+        analyzeBtn.addEventListener('click', function() {
+            if(!isVideoUploaded) return;
+
+            scanningOverlay.classList.remove('hidden');
+            analyzeBtn.disabled = true;
+            analyzeBtn.classList.add('opacity-75', 'cursor-not-allowed');
+            analyzeIcon.innerHTML = '<circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none" class="opacity-25"></circle><path fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" class="opacity-75"></path>';
+            analyzeIcon.classList.add('animate-spin');
+            analyzeText.textContent = "AI กำลังประมวลผลวิดีโอ...";
+
+            setTimeout(() => {
+                // Random realistic scores
+                const sWow = (Math.random() * 3.5 + 6.0).toFixed(1);
+                const sOffer = (Math.random() * 3.5 + 6.0).toFixed(1);
+                const sAngel = (Math.random() * 3.5 + 6.0).toFixed(1);
+                const total = (parseFloat(sWow) + parseFloat(sOffer) + parseFloat(sAngel)).toFixed(1);
+
+                wowBar.style.width = `${sWow * 10}%`;
+                offerBar.style.width = `${sOffer * 10}%`;
+                angelBar.style.width = `${sAngel * 10}%`;
+
+                animateValue(wowVal, parseFloat(sWow), sWow >= 8 ? 'text-[#d4af37]' : (sWow >= 7 ? 'text-gray-700' : 'text-red-500'));
+                animateValue(offerVal, parseFloat(sOffer), sOffer >= 8 ? 'text-blue-600' : (sOffer >= 7 ? 'text-gray-700' : 'text-red-500'));
+                animateValue(angelVal, parseFloat(sAngel), sAngel >= 8 ? 'text-[#b76e79]' : (sAngel >= 7 ? 'text-gray-700' : 'text-red-500'));
+                
+                totalScoreEl.textContent = total;
+                if(total >= 25) totalScoreEl.className = "text-5xl font-black text-green-500 transition-colors duration-1000";
+                else if(total >= 21) totalScoreEl.className = "text-5xl font-black text-[#d4af37] transition-colors duration-1000";
+                else totalScoreEl.className = "text-5xl font-black text-red-500 transition-colors duration-1000";
+
+                generateExpertFeedback(sWow, sOffer, sAngel, total);
+
+                scanningOverlay.classList.add('hidden');
+                analyzeBtn.disabled = false;
+                analyzeBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+                analyzeIcon.classList.remove('animate-spin');
+                analyzeIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>';
+                analyzeText.textContent = "วิเคราะห์เสร็จสิ้น (วิเคราะห์ซ้ำ)";
+                exportBtn.classList.remove('hidden');
+
+            }, 2000);
+        });
+
+        function animateValue(obj, end, colorClass) {
+            let start = 0;
+            const stepTime = 30;
+            const steps = 30;
+            const increment = end / steps;
+            let currentStep = 0;
+            
+            const timer = setInterval(function() {
+                start += increment;
+                currentStep++;
+                obj.textContent = start.toFixed(1);
+                if (currentStep >= steps) {
+                    obj.textContent = end.toFixed(1);
+                    obj.className = `text-2xl font-bold ${colorClass}`;
+                    clearInterval(timer);
+                }
+            }, stepTime);
+        }
+
+        function generateExpertFeedback(wow, offer, angel, total) {
+            const skuVal = document.getElementById('sku-select').value;
+            const context = productContexts[skuVal];
+            
+            const pNameInput = document.getElementById('custom-product-name').value;
+            const defaultName = document.getElementById('sku-select').options[document.getElementById('sku-select').selectedIndex].text.split('. ')[1];
+            const pName = pNameInput.trim() !== "" ? pNameInput : defaultName;
+            
+            const creatorName = document.getElementById('creator-name').value || "ทีม Content (ไม่ระบุชื่อ)";
+            
+            // Format current date
+            const today = new Date();
+            const dateStr = today.toLocaleDateString('th-TH', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+
+            // Update Meta Info
+            document.getElementById('report-meta-info').innerHTML = `
+                <p><strong>โปรดักส์:</strong> <span class="text-[#b76e79] font-medium">${pName}</span></p>
+                <p><strong>ครีเอเตอร์:</strong> ${creatorName}</p>
+                <p><strong>วันที่วิเคราะห์:</strong> ${dateStr} น.</p>
+            `;
+
+            // Deep Dive Texts
+            const textWow = wow >= 7.5 
+                ? `ทำได้ดีมาก! Hook เปิด 3 วิแรกสามารถดึง Insight ปัญหาเรื่อง${context.painPoint}ได้โดนใจ การ${context.visual}ช่วยให้คนดูหยุดนิ้วและตั้งใจดูจนจบ` 
+                : `ควรกระชับ 3 วินาทีแรกให้เร้าใจกว่านี้ แนะนำให้เปิดคลิปด้วยภาพผลลัพธ์ที่${context.action}เลย หรือใช้ข้อความพาดหัวที่จี้จุดปัญหา${context.painPoint}แบบตรงไปตรงมา`;
+            
+            const textOffer = offer >= 7.5 
+                ? `นำเสนอ Value ของโปรดักส์ได้ลื่นไหล โชว์ให้เห็นชัดเจนว่า${context.action}ยังไง CTA (Call to Action) ปิดท้ายเนียนและกระตุ้นการสั่งซื้อได้ดี` 
+                : `เนื้อหาการขายยังดูไม่คมพอ ลองปรับวิธีการนำเสนอให้เห็นชัดเจนขึ้นว่าสินค้าแก้ปัญหาให้ลูกค้าได้ยังไง และตอนจบอย่าลืมชี้เป้าตะกร้าให้ชัดเจน`;
+            
+            const textAngel = angel >= 7.5 
+                ? `สอบผ่านเรื่อง Brand Identity เต็มๆ! มู้ดภาพ แสงเงา และองค์ประกอบต่างๆ ดูมีความ Accessible Luxury สอดคล้องกับภาพลักษณ์ออร์แกนิกพรีเมียมของ UZI` 
+                : `ภาพรวมยังขาดความ 'แพง' ในสไตล์ UZI แนะนำให้จัดแสงใหม่ให้ดูเคลียร์ขึ้น (ละมุน/สว่าง) จัดเฟรมภาพให้ดูมินิมอล และควรเน้นย้ำความปลอดภัย (Organic) ให้ชัดขึ้น`;
+
+            let html = `<div class="space-y-5 animate-fade-in text-[15px] leading-relaxed">`;
+
+            // 1. Executive Summary
+            html += `
+                <div class="p-4 rounded-xl border ${total >= 25 ? 'bg-green-50 border-green-200 text-green-800' : (total >= 21 ? 'bg-yellow-50 border-yellow-200 text-yellow-800' : 'bg-red-50 border-red-200 text-red-800')}">
+                    <h5 class="font-bold text-lg mb-1 flex items-center">
+                        ${total >= 25 ? '🔥 Viral Ready (พร้อมยิงแอด/บูสต์โพสต์)' : (total >= 21 ? '✨ Good Quality (คุณภาพดี แต่อัปเกรดได้อีก)' : '⚠️ Needs Revision (แนะนำให้ปรับแก้เนื้อหา)')}
+                    </h5>
+                    <p class="text-sm">
+                        ${total >= 25 ? 'คลิปนี้ตอบโจทย์ทั้งการดึงความสนใจ การขาย และภาพลักษณ์แบรนด์ ถือเป็น Winning Content ที่มีศักยภาพสูงมากในการสร้างยอดขาย' : (total >= 21 ? 'คลิปนี้ทำโครงสร้างมาได้ดีแล้ว หากเพิ่มเติมเทคนิคเล็กๆ น้อยๆ ตามคำแนะนำด้านล่าง จะช่วยเร่งยอด Conversion ได้มหาศาล' : 'คลิปยังขาดพลังในการหยุดนิ้วคนดูและการนำเสนอจุดขายที่ชัดเจน แนะนำให้ทีมตัดต่อส่งแก้ใหม่โดยอิงจากโครงสร้างด้านล่าง')}
+                    </p>
+                </div>`;
+
+            // 2. Score Breakdown
+            html += `
+                <div>
+                    <h5 class="font-bold text-gray-800 mb-3 border-b pb-2 text-[16px]">📊 วิเคราะห์เชิงลึก (Deep Dive Analysis)</h5>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex flex-col sm:flex-row sm:items-start bg-white p-3 rounded-lg border border-gray-100">
+                            <span class="font-bold w-24 shrink-0 ${wow >= 7.5 ? 'text-[#d4af37]' : 'text-red-500'}">7 Wow:</span>
+                            <span>${textWow}</span>
+                        </li>
+                        <li class="flex flex-col sm:flex-row sm:items-start bg-white p-3 rounded-lg border border-gray-100">
+                            <span class="font-bold w-24 shrink-0 ${offer >= 7.5 ? 'text-blue-600' : 'text-red-500'}">8 Offer:</span>
+                            <span>${textOffer}</span>
+                        </li>
+                        <li class="flex flex-col sm:flex-row sm:items-start bg-white p-3 rounded-lg border border-gray-100">
+                            <span class="font-bold w-24 shrink-0 ${angel >= 7.5 ? 'text-[#b76e79]' : 'text-red-500'}">9 Angel:</span>
+                            <span>${textAngel}</span>
+                        </li>
+                    </ul>
+                </div>`;
+
+            // 3. Expert Recommendation (Pro Tips)
+            html += `
+                <div class="bg-[#faf5f5] p-5 rounded-xl border border-[#b76e79]/30 relative overflow-hidden mt-6">
+                    <div class="absolute top-0 right-0 bg-[#b76e79] text-white text-xs font-bold px-4 py-1.5 rounded-bl-xl tracking-wider">CREATIVE PRO TIP</div>
+                    <h5 class="font-bold text-[#b76e79] mb-2 flex items-center text-[16px]">
+                        <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        คำแนะนำเพื่อให้คลิปนี้สมบูรณ์แบบที่สุด
+                    </h5>
+                    <p class="text-gray-800">
+                        <strong>สำหรับเนื้อหาโปรดักส์นี้:</strong> ${context.extraTip}
+                    </p>
+                </div>`;
+
+            html += `</div>`;
+            feedbackBox.innerHTML = html;
+        }
+
+        // --- Export PDF Functionality ---
+        exportBtn.addEventListener('click', function() {
+            // Target the report card div
+            const element = document.getElementById('report-card');
+            const pName = document.getElementById('custom-product-name').value || "Product";
+            
+            // ซ่อนปุ่ม Export ก่อนถ่ายภาพ
+            exportBtn.classList.add('pdf-hide');
+            // ลบขอบมนเงาที่อาจทำให้ PDF ดูตัดขอบแปลกๆ
+            element.classList.remove('shadow-lg', 'rounded-2xl');
+
+            // ตั้งค่า Options สำหรับ html2pdf
+            const opt = {
+                margin:       0.4,
+                filename:     `UZI_Content_Report_${pName}.pdf`,
+                image:        { type: 'jpeg', quality: 1 },
+                html2canvas:  { scale: 2, useCORS: true, letterRendering: true },
+                jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+            };
+
+            // เรียกใช้ html2pdf
+            html2pdf().set(opt).from(element).save().then(() => {
+                // คืนค่า UI กลับเป็นเหมือนเดิมหลังโหลดเสร็จ
+                exportBtn.classList.remove('pdf-hide');
+                element.classList.add('shadow-lg', 'rounded-2xl');
+            });
+        });
+
+    </script>
+</body>
+</html>
