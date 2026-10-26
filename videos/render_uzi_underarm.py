@@ -56,6 +56,7 @@ def build_layer(n, fx):
     return big
 
 
+TEXT = False  # video only, no on-screen text
 CARD = {3, 6, 8}  # product shots: show whole panel on a blurred backdrop
 
 
@@ -64,13 +65,13 @@ def build_card(n):
     pw, ph = im.size
     bg = build_layer(n, 0.5).filter(ImageFilter.GaussianBlur(40))
     bg = Image.blend(bg, Image.new("RGB", bg.size, (250, 222, 234)), 0.35)
-    cw = 860
+    cw = 860 if TEXT else 1000
     chh = int(ph * cw / pw)
     card = im.resize((cw, chh), Image.LANCZOS).filter(ImageFilter.UnsharpMask(radius=2, percent=60, threshold=2))
     mask = Image.new("L", card.size, 0)
     ImageDraw.Draw(mask).rounded_rectangle((0, 0, cw, chh), radius=36, fill=255)
     bw, bh = bg.size
-    x, y = (bw - cw) // 2, int((bh - H) / 2 + 150)
+    x, y = (bw - cw) // 2, int((bh - H) / 2 + (150 if TEXT else (H - chh) / 2))
     sh = Image.new("L", bg.size, 0)
     ImageDraw.Draw(sh).rounded_rectangle((x + 6, y + 18, x + cw + 6, y + chh + 18), radius=36, fill=110)
     sh = sh.filter(ImageFilter.GaussianBlur(24))
@@ -124,6 +125,8 @@ def draw_text_center(img, y, text, font, fill, shadow=True, alpha=1.0, glow=WHIT
 
 
 def overlay(img, i, tl, dur):
+    if not TEXT:
+        return img
     st = SHOTS[i]
     img.alpha_composite(GRAD)
     # timecode chip top-left like the storyboard header
