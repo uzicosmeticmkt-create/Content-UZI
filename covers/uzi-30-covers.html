@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UZI 30 ปกอินโฟส่วนผสม</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* UZI chrome: rose + gold on a rose-tinted neutral. Covers: ivory-gold infographic look (serif caps, hairline gold, ingredient circles, acrylic podiums). Layout: filter bar, then a dense grid of covers in real ratios. */
+  --bg:#f8f3f3;
+  --surface:#ffffff;
+  --ink:#2c2627;
+  --muted:#7a6d6f;
+  --line:#eadfe0;
+  --rose:#b76e79;
+  --gold:#a8843f;
+  --display:"Cinzel", "Cormorant Garamond", Georgia, serif;
+  --body:"Prompt", "Noto Sans Thai", system-ui, sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#171314;--surface:#221c1d;--ink:#f3eaea;--muted:#b3a3a5;--line:#3a3032;--rose:#d995a0;--gold:#d9b75a;color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#171314;--surface:#221c1d;--ink:#f3eaea;--muted:#b3a3a5;--line:#3a3032;--rose:#d995a0;--gold:#d9b75a;color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55}
+.wrap{max-width:1240px;margin:0 auto;padding:32px 20px 64px;display:grid;gap:24px}
+header h1{font-family:var(--body);font-weight:700;font-size:clamp(28px,4vw,42px);line-height:1.1;margin:0;text-wrap:balance}
+header h1 span{color:var(--rose)}
+header p{margin:8px 0 0;color:var(--muted);max-width:72ch}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.chip{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:7px 14px;border-radius:999px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip:focus-visible,.copy:focus-visible{outline:2px solid var(--rose);outline-offset:2px}
+.bar .sep{flex:1}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px;grid-auto-flow:dense;align-items:start}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px;display:grid;gap:10px}
+.card.wide{grid-column:span 2}
+@media (max-width:600px){.card.wide{grid-column:auto}}
+.meta{display:grid;gap:6px;padding:2px 4px 4px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;font-size:12px}
+.tag{padding:2px 8px;border-radius:6px;background:color-mix(in srgb,var(--rose) 14%,transparent);color:var(--rose);font-weight:500}
+.tag.g{background:color-mix(in srgb,var(--gold) 16%,transparent);color:var(--gold)}
+.tag.n{background:color-mix(in srgb,var(--muted) 14%,transparent);color:var(--muted)}
+.meta h3{margin:0;font-size:16px;font-weight:600;line-height:1.35}
+.meta p{margin:0;font-size:13.5px;color:var(--muted)}
+.meta p b{color:var(--ink);font-weight:500}
+.copy{justify-self:start;font:inherit;font-size:13px;background:none;border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:4px 10px;cursor:pointer}
+.notes{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.notes h2{margin:0 0 8px;font-size:18px}
+.notes ul{margin:0;padding-left:20px;display:grid;gap:4px;max-width:92ch}
+
+/* ---------- Cover system: all coordinates in cqw (1cqw = 1% of cover width) ---------- */
+.cover{position:relative;aspect-ratio:var(--r);container-type:inline-size;overflow:hidden;border-radius:10px;font-family:var(--body);color:#3f332c;isolation:isolate;
+  background:radial-gradient(110% 70% at 50% 34%,#ffffff 0%,#f5f2ee 52%,#e6e0d9 100%)}
+.cover *{box-sizing:border-box}
+.a{position:absolute}
+.cin{font-family:"Cinzel",Georgia,serif;font-weight:500;color:#5d5148;letter-spacing:.04em;line-height:1.04;text-align:center}
+.eb{display:flex;align-items:center;justify-content:center;gap:2.4cqw;color:#a88d63;letter-spacing:.42em;font-size:2.6cqw;font-weight:500;text-transform:uppercase}
+.eb::before,.eb::after{content:"";width:8cqw;height:1px;background:#b5966a}
+.eb.l{justify-content:flex-start}.eb.l::before{display:none}
+.th{font-weight:600;color:#3f332c;line-height:1.25}
+.it{font-weight:700;color:#7a5f45;font-size:3cqw;letter-spacing:.02em;line-height:1.15;text-transform:uppercase}
+.is{color:#76695f;font-size:2.7cqw;line-height:1.35}
+.ln{position:absolute;background:#b5966a;opacity:.75}
+.foot{position:absolute;font-size:2.1cqw;color:#8b7d72}
+
+/* ingredient circles */
+.ic{position:absolute;width:var(--s);aspect-ratio:1;border-radius:50%;border:.7cqw solid #fff;box-shadow:0 1cqw 3cqw rgba(90,70,50,.16);overflow:hidden}
+.k-rose{background:radial-gradient(circle at 50% 52%,#f3b9c5 0 7%,#fbe1e6 8% 15%,#eda5b4 16% 25%,#f8d3da 26% 36%,#e899aa 37% 48%,#f6ccd4 49% 62%,#fbe6ea 63%)}
+.k-crys{background:conic-gradient(from 15deg,#fff,#e6edf2 12%,#fff 24%,#dce5ec 38%,#fff 50%,#e9eff3 64%,#fff 76%,#dfe7ee 88%,#fff)}
+.k-pearl{background:radial-gradient(circle at 40% 34%,#fff 0 12%,#f5e9ec 32%,#e7d3d9 66%,#d9c0c8)}
+.k-lilac{background:radial-gradient(circle at 30% 32%,#fff 0 9%,#e6dbf7 10% 13%,transparent 14%),radial-gradient(circle at 66% 44%,#fffb 0 11%,transparent 12%),radial-gradient(circle at 44% 72%,#fff9 0 8%,transparent 9%),linear-gradient(135deg,#f1e9fb,#d6c6f0)}
+.k-daisy{background:radial-gradient(circle at 50% 54%,#f0b022 0 9%,#fff 10% 30%,transparent 31%),radial-gradient(circle at 76% 24%,#fff8 0 8%,transparent 9%),radial-gradient(circle at 24% 80%,#fff8 0 6%,transparent 7%),linear-gradient(135deg,#fff4c9,#f5d064)}
+.k-cent{background:radial-gradient(circle at 50% 54%,transparent 0 33%,#e3f3df 34%),repeating-conic-gradient(from 0deg at 50% 54%,#4f9e4c 0 7deg,#7cc476 7deg 14deg)}
+.k-cream{background:repeating-radial-gradient(circle at 30% 62%,#fff 0 2cqw,#efe8e0 2cqw 3cqw)}
+.k-euca{background:radial-gradient(ellipse 18% 34% at 38% 50%,#7fae9a 0 98%,transparent),radial-gradient(ellipse 18% 34% at 62% 46%,#93c0ab 0 98%,transparent),linear-gradient(135deg,#eef6f1,#cfe5d9)}
+.k-persim{background:radial-gradient(circle at 50% 56%,#f08a3c 0 30%,transparent 31%),radial-gradient(ellipse 22% 9% at 50% 28%,#6f8f4a 0 98%,transparent),linear-gradient(135deg,#fff1e2,#f8d3b0)}
+.k-trx{background:radial-gradient(circle at 30% 35%,#fff 0 12%,transparent 13%),radial-gradient(circle at 64% 60%,#f2e7d4 0 18%,transparent 19%),linear-gradient(135deg,#fbf7ef,#ece1cc)}
+
+/* props */
+.pd{position:absolute;width:var(--w);display:flex;flex-direction:column;align-items:center}
+.pd i{display:block;border-radius:50%;background:linear-gradient(180deg,#ffffff,#e8e3dd);box-shadow:inset 0 -.5cqw 1cqw rgba(0,0,0,.05),0 1cqw 2.2cqw rgba(80,60,40,.12)}
+.pd i:nth-child(1){width:74%;aspect-ratio:4.4/1}
+.pd i:nth-child(2){width:100%;aspect-ratio:5.2/1;margin-top:-5%}
+.rg{position:absolute;border-radius:50%;width:var(--s);aspect-ratio:1;border:1px solid rgba(255,255,255,.95);background:radial-gradient(circle,rgba(255,255,255,.6),rgba(255,255,255,.12) 72%);box-shadow:inset 0 0 3cqw rgba(255,255,255,.9),0 0 0 1px rgba(181,150,106,.12)}
+.pl{position:absolute;border-radius:50%;width:var(--s);aspect-ratio:1;background:radial-gradient(circle at 35% 30%,#fff 0 15%,#ece8e3 50%,#c6beb5);box-shadow:0 1cqw 1.6cqw rgba(0,0,0,.12)}
+.ph{position:absolute;display:grid;place-items:center;text-align:center;padding:3cqw;font-size:3cqw;line-height:1.35;color:#8b7a6c;
+  background:repeating-linear-gradient(135deg,rgba(168,141,99,.12) 0 1.4cqw,rgba(168,141,99,.04) 1.4cqw 2.8cqw),#efe9e3;border:1px dashed rgba(168,141,99,.7)}
+.ph i{font-style:normal;display:block;font-size:.85em;opacity:.85}
+.frame{position:absolute;border:1px solid #b5966a;outline:1px solid rgba(181,150,106,.35);outline-offset:.9cqw;display:grid;place-items:center;text-align:center}
+
+/* product: UZI Hair Removal Skin Recovery+ sachet */
+.hs{position:absolute;width:var(--w);font-size:calc(var(--w)*.075);filter:drop-shadow(0 1.6cqw 2.4cqw rgba(60,50,40,.22))}
+.hs .b{aspect-ratio:1/1.7;background:linear-gradient(100deg,#e3e3e6,#fff 28%,#f5f5f7 70%,#d9d9de);clip-path:polygon(20% 0,80% 0,82% 11%,100% 19%,100% 100%,0 100%,0 19%,18% 11%);display:flex;flex-direction:column;align-items:center;padding-top:5%;color:#222;text-align:center}
+.hs .uz{font-family:"Cinzel",serif;font-size:2em;line-height:1}
+.hs .t1{font-size:.8em;font-weight:700;margin-top:.6em;line-height:1}
+.hs .t2{font-size:1.45em;font-weight:800;line-height:1}
+.hs .t3{font-size:.68em;font-weight:600}
+.hs .pic{width:84%;flex:1;margin:.5em 0;border-radius:.3em;background:radial-gradient(ellipse 20% 16% at 42% 26%,#a8542e 0 98%,transparent),linear-gradient(165deg,#f4dacd,#e7b9a5 55%,#f7ece6)}
+.hs .t4{font-size:.5em;font-weight:700;margin-bottom:6%}
+
+/* product: Hair Removal tube 70 g (ครีมแวกซ์ขนคุณหนู) */
+.ht{position:absolute;width:var(--w);display:flex;flex-direction:column;align-items:center;font-size:calc(var(--w)*.13);filter:drop-shadow(0 1.6cqw 2.4cqw rgba(60,50,40,.2))}
+.ht .cr{width:100%;aspect-ratio:8/1;border-radius:.12em;background:repeating-linear-gradient(90deg,#e4e4e8 0 .25em,#fbfbfc .25em .5em)}
+.ht .bb{width:100%;aspect-ratio:1/2.5;clip-path:polygon(0 0,100% 0,85% 100%,15% 100%);background:linear-gradient(90deg,#e2e2e6,#fff 40%,#dcdce1);display:flex;flex-direction:column;align-items:center;padding-top:22%;gap:.25em;color:#222;text-align:center;line-height:1}
+.ht .bb b{font-family:"Cinzel",serif;font-size:1.5em;font-weight:500}
+.ht .bb span{font-size:.62em;font-weight:800}
+.ht .bb small{font-size:.48em;font-weight:600}
+.ht .bb s{text-decoration:none;margin-top:auto;margin-bottom:14%;font-size:.45em}
+.ht .cp{width:64%;aspect-ratio:1/.72;background:linear-gradient(90deg,#d8d8dd,#f6f6f8 45%,#d2d2d8);border-radius:0 0 .18em .18em}
+
+/* product: Underarm White Shot Mask sachet (59.-) */
+.ws{position:absolute;width:var(--w);aspect-ratio:1/1.32;font-size:calc(var(--w)*.075);filter:drop-shadow(0 1.6cqw 2.4cqw rgba(110,60,75,.22))}
+.ws .tab{position:absolute;right:0;top:0;width:44%;height:42%;border-radius:.7em .7em 0 0;background:radial-gradient(ellipse 30% 26% at 62% 54%,#e3b9a8 0 98%,transparent),linear-gradient(180deg,#c48e9b,#d7afb9);color:#fff;font-weight:700;font-size:1.05em;padding:.5em .6em}
+.ws .sp{position:absolute;left:13%;top:7%;width:11%;height:11%;background:linear-gradient(90deg,#efe7da,#fffaf2,#e8dfd1);border-radius:.25em .25em 0 0}
+.ws .bd{position:absolute;left:0;right:0;top:17%;bottom:0;border-radius:.7em .7em .5em .5em;background:linear-gradient(180deg,#ead6db 0 26%,#c7949f 27% 42%,#d9b5bd 43%);color:#fff;padding:.7em .8em}
+.ws .uz{font-family:"Cinzel",serif;font-size:2.4em;line-height:1;color:#fff}
+.ws .n1{position:absolute;left:.8em;top:31%;font-family:"Cormorant Garamond",serif;font-size:1.05em;line-height:1.1}
+.ws .x9{position:absolute;left:.8em;bottom:.5em;font-size:2.8em;font-weight:800;letter-spacing:.02em;text-shadow:0 0 .2em rgba(140,80,95,.5)}
+.ws .pr{position:absolute;right:.7em;bottom:.6em;width:2.6em;aspect-ratio:1;border-radius:50%;background:#fff;color:#4a2d36;display:grid;place-items:center;font-family:"Cormorant Garamond",serif;font-weight:700;font-size:1em}
+
+/* product: Barbie Clear & Fresh Underarm Mask tube (40 g) */
+.bt{position:absolute;width:var(--w);display:flex;flex-direction:column;align-items:center;font-size:calc(var(--w)*.13);filter:drop-shadow(0 1.6cqw 2.4cqw rgba(140,80,90,.2))}
+.bt .cr{width:100%;aspect-ratio:8/1;border-radius:.12em;background:repeating-linear-gradient(90deg,#f0bcc2 0 .25em,#f9d8dc .25em .5em)}
+.bt .bb{width:100%;aspect-ratio:1/2.6;clip-path:polygon(0 0,100% 0,84% 100%,16% 100%);background:linear-gradient(90deg,#f2b8be,#fde5e7 40%,#efb1b8);display:flex;flex-direction:column;align-items:center;padding-top:22%;gap:.28em;color:#b38a3a;text-align:center;line-height:1.05}
+.bt .bb b{font-family:"Cinzel",serif;font-size:1.5em;font-weight:500}
+.bt .bb em{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;font-size:1.55em}
+.bt .bb small{font-family:"Cormorant Garamond",serif;font-size:.62em;font-weight:600}
+.bt .bb s{text-decoration:none;margin-top:auto;margin-bottom:12%;font-size:.48em}
+.bt .bc{width:62%;aspect-ratio:1/.75;background:linear-gradient(90deg,#f5d5c6,#fff0e8 45%,#efcbbb);border-radius:0 0 .2em .2em}
+
+.k-vitc{background:radial-gradient(circle at 50% 50%,#fff3d6 0 12%,transparent 13%),repeating-conic-gradient(from 0deg at 50% 50%,#f6a12a 0 26deg,#fff1cf 26deg 30deg),#f6a12a;box-shadow:inset 0 0 0 1.4cqw #fbd27a}
+.k-astax{background:radial-gradient(circle at 30% 34%,#d9473f 0 9%,transparent 10%),radial-gradient(circle at 62% 30%,#e8645a 0 7%,transparent 8%),radial-gradient(circle at 50% 66%,#c9372f 0 10%,transparent 11%),radial-gradient(circle at 76% 62%,#ef8077 0 6%,transparent 7%),linear-gradient(135deg,#fff0ec,#f8cfc8)}
+.k-truf{background:radial-gradient(circle at 50% 55%,#cbb08c 0 34%,transparent 35%),repeating-radial-gradient(circle at 46% 50%,#b89a72 0 .6cqw,#d9c4a5 .6cqw 1.2cqw),#f3ebdf}
+.k-gel{background:radial-gradient(circle at 38% 34%,#fff 0 10%,rgba(255,255,255,.4) 22%,transparent 40%),radial-gradient(circle at 50% 55%,#e8eef4 0 46%,#f8fafc 47%)}
+.k-edel{background:radial-gradient(circle at 50% 50%,#e8c766 0 8%,transparent 9%),repeating-conic-gradient(from 0deg at 50% 50%,#fff 0 18deg,#eef0ea 18deg 36deg),#f3f5ef}
+
+/* product: UZI serum sachet 3 g (variants set --c / --c2) */
+.sv{position:absolute;width:var(--w);aspect-ratio:1/1.45;font-size:calc(var(--w)*.085);filter:drop-shadow(0 1.6cqw 2.4cqw rgba(60,50,40,.2))}
+.sv .b{position:absolute;inset:0;border-radius:.3em;background:linear-gradient(100deg,#ecebe8,#fff 30%,#f7f6f3 70%,#e2e0dc);display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:9%;color:#2f2924;overflow:hidden}
+.sv .b::before{content:"";position:absolute;left:0;right:0;top:0;height:5%;background:repeating-linear-gradient(90deg,#dcd9d4 0 .25em,#f4f2ee .25em .5em)}
+.sv .uz{font-family:"Cinzel",serif;font-size:2em;line-height:1}
+.sv .nm{margin-top:.5em;font-weight:800;font-size:1.05em;line-height:1.05;color:var(--c)}
+.sv .sb{font-size:.62em;font-weight:600;letter-spacing:.06em;line-height:1.2;margin-top:.2em}
+.sv .band{margin-top:auto;width:100%;height:30%;background:linear-gradient(180deg,var(--c2),var(--c));display:flex;align-items:flex-end;justify-content:space-between;padding:.4em .6em;color:#fff;font-size:.7em;font-weight:700}
+.sv .th2{font-size:1.1em}
+
+/* TikTok / Reels safe zone overlay (9:16 only) */
+.sz{position:absolute;inset:0;pointer-events:none;display:none;z-index:9}
+.show-sz .sz{display:block}
+.sz span{position:absolute;background:rgba(255,40,80,.25);outline:1px dashed rgba(255,255,255,.9);font-size:2.6cqw;color:#fff;display:grid;place-items:center;text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>30 ปก <span>เซรั่ม</span> × <span>มาส์กรักแร้คุณหนู</span> × <span>แวกซ์ขนคุณหนู</span></h1>
+    <p>ม็อกอัปปกกลุ่มละ 10 แบบ โทนงาช้าง-ทองแบบอินโฟกราฟิกส่วนผสม ใช้ทั้ง 9:16 (TikTok/Reels), 4:5 (ฟีด FB/IG), 1:1 และ 16:9 ข้อมูลส่วนผสม ราคา และวิธีใช้มาจากชีต UZI SKU และหน้าซองจริง ช่องลายทางคือจุดวางภาพถ่ายจริง</p>
+  </header>
+
+  <div class="bar" role="toolbar" aria-label="ตัวกรองปก">
+    <button class="chip" id="f-all" data-f="all" aria-pressed="true">ทั้งหมด 30</button>
+    <button class="chip" id="f-serum" data-f="serum" aria-pressed="false">เซรั่ม 10</button>
+    <button class="chip" id="f-under" data-f="under" aria-pressed="false">มาส์กรักแร้ 10</button>
+    <button class="chip" id="f-hair" data-f="hair" aria-pressed="false">แวกซ์ขน 10</button>
+    <span class="sep"></span>
+    <button class="chip" id="t-sz" aria-pressed="false">แสดงพื้นที่ปุ่ม TikTok</button>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+  <section class="notes">
+    <h2>ข้อควรเช็กก่อนส่งงานกราฟิก</h2>
+    <ul>
+      <li>ปก 9:16 ให้วางพาดหัวไว้ช่วงกลางภาพ เพราะหน้าโปรไฟล์ TikTok จะครอปปกเหลือ 3:4 และด้านล่างกับด้านขวาจะมีปุ่มของแอปทับอยู่ กดปุ่ม "แสดงพื้นที่ปุ่ม TikTok" เพื่อดูโซนที่ควรเลี่ยง</li>
+      <li>ปกที่ใช้คำว่า "ใสข้ามคืน*" ต้องมีดอกจัน และใส่ข้อความ *ผลลัพธ์ขึ้นอยู่กับแต่ละบุคคล ไว้ในปกเสมอ ส่วนคำว่า "No.1" บนซอง ไม่ได้ใส่ไว้ในปก เพราะต้องมีหลักฐานรองรับ</li>
+      <li>ค่า % ใช้ให้ตรงกับสินค้าแต่ละตัว: White Shot ใช้ Niacinamide 8% และ NAG 4% (ตามหน้าซอง) ส่วน Barbie ใช้ Niacinamide 5%, NAG 4%, Tranexamic 3%, Persimmon 5% และ Globule 1% (ตามชีต)</li>
+      <li>หน้าตาซองเซรั่มในม็อกอัปเป็นแบบร่าง ตอนทำจริงให้ใช้ภาพซองจริงแทน ส่วนปก Acne Repair ให้ใส่ "ช่วงแรกใช้วันเว้นวัน · กลางวันทากันแดดทับ" ตามวิธีใช้บนฉลาก</li>
+      <li>ปกแวกซ์ขนให้มีคำเตือน "ทดสอบการแพ้ก่อนใช้ 24 ชม." ด้วย เพราะเป็นข้อกำหนดบนฉลาก</li>
+      <li>ภาพนางแบบให้ใช้ภาพชุดที่ถ่ายกับแบรนด์ และต้องมีหนังสือยินยอมให้ใช้ภาพในโฆษณาครอบคลุมแพลตฟอร์มที่จะยิงแอด</li>
+    </ul>
+  </section>
+</div>
+
+<script>
+/* ---- helpers (all units cqw) ---- */
+const eb  = (y, t, x = 0, w = 100, l = false) => `<div class="a eb${l ? ' l' : ''}" style="left:${x}cqw;width:${w}cqw;top:${y}cqw">${t}</div>`;
+const T   = (x, y, w, html, st = '') => `<div class="a" style="left:${x}cqw;top:${y}cqw;width:${w}cqw;${st}">${html}</div>`;
+const ic  = (x, y, s, k) => `<i class="ic k-${k}" style="left:${x}cqw;top:${y}cqw;--s:${s}cqw"></i>`;
+const chip = (x, y, s, k, t, sub, w = 30) => ic(x, y, s, k) + T(x + s / 2 - w / 2, y + s + 2, w, `<div class="it">${t}</div><div class="is">${sub}</div>`, 'text-align:center');
+const hl  = (x, y, w) => `<i class="ln" style="left:${x}cqw;top:${y}cqw;width:${w}cqw;height:1px"></i>`;
+const vl  = (x, y, h) => `<i class="ln" style="left:${x}cqw;top:${y}cqw;height:${h}cqw;width:1px"></i>`;
+const pd  = (x, y, w) => `<div class="pd" style="left:${x}cqw;top:${y}cqw;--w:${w}cqw"><i></i><i></i></div>`;
+const rg  = (x, y, s) => `<div class="rg" style="left:${x}cqw;top:${y}cqw;--s:${s}cqw"></div>`;
+const pl  = (x, y, s) => `<div class="pl" style="left:${x}cqw;top:${y}cqw;--s:${s}cqw"></div>`;
+const ph  = (x, y, w, h, label, sub = '', st = '') => `<div class="ph" style="left:${x}cqw;top:${y}cqw;width:${w}cqw;height:${h}cqw;${st}"><span>${label}${sub ? `<i>${sub}</i>` : ''}</span></div>`;
+const rot = r => r ? `transform:rotate(${r}deg);` : '';
+const hs  = (x, y, w, r = 0) => `<div class="hs" style="left:${x}cqw;top:${y}cqw;--w:${w}cqw;${rot(r)}"><div class="b"><b class="uz">UZ</b><span class="t1">HAIR</span><span class="t2">REMOVAL</span><span class="t3">SKIN RECOVERY+</span><i class="pic"></i><span class="t4">0 alcohol / 0 pigment / 0 stinging</span></div></div>`;
+const ht  = (x, y, w, r = 0) => `<div class="ht" style="left:${x}cqw;top:${y}cqw;--w:${w}cqw;${rot(r)}"><i class="cr"></i><i class="bb"><b>UZ</b><span>HAIR REMOVAL</span><small>SKIN RECOVERY+</small><s>70 g</s></i><i class="cp"></i></div>`;
+const ws  = (x, y, w, r = 0) => `<div class="ws" style="left:${x}cqw;top:${y}cqw;--w:${w}cqw;${rot(r)}"><i class="tab">ใส<span style="font-weight:400">ข้ามคืน*</span></i><i class="sp"></i><div class="bd"><b class="uz">UZ</b><span class="n1">UNDERARM<br>WHITE SHOT MASK</span><span class="x9">X9</span><span class="pr">59.-</span></div></div>`;
+const bt  = (x, y, w, r = 0) => `<div class="bt" style="left:${x}cqw;top:${y}cqw;--w:${w}cqw;${rot(r)}"><i class="cr"></i><i class="bb"><b>UZ</b><em>Barbie</em><small>Clear &amp; Fresh<br>Underarm Mask</small><s>40 g</s></i><i class="bc"></i></div>`;
+const SV = {
+  c:{nm:'PURE VIT C',sb:'BRIGHTENING SERUM',th:'ออร่า',c:'#e08a1e',c2:'#f7c46a'},
+  a:{nm:'VITAMIN ACID',sb:'ACNE REPAIR SERUM',th:'คลีนสิว',c:'#4f9466',c2:'#9fd0ac'},
+  f:{nm:'FLORAL',sb:'SKIN REPAIR SERUM',th:'รีแพร์ผิว',c:'#c8708a',c2:'#f0bccb'}
+};
+const sv = (x, y, w, v, r = 0) => { const d = SV[v]; return `<div class="sv" style="left:${x}cqw;top:${y}cqw;--w:${w}cqw;--c:${d.c};--c2:${d.c2};${rot(r)}"><div class="b"><b class="uz">UZ</b><span class="nm">${d.nm}</span><span class="sb">${d.sb}</span><span class="band"><span class="th2">${d.th}</span><span>3 g</span></span></div></div>`; };
+/* 3-segment ingredient wheel with arc labels; segs clockwise from 12 o'clock */
+const wheel = (id, x, y, s, cols, labels) => {
+  const g = `conic-gradient(${cols[0]} 0 119.4deg,#fff 119.4deg 120.6deg,${cols[1]} 120.6deg 239.4deg,#fff 239.4deg 240.6deg,${cols[2]} 240.6deg 359.4deg,#fff 359.4deg)`;
+  const offs = [41.7, 75, 8.3];
+  const R = s + 10;
+  return `<div class="a" style="left:${x}cqw;top:${y}cqw;width:${s}cqw;aspect-ratio:1;border-radius:50%;background:${g};box-shadow:0 1cqw 4cqw rgba(90,70,50,.12)"></div>
+  <svg class="a" style="left:${x - 5}cqw;top:${y - 5}cqw;width:${R}cqw" viewBox="0 0 100 100" aria-hidden="true"><path id="arc-${id}" d="M50,50 m-47,0 a47,47 0 1,1 94,0 a47,47 0 1,1 -94,0" fill="none"/><circle cx="50" cy="50" r="47" fill="none" stroke="#b5966a" stroke-width=".25"/>
+  ${labels.map((t, i) => `<text font-family="Cinzel" font-size="2.6" letter-spacing="1.3" fill="#a88d63" text-anchor="middle" dy="-1.2"><textPath href="#arc-${id}" startOffset="${offs[i]}%">${t}</textPath></text>`).join('')}</svg>`;
+};
+const sz = `<div class="sz"><span style="left:0;right:0;top:0;height:9%">แถบด้านบน</span><span style="right:0;top:38%;width:15%;height:44%">ปุ่ม</span><span style="left:0;right:0;bottom:0;height:20%">แคปชั่น / ชื่อบัญชี</span></div>`;
+
+const R = {'9:16':'9/16','4:5':'4/5','1:1':'1/1','16:9':'16/9'};
+const P = {'9:16':'TikTok / Reels','4:5':'ฟีด FB / IG','1:1':'IG / FB / Shopee','16:9':'YouTube / FB แนวนอน'};
+const sub = (t, y, size = 3.6) => T(6, y, 88, `<div class="th" style="font-size:${size}cqw;text-align:center">${t}</div>`);
+const indiv = (x, y) => `<div class="foot" style="left:${x}cqw;top:${y}cqw">*ผลลัพธ์ขึ้นอยู่กับแต่ละบุคคล</div>`;
+
+const covers = [
+/* ================= SERUM: Pure Vit C · Acne Repair · Floral Skin Repair ================= */
+{id:'S1',prod:'serum',ratio:'9:16',layout:'สินค้า 3 ตัวบนแท่น 3 ระดับ · ป้ายชื่อใต้แต่ละซอง',
+ headline:'3 SERUMS เลือกให้ตรงปัญหาผิว ซองละ 59.-',
+ shoot:'ซองเซรั่ม 3 ตัวบนแท่นอะคริลิก 3 ระดับ (กลางสูงสุด) พื้นงาช้าง ไฟนุ่มด้านบน',
+ html:`${eb(11,'UZI SKINCARE')}
+  <div class="a cin" style="left:0;right:0;top:18cqw;font-size:13cqw">3 SERUMS</div>
+  ${sub('เลือกให้ตรงปัญหาผิว ซองละ 59.-',35,4.4)}
+  ${rg(14,52,72)}
+  ${sv(7,74,25,'a',-4)}${pd(4,108,31)}
+  ${sv(37.5,62,25,'c')}${pd(34.5,97,31)}
+  ${sv(68,74,25,'f',4)}${pd(65,108,31)}
+  ${[['คลีนสิว','ACNE REPAIR',19.5],['ออร่า','PURE VIT C',50],['รีแพร์ผิว','FLORAL REPAIR',80.5]].map(([t,e,cx])=>T(cx-15,120,30,`<div class="th" style="font-size:4.4cqw;text-align:center">${t}</div><div class="it" style="text-align:center;font-size:2.4cqw">${e}</div>`)).join('')}`},
+
+{id:'S2',prod:'serum',ratio:'4:5',layout:'วงล้อ 3 ช่อง = 3 สูตร · โลโก้กลางวง',
+ headline:'GLOW · CLEAR · REPAIR เซรั่ม 3 สูตรสำหรับ 3 ปัญหาผิว',
+ shoot:'ใช้กราฟิกวงล้อ ใส่มาโครเนื้อเจลแต่ละสูตรในช่อง และซองเล็กเรียงด้านล่าง',
+ html:`${eb(7,'THE SERUM WHEEL')}
+  <div class="a cin" style="left:0;right:0;top:12.5cqw;font-size:7.6cqw">GLOW · CLEAR · REPAIR</div>
+  ${sub('เซรั่ม 3 สูตร สำหรับ 3 ปัญหาผิว',22.5,3.6)}
+  ${wheel('s2',13,32,74,['#fbefdc','#f8e3ea','#e6f2e8'],['GLOW','REPAIR','CLEAR'])}
+  <div class="a" style="left:35cqw;top:54cqw;width:30cqw;aspect-ratio:1;border-radius:50%;background:#fff;box-shadow:0 0 0 1px rgba(181,150,106,.3);display:grid;place-items:center"><div class="cin" style="font-size:4.2cqw">UZI<br><span style="font-size:3cqw;letter-spacing:.2em;color:#a88d63">SERUM</span></div></div>
+  ${T(61,44,22,'<div class="it" style="font-size:2.7cqw">PURE VIT C</div><div class="is" style="font-size:2.4cqw">ผิวดูกระจ่างใส มีออร่า</div>','text-align:center')}
+  ${T(17,44,22,'<div class="it" style="font-size:2.7cqw">ACNE REPAIR</div><div class="is" style="font-size:2.4cqw">ดูแลสิวอุดตัน คุมมัน</div>','text-align:center')}
+  ${T(37,88,26,'<div class="it" style="font-size:2.7cqw">FLORAL REPAIR</div><div class="is" style="font-size:2.4cqw">ผิวโทรมดูฟื้น อิ่มฟู</div>','text-align:center')}
+  ${sv(30,108,11,'a')}${sv(44.5,108,11,'c')}${sv(59,108,11,'f')}`},
+
+{id:'S3',prod:'serum',ratio:'1:1',layout:'ตารางจับคู่ปัญหาผิว → สูตร · เส้นทองโยง',
+ headline:'ผิวคุณเป็นแบบไหน? หมองคล้ำ → Vit C · เป็นสิวง่าย → Acne · ผิวโทรม → Floral',
+ shoot:'ไม่ต้องถ่ายใหม่ ใช้ภาพซองตัดพื้นหลัง 3 ซองวางท้ายแต่ละแถว',
+ html:`${eb(6,'FIND YOUR SERUM')}
+  <div class="a th" style="left:0;right:0;top:12cqw;text-align:center;font-size:6.4cqw">ผิวคุณเป็นแบบไหน?</div>
+  ${[['ผิวหมองคล้ำ ไม่มีออร่า','PURE VIT C','c'],['เป็นสิวง่าย ผิวมัน','ACNE REPAIR','a'],['ผิวโทรม เหนื่อยล้า','FLORAL REPAIR','f']].map(([q,a,v],i)=>
+   T(7,27+i*23,40,`<div class="th" style="font-size:3.8cqw">${q}</div>`)+hl(47,30+i*23,18)+`<i class="a" style="left:64cqw;top:29.2cqw;width:1.6cqw;height:1.6cqw;border-top:1px solid #b5966a;border-right:1px solid #b5966a;transform:translateY(${i*23}cqw) rotate(45deg)"></i>`+T(48,33+i*23,20,`<div class="it" style="font-size:2.4cqw;text-align:center">${a}</div>`)+sv(72,20+i*23,13,v)+(i<2?hl(7,46+i*23,86):'')).join('')}
+  ${T(0,93,100,'<div class="is" style="text-align:center;font-size:2.4cqw">ซองละ 59.- · ใช้ได้ทั้งเช้าและก่อนนอน</div>')}`},
+
+{id:'S4',prod:'serum',ratio:'9:16',layout:'ฮีโร่ซองกลางวงแหวน · วงกลมส่วนผสม 3 วงโยงเส้นทอง',
+ headline:'PURE VIT C เซรั่มวิตซีออร่า ผิวดูกระจ่างใส มีออร่า',
+ shoot:'ซอง Vit C บนแท่นอะคริลิก ส้มฝานบางและหยดเจลใสประกอบ',
+ html:`${eb(10,'เซรั่มวิตซีออร่า')}
+  <div class="a cin" style="left:0;right:0;top:16cqw;font-size:12cqw">PURE VIT C</div>
+  ${sub('ผิวดูกระจ่างใส มีออร่า · เนื้อเจลบางเบา ซึมไว',31,3.8)}
+  ${rg(18,48,66)}${sv(36,58,28,'c')}${pd(26,96,48)}
+  ${ic(5,47,18,'vitc')}${hl(23,56,14)}${T(-1,67,30,'<div class="it" style="font-size:2.5cqw">VITAMIN C</div><div class="is" style="font-size:2.3cqw">3-O-Ethyl Ascorbic Acid<br>ผิวดูกระจ่างใส</div>','text-align:center')}
+  ${ic(5,90,18,'pearl')}${hl(23,99,14)}${T(-1,110,30,'<div class="it" style="font-size:2.5cqw">GLUTATHIONE</div><div class="is" style="font-size:2.3cqw">ผิวดูเปล่งปลั่ง</div>','text-align:center')}
+  ${ic(77,66,18,'astax')}${hl(64,75,13)}${T(71,86,30,'<div class="it" style="font-size:2.5cqw">ASTAXANTHIN</div><div class="is" style="font-size:2.3cqw">ต้านอนุมูลอิสระ</div>','text-align:center')}
+  ${pl(84,108,7)}`},
+
+{id:'S5',prod:'serum',ratio:'16:9',layout:'แนวนอน · ข้อความซ้าย สินค้าบนแท่นขวา ชิปส่วนผสมแถวล่าง',
+ headline:'ACNE REPAIR เซรั่มคลีนสิว เอาอยู่แต่ไม่โหด',
+ shoot:'ซอง Acne Repair บนแท่น วงแหวนกระจก ใบพลูคาวและเปลือกวิลโลว์ประกอบ',
+ html:`${eb(6,'เซรั่มคลีนสิว',5,50,true)}
+  ${T(5,11,48,'<div class="cin" style="font-size:5.6cqw;text-align:left">ACNE REPAIR</div>')}
+  ${T(5,21,44,'<div class="th" style="font-size:3.6cqw">เอาอยู่แต่ไม่โหด</div><div class="is" style="font-size:2.2cqw;margin-top:.6cqw">BHA ช่วยผลัดเซลล์ผิว ดูแลสิวอุดตัน คุมความมันระหว่างวัน</div>')}
+  ${[['cent','BHA','Salicylic Acid'],['euca','WHITE WILLOW','BHA จากธรรมชาติ'],['k','HOUTTUYNIA','พลูคาว ปลอบผิว']].map(([k,t,s],i)=>ic(5+i*15,34,9,k==='k'?'cent':k)+T(1+i*15,44.5,17,`<div class="it" style="font-size:1.7cqw;text-align:center">${t}</div><div class="is" style="font-size:1.6cqw;text-align:center">${s}</div>`)).join('')}
+  ${rg(58,4,36)}${sv(67,8,17,'a')}${pd(61,30,30)}
+  <div class="foot" style="left:58cqw;top:49cqw;font-size:1.6cqw">ช่วงแรกใช้วันเว้นวัน · กลางวันทากันแดดทับ</div>`},
+
+{id:'S6',prod:'serum',ratio:'4:5',layout:'คอลัมน์ข้อความซ้าย · สินค้าบนแท่นขวา',
+ headline:'FLORAL REPAIR เซรั่มรีแพร์ผิว ผิวโทรมดูฟื้น ดูเฟิร์มอิ่มฟู',
+ shoot:'ซอง Floral บนแท่นอะคริลิก กลีบกุหลาบและดอกเอเดลไวส์แห้งประกอบ',
+ html:`${eb(13,'เซรั่มรีแพร์ผิว',7,60,true)}
+  ${T(7,19,44,'<div class="cin" style="font-size:9cqw;text-align:left">FLORAL<br>REPAIR</div>')}
+  ${hl(7,42,30)}
+  ${[['01','ผิวเหนื่อยล้า ดูฟื้น'],['02','ผิวดูเฟิร์ม อิ่มฟู'],['03','เสริมเกราะป้องกันผิว']].map(([n,t],i)=>T(7,47+i*15,44,`<div style="display:flex;gap:2.6cqw;align-items:baseline"><span class="cin" style="font-size:5.4cqw;color:#a88d63">${n}</span><span class="th" style="font-size:3.6cqw">${t}</span></div>`)+hl(7,57+i*15,42)).join('')}
+  ${rg(50,26,46)}${sv(59,32,28,'f')}${pd(53,70,40)}${ic(83,24,13,'rose')}${ic(51,82,11,'edel')}`},
+
+{id:'S7',prod:'serum',ratio:'9:16',layout:'ขั้นตอนสกินแคร์เรียงลงล่าง · ไฮไลต์ขั้นเซรั่ม',
+ headline:'SKIN RITUAL ล้าง → โทนเนอร์ → เซรั่ม → ครีม',
+ shoot:'ถ่ายแยกขั้นตอน: Remover Cleansing Water, โทนเนอร์, หยดเซรั่มลงฝ่ามือ, ทาครีม',
+ html:`${eb(10,'AM &amp; PM')}
+  <div class="a cin" style="left:0;right:0;top:16cqw;font-size:11cqw">SKIN RITUAL</div>
+  ${sub('ใช้ได้ทั้งเช้าและก่อนนอน · กลางวันทากันแดดทับ',30,3.6)}
+  ${[['01','ล้างหน้า','UZI Remover Cleansing Water',false],['02','โทนเนอร์','เช็ดเตรียมผิว',false],['03','เซรั่ม UZI','หยด เกลี่ย ตบเบาๆ ให้ซึม',true],['04','ครีมบำรุง','กลางวันตามด้วยกันแดด',false]].map(([n,t,s,on],i)=>
+   `<div class="a" style="left:8cqw;right:8cqw;top:${40+i*20}cqw;height:16cqw;display:flex;align-items:center;gap:4cqw;padding:0 4cqw;border:1px solid ${on?'#b5966a':'rgba(181,150,106,.35)'};background:${on?'rgba(255,255,255,.85)':'transparent'}"><span class="cin" style="font-size:6cqw;color:#a88d63">${n}</span><span style="flex:1"><span class="th" style="font-size:4.2cqw;display:block">${t}</span><span class="is" style="font-size:2.8cqw">${s}</span></span></div>`).join('')}
+  ${sv(66,84,18,'c',8)}`},
+
+{id:'S8',prod:'serum',ratio:'1:1',layout:'ตัวเลขใหญ่ 3 คอลัมน์ · ซองใต้ตัวเลข',
+ headline:'14 · 12 · 12 สารสกัดสำคัญในเซรั่มแต่ละสูตร',
+ shoot:'ใช้ภาพซองตัดพื้นหลัง 3 ซองวางใต้ตัวเลข',
+ html:`${eb(7,'KEY ACTIVES')}
+  ${[['14','PURE VIT C','c'],['12','ACNE REPAIR','a'],['12','FLORAL','f']].map(([n,t,v],i)=>T(4+i*31,16,30,`<div class="cin" style="font-size:17cqw;color:#a88d63">${n}</div><div class="it" style="text-align:center;font-size:2.6cqw;margin-top:.6cqw">${t}</div>`)+sv(11+i*31,44,16,v)+(i<2?vl(34.5+i*31,18,50):'')).join('')}
+  ${T(0,77,100,'<div class="th" style="font-size:4.6cqw;text-align:center">สารสกัดสำคัญในเซรั่มแต่ละสูตร</div><div class="is" style="text-align:center;margin-top:.8cqw">ซองละ 3 g · 59.-</div>')}`},
+
+{id:'S9',prod:'serum',ratio:'9:16',layout:'กรอบโค้งรูปซุ้ม (arch) ใส่ภาพนางแบบ · ซองซ้อนมุมล่าง',
+ headline:'GLOW ผิวดูมีออร่า แบบไม่ต้องพึ่งฟิลเตอร์',
+ shoot:'นางแบบโคลสอัปหน้าผิวโกลว์ แตะเซรั่มที่โหนกแก้ม แสงหน้าต่างนุ่ม',
+ html:`<div class="a cin" style="left:0;right:0;top:10cqw;font-size:16cqw">GLOW</div>
+  ${sub('ผิวดูมีออร่า แบบไม่ต้องพึ่งฟิลเตอร์',29,4.4)}
+  ${ph(12,40,76,106,'ภาพนางแบบผิวโกลว์','แตะเซรั่มที่โหนกแก้ม','border-radius:38cqw 38cqw 0 0')}
+  ${sv(60,112,24,'c')}${pd(54,145,36)}${pl(8,140,6)}`},
+
+{id:'S10',prod:'serum',ratio:'4:5',layout:'ซองแบบพัด 3 ซอง · ตารางราคาเส้นทอง',
+ headline:'MIX & MATCH 1 ซอง 59.- · 3 ซอง 177.- · 6 ซอง 349.-',
+ shoot:'จัดซองเซรั่ม 3 สูตรแบบพัดบนแท่นกว้าง พื้นงาช้าง',
+ html:`${eb(8,'MIX &amp; MATCH')}
+  <div class="a cin" style="left:0;right:0;top:14cqw;font-size:8cqw">UZI SERUM SET</div>
+  ${sub('เลือกคละสูตรได้ตามปัญหาผิว',24,3.6)}
+  ${sv(17,38,22,'a',-12)}${sv(39,34,22,'c')}${sv(61,38,22,'f',12)}${pd(10,70,80)}
+  ${T(14,90,72,[['1 ซอง','59.-'],['3 ซอง','177.-'],['6 ซอง','349.-']].map(([a,b])=>`<div style="display:flex;justify-content:space-between;border-bottom:1px solid rgba(181,150,106,.5);padding:.8cqw 0;font-size:3.4cqw"><span class="th">${a}</span><span class="cin" style="font-size:3.8cqw;color:#7a5f45">${b}</span></div>`).join(''))}`},
+
+/* ================= UNDERARM: White Shot Mask + Barbie ================= */
+{id:'U1',prod:'under',ratio:'9:16',layout:'สินค้าคู่บนแท่นอะคริลิก · ชิปส่วนผสม 3 วงด้านล่าง',
+ headline:'UNDERARM DAY & NIGHT · เช้า Barbie คืน White Shot',
+ shoot:'วาง Barbie กับ White Shot บนแท่นอะคริลิกใส 2 ระดับ พื้นหลังงาช้าง ไฟนุ่มจากด้านบน',
+ html:`${eb(12,'UZI UNDERARM')}
+  <div class="a cin" style="left:0;right:0;top:19cqw;font-size:10.5cqw">UNDERARM<br>DAY &amp; NIGHT</div>
+  ${sub('เช้า Barbie · ก่อนนอน White Shot',44,4)}
+  ${rg(17,54,66)}${bt(24,60,15)}${pd(19,104,26)}${ws(50,73,27)}${pd(46,104,35)}
+  ${pl(84,108,6)}${pl(9,111,4)}
+  ${chip(9,118,15,'rose',"ROSE STEM CELL",'สเต็มเซลล์กุหลาบ',28)}${chip(42.5,118,15,'crys','NIACINAMIDE','ผิวดูกระจ่างใส',28)}${chip(76,118,15,'pearl','NAG 4%','ผิวดูสม่ำเสมอ',28)}`},
+
+{id:'U2',prod:'under',ratio:'4:5',layout:'วงล้อส่วนผสม 3 ช่อง · สินค้ากลางวง',
+ headline:'WHITE SHOT MASK · 3 สารสำคัญในซองเดียว',
+ shoot:'ซอง White Shot ตั้งตรงกลาง พื้นขาวงาช้าง ใช้กราฟิกวงล้อเป็นพื้นหลัง',
+ html:`${eb(7,'KEY INGREDIENTS')}
+  <div class="a cin" style="left:0;right:0;top:12.5cqw;font-size:7.4cqw">WHITE SHOT MASK</div>
+  ${sub('3 สารสำคัญในซองเดียว',22,3.6)}
+  ${wheel('u2',13,34,74,['#f8e1e6','#f3ede6','#eef2f5'],['ROSE STEM CELL','OVERNIGHT','NIACINAMIDE'])}
+  <div class="a" style="left:33cqw;top:54cqw;width:34cqw;aspect-ratio:1;border-radius:50%;background:#fff;box-shadow:0 0 0 1px rgba(181,150,106,.3)"></div>
+  ${ws(39.5,57,21)}
+  ${T(62,46,20,'<div class="it" style="font-size:2.7cqw">ROSE\'S<br>STEM CELL</div><div class="is" style="font-size:2.4cqw">นวัตกรรมจากกุหลาบ</div>','text-align:center')}
+  ${T(18,46,20,'<div class="it" style="font-size:2.7cqw">NIACINAMIDE<br>8%</div><div class="is" style="font-size:2.4cqw">ช่วยให้ผิวดูกระจ่างใส</div>','text-align:center')}
+  ${T(38,91,24,'<div class="it" style="font-size:2.7cqw">NAG 4%</div><div class="is" style="font-size:2.4cqw">ผิวแลดูเรียบเนียน สม่ำเสมอ</div>','text-align:center')}
+  ${indiv(6,119)}`},
+
+{id:'U3',prod:'under',ratio:'1:1',layout:'ตัวเลขใหญ่ 3 คอลัมน์ · คั่นด้วยเส้นทอง',
+ headline:'8% · 4% · X9 ตัวเลขที่อยู่ในซอง White Shot',
+ shoot:'ซอง White Shot วางเอียงมุมขวาล่าง มีไข่มุก 2 เม็ดประกอบ',
+ html:`${eb(7,'THE NUMBERS')}
+  ${T(4,17,30,'<div class="cin" style="font-size:15cqw;color:#a88d63">8%</div><div class="it" style="text-align:center;margin-top:1cqw">NIACINAMIDE</div>')}
+  ${vl(35,18,30)}
+  ${T(36,17,28,'<div class="cin" style="font-size:15cqw;color:#a88d63">4%</div><div class="it" style="text-align:center;margin-top:1cqw">NAG</div>')}
+  ${vl(65,18,30)}
+  ${T(66,17,30,'<div class="cin" style="font-size:15cqw;color:#a88d63">X9</div><div class="it" style="text-align:center;margin-top:1cqw">สารสกัด</div>')}
+  ${T(7,62,52,'<div class="th" style="font-size:5.4cqw">ใต้วงแขนดูกระจ่างใส<br>ในซองละ 59.-</div><div class="is" style="margin-top:1.4cqw">Underarm White Shot Mask · Overnight</div>')}
+  ${ws(66,55,24,8)}${pl(60,88,5)}${pl(92,86,3.5)}`},
+
+{id:'U4',prod:'under',ratio:'9:16',layout:'กรอบโค้งรูปซุ้ม (arch) ใส่ภาพนางแบบ · สินค้าซ้อนมุมล่าง',
+ headline:'OVERNIGHT · ใสข้ามคืน*',
+ shoot:'นางแบบนั่งบนเตียงผ้าขาว ยกแขนทามาส์กใต้วงแขน แสงเช้านุ่ม (ใช้ภาพชุดห้องนอนที่มีอยู่ได้)',
+ html:`<div class="a cin" style="left:0;right:0;top:11cqw;font-size:12cqw">OVERNIGHT</div>
+  ${sub('ใสข้ามคืน* ทาก่อนนอน ตื่นมามั่นใจ',27,4.4)}
+  ${ph(12,38,76,108,'ภาพนางแบบยกแขน','ทามาส์กก่อนนอน','border-radius:38cqw 38cqw 0 0')}
+  ${ws(57,110,30)}${pd(52,146,40)}${pl(8,140,6)}
+  ${indiv(6,152)}`},
+
+{id:'U5',prod:'under',ratio:'16:9',layout:'แนวนอน · แบ่งครึ่งเช้า/คืน สินค้าคนละฝั่ง',
+ headline:'DAY · NIGHT ดูแลใต้วงแขนเช้า–คืน',
+ shoot:'ถ่ายแยก 2 ช็อตบนพื้นงาช้าง: Barbie แสงเช้า / White Shot แสงวอร์มสลัว แล้วต่อกันซ้ายขวา',
+ html:`<div class="a" style="left:50cqw;top:0;right:0;bottom:0;background:linear-gradient(180deg,#ece5dd,#e0d6cb)"></div>
+  ${vl(50,5,46)}
+  <div class="a" style="left:5cqw;top:5cqw;width:6cqw;aspect-ratio:1;border-radius:50%;border:1px solid #b5966a"></div>
+  ${T(13,5,30,'<div class="cin" style="font-size:5cqw;text-align:left">DAY</div>')}
+  ${T(5,15,24,'<div class="th" style="font-size:2.6cqw">Barbie Clear &amp; Fresh</div><div class="is" style="font-size:2.1cqw">ทาตอนเช้า ผิวใต้วงแขนดูกระจ่างใส ช่วยดูแลกลิ่นกาย</div>')}
+  ${bt(33,7,8.5)}${pd(29.5,35,15.5)}
+  <div class="a" style="left:55cqw;top:5cqw;width:6cqw;aspect-ratio:1;border-radius:50%;box-shadow:inset -1.6cqw .4cqw 0 0 #b5966a"></div>
+  ${T(63,5,30,'<div class="cin" style="font-size:5cqw;text-align:left">NIGHT</div>')}
+  ${T(55,15,22,'<div class="th" style="font-size:2.6cqw">White Shot Mask</div><div class="is" style="font-size:2.1cqw">ทาก่อนนอน ใสข้ามคืน*</div>')}
+  ${ws(79,13,14)}${pd(76,30,20)}
+  ${T(0,47,100,'<div class="cin" style="font-size:2.4cqw;letter-spacing:.3em;color:#a88d63">UZI UNDERARM RITUAL</div>')}
+  ${indiv(55,50)}`},
+
+{id:'U6',prod:'under',ratio:'4:5',layout:'คอลัมน์ข้อความซ้าย · สินค้าบนแท่นขวา',
+ headline:'3 RESULTS รักแร้ดูกระจ่างใส ตุ่มหนังไก่ดูจางลง ผิวแลดูเรียบเนียน',
+ shoot:'ซอง White Shot บนแท่นอะคริลิก วงแหวนกระจกด้านหลัง ไข่มุกประกอบ',
+ html:`${eb(13,'WHITE SHOT MASK',7,60,true)}
+  ${T(7,19,44,'<div class="cin" style="font-size:7.4cqw;text-align:left">3 RESULTS</div>')}
+  ${hl(7,32,30)}
+  ${[['01','รักแร้ดูกระจ่างใสขึ้น'],['02','ตุ่มหนังไก่ดูจางลง'],['03','ผิวแลดูเรียบเนียน']].map(([n,t],i)=>T(7,37+i*16,44,`<div style="display:flex;gap:2.6cqw;align-items:baseline"><span class="cin" style="font-size:5.4cqw;color:#a88d63">${n}</span><span class="th" style="font-size:4cqw">${t}</span></div>`)+hl(7,48+i*16,40)).join('')}
+  ${rg(50,26,46)}${ws(58,36,30)}${pd(53,73,40)}${pl(88,92,6)}
+  ${indiv(7,117)}`},
+
+{id:'U7',prod:'under',ratio:'9:16',layout:'ลิสต์ส่วนผสมแนวตั้ง · วงกลมซ้าย ข้อความขวา',
+ headline:'ในซอง White Shot มีอะไร? Rose Stem Cell · Niacinamide 8% · NAG 4%',
+ shoot:'ซอง White Shot เล็กด้านล่างบนแท่น ใช้ภาพมาโครกุหลาบ ผลึก และไข่มุก ในวงกลมส่วนผสม',
+ html:`${eb(10,'KEY INGREDIENTS')}
+  <div class="a cin" style="left:0;right:0;top:16cqw;font-size:8cqw">WHITE SHOT<br>MASK</div>
+  ${sub('ในหนึ่งซองมีอะไรบ้าง?',36,4.6)}
+  ${[['rose',"ROSE'S STEM CELL",'นวัตกรรมสเต็มเซลล์จากกุหลาบ'],['crys','NIACINAMIDE 8%','ช่วยให้ผิวใต้วงแขนดูกระจ่างใส'],['pearl','NAG 4%','ผิวแลดูเรียบเนียน สม่ำเสมอ']].map(([k,t,s],i)=>
+   ic(10,46+i*22,17,k)+T(33,49+i*22,58,`<div class="it" style="font-size:3.6cqw">${t}</div><div class="is" style="font-size:3.2cqw">${s}</div>`)+(i<2?hl(33,65+i*22,58):'')).join('')}
+  ${ws(37,114,26)}${pd(31,145,38)}
+  ${T(0,156,100,'<div class="is" style="text-align:center;font-size:2.4cqw;letter-spacing:.2em">INGREDIENTS FROM SWITZERLAND · FRANCE</div>')}`},
+
+{id:'U8',prod:'under',ratio:'1:1',layout:'กรอบราคาเส้นทองคู่ · ตารางแพ็กราคา',
+ headline:'ซองละ 59.- · 3 ซอง 169.- · 5 ซอง 279.- · 10 ซอง 539.-',
+ shoot:'ซอง White Shot วางบนแท่น 1 ซอง และเรียงซ้อนหลายซองด้านหลังให้เห็นว่าซื้อเป็นแพ็กได้',
+ html:`${eb(7,'EVERYDAY LUXURY')}
+  <div class="frame" style="left:8cqw;top:18cqw;width:44cqw;height:36cqw"><div><div class="cin" style="font-size:14cqw;color:#a88d63">59.-</div><div class="th" style="font-size:3.4cqw">ต่อซอง</div></div></div>
+  ${T(8,62,46,[['3 ซอง','169.-'],['5 ซอง','279.-'],['10 ซอง','539.-']].map(([a,b])=>`<div style="display:flex;justify-content:space-between;border-bottom:1px solid rgba(181,150,106,.5);padding:1cqw 0;font-size:3.6cqw"><span class="th">${a}</span><span class="cin" style="font-size:4cqw;color:#7a5f45">${b}</span></div>`).join(''))}
+  ${ws(65,16,22,-6)}${ws(60,24,28)}${pd(56,58,38)}${pl(90,80,5)}
+  ${T(56,74,40,'<div class="th" style="font-size:3.6cqw;text-align:center">ทักแชทรับโปร →</div>')}`},
+
+{id:'U9',prod:'under',ratio:'9:16',layout:'ฮีโร่หลอด Barbie · ชิปตัวเลขส่วนผสม 3 วง',
+ headline:'Barbie Clear & Fresh Underarm Mask · เช้าสดชื่น ใต้วงแขนดูกระจ่างใส',
+ shoot:'หลอด Barbie ตั้งตรงบนแท่น มีกลีบกุหลาบชมพูอ่อนวางประกอบเล็กน้อย พื้นงาช้าง',
+ html:`<div class="a" style="left:0;right:0;top:11cqw;text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:19cqw;color:#b38a3a;line-height:1">Barbie</div>
+  <div class="a cin" style="left:0;right:0;top:33cqw;font-size:6cqw">CLEAR &amp; FRESH<br>UNDERARM MASK</div>
+  ${sub('ทาตอนเช้า สดชื่นทั้งวัน ใต้วงแขนดูกระจ่างใส',50,3.8)}
+  ${rg(18,58,64)}${bt(40,62,20)}${pd(29,124,42)}${pl(80,128,6)}${ic(6,98,13,'rose')}
+  ${chip(9,136,12,'trx','TRANEXAMIC 3%','ผิวดูสม่ำเสมอ',28)}${chip(44,136,12,'persim','PERSIMMON 5%','ช่วยดักจับกลิ่น',28)}${chip(79,136,12,'euca','GLOBULE 1%','ดูแลกลิ่นกาย',28)}`},
+
+{id:'U10',prod:'under',ratio:'4:5',layout:'เซ็ตคู่บนแท่นกว้าง · กรอบราคาเส้นทองขวา',
+ headline:'THE DUO SET เซ็ตคู่ดูแลใต้วงแขน เช้า–คืน',
+ shoot:'Barbie 1 หลอด + White Shot หลายซองจัดบนแท่นอะคริลิกกว้าง พื้นหลังงาช้างเรียบ',
+ html:`${eb(8,'THE DUO SET')}
+  <div class="a cin" style="left:0;right:0;top:14cqw;font-size:9cqw">DAY &amp; NIGHT</div>
+  ${sub('เซ็ตคู่ดูแลใต้วงแขน เช้า Barbie · คืน White Shot',27,3.6)}
+  ${rg(10,38,56)}${bt(18,42,14)}${ws(36,56,25)}${pd(10,86,58)}${pl(64,92,4.5)}
+  <div class="frame" style="left:72cqw;top:48cqw;width:22cqw;height:26cqw"><div><div class="th" style="font-size:2.6cqw">ราคาเซ็ต</div><div class="cin" style="font-size:6cqw;color:#a88d63">฿XXX</div><div class="is" style="font-size:2.2cqw">[ใส่ราคาโปร]</div></div></div>
+  ${T(0,106,100,'<div class="th" style="font-size:4.2cqw;text-align:center">ทักแชทรับโปรเซ็ตคู่ →</div>')}`},
+
+/* ================= HAIR REMOVAL SKIN RECOVERY+ (แวกซ์ขนคุณหนู) ================= */
+{id:'H1',prod:'hair',ratio:'9:16',layout:'ฮีโร่ซองกลางวงแหวน · วงกลมส่วนผสม 3 วงโยงเส้นทอง',
+ headline:'HAIR REMOVAL SKIN RECOVERY+ กำจัดขนพร้อมบำรุงผิวในซองเดียว',
+ shoot:'ซองตั้งเอียงเล็กน้อยบนแท่นอะคริลิกใส วงแหวนกระจกด้านหลัง ไข่มุกประกอบ',
+ html:`${eb(10,'UZI')}
+  <div class="a cin" style="left:0;right:0;top:16cqw;font-size:9.6cqw">HAIR REMOVAL</div>
+  <div class="a cin" style="left:0;right:0;top:27cqw;font-size:8cqw">SKIN RECOVERY<span style="color:#a88d63">+</span></div>
+  ${sub('กำจัดขน + ฟื้นบำรุงผิว ในซองเดียว',39,3.8)}
+  ${rg(18,52,66)}${hs(37,58,27)}${pd(26,100,48)}
+  ${ic(5,51,18,'lilac')}${hl(23,60,14)}${T(-1,71,30,'<div class="it" style="font-size:2.6cqw">DENDROBIUM</div><div class="is" style="font-size:2.4cqw">กักเก็บความชุ่มชื้น</div>','text-align:center')}
+  ${ic(5,88,18,'daisy')}${hl(23,97,14)}${T(-1,108,30,'<div class="it" style="font-size:2.6cqw">BISABOLOL</div><div class="is" style="font-size:2.4cqw">ปลอบประโลมผิว</div>','text-align:center')}
+  ${ic(77,70,18,'cent')}${hl(64,79,13)}${T(71,90,30,'<div class="it" style="font-size:2.6cqw">CENTELLA</div><div class="is" style="font-size:2.4cqw">เสริมเกราะป้องกันผิว</div>','text-align:center')}
+  ${pl(84,114,7)}${pl(8,122,4)}`},
+
+{id:'H2',prod:'hair',ratio:'4:5',layout:'วงล้อ Triple-Phase 3 ช่อง · ซองกลางวง',
+ headline:'TRIPLE-PHASE SKIN RECOVERY · Soothing Base · Barrier Shield · Deep Healing',
+ shoot:'ซองตั้งตรงกลาง พื้นงาช้าง วงล้อเป็นกราฟิก ใส่ภาพเนื้อครีม กล้วยไม้ และใบบัวบกในแต่ละช่อง',
+ html:`${eb(7,'TRIPLE-PHASE')}
+  <div class="a cin" style="left:0;right:0;top:12.5cqw;font-size:7.6cqw">SKIN RECOVERY<span style="color:#a88d63">+</span></div>
+  ${sub('3 เฟสดูแลผิวหลังกำจัดขน',22.5,3.6)}
+  ${wheel('h2',13,34,74,['#f1ecf8','#e7f3e5','#f4eee7'],['PROTECT','RECOVER','SOOTHE'])}
+  <div class="a" style="left:33cqw;top:54cqw;width:34cqw;aspect-ratio:1;border-radius:50%;background:#fff;box-shadow:0 0 0 1px rgba(181,150,106,.3)"></div>
+  ${hs(41,55.5,18)}
+  ${T(62,46,20,'<div class="it" style="font-size:2.6cqw">BARRIER<br>SHIELD</div><div class="is" style="font-size:2.3cqw">เสริมเกราะป้องกันผิว</div>','text-align:center')}
+  ${T(18,46,20,'<div class="it" style="font-size:2.6cqw">SOOTHING<br>BASE</div><div class="is" style="font-size:2.3cqw">ปลอบประโลมผิว</div>','text-align:center')}
+  ${T(38,91,24,'<div class="it" style="font-size:2.6cqw">DEEP HEALING</div><div class="is" style="font-size:2.3cqw">ฟื้นบำรุงผิวให้ดูเรียบเนียน</div>','text-align:center')}`},
+
+{id:'H3',prod:'hair',ratio:'9:16',layout:'วงนาฬิกาเส้นทองกลางจอ · ตัวเลขเวลาใหญ่',
+ headline:'5–8 นาที ขนหลุดง่าย ไม่เป็นตอ',
+ shoot:'มือถือซองข้างวงนาฬิกา หรือถ่ายขาที่ทาครีมไว้แล้วตัดไปช็อตเช็ดออก',
+ html:`${eb(10,'QUICK & GENTLE')}
+  <div class="a cin" style="left:0;right:0;top:16cqw;font-size:10cqw">5–8 MINUTES</div>
+  ${sub('ทาไว้ 5–8 นาที เช็ดออก ขนหลุดง่าย ไม่เป็นตอ',30,4)}
+  <div class="a" style="left:16cqw;top:42cqw;width:68cqw;aspect-ratio:1;border-radius:50%;background:conic-gradient(#b5966a 0 48deg,rgba(181,150,106,.18) 48deg 360deg);display:grid;place-items:center">
+    <div style="width:97%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#fff,#f4f0eb);display:grid;place-items:center;text-align:center">
+      <div><div class="cin" style="font-size:20cqw;color:#a88d63">5–8</div><div class="th" style="font-size:4.4cqw">นาที</div></div></div></div>
+  ${[['01','ทาให้หนา'],['02','รอ 5–8 นาที'],['03','เช็ดออก']].map(([n,t],i)=>T(8+i*29,118,26,`<div class="cin" style="font-size:5cqw;color:#a88d63">${n}</div><div class="th" style="font-size:3.4cqw;text-align:center;margin-top:1cqw">${t}</div>`)).join('')}
+  ${hs(73,128,16,10)}`},
+
+{id:'H4',prod:'hair',ratio:'9:16',layout:'กรอบโค้งรูปซุ้ม (arch) ใส่ภาพนางแบบ · ซองซ้อนมุมล่าง',
+ headline:'SMOOTH หลุดง่าย ไม่เป็นตอ ใต้วงแขนเรียบเนียน',
+ shoot:'นางแบบชุดขาวยกแขนโชว์ใต้วงแขนเรียบเนียน แสงธรรมชาติ พื้นหลังโทนครีม',
+ html:`<div class="a cin" style="left:0;right:0;top:10cqw;font-size:15cqw">SMOOTH</div>
+  ${sub('หลุดง่าย ไม่เป็นตอ · ใต้วงแขนเรียบเนียน',29,4.4)}
+  ${ph(12,40,76,106,'ภาพนางแบบยกแขน','ใต้วงแขนเรียบเนียน','border-radius:38cqw 38cqw 0 0')}
+  ${hs(61,104,24)}${pd(55,145,36)}${pl(8,140,6)}`},
+
+{id:'H5',prod:'hair',ratio:'16:9',layout:'แนวนอน · ซองซ้ายบนแท่น ขั้นตอน 01-02-03 ขวา',
+ headline:'HOW TO USE 3 ขั้นตอน ทา รอ 5–8 นาที เช็ดออก',
+ shoot:'ซองบนแท่นอะคริลิก วงแหวนกระจกด้านหลัง ขั้นตอนเป็นกราฟิกเส้นทอง',
+ html:`${rg(5,5,38)}${hs(15,8,17)}${pd(9,35,29)}
+  ${eb(6,'HOW TO USE',46,50,true)}
+  ${T(46,11,52,'<div class="cin" style="font-size:4.6cqw;text-align:left">3 STEPS TO SMOOTH</div>')}
+  ${[['01','ทาให้หนา','ปกคลุมเส้นขนให้ทั่ว'],['02','รอ 5–8 นาที','ทิ้งไว้ตามเวลา'],['03','เช็ดออก','ด้วยทิชชู่หรือผ้าสะอาด']].map(([n,t,s],i)=>T(46+i*17.5,22,15.5,`<div class="cin" style="font-size:5.6cqw;color:#a88d63;text-align:left">${n}</div><i style="display:block;height:1px;background:#b5966a;margin:1cqw 0 1.2cqw"></i><div class="th" style="font-size:2.4cqw">${t}</div><div class="is" style="font-size:1.9cqw">${s}</div>`)).join('')}
+  <div class="foot" style="left:46cqw;top:49cqw;font-size:1.7cqw">ควรทดสอบการแพ้ก่อนใช้ 24 ชั่วโมง</div>`},
+
+{id:'H6',prod:'hair',ratio:'4:5',layout:'คอลัมน์ข้อความซ้าย · สินค้าบนแท่นขวา',
+ headline:'NO STUBBLE ไม่ต้องโกน ไม่เป็นตอ ชะลอการเกิดขนใหม่',
+ shoot:'ซองบนแท่นอะคริลิก วงแหวนกระจกด้านหลัง ไข่มุกประกอบ',
+ html:`${eb(13,'SKIN RECOVERY+',7,60,true)}
+  ${T(7,19,44,'<div class="cin" style="font-size:9cqw;text-align:left">NO<br>STUBBLE</div>')}
+  ${hl(7,42,30)}
+  ${[['01','ไม่ต้องโกน ไม่เป็นตอ'],['02','ช่วยชะลอการเกิดขนใหม่'],['03','ผิวดูเรียบเนียนหลังใช้']].map(([n,t],i)=>T(7,47+i*15,44,`<div style="display:flex;gap:2.6cqw;align-items:baseline"><span class="cin" style="font-size:5.4cqw;color:#a88d63">${n}</span><span class="th" style="font-size:3.6cqw">${t}</span></div>`)+hl(7,57+i*15,42)).join('')}
+  ${rg(50,24,46)}${hs(60,28,26)}${pd(53,70,40)}${pl(88,88,6)}`},
+
+{id:'H7',prod:'hair',ratio:'9:16',layout:'ลิสต์ส่วนผสมแนวตั้ง · วงกลมซ้าย ข้อความขวา',
+ headline:'12 สารสกัดในซอง · Dendrobium · Bisabolol · Centella',
+ shoot:'ซองเล็กด้านล่างบนแท่น วงกลมส่วนผสมใช้ภาพกล้วยไม้ ดอกคาโมมายล์ และใบบัวบก',
+ html:`${eb(10,'KEY INGREDIENTS')}
+  <div class="a cin" style="left:0;right:0;top:16cqw;font-size:18cqw;color:#a88d63">12</div>
+  ${sub('สารสกัดบำรุงผิวในซองเดียว',36,4.6)}
+  ${[['lilac','DENDROBIUM OFFICINALE','สารสกัดกล้วยไม้ ช่วยกักเก็บความชุ่มชื้น เสริม Skin Barrier'],['daisy','BISABOLOL','สารสกัดคาโมมายล์ ผื่นแดงแลดูลดลง ปลอบประโลมผิว'],['cent','CENTELLA ASIATICA','สารสกัดใบบัวบก รอยแดงแลดูลดลง เสริมเกราะป้องกันผิว']].map(([k,t,s],i)=>
+   ic(9,46+i*22,17,k)+T(32,48+i*22,60,`<div class="it" style="font-size:3.3cqw">${t}</div><div class="is" style="font-size:2.9cqw">${s}</div>`)+(i<2?hl(32,65+i*22,60):'')).join('')}
+  ${hs(39,112,22)}${pd(30,146,40)}`},
+
+{id:'H8',prod:'hair',ratio:'1:1',layout:'วงกลมเนื้อครีมกลาง · ตัวอักษรโค้งรอบวง',
+ headline:'เนื้อครีมเข้มข้น เย็นสบายผิว 0 alcohol · 0 pigment · 0 stinging',
+ shoot:'มาโครเนื้อครีมสีขาวปาดเป็นลอน ใช้ครอปเป็นวงกลม ซองวางเอียงซ้อนมุมขวา',
+ html:`<i class="ic k-cream" style="left:25cqw;top:9cqw;--s:50cqw"></i>
+  <svg class="a" style="left:17cqw;top:1cqw;width:66cqw" viewBox="0 0 100 100" aria-hidden="true"><path id="arc-h8" d="M50,50 m-47,0 a47,47 0 1,1 94,0 a47,47 0 1,1 -94,0" fill="none"/><text font-family="Cinzel" font-size="4" letter-spacing="2" fill="#a88d63"><textPath href="#arc-h8" startOffset="0%">SOOTHING BASE · BARRIER SHIELD · DEEP HEALING ·</textPath></text></svg>
+  ${T(7,72,58,'<div class="th" style="font-size:5cqw">เนื้อครีมเข้มข้น<br>เย็นสบายผิว</div><div class="is" style="margin-top:1cqw;font-size:2.6cqw">0 alcohol · 0 pigment · 0 stinging</div>')}
+  ${hs(70,48,19,12)}${pl(92,90,4)}`},
+
+{id:'H9',prod:'hair',ratio:'9:16',layout:'ภาพนางแบบครึ่งบนไล่เฟดลงพื้นงาช้าง · ชิปส่วนผสมด้านล่าง',
+ headline:'CONFIDENT ARMS ยกแขนได้มั่นใจ ใต้วงแขนเรียบเนียน',
+ shoot:'นางแบบชุดขาวยกแขนทั้งสองข้าง ครอปช่วงไหล่ถึงศีรษะ ฉากหลังโทนครีม',
+ html:`${ph(0,0,100,100,'ภาพนางแบบยกแขน','ครอปไหล่ถึงศีรษะ','border:none')}
+  <div class="a" style="left:0;right:0;top:66cqw;height:36cqw;background:linear-gradient(180deg,rgba(245,242,238,0),#f5f2ee 85%)"></div>
+  ${hs(72,62,20,8)}
+  <div class="a cin" style="left:0;right:0;top:99cqw;font-size:8.4cqw">CONFIDENT ARMS</div>
+  ${sub('ยกแขนได้มั่นใจ ใต้วงแขนเรียบเนียน',110,4.2)}
+  ${chip(10,120,12,'lilac','DENDROBIUM','ชุ่มชื้น',26)}${chip(44,120,12,'daisy','BISABOLOL','ปลอบประโลม',26)}${chip(78,120,12,'cent','CENTELLA','เสริมเกราะผิว',26)}`},
+
+{id:'H10',prod:'hair',ratio:'4:5',layout:'ซองแบบพัด 3 ซอง + หลอด 70 g · ตารางราคาเส้นทอง',
+ headline:'ครีมแวกซ์ขนคุณหนู ซอง 79.- · 3 ซอง 229.- · 5 ซอง 349.- · หลอด 70 g 299.-',
+ shoot:'จัดซอง 3 ซองแบบพัดกับหลอด 70 g บนแท่นกว้าง พื้นงาช้าง',
+ html:`${eb(8,'SPECIAL SET')}
+  <div class="a cin" style="left:0;right:0;top:14cqw;font-size:7cqw">SKIN RECOVERY<span style="color:#a88d63">+</span> SET</div>
+  ${sub('ครีมแวกซ์ขนคุณหนู เลือกแบบซองหรือหลอด',23.5,3.6)}
+  ${hs(12,36,17,-14)}${hs(26,33,17)}${hs(40,36,17,14)}${ht(62,31,13)}${pd(8,72,72)}
+  ${T(10,92,80,[['1 ซอง','79.-'],['3 ซอง','229.-'],['5 ซอง','349.-'],['หลอด 70 g','299.-']].map(([a,b])=>`<div style="display:flex;justify-content:space-between;border-bottom:1px solid rgba(181,150,106,.5);padding:.6cqw 0;font-size:3.2cqw"><span class="th">${a}</span><span class="cin" style="font-size:3.6cqw;color:#7a5f45">${b}</span></div>`).join(''))}`}
+];
+
+const grid = document.getElementById('grid');
+grid.innerHTML = covers.map(c => `
+  <article class="card${c.ratio==='16:9'?' wide':''}" data-prod="${c.prod}">
+    <div class="cover" style="--r:${R[c.ratio]}">${c.html}${c.ratio==='9:16'?sz:''}</div>
+    <div class="meta">
+      <div class="tags"><span class="tag${c.prod==='hair'?' g':''}">${c.id} · ${{serum:'เซรั่ม',under:'มาส์กรักแร้',hair:'แวกซ์ขนคุณหนู'}[c.prod]}</span><span class="tag n">${c.ratio} · ${P[c.ratio]}</span></div>
+      <h3>${c.headline}</h3>
+      <p><b>วางแนว:</b> ${c.layout}</p>
+      <p><b>ภาพที่ต้องถ่าย:</b> ${c.shoot}</p>
+      <button class="copy" id="copy-${c.id}" data-t="${c.headline.replace(/"/g,'&quot;')}">คัดลอกพาดหัว</button>
+    </div>
+  </article>`).join('');
+
+grid.addEventListener('click', async e => {
+  const b = e.target.closest('.copy'); if (!b) return;
+  try { await navigator.clipboard.writeText(b.dataset.t); b.textContent = 'คัดลอกแล้ว'; }
+  catch { b.textContent = 'คัดลอกไม่ได้ ให้เลือกข้อความเอง'; }
+  setTimeout(() => b.textContent = 'คัดลอกพาดหัว', 1600);
+});
+
+document.querySelectorAll('[data-f]').forEach(btn => btn.addEventListener('click', () => {
+  document.querySelectorAll('[data-f]').forEach(x => x.setAttribute('aria-pressed', x === btn));
+  const f = btn.dataset.f;
+  grid.querySelectorAll('.card').forEach(c => c.hidden = f !== 'all' && c.dataset.prod !== f);
+}));
+
+const szBtn = document.getElementById('t-sz');
+szBtn.addEventListener('click', () => {
+  const on = szBtn.getAttribute('aria-pressed') !== 'true';
+  szBtn.setAttribute('aria-pressed', on);
+  grid.classList.toggle('show-sz', on);
+});
+</script>
+</body>
+</html>
