@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ปกเซรั่มและกำจัดขนคุณหนู</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* UZI chrome: rose + gold on a rose-tinted neutral. Layout: filter bar, then a dense grid of covers in their real ratios (16:9 spans two columns). */
+  --bg:#f8f3f3;
+  --surface:#ffffff;
+  --ink:#2c2627;
+  --muted:#7a6d6f;
+  --line:#eadfe0;
+  --rose:#b76e79;
+  --gold:#b8922a;
+  --display:"Cormorant Garamond", "Prompt", Georgia, serif;
+  --body:"Prompt", "Noto Sans Thai", system-ui, sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#171314;--surface:#221c1d;--ink:#f3eaea;--muted:#b3a3a5;--line:#3a3032;--rose:#d995a0;--gold:#d9b75a;color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#171314;--surface:#221c1d;--ink:#f3eaea;--muted:#b3a3a5;--line:#3a3032;--rose:#d995a0;--gold:#d9b75a;color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55}
+.wrap{max-width:1240px;margin:0 auto;padding:32px 20px 64px;display:grid;gap:24px}
+header h1{font-family:var(--display);font-weight:700;font-size:clamp(30px,4.4vw,46px);line-height:1.05;margin:0;text-wrap:balance}
+header h1 span{color:var(--rose)}
+header p{margin:8px 0 0;color:var(--muted);max-width:68ch}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.chip{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:7px 14px;border-radius:999px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip:focus-visible,.copy:focus-visible{outline:2px solid var(--rose);outline-offset:2px}
+.bar .sep{flex:1}
+.legend{font-size:13px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px;grid-auto-flow:dense;align-items:start}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px;display:grid;gap:10px}
+.card.wide{grid-column:span 2}
+@media (max-width:600px){.card.wide{grid-column:auto}}
+.meta{display:grid;gap:6px;padding:2px 4px 4px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;font-size:12px}
+.tag{padding:2px 8px;border-radius:6px;background:color-mix(in srgb,var(--rose) 14%,transparent);color:var(--rose);font-weight:500}
+.tag.g{background:color-mix(in srgb,var(--gold) 16%,transparent);color:var(--gold)}
+.tag.n{background:color-mix(in srgb,var(--muted) 14%,transparent);color:var(--muted)}
+.meta h3{margin:0;font-size:16px;font-weight:600;line-height:1.35}
+.meta p{margin:0;font-size:13.5px;color:var(--muted)}
+.meta p b{color:var(--ink);font-weight:500}
+.copy{justify-self:start;font:inherit;font-size:13px;background:none;border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:4px 10px;cursor:pointer}
+.notes{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.notes h2{margin:0 0 8px;font-size:18px}
+.notes ul{margin:0;padding-left:20px;display:grid;gap:4px;max-width:90ch}
+
+/* ---------- Cover mock primitives (cqw = % of cover width) ---------- */
+.cover{position:relative;aspect-ratio:var(--r);container-type:inline-size;overflow:hidden;border-radius:10px;font-family:var(--body);color:#fff;isolation:isolate}
+.cover *{box-sizing:border-box}
+.a{position:absolute}
+.ph{position:absolute;display:grid;place-items:center;text-align:center;padding:3cqw;font-size:3.4cqw;line-height:1.3;color:rgba(255,255,255,.9);
+  background:repeating-linear-gradient(135deg,rgba(255,255,255,.16) 0 1.4cqw,rgba(255,255,255,.05) 1.4cqw 2.8cqw);border:1px dashed rgba(255,255,255,.6)}
+.ph.dk{color:rgba(60,30,40,.75);background:repeating-linear-gradient(135deg,rgba(90,40,60,.10) 0 1.4cqw,rgba(90,40,60,.03) 1.4cqw 2.8cqw);border-color:rgba(90,40,60,.4)}
+.ph i{font-style:normal;display:block;font-size:.85em;opacity:.8}
+.hl{font-weight:800;line-height:1.06;letter-spacing:-.01em;text-wrap:balance}
+.sv{font-family:var(--display);font-weight:700}
+.mk{background:#fff;color:#1d1416;padding:0 .18em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.pill{display:inline-block;border-radius:999px;padding:.25em .8em}
+.shadow{text-shadow:0 .4cqw 2cqw rgba(0,0,0,.45)}
+
+/* Serum dropper bottle */
+.bottle{position:absolute;width:var(--w);display:flex;flex-direction:column;align-items:center;font-size:calc(var(--w)*.15);filter:drop-shadow(0 2cqw 3cqw rgba(0,0,0,.35))}
+.bottle .bulb{width:36%;aspect-ratio:1/1.15;border-radius:50% 50% 22% 22%;background:linear-gradient(90deg,#1c1718,#4a3f41 45%,#1c1718)}
+.bottle .collar{width:56%;aspect-ratio:3/1;background:linear-gradient(90deg,#9c7a2c,#f1d98a 45%,#a8842f);border-radius:8%}
+.bottle .glass{width:100%;aspect-ratio:1/1.3;border-radius:16%/12%;background:linear-gradient(90deg,rgba(201,130,48,.92),rgba(246,190,110,.9) 40%,rgba(184,108,36,.95));display:grid;place-items:center;position:relative;overflow:hidden}
+.bottle .glass::after{content:"";position:absolute;left:12%;top:6%;width:10%;height:80%;border-radius:99px;background:rgba(255,255,255,.35)}
+.bottle .lbl{background:#fbf6ee;color:#3a2a20;width:78%;padding:.5em 0;text-align:center;border-radius:.2em;line-height:1.05}
+.bottle .lbl b{font-family:var(--display);font-size:1.5em;letter-spacing:.06em;display:block}
+.bottle .lbl small{font-size:.6em;letter-spacing:.18em}
+
+/* Hair-removal tube (คุณหนู) */
+.tube{position:absolute;width:var(--w);display:flex;flex-direction:column;align-items:center;font-size:calc(var(--w)*.15);filter:drop-shadow(0 2cqw 3cqw rgba(80,20,50,.3))}
+.tube .crimp{width:100%;aspect-ratio:9/1;border-radius:.15em;background:repeating-linear-gradient(90deg,#efc2cf 0 .3em,#f9dce5 .3em .6em)}
+.tube .tb{width:100%;aspect-ratio:1/2.05;clip-path:polygon(0 0,100% 0,86% 100%,14% 100%);background:linear-gradient(90deg,#f4b9c9,#fff1f5 42%,#f1abc0);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.25em;color:#7d2f4c;text-align:center;line-height:1.05}
+.tube .tb b{font-family:var(--display);font-size:1.7em;letter-spacing:.06em}
+.tube .tb small{font-size:.55em;letter-spacing:.12em}
+.tube .tb em{font-style:normal;font-weight:700;font-size:.95em;background:#7d2f4c;color:#fff;padding:.1em .45em;border-radius:.3em}
+.tube .cap{width:66%;aspect-ratio:2.4/1;background:linear-gradient(90deg,#e7e1e3,#fff 45%,#dcd4d7);border-radius:0 0 .4em .4em}
+
+/* TikTok / Reels safe zone overlay (9:16 only) */
+.sz{position:absolute;inset:0;pointer-events:none;display:none;z-index:9}
+.show-sz .sz{display:block}
+.sz span{position:absolute;background:rgba(255,40,80,.28);outline:1px dashed rgba(255,255,255,.8);font-size:2.6cqw;color:#fff;display:grid;place-items:center;text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>20 ปก <span>เซรั่ม</span> × <span>กำจัดขนคุณหนู</span></h1>
+    <p>ม็อกอัปเลย์เอาต์ปกฝั่งละ 10 แบบ ใช้ทั้งแนวตั้ง 9:16 (TikTok/Reels), 4:5 (ฟีด FB/IG), 1:1 และแนวนอน 16:9 ช่องลายทางคือจุดวางภาพถ่ายจริง และข้อความในวงเล็บ [ ] ให้แทนด้วยข้อมูลจริงจากฉลาก</p>
+  </header>
+
+  <div class="bar" role="toolbar" aria-label="ตัวกรองปก">
+    <button class="chip" id="f-all" data-f="all" aria-pressed="true">ทั้งหมด 20</button>
+    <button class="chip" id="f-serum" data-f="serum" aria-pressed="false">เซรั่ม 10</button>
+    <button class="chip" id="f-hair" data-f="hair" aria-pressed="false">กำจัดขนคุณหนู 10</button>
+    <span class="sep"></span>
+    <button class="chip" id="t-sz" aria-pressed="false">แสดงพื้นที่ปุ่ม TikTok</button>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+  <section class="notes">
+    <h2>ข้อควรเช็กก่อนส่งงานกราฟิก</h2>
+    <ul>
+      <li>ปก 9:16 ให้วางพาดหัวไว้ช่วงกลางภาพ เพราะหน้าโปรไฟล์ TikTok จะครอปปกเหลือ 3:4 และด้านล่างกับด้านขวาจะมีปุ่มของแอปทับอยู่ กดปุ่ม "แสดงพื้นที่ปุ่ม TikTok" เพื่อดูโซนที่ควรเลี่ยง</li>
+      <li>ปกก่อน/หลัง (S2, H4) ต้องใช้ภาพจริงที่ไม่ได้รีทัช และใส่ข้อความ *ผลลัพธ์ขึ้นอยู่กับแต่ละบุคคล</li>
+      <li>เลี่ยงคำที่ฟังเป็นการรักษา เช่น รักษา หายขาด ถาวร 100% ให้ใช้คำว่า ช่วย / ดู / แลดู แทน</li>
+      <li>จำนวนหยด เวลาที่ต้องรอ ส่วนผสม และบริเวณที่ใช้ได้ ให้ยึดตามฉลากจริง ในม็อกอัปใส่ไว้เป็นตัวอย่าง</li>
+    </ul>
+  </section>
+</div>
+
+<script>
+const bottle = (style, w = 24) => `<div class="bottle" style="--w:${w}cqw;${style}"><i class="bulb"></i><i class="collar"></i><i class="glass"><span class="lbl"><b>UZI</b><small>SERUM</small></span></i></div>`;
+const tube = (style, w = 22) => `<div class="tube" style="--w:${w}cqw;${style}"><i class="crimp"></i><i class="tb"><b>UZI</b><em>คุณหนู</em><small>HAIR REMOVAL</small></i><i class="cap"></i></div>`;
+const ph = (style, label, sub = '', dk = false) => `<div class="ph${dk ? ' dk' : ''}" style="${style}"><span>${label}${sub ? `<i>${sub}</i>` : ''}</span></div>`;
+const crown = (style) => `<svg class="a" style="${style}" viewBox="0 0 64 40" aria-hidden="true"><path d="M4 34 L8 10 L22 24 L32 4 L42 24 L56 10 L60 34 Z" fill="#e8c766" stroke="#a8842f" stroke-width="2"/><circle cx="32" cy="4" r="3.5" fill="#f6a6c1"/><circle cx="8" cy="10" r="3" fill="#f6a6c1"/><circle cx="56" cy="10" r="3" fill="#f6a6c1"/><rect x="4" y="33" width="56" height="5" rx="2" fill="#c9a23c"/></svg>`;
+const sz = `<div class="sz"><span style="left:0;right:0;top:0;height:9%">แถบด้านบน</span><span style="right:0;top:38%;width:15%;height:44%">ปุ่ม</span><span style="left:0;right:0;bottom:0;height:20%">แคปชั่น / ชื่อบัญชี</span></div>`;
+
+const R = {'9:16':'9/16','4:5':'4/5','1:1':'1/1','16:9':'16/9'};
+const P = {'9:16':'TikTok / Reels','4:5':'ฟีด FB / IG','1:1':'IG / FB / Shopee','16:9':'YouTube / FB แนวนอน'};
+
+const covers = [
+/* ---------------- SERUM ---------------- */
+{id:'S1',prod:'serum',ratio:'9:16',layout:'พาดหัวบน · สินค้าเป็นฮีโร่กลางภาพ',
+ headline:'ผิวโทรมจากอดนอน? หยดนี้ก่อนนอน ตื่นมาผิวดูฉ่ำ',
+ shoot:'ขวดเซรั่มบนพื้นเงา ไฟส่องจากด้านหลัง ให้มีหยดเซรั่มค้างที่ปลายดรอปเปอร์',
+ bg:'radial-gradient(120% 70% at 50% 62%,#7a4a22 0%,#2b170b 55%,#120905 100%)',
+ html:`<div class="a" style="left:7cqw;right:7cqw;top:16%;text-align:center">
+   <div class="pill" style="font-size:3.6cqw;border:1px solid rgba(255,214,150,.6);color:#ffd696">ก่อนนอนคืนนี้</div>
+   <div class="hl shadow" style="font-size:11cqw;margin-top:3cqw">ผิวโทรม<br>จากอดนอน?</div>
+   <div style="font-size:4.6cqw;margin-top:2cqw;color:#ffe2b8">หยดนี้ก่อนนอน ตื่นมาผิวดูฉ่ำ</div></div>
+   ${bottle('left:38cqw;top:47%',24)}
+   <div class="a" style="left:0;right:0;top:44%;height:30%;background:radial-gradient(closest-side,rgba(255,190,110,.35),transparent);z-index:-1"></div>`},
+
+{id:'S2',prod:'serum',ratio:'4:5',layout:'แบ่งครึ่งซ้าย-ขวา · ก่อน/หลัง',
+ headline:'หน้าสดวันที่ 1 vs วันที่ 14 กับเซรั่ม UZI',
+ shoot:'หน้าสดคนเดิม แสงเดิม มุมเดิม ถ่ายวันแรกกับวันที่ 14 ห้ามรีทัช',
+ bg:'#efe6e1',
+ html:`${ph('left:0;top:0;width:50%;height:100%','ภาพหน้าสด','วันที่ 1',true)}${ph('left:50%;top:0;width:50%;height:100%;background-color:#f6d9c8','ภาพหน้าสด','วันที่ 14',true)}
+   <div class="a" style="left:50%;top:0;bottom:0;width:.6cqw;background:#fff;transform:translateX(-50%)"></div>
+   <div class="a" style="left:0;right:0;top:5%;text-align:center"><span class="hl mk" style="font-size:8.4cqw">14 วันกับเซรั่ม UZI</span></div>
+   <div class="a pill" style="left:6cqw;bottom:16%;background:#2c2627;font-size:4.4cqw">DAY 1</div>
+   <div class="a pill" style="right:6cqw;bottom:16%;background:#b8922a;font-size:4.4cqw">DAY 14</div>
+   ${bottle('left:41cqw;bottom:2%',18)}
+   <div class="a" style="right:3cqw;bottom:1.5%;font-size:2.4cqw;color:#5a4a4c">*ผลลัพธ์ขึ้นอยู่กับแต่ละบุคคล</div>`},
+
+{id:'S3',prod:'serum',ratio:'9:16',layout:'แถบข้อความเฉียงพาดกลางภาพ',
+ headline:'ผิวฉ่ำแบบไม่ง้อฟิลเตอร์',
+ shoot:'โคลสอัปหน้านางแบบผิวโกลว์ แสงหน้าต่าง ไม่ใส่ฟิลเตอร์',
+ bg:'#c99a86',
+ html:`${ph('inset:0','ภาพโคลสอัปหน้า','ผิวโกลว์ แสงธรรมชาติ')}
+   <div class="a pill" style="left:6cqw;top:11%;background:rgba(0,0,0,.45);font-size:4cqw">#NoFilter</div>
+   <div class="a" style="left:-10cqw;right:-10cqw;top:41%;background:#fff;transform:rotate(-8deg);padding:4cqw 14cqw;text-align:center;color:#2a1c1e">
+     <div class="hl" style="font-size:10.5cqw">ผิวฉ่ำแบบ<br><span style="color:#b76e79">ไม่ง้อฟิลเตอร์</span></div></div>
+   ${bottle('left:8cqw;top:64%',19)}
+   <div class="a" style="left:31cqw;top:69%;font-size:4.2cqw;line-height:1.3" >เซรั่ม UZI<br><b>ใช้จริงทุกคืน</b></div>`},
+
+{id:'S4',prod:'serum',ratio:'1:1',layout:'ตัวเลขยักษ์ด้านซ้าย · สินค้าขวา',
+ headline:'3 หยดก่อนนอน = ตื่นมาผิวนุ่มเด้ง',
+ shoot:'ขวดเซรั่มวางเอียงบนผ้าซาตินสีครีม มีหยดเซรั่ม 3 หยดเรียงกันด้านหน้า',
+ bg:'linear-gradient(135deg,#f7ecd8,#ead2a8)',
+ html:`<div class="a sv" style="left:3cqw;top:-6%;font-size:68cqw;line-height:1;color:#b8922a">3</div>
+   <div class="a" style="left:40cqw;top:16%;color:#3b2a1c">
+     <div class="hl" style="font-size:9.5cqw">หยด<br>ก่อนนอน</div>
+     <div style="font-size:5cqw;margin-top:2cqw">= ตื่นมาผิว<b>นุ่มเด้ง</b></div></div>
+   ${bottle('left:66cqw;top:44%;transform:rotate(12deg)',22)}
+   <div class="a" style="left:44cqw;top:72%;display:flex;gap:2cqw">${'<i style="width:4cqw;height:5cqw;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:#d89a4a;display:block"></i>'.repeat(3)}</div>
+   <div class="a" style="left:5cqw;bottom:4%;font-size:3cqw;color:#7a5a3a">[จำนวนหยดตามวิธีใช้บนฉลาก]</div>`},
+
+{id:'S5',prod:'serum',ratio:'9:16',layout:'บับเบิลแชต · เล่าเป็นบทสนทนา',
+ headline:'แม่ทักจนต้องสารภาพ ว่าใช้เซรั่มขวดนี้',
+ shoot:'แคปหน้าจอแชตจริง (หรือจัดฉากแชต) แล้ววางขวดเซรั่มในมือด้านล่าง',
+ bg:'linear-gradient(180deg,#ffd9e2,#f7a9bd)',
+ html:`<div class="a hl" style="left:7cqw;right:7cqw;top:12%;font-size:9.6cqw;color:#5b1f33;text-align:center">แม่ทักจน<br>ต้องสารภาพ 😳</div>
+   <div class="a" style="left:7cqw;top:36%;max-width:66cqw;background:#fff;color:#2b2023;border-radius:4cqw 4cqw 4cqw 1cqw;padding:3.4cqw 4cqw;font-size:4.6cqw;line-height:1.35"><b style="font-size:3.2cqw;color:#b76e79;display:block">แม่</b>ช่วงนี้หน้าดูดีขึ้นนะลูก ไปทำอะไรมา?</div>
+   <div class="a" style="right:7cqw;top:52%;max-width:62cqw;background:#5b1f33;border-radius:4cqw 4cqw 1cqw 4cqw;padding:3.4cqw 4cqw;font-size:4.6cqw;line-height:1.35">เซรั่มขวดนี้แหละแม่ 🤫</div>
+   ${bottle('left:39cqw;top:63%',21)}`},
+
+{id:'S6',prod:'serum',ratio:'16:9',layout:'แนวนอน · หน้าครีเอเตอร์ซ้าย ข้อความขวา',
+ headline:'รีวิวไม่อวย 7 วันกับเซรั่ม UZI',
+ shoot:'ครีเอเตอร์ทำหน้าตกใจหรือชี้ไปที่ข้อความ ถือขวดเซรั่มไว้ข้างแก้ม',
+ bg:'linear-gradient(90deg,#2b1a1d,#4a2a2f)',
+ html:`${ph('left:0;top:0;width:48%;height:100%','ภาพครีเอเตอร์','ถือขวดข้างแก้ม')}
+   <div class="a pill" style="left:52%;top:10%;background:#b8922a;font-size:2.6cqw;font-weight:700">EP.1</div>
+   <div class="a" style="left:52%;right:4cqw;top:22%">
+     <div class="hl" style="font-size:7.6cqw;color:#ffe36e">รีวิวไม่อวย</div>
+     <div class="hl" style="font-size:5.4cqw;margin-top:1cqw">7 วันกับ<br>เซรั่ม UZI</div></div>
+   ${bottle('left:37%;top:42%;transform:rotate(-10deg)',11)}
+   <div class="a" style="left:52%;bottom:9%;font-size:2.4cqw;opacity:.85">ผิวมัน · ผิวแห้ง · ผิวแพ้ง่าย ใช้แล้วเป็นยังไง</div>`},
+
+{id:'S7',prod:'serum',ratio:'4:5',layout:'ปกนิตยสาร · หัวหนังสือใหญ่ด้านบน',
+ headline:'GLOW ISSUE: สาวผิวฉ่ำเขาใช้อะไร',
+ shoot:'นางแบบครึ่งตัว ถือขวดเซรั่มระดับคาง ฉากหลังสีครีมเรียบ',
+ bg:'#e9ddd3',
+ html:`${ph('left:0;right:0;top:12%;bottom:0','ภาพนางแบบครึ่งตัว','ถือขวดระดับคาง',true)}
+   <div class="a sv" style="left:0;right:0;top:-1%;text-align:center;font-size:30cqw;line-height:1;color:#7d2f3d;letter-spacing:.04em">GLOW</div>
+   <div class="a" style="left:5cqw;top:36%;width:36cqw;color:#2c2627;display:grid;gap:3cqw">
+     <div><b style="font-size:6cqw;line-height:1.1;display:block">สาวผิวฉ่ำ<br>เขาใช้อะไร?</b></div>
+     <div style="font-size:3.6cqw;border-top:1px solid #2c2627;padding-top:2cqw">สกินแคร์ก่อนนอน<br>3 ขั้นง่ายๆ</div>
+     <div style="font-size:3.6cqw;border-top:1px solid #2c2627;padding-top:2cqw">เซรั่มขวดเดียว<br>ใต้ ฿[ราคา]</div></div>
+   ${bottle('right:6cqw;bottom:5%',20)}
+   <div class="a" style="right:5cqw;top:30%;font-size:3cqw;color:#7d2f3d;letter-spacing:.2em">UZI ISSUE 01</div>`},
+
+{id:'S8',prod:'serum',ratio:'9:16',layout:'ภาพมาโครเต็มจอ · ข้อความช่วงกลางล่าง',
+ headline:'บางเบา ซึมไว ไม่เหนอะ',
+ shoot:'มาโครหยดเซรั่มบนหลังมือ แล้วเกลี่ยให้เห็นว่าซึมหาย ใช้ไฟข้างให้เห็นความฉ่ำ',
+ bg:'#a8743f',
+ html:`${ph('inset:0','ภาพมาโคร','หยดเซรั่มบนหลังมือ')}
+   <div class="a" style="left:31cqw;top:22%;width:38cqw;aspect-ratio:1/1.25;border-radius:50% 50% 50% 50%/62% 62% 38% 38%;background:radial-gradient(circle at 35% 35%,rgba(255,255,255,.75),rgba(240,170,80,.55) 40%,rgba(160,90,30,.5));transform:rotate(180deg)"></div>
+   <div class="a" style="left:6cqw;right:6cqw;top:56%;text-align:center">
+     <div class="sv" style="font-size:6cqw;font-style:italic;color:#ffe2b8">texture check</div>
+     <div class="hl shadow" style="font-size:12cqw">บางเบา<br>ซึมไว ไม่เหนอะ</div></div>`},
+
+{id:'S9',prod:'serum',ratio:'1:1',layout:'สินค้ากลาง · ส่วนผสมโคจรรอบ',
+ headline:'ในหนึ่งหยดมีอะไรบ้าง?',
+ shoot:'ขวดเซรั่มกลางเฟรมบนพื้นขาว รอบๆ วางวัตถุดิบจริงของส่วนผสมแต่ละตัว',
+ bg:'radial-gradient(circle at 50% 55%,#fff8ec,#f1dfc2)',
+ html:`<div class="a hl" style="left:0;right:0;top:5%;text-align:center;font-size:7.6cqw;color:#3b2a1c">ในหนึ่งหยด<span style="color:#b8922a">มีอะไรบ้าง?</span></div>
+   <div class="a" style="left:22cqw;top:22%;width:56cqw;aspect-ratio:1;border:1px dashed #b8922a;border-radius:50%"></div>
+   ${bottle('left:40cqw;top:31%',20)}
+   ${[['8cqw','30%','สารสกัด 1'],['70cqw','27%','สารสกัด 2'],['4cqw','66%','สารสกัด 3'],['72cqw','64%','สารสกัด 4']].map(([l,t,n])=>`<div class="a" style="left:${l};top:${t};width:22cqw;aspect-ratio:1;border-radius:50%;background:#fff;box-shadow:0 1cqw 3cqw rgba(120,80,30,.18);display:grid;place-items:center;text-align:center;font-size:3.2cqw;color:#5a3f22;line-height:1.2">[${n}]</div>`).join('')}
+   <div class="a" style="left:0;right:0;bottom:4%;text-align:center;font-size:3.4cqw;color:#7a5a3a">ใส่ชื่อส่วนผสมจริงจากฉลาก</div>`},
+
+{id:'S10',prod:'serum',ratio:'9:16',layout:'ขั้นตอนเรียงลงล่าง 1-2-3',
+ headline:'สกินแคร์ก่อนนอน 3 ขั้น (ล้าง → เซรั่ม → นอน)',
+ shoot:'ถ่ายแยก 3 ช็อต: เช็ดหน้าด้วย Micellar, หยดเซรั่ม, นอนบนหมอนซาติน',
+ bg:'linear-gradient(180deg,#2a1b2e,#4b2740)',
+ html:`<div class="a" style="left:7cqw;right:7cqw;top:10%">
+     <div style="font-size:4cqw;color:#f2b8c6">NIGHT ROUTINE</div>
+     <div class="hl" style="font-size:9.6cqw">สกินแคร์ก่อนนอน<br>3 ขั้นจบ</div></div>
+   ${[['1','ล้าง','Micellar Cleansing Water','35%'],['2','เซรั่ม','เซรั่ม UZI','52%'],['3','นอน','ตื่นมาผิวดูฉ่ำ','69%']].map(([n,t,s,top])=>`
+   <div class="a" style="left:7cqw;right:7cqw;top:${top};height:14%;display:flex;gap:3cqw;align-items:center;background:rgba(255,255,255,.08);border-radius:3cqw;padding:2cqw">
+     <div style="font-size:10cqw;font-weight:800;color:#e8c766;width:9cqw;text-align:center;line-height:1">${n}</div>
+     <div style="flex:1"><b style="font-size:6cqw;display:block;line-height:1.1">${t}</b><span style="font-size:3.6cqw;opacity:.8">${s}</span></div>
+     <div class="ph" style="position:relative;width:20cqw;height:100%;font-size:2.6cqw;padding:1cqw">ภาพ</div></div>`).join('')}`},
+
+/* ---------------- HAIR REMOVAL (คุณหนู) ---------------- */
+{id:'H1',prod:'hair',ratio:'9:16',layout:'ตัวหนังสือล้วน · ขีดฆ่าคำเดิม',
+ headline:'เลิกโกน เลิกถอน แค่ปาด รอ เช็ด',
+ shoot:'ไม่ต้องใช้ภาพ ใช้พื้นสีชมพูเข้มกับหลอดสินค้าเล็กๆ ด้านล่าง',
+ bg:'#e8467c',
+ html:`<div class="a" style="left:8cqw;right:8cqw;top:15%">
+     <div class="hl" style="font-size:17cqw;text-decoration:line-through;text-decoration-thickness:2cqw;text-decoration-color:#2b0a17">เลิกโกน</div>
+     <div class="hl" style="font-size:17cqw;text-decoration:line-through;text-decoration-thickness:2cqw;text-decoration-color:#2b0a17">เลิกถอน</div>
+     <div class="pill" style="margin-top:5cqw;background:#fff;color:#e8467c;font-size:7.4cqw;font-weight:800">ปาด · รอ · เช็ด</div></div>
+   ${tube('left:39cqw;top:58%',22)}`},
+
+{id:'H2',prod:'hair',ratio:'16:9',layout:'แนวนอน · เทียบ VS ซ้าย-ขวา',
+ headline:'โกน vs คุณหนู ต่างกันตรงไหน',
+ shoot:'ซ้าย: ขาหลังโกนที่เห็นตอ / ขวา: ขาหลังเช็ดครีมออก ผิวเรียบ ใช้แสงเดียวกัน',
+ bg:'#3a3537',
+ html:`${ph('left:0;top:0;width:50%;height:100%;background-color:#5d5759','ภาพขาหลังโกน','เห็นตอ')}${ph('left:50%;top:0;width:50%;height:100%;background-color:#f3a9be','ภาพขาหลังใช้คุณหนู','ผิวเรียบ')}
+   <div class="a" style="left:4cqw;top:8%"><div class="hl shadow" style="font-size:7cqw">โกน</div><div style="font-size:2.6cqw;margin-top:.5cqw">เป็นตอ · ขนแข็ง</div></div>
+   <div class="a" style="right:4cqw;top:8%;text-align:right"><div class="hl shadow" style="font-size:7cqw">คุณหนู</div><div style="font-size:2.6cqw;margin-top:.5cqw">ปาด รอ เช็ด · ไม่ทิ้งตอ</div></div>
+   <div class="a sv" style="left:50%;top:50%;transform:translate(-50%,-50%);width:13cqw;aspect-ratio:1;border-radius:50%;background:#fff;color:#e8467c;display:grid;place-items:center;font-size:6cqw">VS</div>
+   ${tube('right:6cqw;bottom:-14%;transform:rotate(-8deg)',10)}`},
+
+{id:'H3',prod:'hair',ratio:'9:16',layout:'วงนาฬิกาจับเวลากลางจอ',
+ headline:'ทาไว้ ไถ TikTok ไป แป๊บเดียวเช็ดออก',
+ shoot:'ช็อตขาที่ทาครีมไว้ คู่กับมือถือที่กำลังไถฟีด แล้วตัดเป็นช็อตเช็ดออก',
+ bg:'linear-gradient(180deg,#fff0f4,#ffd2df)',
+ html:`<div class="a hl" style="left:7cqw;right:7cqw;top:11%;text-align:center;font-size:9.4cqw;color:#7d2f4c">ทาไว้ ไถ TikTok ไป<br>แป๊บเดียวเช็ดออก</div>
+   <div class="a" style="left:18cqw;top:33%;width:64cqw;aspect-ratio:1;border-radius:50%;background:conic-gradient(#e8467c 0 72%,rgba(232,70,124,.15) 72% 100%);display:grid;place-items:center">
+     <div style="width:84%;aspect-ratio:1;border-radius:50%;background:#fff;display:grid;place-items:center;text-align:center;color:#7d2f4c">
+       <div><div style="font-size:13cqw;font-weight:700;line-height:1">[X:00]</div><div style="font-size:4cqw">นาที ตามฉลาก</div></div></div></div>
+   <div class="a" style="left:7cqw;right:7cqw;top:74%;display:flex;justify-content:center;gap:3cqw;font-size:4.4cqw;color:#7d2f4c;font-weight:600"><span>ปาด</span>→<span>รอ</span>→<span>เช็ด</span></div>`},
+
+{id:'H4',prod:'hair',ratio:'4:5',layout:'ภาพเดียวแบ่งครึ่ง · ชวนเดา',
+ headline:'ขาข้างไหนทำแล้ว? เดาได้ไหม',
+ shoot:'ขาสองข้างคู่กันบนผ้าปูขาว ข้างหนึ่งทำแล้ว อีกข้างยังไม่ทำ ถ่ายจากด้านบน',
+ bg:'#f6e7ea',
+ html:`${ph('left:0;right:0;top:0;bottom:24%','ภาพขาสองข้างคู่กัน','ข้างหนึ่งทำแล้ว',true)}
+   <div class="a pill" style="left:13cqw;top:30%;background:rgba(255,255,255,.9);color:#7d2f4c;font-size:6cqw;font-weight:800">A</div>
+   <div class="a pill" style="right:13cqw;top:30%;background:rgba(255,255,255,.9);color:#7d2f4c;font-size:6cqw;font-weight:800">B</div>
+   <div class="a" style="left:0;right:0;bottom:0;height:24%;background:#7d2f4c;display:flex;align-items:center;gap:4cqw;padding:0 6cqw">
+     <div class="hl" style="font-size:7.6cqw;flex:1">ขาข้างไหนทำแล้ว?<br><span style="font-size:4.6cqw;font-weight:500">เม้นตอบ A หรือ B 👀</span></div>
+     ${tube('position:relative;transform:rotate(10deg)',11)}</div>`},
+
+{id:'H5',prod:'hair',ratio:'9:16',layout:'คาแรกเตอร์คุณหนู · มงกุฎเหนือพาดหัว',
+ headline:'คุณหนูไม่ทนเจ็บค่ะ',
+ shoot:'นางแบบลุคคุณหนู ชุดผ้าซาติน นั่งบนโซฟากำมะหยี่ ถือหลอดชูนิ้วก้อย',
+ bg:'linear-gradient(180deg,#f3e3f7,#f7c6d8)',
+ html:`${ph('left:0;right:0;top:40%;bottom:0','ภาพนางแบบลุคคุณหนู','ถือหลอด ชูนิ้วก้อย',true)}
+   ${crown('left:40cqw;top:8%;width:20cqw')}
+   <div class="a" style="left:6cqw;right:6cqw;top:16%;text-align:center;color:#5b2148">
+     <div class="hl sv" style="font-size:14cqw;font-weight:700">คุณหนู<br>ไม่ทนเจ็บค่ะ</div>
+     <div style="font-size:4.4cqw;margin-top:2cqw">ไม่โกน ไม่ถอน แค่ปาดแล้วเช็ดออก</div></div>
+   ${tube('left:58cqw;top:52%;transform:rotate(14deg)',20)}`},
+
+{id:'H6',prod:'hair',ratio:'1:1',layout:'เช็กลิสต์ซ้าย · สินค้าขวา',
+ headline:'ทำไมต้องคุณหนู? ไม่โกน ไม่ถอน ไม่ทิ้งตอ สารสกัด 12 ชนิด',
+ shoot:'หลอดสินค้าบนพื้นสีพีช มีดอกไม้แห้งกับผ้าขาวประกอบ',
+ bg:'linear-gradient(135deg,#ffe9e1,#ffd0d9)',
+ html:`<div class="a" style="left:6cqw;top:8%;width:58cqw;color:#5b1f33">
+     <div class="hl" style="font-size:8.4cqw">ทำไมต้อง<br>คุณหนู?</div>
+     <div style="display:grid;gap:2.6cqw;margin-top:5cqw;font-size:5cqw;font-weight:500">
+       ${['ไม่ต้องโกน','ไม่ต้องถอน','ไม่ทิ้งตอ','สารสกัด 12 ชนิด'].map(t=>`<div style="display:flex;gap:2.4cqw;align-items:center"><span style="width:6cqw;height:6cqw;border-radius:50%;background:#e8467c;color:#fff;display:grid;place-items:center;font-size:3.6cqw">✓</span>${t}</div>`).join('')}
+     </div></div>
+   ${tube('left:68cqw;top:14%;transform:rotate(6deg)',24)}`},
+
+{id:'H7',prod:'hair',ratio:'16:9',layout:'แนวนอน · ปกสอนใช้ มีขั้นตอนเลข',
+ headline:'มือใหม่ดูก่อน! วิธีใช้ให้ขนหลุดเกลี้ยง',
+ shoot:'ช็อตเช็ดครีมออกจากแขนตรงกลางจังหวะ ให้เห็นแถบผิวเรียบชัดๆ',
+ bg:'#ffffff',
+ html:`${ph('left:50%;top:0;width:50%;height:100%;background-color:#f6c9d6','ภาพเช็ดครีมออกจากแขน','กลางจังหวะเช็ด',true)}
+   <div class="a" style="left:4cqw;top:9%;width:46%;color:#2b1a22">
+     <div class="pill" style="background:#ffe36e;font-size:3.4cqw;font-weight:800;color:#2b1a22">มือใหม่ดูก่อน!</div>
+     <div class="hl" style="font-size:5.8cqw;margin-top:2cqw">วิธีใช้ให้ขน<br><span style="color:#e8467c">หลุดเกลี้ยง</span></div>
+     <div style="display:flex;gap:2cqw;margin-top:3cqw">${['ปาด','รอ','เช็ด'].map((t,i)=>`<div style="display:flex;align-items:center;gap:1cqw;font-size:2.6cqw;font-weight:600"><span style="width:5cqw;height:5cqw;border-radius:50%;background:#7d2f4c;color:#fff;display:grid;place-items:center;font-size:2.6cqw">${i+1}</span>${t}</div>`).join('')}</div></div>
+   ${tube('left:41%;bottom:-10%;transform:rotate(-12deg)',9)}`},
+
+{id:'H8',prod:'hair',ratio:'4:5',layout:'ภาพโพลารอยด์ซ้อนเอียง 3 ใบ',
+ headline:'ใช้ได้ตรงไหนบ้าง? แขน ขา รักแร้',
+ shoot:'ถ่ายผิวเรียบหลังใช้ 3 จุด: แขน ขา รักแร้ (เช็กบริเวณที่ใช้ได้กับฉลากก่อน)',
+ bg:'#fdf1f4',
+ html:`<div class="a hl" style="left:6cqw;right:6cqw;top:5%;font-size:9cqw;color:#7d2f4c">ใช้ได้ตรงไหนบ้าง?</div>
+   ${[['6cqw','22%','-7deg','แขน'],['36cqw','30%','5deg','ขา'],['14cqw','55%','3deg','รักแร้']].map(([l,t,r,n])=>`
+   <div class="a" style="left:${l};top:${t};width:44cqw;background:#fff;padding:2.4cqw 2.4cqw 8cqw;transform:rotate(${r});box-shadow:0 1.5cqw 4cqw rgba(125,47,76,.2)">
+     <div class="ph dk" style="position:relative;aspect-ratio:1;font-size:3cqw">ภาพ${n}</div>
+     <div style="position:absolute;left:0;right:0;bottom:1.6cqw;text-align:center;color:#2b1a22;font-size:4.4cqw;font-weight:600">${n}</div></div>`).join('')}
+   ${tube('left:68cqw;top:62%;transform:rotate(10deg)',18)}`},
+
+{id:'H9',prod:'hair',ratio:'9:16',layout:'ภาพเต็มจอ · ข้อความช่วงกลาง แนว ASMR',
+ headline:'ช็อตนี้ฟินสุด เช็ดทีเดียวเกลี้ยงทั้งแถบ',
+ shoot:'มาโครตอนปาดไม้เช็ดครีมออกจากขา ให้เห็นแถบผิวเรียบตัดกับครีม อัดเสียงจริง',
+ bg:'#d98fa6',
+ html:`${ph('inset:0','ภาพมาโครตอนเช็ดครีมออก','เห็นแถบผิวเรียบ')}
+   <div class="a pill" style="right:18cqw;top:11%;background:rgba(0,0,0,.5);font-size:4cqw">🔊 ASMR</div>
+   <div class="a" style="left:7cqw;right:7cqw;top:40%">
+     <div style="font-size:5cqw;font-weight:600" class="shadow">ช็อตนี้ฟินสุด</div>
+     <div class="hl" style="font-size:12cqw;margin-top:1cqw;line-height:1.3"><span class="mk" style="color:#e8467c">เช็ดทีเดียว</span><br><span class="shadow">เกลี้ยงทั้งแถบ</span></div></div>
+   ${tube('left:8cqw;top:64%;transform:rotate(-10deg)',16)}`},
+
+{id:'H10',prod:'hair',ratio:'1:1',layout:'ปกโปรโมชั่น · สติกเกอร์ราคา',
+ headline:'เซ็ตคุณหนู ผิวเนียนทั้งตัว ราคาพิเศษ',
+ shoot:'จัดเซ็ตสินค้า 2 ชิ้นบนถาดอะคริลิก พื้นหลังสีชมพูเรียบ',
+ bg:'linear-gradient(160deg,#ff8fb1,#e8467c)',
+ html:`${crown('left:6cqw;top:6%;width:14cqw')}
+   <div class="a" style="left:6cqw;top:18%;width:50cqw">
+     <div class="hl sv" style="font-size:9.4cqw;font-weight:700">เซ็ตคุณหนู</div>
+     <div style="font-size:5.4cqw;margin-top:1cqw;font-weight:500">ผิวเนียนทั้งตัว</div>
+     <div class="pill" style="margin-top:4cqw;background:#fff;color:#e8467c;font-size:4cqw;font-weight:700">สารสกัด 12 ชนิด</div></div>
+   ${tube('left:60cqw;top:24%;transform:rotate(-8deg)',16)}${tube('left:77cqw;top:30%;transform:rotate(8deg)',16)}
+   <div class="a" style="left:8cqw;bottom:8%;width:36cqw;aspect-ratio:1;background:#ffe36e;color:#7d2f4c;clip-path:polygon(50% 0,61% 12%,77% 6%,80% 22%,96% 27%,89% 42%,100% 55%,86% 64%,89% 81%,72% 82%,64% 97%,50% 88%,36% 97%,28% 82%,11% 81%,14% 64%,0 55%,11% 42%,4% 27%,20% 22%,23% 6%,39% 12%);display:grid;place-items:center;text-align:center">
+     <div><div style="font-size:3.6cqw;font-weight:600">เหลือ</div><div class="sv" style="font-size:9cqw;line-height:1">฿XXX</div></div></div>
+   <div class="a" style="right:6cqw;bottom:9%;font-size:4.2cqw;font-weight:600">ทักแชทรับโปร →</div>`}
+];
+
+const grid = document.getElementById('grid');
+grid.innerHTML = covers.map(c => `
+  <article class="card${c.ratio==='16:9'?' wide':''}" data-prod="${c.prod}">
+    <div class="cover" style="--r:${R[c.ratio]};background:${c.bg}">${c.html}${c.ratio==='9:16'?sz:''}</div>
+    <div class="meta">
+      <div class="tags"><span class="tag${c.prod==='serum'?' g':''}">${c.id} · ${c.prod==='serum'?'เซรั่ม':'กำจัดขนคุณหนู'}</span><span class="tag n">${c.ratio} · ${P[c.ratio]}</span></div>
+      <h3>${c.headline}</h3>
+      <p><b>วางแนว:</b> ${c.layout}</p>
+      <p><b>ภาพที่ต้องถ่าย:</b> ${c.shoot}</p>
+      <button class="copy" id="copy-${c.id}" data-t="${c.headline.replace(/"/g,'&quot;')}">คัดลอกพาดหัว</button>
+    </div>
+  </article>`).join('');
+
+grid.addEventListener('click', async e => {
+  const b = e.target.closest('.copy'); if (!b) return;
+  try { await navigator.clipboard.writeText(b.dataset.t); b.textContent = 'คัดลอกแล้ว'; }
+  catch { b.textContent = 'คัดลอกไม่ได้ ให้เลือกข้อความเอง'; }
+  setTimeout(() => b.textContent = 'คัดลอกพาดหัว', 1600);
+});
+
+document.querySelectorAll('[data-f]').forEach(btn => btn.addEventListener('click', () => {
+  document.querySelectorAll('[data-f]').forEach(x => x.setAttribute('aria-pressed', x === btn));
+  const f = btn.dataset.f;
+  grid.querySelectorAll('.card').forEach(c => c.hidden = f !== 'all' && c.dataset.prod !== f);
+}));
+
+const szBtn = document.getElementById('t-sz');
+szBtn.addEventListener('click', () => {
+  const on = szBtn.getAttribute('aria-pressed') !== 'true';
+  szBtn.setAttribute('aria-pressed', on);
+  grid.classList.toggle('show-sz', on);
+});
+</script>
+</body>
+</html>
