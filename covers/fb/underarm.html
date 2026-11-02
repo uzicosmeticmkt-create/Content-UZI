@@ -36,6 +36,12 @@ body{background:#ccc;font-family:"Prompt",sans-serif;display:grid;gap:40px;paddi
 .k-persim{background:radial-gradient(circle at 50% 56%,#f08a3c 0 30%,transparent 31%),radial-gradient(ellipse 22% 9% at 50% 28%,#6f8f4a 0 98%,transparent),linear-gradient(135deg,#fff1e2,#f8d3b0)}
 .k-trx{background:radial-gradient(circle at 30% 35%,#fff 0 12%,transparent 13%),radial-gradient(circle at 64% 60%,#f2e7d4 0 18%,transparent 19%),linear-gradient(135deg,#fbf7ef,#ece1cc)}
 .frame{position:absolute;border:1.5px solid var(--line);outline:1px solid rgba(181,150,106,.4);outline-offset:10px;display:grid;place-items:center;text-align:center}
+.sc{position:absolute;filter:drop-shadow(0 24px 30px rgba(70,55,40,.25))}
+.rg{position:absolute;border-radius:50%;border:1.5px solid rgba(255,255,255,.95);background:radial-gradient(circle,rgba(255,255,255,.7),rgba(255,255,255,.15) 72%);box-shadow:inset 0 0 40px rgba(255,255,255,.9),0 0 0 1px rgba(181,150,106,.15)}
+.pd{position:absolute;display:flex;flex-direction:column;align-items:center}
+.pd i{display:block;border-radius:50%;background:linear-gradient(180deg,#ffffff,#e8e3dd);box-shadow:inset 0 -6px 12px rgba(0,0,0,.05),0 14px 28px rgba(80,60,40,.14)}
+.pd i:nth-child(1){width:74%;aspect-ratio:4.4/1}
+.pd i:nth-child(2){width:100%;aspect-ratio:5.2/1;margin-top:-5%}
 .row{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid rgba(181,150,106,.55);padding:14px 0}
 </style>
 </head>
@@ -63,18 +69,17 @@ body{background:#ccc;font-family:"Prompt",sans-serif;display:grid;gap:40px;paddi
   <div class="a c eb" style="top:70px">KEY INGREDIENTS</div>
   <div class="a c cin" style="top:118px;font-size:76px">WHITE SHOT MASK</div>
   <div class="a c th" style="top:226px;font-size:34px">3 สารสำคัญในซองเดียว</div>
-  <div class="ol" style="left:268px;top:368px;width:544px;height:544px;border-radius:50%"></div>
-  <div class="fr" style="left:290px;top:390px;width:500px;height:500px;border-radius:50%"><img src="src/sachet.jpg" style="object-position:50% 30%"></div>
-  <i class="ln" style="left:205px;top:445px;width:90px;height:1.5px"></i>
-  <i class="ic k-rose" style="left:55px;top:370px;width:150px;height:150px"></i>
-  <div class="a" style="left:20px;top:532px;width:220px;text-align:center"><div class="it">ROSE'S<br>STEM CELL</div><div class="is">นวัตกรรมจากกุหลาบ</div></div>
-  <i class="ln" style="left:785px;top:715px;width:90px;height:1.5px"></i>
-  <i class="ic k-crys" style="left:875px;top:640px;width:150px;height:150px"></i>
-  <div class="a" style="left:840px;top:802px;width:220px;text-align:center"><div class="it">NIACINAMIDE<br>8%</div><div class="is">ผิวดูกระจ่างใส</div></div>
-  <i class="ln" style="left:540px;top:935px;width:1.5px;height:40px"></i>
-  <i class="ic k-pearl" style="left:465px;top:975px;width:150px;height:150px"></i>
-  <div class="a" style="left:390px;top:1136px;width:300px;text-align:center"><div class="it">NAG 4%</div><div class="is">ผิวแลดูเรียบเนียน สม่ำเสมอ</div></div>
-  <div class="foot" style="left:0;right:0;top:1262px;text-align:center;letter-spacing:.2em">INGREDIENTS FROM SWITZERLAND · FRANCE</div>
+  <div class="rg" style="left:250px;top:330px;width:580px;height:580px"></div>
+  <img class="sc" src="src/cut-whiteshot.png" style="left:375px;top:320px;height:620px">
+  <div class="pd" style="left:310px;top:912px;width:460px"><i></i><i></i></div>
+  <i class="ic k-rose" style="left:55px;top:400px;width:150px;height:150px"></i><i class="ln" style="left:205px;top:475px;width:150px;height:1.5px"></i>
+  <div class="a" style="left:20px;top:562px;width:220px;text-align:center"><div class="it">ROSE'S<br>STEM CELL</div><div class="is">นวัตกรรมจากกุหลาบ</div></div>
+  <i class="ic k-crys" style="left:875px;top:400px;width:150px;height:150px"></i><i class="ln" style="left:725px;top:475px;width:150px;height:1.5px"></i>
+  <div class="a" style="left:840px;top:562px;width:220px;text-align:center"><div class="it">NIACINAMIDE<br>8%</div><div class="is">ผิวดูกระจ่างใส</div></div>
+  <i class="ic k-pearl" style="left:55px;top:760px;width:150px;height:150px"></i><i class="ln" style="left:205px;top:835px;width:160px;height:1.5px"></i>
+  <div class="a" style="left:20px;top:922px;width:220px;text-align:center"><div class="it">NAG 4%</div><div class="is">ผิวแลดูเรียบเนียน</div></div>
+  <div class="a c th" style="top:1130px;font-size:34px">ทาก่อนนอนทุกคืน · ซองละ 59.-</div>
+  <div class="foot" style="left:0;right:0;top:1200px;text-align:center;letter-spacing:.2em">INGREDIENTS FROM SWITZERLAND · FRANCE</div>
   <div class="brand">UZI COSMETIC</div>
 </section>
 
@@ -89,10 +94,11 @@ body{background:#ccc;font-family:"Prompt",sans-serif;display:grid;gap:40px;paddi
   <i class="ln" style="left:710px;top:150px;width:1.5px;height:220px"></i>
   <div class="a cin" style="left:730px;top:140px;width:300px;font-size:150px;color:var(--gold);text-align:center">X9</div>
   <div class="a it" style="left:730px;top:320px;width:300px;text-align:center">สารสกัด</div>
-  <div class="ol" style="left:76px;top:426px;width:928px;height:668px;border-radius:30px"></div>
-  <div class="fr" style="left:90px;top:440px;width:900px;height:640px;border-radius:24px"><img src="src/duo-scene.jpg" style="object-position:50% 45%"></div>
-  <div class="a c th" style="top:1130px;font-size:46px">ใต้วงแขนดูกระจ่างใส ในซองละ 59.-</div>
-  <div class="a c is" style="top:1200px;font-size:26px">Underarm White Shot Mask · Overnight Mask</div>
+  <div class="rg" style="left:250px;top:420px;width:580px;height:580px"></div>
+  <img class="sc" src="src/cut-whiteshot.png" style="left:390px;top:430px;height:590px">
+  <div class="pd" style="left:320px;top:990px;width:440px"><i></i><i></i></div>
+  <div class="a c th" style="top:1150px;font-size:46px">ใต้วงแขนดูกระจ่างใส ในซองละ 59.-</div>
+  <div class="a c is" style="top:1220px;font-size:26px">Underarm White Shot Mask · Overnight Mask</div>
   <div class="brand">UZI COSMETIC</div>
 </section>
 
@@ -102,8 +108,9 @@ body{background:#ccc;font-family:"Prompt",sans-serif;display:grid;gap:40px;paddi
   <div class="a c th" style="top:220px;font-size:40px">ใสข้ามคืน* ทาก่อนนอน ตื่นมามั่นใจ</div>
   <div class="ol" style="left:156px;top:306px;width:768px;height:924px;border-radius:384px 384px 0 0"></div>
   <div class="fr" style="left:170px;top:320px;width:740px;height:910px;border-radius:370px 370px 0 0"><img src="src/bed-night.jpg" style="object-position:50% 30%"></div>
-  <div class="a" style="left:800px;top:1050px;width:190px;height:190px;border-radius:50%;background:#fff;box-shadow:0 16px 40px rgba(90,70,50,.2);display:grid;place-items:center;text-align:center;border:1.5px solid var(--line)">
+  <div class="a" style="left:90px;top:1040px;width:190px;height:190px;border-radius:50%;background:#fff;box-shadow:0 16px 40px rgba(90,70,50,.2);display:grid;place-items:center;text-align:center;border:1.5px solid var(--line)">
     <div><div class="cin" style="font-size:58px;color:var(--gold)">59.-</div><div class="th" style="font-size:22px">ต่อซอง</div></div></div>
+  <img class="sc" src="src/cut-whiteshot.png" style="left:640px;top:870px;height:400px;transform:rotate(4deg)">
   <div class="foot" style="left:60px;top:1258px">*ผลลัพธ์ขึ้นอยู่กับแต่ละบุคคล</div>
   <div class="brand">UZI COSMETIC</div>
 </section>
@@ -134,8 +141,9 @@ body{background:#ccc;font-family:"Prompt",sans-serif;display:grid;gap:40px;paddi
     <div class="row" style="justify-content:flex-start;gap:24px;padding-top:40px"><span class="cin" style="font-size:56px;color:var(--gold)">03</span><span class="th" style="font-size:36px">ผิวแลดูเรียบเนียน</span></div>
   </div>
   <div class="a th" style="left:80px;top:1010px;font-size:34px">ซองละ 59.- ทาก่อนนอนทุกคืน</div>
-  <div class="ol" style="left:596px;top:136px;width:448px;height:1000px;border-radius:224px"></div>
-  <div class="fr" style="left:610px;top:150px;width:420px;height:972px;border-radius:210px"><img src="src/sachet.jpg" style="object-position:50% 50%"></div>
+  <div class="rg" style="left:575px;top:260px;width:470px;height:470px"></div>
+  <img class="sc" src="src/cut-whiteshot.png" style="left:600px;top:250px;height:800px">
+  <div class="pd" style="left:575px;top:1020px;width:470px"><i></i><i></i></div>
   <div class="foot" style="left:80px;top:1080px">*ผลลัพธ์ขึ้นอยู่กับแต่ละบุคคล</div>
   <div class="brand">UZI COSMETIC</div>
 </section>
@@ -145,8 +153,9 @@ body{background:#ccc;font-family:"Prompt",sans-serif;display:grid;gap:40px;paddi
   <div class="a c" style="top:46px;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:200px;line-height:1;color:#b38a3a">Barbie</div>
   <div class="a c cin" style="top:270px;font-size:50px">CLEAR &amp; FRESH<br>UNDERARM MASK</div>
   <div class="a c th" style="top:400px;font-size:32px">ทาตอนเช้า สดชื่นทั้งวัน ใต้วงแขนดูกระจ่างใส</div>
-  <div class="ol" style="left:256px;top:476px;width:568px;height:694px;border-radius:284px 284px 0 0"></div>
-  <div class="fr" style="left:270px;top:490px;width:540px;height:680px;border-radius:270px 270px 0 0"><img src="src/tube-scene.jpg" style="object-position:50% 40%"></div>
+  <div class="rg" style="left:290px;top:520px;width:500px;height:500px"></div>
+  <img class="sc" src="src/cut-barbie.png" style="left:451px;top:480px;height:660px">
+  <div class="pd" style="left:370px;top:1110px;width:340px"><i></i><i></i></div>
   <i class="ic k-trx" style="left:60px;top:560px;width:140px;height:140px"></i>
   <div class="a" style="left:20px;top:712px;width:220px;text-align:center"><div class="it">TRANEXAMIC 3%</div><div class="is">ผิวดูสม่ำเสมอ</div></div>
   <i class="ic k-crys" style="left:60px;top:850px;width:140px;height:140px"></i>
@@ -155,7 +164,7 @@ body{background:#ccc;font-family:"Prompt",sans-serif;display:grid;gap:40px;paddi
   <div class="a" style="left:840px;top:712px;width:220px;text-align:center"><div class="it">PERSIMMON 5%</div><div class="is">ช่วยดักจับกลิ่น</div></div>
   <i class="ic k-euca" style="left:880px;top:850px;width:140px;height:140px"></i>
   <div class="a" style="left:840px;top:1002px;width:220px;text-align:center"><div class="it">GLOBULE 1%</div><div class="is">ดูแลกลิ่นกาย</div></div>
-  <div class="a c" style="top:1198px"><span class="cin" style="font-size:40px;color:var(--gold)">40 g · 390.-</span></div>
+  <div class="a c" style="top:1222px"><span class="cin" style="font-size:40px;color:var(--gold)">40 g · 390.-</span></div>
   <div class="brand">UZI COSMETIC</div>
 </section>
 
@@ -170,8 +179,9 @@ body{background:#ccc;font-family:"Prompt",sans-serif;display:grid;gap:40px;paddi
     <div class="row"><span class="th" style="font-size:34px">10 ซอง</span><span class="cin" style="font-size:44px;color:var(--brown)">539.-</span></div>
   </div>
   <div class="a th" style="left:80px;top:1040px;font-size:40px">ทักแชทรับโปร →</div>
-  <div class="ol" style="left:606px;top:96px;width:428px;height:1048px;border-radius:214px"></div>
-  <div class="fr" style="left:620px;top:110px;width:400px;height:1020px;border-radius:200px"><img src="src/sachet.jpg" style="object-position:50% 50%"></div>
+  <div class="rg" style="left:585px;top:240px;width:460px;height:460px"></div>
+  <img class="sc" src="src/cut-whiteshot.png" style="left:600px;top:230px;height:800px">
+  <div class="pd" style="left:580px;top:1000px;width:470px"><i></i><i></i></div>
   <div class="brand">UZI COSMETIC</div>
 </section>
 
@@ -179,11 +189,12 @@ body{background:#ccc;font-family:"Prompt",sans-serif;display:grid;gap:40px;paddi
 <section class="pg" id="u09">
   <div class="a c cin" style="top:80px;font-size:92px">DAILY RITUAL</div>
   <div class="a c th" style="top:198px;font-size:36px">ดูแลใต้วงแขน เช้า–ก่อนนอน ทุกวัน</div>
-  <div class="ol" style="left:66px;top:276px;width:948px;height:548px;border-radius:34px"></div>
-  <div class="fr" style="left:80px;top:290px;width:920px;height:520px;border-radius:28px"><img src="src/model-duo.jpg" style="object-position:50% 38%"></div>
-  <div class="a" style="left:80px;top:870px;width:280px"><div class="cin" style="font-size:64px;color:var(--gold)">01</div><i class="ln" style="position:relative;display:block;width:100%;height:1.5px;margin:14px 0 18px"></i><div class="th" style="font-size:34px">เช้า</div><div class="is" style="font-size:24px">Barbie ทาใต้วงแขน<br>สดชื่นทั้งวัน</div></div>
-  <div class="a" style="left:400px;top:870px;width:280px"><div class="cin" style="font-size:64px;color:var(--gold)">02</div><i class="ln" style="position:relative;display:block;width:100%;height:1.5px;margin:14px 0 18px"></i><div class="th" style="font-size:34px">ก่อนนอน</div><div class="is" style="font-size:24px">White Shot มาส์กข้ามคืน<br>ใสข้ามคืน*</div></div>
-  <div class="a" style="left:720px;top:870px;width:280px"><div class="cin" style="font-size:64px;color:var(--gold)">03</div><i class="ln" style="position:relative;display:block;width:100%;height:1.5px;margin:14px 0 18px"></i><div class="th" style="font-size:34px">ทุกวัน</div><div class="is" style="font-size:24px">ใช้ต่อเนื่อง<br>ผิวแลดูเรียบเนียน</div></div>
+  <div class="ol" style="left:66px;top:286px;width:488px;height:744px;border-radius:244px 244px 0 0"></div>
+  <div class="fr" style="left:80px;top:300px;width:460px;height:730px;border-radius:230px 230px 0 0"><img src="src/model-duo.jpg" style="object-position:50% 50%"></div>
+  <div class="a" style="left:610px;top:320px;width:400px"><div style="display:flex;gap:22px;align-items:baseline"><span class="cin" style="font-size:60px;color:var(--gold)">01</span><span class="th" style="font-size:36px">เช้า</span></div><i class="ln" style="position:relative;display:block;width:100%;height:1.5px;margin:12px 0 14px"></i><div class="is" style="font-size:26px">Barbie ทาใต้วงแขน สดชื่นทั้งวัน</div></div>
+  <div class="a" style="left:610px;top:560px;width:400px"><div style="display:flex;gap:22px;align-items:baseline"><span class="cin" style="font-size:60px;color:var(--gold)">02</span><span class="th" style="font-size:36px">ก่อนนอน</span></div><i class="ln" style="position:relative;display:block;width:100%;height:1.5px;margin:12px 0 14px"></i><div class="is" style="font-size:26px">White Shot มาส์กข้ามคืน ใสข้ามคืน*</div></div>
+  <div class="a" style="left:610px;top:800px;width:400px"><div style="display:flex;gap:22px;align-items:baseline"><span class="cin" style="font-size:60px;color:var(--gold)">03</span><span class="th" style="font-size:36px">ทุกวัน</span></div><i class="ln" style="position:relative;display:block;width:100%;height:1.5px;margin:12px 0 14px"></i><div class="is" style="font-size:26px">ใช้ต่อเนื่อง ผิวแลดูเรียบเนียน</div></div>
+  <div class="a c th" style="top:1100px;font-size:34px">Barbie 390.- · White Shot ซองละ 59.-</div>
   <div class="foot" style="left:80px;top:1250px">*ผลลัพธ์ขึ้นอยู่กับแต่ละบุคคล</div>
   <div class="brand" style="left:auto;right:80px">UZI COSMETIC</div>
 </section>
@@ -193,12 +204,14 @@ body{background:#ccc;font-family:"Prompt",sans-serif;display:grid;gap:40px;paddi
   <div class="a c eb" style="top:70px">THE DUO SET</div>
   <div class="a c cin" style="top:118px;font-size:90px">DAY &amp; NIGHT</div>
   <div class="a c th" style="top:228px;font-size:36px">เซ็ตคู่ดูแลใต้วงแขน Barbie + White Shot</div>
-  <div class="ol" style="left:166px;top:306px;width:748px;height:748px;border-radius:50%"></div>
-  <div class="fr" style="left:180px;top:320px;width:720px;height:720px;border-radius:50%"><img src="src/duo-scene.jpg" style="object-position:50% 45%"></div>
-  <div class="a" style="left:120px;top:1086px;width:400px;text-align:center"><div class="th" style="font-size:28px">Barbie 40 g</div><div class="cin" style="font-size:56px;color:var(--gold)">390.-</div></div>
-  <i class="ln" style="left:540px;top:1096px;width:1.5px;height:110px"></i>
-  <div class="a" style="left:560px;top:1086px;width:400px;text-align:center"><div class="th" style="font-size:28px">White Shot</div><div class="cin" style="font-size:56px;color:var(--gold)">59.-<span style="font-size:28px">/ซอง</span></div></div>
-  <div class="a c th" style="top:1232px;font-size:32px">ทักแชทรับโปรเซ็ตคู่ →</div>
+  <div class="rg" style="left:210px;top:320px;width:660px;height:660px"></div>
+  <img class="sc" src="src/cut-barbie.png" style="left:300px;top:330px;height:620px">
+  <img class="sc" src="src/cut-whiteshot.png" style="left:500px;top:390px;height:560px">
+  <div class="pd" style="left:250px;top:915px;width:580px"><i></i><i></i></div>
+  <div class="a" style="left:120px;top:1100px;width:400px;text-align:center"><div class="th" style="font-size:28px">Barbie 40 g</div><div class="cin" style="font-size:56px;color:var(--gold)">390.-</div></div>
+  <i class="ln" style="left:540px;top:1110px;width:1.5px;height:110px"></i>
+  <div class="a" style="left:560px;top:1100px;width:400px;text-align:center"><div class="th" style="font-size:28px">White Shot</div><div class="cin" style="font-size:56px;color:var(--gold)">59.-<span style="font-size:28px">/ซอง</span></div></div>
+  <div class="a c th" style="top:1250px;font-size:32px">ทักแชทรับโปรเซ็ตคู่ →</div>
 </section>
 
 </body>
