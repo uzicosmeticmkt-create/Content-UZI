@@ -33,7 +33,7 @@
 | 4 | 5.0–6.0 | Insert: มือกำโพยแน่นจนกระดาษยับ นิ้วสั่น | Macro | เสียงกระดาษยับ | – |
 | 5 | 6.0–7.5 | เธอเห็นเงาตัวเองสะท้อนในเลนส์กล้องทีวีตัวใหญ่ ดูซีด ตัวเล็ก ไม่มั่นใจ | ECU ที่เลนส์ เห็นเงาเธอโค้งในกระจก | – | – |
 | 6 | 7.5–9.0 | มือล้วงกระเป๋าเบลเซอร์ หยิบ UZI Matte Liquid Lipstick ออกมา **ทุกอย่างรอบตัวหยุดนิ่ง:** แฟลชค้างกลางอากาศ นักข่าวหยุดกลางท่าทาง | Medium, freeze-frame รอบตัว มีแค่เธอที่ขยับ | **เงียบสนิท** มีแค่ ASMR "คลิก" ตอนเปิดฝา | – |
-| 7 | 9.0–11.5 | ใช้เงาในเลนส์กล้องเป็นกระจก ปาดเดียว สีแดงอิฐกลบปากซีดมิด | Macro ริมฝีปาก slow-mo | เสียงปาดลิปนุ่ม ๆ | **"ปาดเดียว"** |
+| 7 | 9.0–11.5 | ใช้เงาในเลนส์กล้องเป็นกระจก ปาดเดียว สีชมพูคอรัลกลบปากซีดมิด (หัวฟองน้ำ doe-foot) | Macro ริมฝีปาก slow-mo | เสียงปาดลิปนุ่ม ๆ | **"ปาดเดียว"** |
 | 8 | 11.5–12.5 | เม้มปาก 1 ครั้ง ตาเงยขึ้นมองตรง เปลี่ยนเป็นคนละคน | ECU ปาก แล้ว rack focus ไปที่ตา | **Beat drop** เสียงห้องกลับมาพร้อมกลองหนัก | – |
 | 9 | 12.5–15.0 | เธอก้าวเดินไปที่โพเดียม ไมค์ที่เคยรุมค่อย ๆ ถอยและแหวกทางให้ นักข่าวสีหน้าเปลี่ยนจากรุกเป็นอึ้ง | Front tracking slow-mo | ดนตรี build | – |
 | 10 | 15.0–17.0 | ช่างภาพยิงแฟลชใส่หน้าเธอใกล้ ๆ ปากแมทเนียนกริบ ไม่เงา ไม่เป็นคราบใต้แฟลช | Close-up กับแฟลชจริง | ชัตเตอร์ 3 ครั้งตรงจังหวะกลอง | **"แฟลชรัวแค่ไหน ก็ยังแมทกริบ"** |
@@ -47,7 +47,7 @@
 
 - **โทนภาพ:** ช่วงประหม่า (ช็อต 1–5) ใช้โทนเย็น เทาฟ้า คอนทราสต์แรง แฟลชขาวแสบตา หลังทาลิป (ช็อต 8 เป็นต้นไป) เปลี่ยนเป็นโทนอุ่น มีแสงทองแบรนด์ (#d4af37) ส่องที่ตัวเธอ
 - **นักแสดง:** ผู้หญิงวัยทำงาน ลุคผู้บริหารรุ่นใหม่หรือโฆษก ใส่เบลเซอร์สีครีมให้ตัดกับฝูงนักข่าวชุดดำ/เทา (เธอเป็นจุดสว่างจุดเดียวในเฟรม)
-- **สีลิป:** แดงอิฐ / แดงเบอร์รี่ ขึ้นกล้องชัด ให้คนดูเห็นความต่าง Before/After ทันที
+- **สีลิป:** UZI LIP MATTE เฉดชมพูคอรัล (ตามภาพสินค้า) ตัดกับปากซีดช่วงแรก ให้เห็น Before/After ชัด
 - **การแสดง:** ช่วงแรกประหม่าแบบสมจริง (ไม่ร้องไห้ ไม่ฟูมฟาย) ช่วงหลังมั่นใจด้วยความนิ่ง ไม่ต้องยิ้มกว้าง
 - **ตัดต่อ:** ช่วงแรกตัดเร็ว กล้องสั่น เสียงวุ่นวาย ช่วงทาลิปเงียบสนิทและเกือบหยุดนิ่ง หลัง beat drop ใช้ slow-mo มั่นคง กล้องนิ่ง ให้ความต่างของ 2 ช่วงชัดที่สุด
 - **นักข่าวตัวประกอบ:** ถ่ายจริงใช้ราว 15–25 คน แล้วใช้ AI หรือ CG ขยายฝูงชนในช็อต 1 และ 12
@@ -75,7 +75,7 @@
 > Medium shot. Everything around the woman is frozen mid-motion: reporters frozen mid-shout, camera flashes frozen as bright bursts in the air. Only she moves, calmly pulling a lipstick from her blazer pocket. Silent, surreal, cinematic, shallow depth of field.
 
 **Shot 9 — Microphones part**
-> Front tracking shot, slow motion. The woman in a cream blazer, now with bold brick-red matte lips, walks confidently toward a podium. The crowd of reporters steps back and the thrust microphones pull away, opening a path for her. Their expressions shift from aggressive to stunned. Warm golden light on her, cool tones on the crowd.
+> Front tracking shot, slow motion. The woman in a cream blazer, now with coral-pink matte lips, walks confidently toward a podium. The crowd of reporters steps back and the thrust microphones pull away, opening a path for her. Their expressions shift from aggressive to stunned. Warm golden light on her, cool tones on the crowd.
 
 **Shot 12 — The room goes silent**
 > Wide shot from behind the woman at a podium facing a large press room. All the reporters slowly lower their cameras and microphones, silent and attentive. Warm golden key light on her, cinematic, powerful stillness.
