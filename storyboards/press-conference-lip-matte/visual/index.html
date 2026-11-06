@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>สตอรี่บอร์ดภาพ: วันแถลงข่าว × UZI Matte Liquid Lipstick</title>
+<style>
+  @font-face { font-family: "Prompt"; font-weight: 400; src: url(fonts/prompt-thai-400-normal.woff2) format("woff2"); unicode-range: U+0E01-0E5B, U+200C-200D, U+25CC; }
+  @font-face { font-family: "Prompt"; font-weight: 600; src: url(fonts/prompt-thai-600-normal.woff2) format("woff2"); unicode-range: U+0E01-0E5B, U+200C-200D, U+25CC; }
+  @font-face { font-family: "Prompt"; font-weight: 700; src: url(fonts/prompt-thai-700-normal.woff2) format("woff2"); unicode-range: U+0E01-0E5B, U+200C-200D, U+25CC; }
+  @font-face { font-family: "Prompt"; font-weight: 400; src: url(fonts/prompt-latin-400-normal.woff2) format("woff2"); unicode-range: U+0000-00FF, U+2000-206F, U+20AC, U+2122; }
+  @font-face { font-family: "Prompt"; font-weight: 600; src: url(fonts/prompt-latin-600-normal.woff2) format("woff2"); unicode-range: U+0000-00FF, U+2000-206F, U+20AC, U+2122; }
+  @font-face { font-family: "Prompt"; font-weight: 700; src: url(fonts/prompt-latin-700-normal.woff2) format("woff2"); unicode-range: U+0000-00FF, U+2000-206F, U+20AC, U+2122; }
+
+  :root {
+    --gold: #d4af37; --rose: #b76e79; --dark: #2c2c2c; --bg: #fcf9f9;
+    --ink: #2b2526; --muted: #7b6f71; --line: #eadfe0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "Prompt", "Noto Color Emoji", sans-serif; background: #e9e3e4; color: var(--ink); }
+  .page { width: 640px; margin: 0 auto 24px; background: var(--bg); padding: 28px 26px 22px; }
+
+  /* Header */
+  .brand { display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; color: var(--muted); letter-spacing: .5px; }
+  .brand b { color: var(--dark); letter-spacing: 3px; font-weight: 700; }
+  .brand b span { color: var(--gold); }
+  h1 { font-size: 30px; font-weight: 700; line-height: 1.25; margin: 14px 0 6px; }
+  h1 small { display: block; font-size: 16px; font-weight: 400; color: var(--rose); margin-top: 2px; }
+  .logline { font-size: 15.5px; line-height: 1.65; background: #fff; border-left: 4px solid var(--rose); padding: 12px 14px; border-radius: 6px; margin: 14px 0 12px; }
+  .legend { display: flex; gap: 14px; font-size: 12.5px; color: var(--muted); margin-bottom: 6px; flex-wrap: wrap; }
+  .legend i { font-style: normal; display: inline-block; padding: 1px 8px; border-radius: 20px; font-size: 11.5px; font-weight: 600; margin-right: 4px; }
+
+  /* Act header */
+  .act { margin: 18px 0 12px; }
+  .act .no { font-size: 13px; font-weight: 600; letter-spacing: 2px; color: var(--muted); }
+  .act h2 { font-size: 24px; font-weight: 700; line-height: 1.2; }
+  .act p { font-size: 14px; color: var(--muted); margin-top: 2px; }
+  .mood { height: 8px; border-radius: 8px; margin-top: 8px; }
+  .mood.cold { background: linear-gradient(90deg, #4b5a6b, #8fa1b3); }
+  .mood.shift { background: linear-gradient(90deg, #6f8396, #c9a27a, #e8b96a); }
+  .mood.warm { background: linear-gradient(90deg, #e8b96a, var(--gold), #f6d98e); }
+  .mood-label { display: flex; justify-content: space-between; font-size: 11.5px; color: var(--muted); margin-top: 3px; }
+
+  /* Shot card */
+  .shot { display: flex; gap: 16px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 12px; margin-bottom: 12px; }
+  .frame { position: relative; flex: 0 0 200px; height: 356px; border-radius: 10px; overflow: hidden; background: #111; }
+  .frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .frame img.croptop { object-position: center 85%; transform: scale(1.12); transform-origin: center bottom; }
+  .tag { position: absolute; top: 8px; left: 8px; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 20px; z-index: 3; }
+  .tag.old, .legend .old { background: rgba(255,255,255,.88); color: #555; }
+  .tag.new, .legend .new { background: var(--gold); color: #2b2100; }
+  .tag.fix, .legend .fix { background: var(--rose); color: #fff; }
+
+  /* On-screen overlays (how viewers will see it) */
+  .ov-title { position: absolute; left: 10px; right: 10px; top: 34%; text-align: center; color: #fff; font-weight: 700; font-size: 17px; line-height: 1.3; text-shadow: 0 2px 8px rgba(0,0,0,.85), 0 0 2px #000; z-index: 2; }
+  .ov-title.top { top: 12%; }
+  .ov-title.gold { color: #ffe7a3; }
+  .ov-sub { position: absolute; left: 8px; right: 8px; bottom: 12px; text-align: center; z-index: 2; }
+  .ov-sub span { display: inline; background: rgba(0,0,0,.62); color: #fff; font-size: 12.5px; line-height: 1.75; padding: 2px 6px; border-radius: 4px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+  .ov-live { position: absolute; top: 34px; right: 10px; background: #e0262b; color: #fff; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 4px; z-index: 2; letter-spacing: 1px; }
+  .ov-chips { position: absolute; left: 8px; right: 8px; top: 40%; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; z-index: 2; }
+  .ov-chips span { background: rgba(255,255,255,.9); color: var(--rose); font-weight: 700; font-size: 12px; padding: 3px 9px; border-radius: 20px; box-shadow: 0 2px 6px rgba(0,0,0,.25); }
+  .ov-chips span:nth-child(2) { margin-left: 26px; }
+  .ov-chips span:nth-child(3) { margin-left: 8px; }
+
+  /* Placeholder for new shots */
+  .ph { position: absolute; inset: 0; background: radial-gradient(circle at 50% 35%, #5a4a3a 0%, #241d18 70%); border: 2px dashed var(--gold); border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 18px 14px; color: #f3e6c8; }
+  .ph .ic { font-size: 46px; line-height: 1; margin-bottom: 10px; }
+  .ph .t { font-size: 13px; font-weight: 600; color: var(--gold); letter-spacing: 1px; margin-bottom: 6px; }
+  .ph .d { font-size: 12.5px; line-height: 1.55; }
+  .ph.cool { background: radial-gradient(circle at 50% 35%, #34404d 0%, #14181d 70%); }
+
+  /* Text side */
+  .txt { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+  .head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 6px; }
+  .num { font-size: 30px; font-weight: 700; color: var(--rose); line-height: 1; }
+  .time { font-size: 13px; color: var(--muted); }
+  .key { font-size: 11px; font-weight: 700; color: #fff; background: var(--dark); padding: 1px 7px; border-radius: 4px; }
+  .story { font-size: 18.5px; line-height: 1.65; margin-bottom: 10px; }
+  .meta { margin-top: auto; font-size: 13.5px; line-height: 1.6; color: var(--muted); border-top: 1px dashed var(--line); padding-top: 8px; }
+  .meta div { margin-bottom: 2px; }
+  .meta b { color: var(--ink); font-weight: 600; }
+  .say { font-size: 15px; color: var(--ink); background: #faf3f4; border-radius: 8px; padding: 6px 10px; margin-bottom: 10px; line-height: 1.6; }
+
+  /* End card overlay */
+  .endcard { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; justify-content: space-between; padding: 30px 10px 12px; text-align: center; color: #fff; }
+  .endcard .logo { font-size: 26px; font-weight: 700; letter-spacing: 6px; text-shadow: 0 2px 10px rgba(0,0,0,.7); }
+  .endcard .pn { font-size: 12px; letter-spacing: 1px; text-shadow: 0 1px 6px rgba(0,0,0,.9); }
+  .endcard .bottom { background: rgba(20,14,10,.72); border-radius: 10px; padding: 8px 6px; }
+  .endcard .claim { font-size: 11px; line-height: 1.5; color: #f3e6c8; }
+  .endcard .promo { font-size: 11px; color: #ffe7a3; margin: 3px 0 6px; }
+  .endcard .cta { display: inline-block; background: var(--gold); color: #2b2100; font-weight: 700; font-size: 13px; padding: 4px 14px; border-radius: 20px; }
+
+  .alt { background: #2c2c2c; color: #f3e6c8; border-radius: 14px; padding: 14px 16px; margin-top: 6px; font-size: 14px; line-height: 1.7; }
+  .nw { white-space: nowrap; }
+  .alt b { color: var(--gold); }
+  .foot { text-align: center; font-size: 11.5px; color: var(--muted); margin-top: 14px; }
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE 1 ============ -->
+<section class="page" id="page1">
+  <div class="brand"><b><span>UZI</span> COSMETIC</b><span>สตอรี่บอร์ดภาพ · หน้า 1/3</span></div>
+  <h1>“วันแถลงข่าว”<small>UZI Matte Liquid Lipstick · คลิปแนวตั้ง 9:16 · ประมาณ 40 วินาที</small></h1>
+  <div class="logline">
+    อีกสามนาที เธอต้องออกไปแถลงข่าว <b>ครั้งแรกในชีวิต</b> ความกดดันทำให้เธอเกือบพัง
+    จนกระทั่งเธอกลับไปหน้ากระจก แล้วทาลิปแท่งโปรด เธอจึงพบว่าสิ่งที่ต้องเตรียมไม่ใช่<span class="nw">สคริปต์</span> <b>แต่คือ<span class="nw">ความมั่นใจ</span></b>
+  </div>
+  <div class="legend">
+    <span><i class="old">ภาพเดิม</i>มีในคลิปแล้ว</span>
+    <span><i class="new">ช็อตใหม่</i>ต้องถ่าย/เจนเพิ่ม</span>
+    <span><i class="fix">ควรเจนใหม่</i>มีแล้วแต่ต้องแก้</span>
+    <span>ตัวหนังสือบนภาพ = สิ่งที่คนดูจะเห็นจริง</span>
+  </div>
+
+  <div class="act">
+    <div class="no">องก์ 1</div>
+    <h2>ก่อนม่านเปิด</h2>
+    <p>แรงกดดันที่ถาโถมเข้ามา</p>
+    <div class="mood cold"></div>
+    <div class="mood-label"><span>โทนสี: เย็น เทาฟ้า</span><span>อารมณ์: กลัว ตื่นเต้น</span></div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag old">ภาพเดิม</span><img src="img/p01.jpg">
+      <div class="ov-title top">แถลงข่าว<br>ครั้งแรกในชีวิต</div>
+      <div class="ov-sub"><span>“อีกสามนาที…”</span></div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">01</span><span class="time">0:00–0:02</span><span class="key">HOOK</span></div>
+      <div class="story">อีกสามนาที เธอต้องออกไปแถลงข่าวครั้งแรกในชีวิต เธอแอบมองผ่านช่องม่าน หัวใจเต้นแรงจนได้ยินเสียงตัวเอง</div>
+      <div class="meta"><div>🔊 <b>เสียง:</b> ชัตเตอร์กล้องรัว + เสียงหัวใจเต้น</div><div>🎬 ย้ายช็อตนี้มาเปิดเรื่อง (เดิมอยู่วิที่ 4)</div></div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag old">ภาพเดิม</span><img src="img/p02.jpg">
+      <div class="ov-live">● LIVE</div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">02</span><span class="time">0:02–0:03.5</span></div>
+      <div class="story">ไมค์ทุกช่องตั้งเรียงรออยู่ ไฟแดงบนกล้องติดแล้ว ทุกคำที่เธอพูดจะถูกถ่ายทอดสด</div>
+      <div class="meta"><div>🔊 <b>เสียง:</b> เสียงจี่ไมค์เบาๆ</div></div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag old">ภาพเดิม</span><img src="img/p03.jpg"></div>
+    <div class="txt">
+      <div class="head"><span class="num">03</span><span class="time">0:03.5–0:05</span></div>
+      <div class="story">ห้องเต็มไปด้วยนักข่าว ทุกคนนั่งรอ โต๊ะตรงกลางยังว่างเปล่า… รอเธอคนเดียว</div>
+      <div class="meta"><div>🔊 <b>เสียง:</b> เสียงจอแจในห้อง</div></div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag old">ภาพเดิม</span><img src="img/p04.jpg">
+      <div class="ov-sub"><span>“ทุกคนรอให้เราพลาด”</span></div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">04</span><span class="time">0:05–0:07</span></div>
+      <div class="story">จู่ๆ นักข่าวก็หันขวับมาทางม่าน เหมือนรู้ว่าเธอแอบมองอยู่ สายตาแบบนั้นพร้อมจับผิดทุกคำ เธอรีบปิดม่าน</div>
+      <div class="meta"><div>🔊 <b>เสียง:</b> เสียงจอแจเงียบกริบทันที</div><div>🎬 ตัดสลับกับช็อต 01 ให้รู้ว่าเป็นมุมมองของเธอ</div></div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag old">ภาพเดิม</span><img src="img/p05.jpg">
+      <div class="ov-sub"><span>“เขียนใหม่กี่รอบ… ก็ยังไม่ใช่เรา”</span></div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">05</span><span class="time">0:07–0:09</span></div>
+      <div class="story">เธอก้มมองโพยในมือ เขียนแล้วขีดฆ่า ขีดฆ่าแล้วเขียนใหม่ จนกระดาษยับไปหมด</div>
+      <div class="meta"><div>🔊 <b>เสียง:</b> ขยำกระดาษชัดๆ (ASMR)</div><div>🎬 ซ้อนข้อความภาษาไทยบนโพยตอนตัดต่อ (ตัวหนังสือที่ AI เจนอ่านไม่ออก)</div></div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag old">ภาพเดิม</span><img src="img/p06.jpg">
+      <div class="ov-sub"><span>“ถ้าพูดผิดแค่คำเดียว…”</span></div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">06</span><span class="time">0:09–0:11</span></div>
+      <div class="story">แรงกดดันทั้งหมดถาโถมเข้ามา เธอหลับตา น้ำตาหยดหนึ่งไหลลงแก้ม</div>
+      <div class="meta"><div>🔊 <b>เสียง:</b> หัวใจหยุดเต้น แล้วเงียบสนิท 1 จังหวะ</div><div>🎬 สโลว์ลง 70%</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 2 ============ -->
+<section class="page" id="page2">
+  <div class="brand"><b><span>UZI</span> COSMETIC</b><span>สตอรี่บอร์ดภาพ · หน้า 2/3</span></div>
+  <div class="act">
+    <div class="no">องก์ 2</div>
+    <h2>หน้ากระจก</h2>
+    <p>พิธีกรรมเล็กๆ ที่เรียก<span class="nw">ความมั่นใจ</span>คืนมา</p>
+    <div class="mood shift"></div>
+    <div class="mood-label"><span>โทนสี: ค่อยๆ เปลี่ยนจากเย็นเป็นอุ่น</span><span>อารมณ์: ตั้งสติ ฮึบ</span></div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag old">ภาพเดิม</span><img src="img/p07.jpg"></div>
+    <div class="txt">
+      <div class="head"><span class="num">07</span><span class="time">0:11–0:13</span></div>
+      <div class="story">เธอกลับมาที่หน้ากระจก หายใจลึกๆ แล้วเปิดกล่องเครื่องสำอางใบเล็ก</div>
+      <div class="meta"><div>🔊 <b>เสียง:</b> เปียโนโน้ตเดียวดังขึ้นแทนความเงียบ</div></div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag old">ภาพเดิม</span><img src="img/p08.jpg">
+      <div class="ov-title top">UZI<br>Matte Liquid Lipstick</div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">08</span><span class="time">0:13–0:14.5</span><span class="key">PRODUCT</span></div>
+      <div class="story">ของชิ้นเดียวที่เธอหยิบออกมา คือลิปแท่งโปรด UZI Matte Liquid Lipstick</div>
+      <div class="meta"><div>🔊 <b>เสียง:</b> เปิดฝาลิป “คลิก” (ASMR)</div><div>🎬 ภาพนี้มีในคลิปเดิมแล้ว (วิที่ 14.4) ฉลากชัด ไม่ต้องถ่ายใหม่</div></div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag old">ภาพเดิม</span><img src="img/p09.jpg">
+      <div class="ov-chips"><span>เนื้อแมทนุ่มลื่น</span><span>ไม่ตกร่อง</span><span>กลบสีปากคล้ำมิด</span></div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">09</span><span class="time">0:14.5–0:17.5</span></div>
+      <div class="story">เธอค่อยๆ ปาดลิปลงบน<span class="nw">ริมฝีปาก</span> สีค่อยๆ ชัดขึ้น เหมือน<span class="nw">ความมั่นใจ</span>ที่กำลังกลับมา</div>
+      <div class="meta"><div>🔊 <b>เสียง:</b> เสียงปาดลิป (ASMR)</div></div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag old">ภาพเดิม</span><img src="img/p10.jpg"></div>
+    <div class="txt">
+      <div class="head"><span class="num">10</span><span class="time">0:17.5–0:18.5</span></div>
+      <div class="story">เม้มปากเบาๆ หนึ่งที… พร้อมแล้ว</div>
+      <div class="meta"><div>🔊 <b>เสียง:</b> เม้มปาก “ป๊อบ”</div></div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag new">ช็อตใหม่</span>
+      <div class="ph"><div class="ic">🧻</div><div class="t">ถ่ายจริงด้วยสินค้าจริง</div><div class="d">ซับน้ำตาด้วย<span class="nw">ทิชชู่</span><br>แล้วกด<span class="nw">ทิชชู่</span>ลงบนปาก<br>↓<br>มาโคร<span class="nw">ทิชชู่</span>ที่ขาวสะอาด<br>ไม่มีสีลิปติด</div></div>
+      <div class="ov-sub"><span>น้ำตาไหลได้… แต่ลิปไม่หลุด</span></div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">11</span><span class="time">0:18.5–0:21</span><span class="key">PROOF</span></div>
+      <div class="story">เธอซับน้ำตาด้วย<span class="nw">ทิชชู่</span> แล้วลองกด<span class="nw">ทิชชู่</span>ลงบนปาก <span class="nw">ทิชชู่</span>ยังขาวสะอาด ลิปไม่หลุดสักนิด</div>
+      <div class="say">ข้อความบนจอ: <b>“น้ำตาไหลได้… แต่ลิปไม่หลุด”</b></div>
+      <div class="meta"><div>⚠️ ช็อตพิสูจน์ต้องถ่ายจริง ห้ามใช้ AI เจน และใช้เฉพาะคำเคลมที่แบรนด์ยืนยันได้</div></div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag old">ภาพเดิม</span><img src="img/p12.jpg">
+      <div class="ov-sub"><span>“โอเค… นี่แหละตัวเรา”</span></div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">12</span><span class="time">0:21–0:23</span><span class="key">TURNING POINT</span></div>
+      <div class="story">เธอมองตัวเองในกระจกอีกครั้ง… แล้วยิ้มออกมาได้เป็นครั้งแรก</div>
+      <div class="meta"><div>🎬 ให้แสงอุ่นเต็มที่ตรงนี้ เพราะเป็นจุดเปลี่ยนของเรื่อง</div></div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag old">ภาพเดิม</span><img src="img/p13.jpg"></div>
+    <div class="txt">
+      <div class="head"><span class="num">13</span><span class="time">0:23–0:24</span></div>
+      <div class="story">เธอเก็บลิปลงกระเป๋า แล้วหยิบโพยที่ขยำไว้ขึ้นมาดูอีกครั้ง…</div>
+      <div class="meta"><div>🎬 กำหนดให้กระดาษขาวในคลิปเดิมคือโพยใบเดียวกับช็อต 05</div></div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag new">ช็อตใหม่</span>
+      <div class="ph"><div class="ic">📄</div><div class="t">เจนเพิ่มได้</div><div class="d">โพยขยำวางบนโต๊ะเครื่องแป้ง<br>(ชัดอยู่ข้างหน้า)<br>↓<br>ด้านหลังเธอเดินห่างออกไป<br>จนภาพเบลอ</div></div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">13b</span><span class="time">0:24–0:25.5</span></div>
+      <div class="story">แต่คราวนี้เธอวางมันทิ้งไว้บนโต๊ะ แล้วเดินออกไปมือเปล่า เธอไม่ต้องใช้<span class="nw">สคริปต์</span>อีกแล้ว</div>
+      <div class="meta"><div>🔊 <b>เสียง:</b> วางกระดาษ + เสียงส้นสูงเดินออก</div><div>🎬 ไม่ต้องมีตัวหนังสือ ให้ภาพเล่าเอง</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 3 ============ -->
+<section class="page" id="page3">
+  <div class="brand"><b><span>UZI</span> COSMETIC</b><span>สตอรี่บอร์ดภาพ · หน้า 3/3</span></div>
+  <div class="act">
+    <div class="no">องก์ 3</div>
+    <h2>ม่านเปิด</h2>
+    <p>ออกไปเผชิญ ด้วย<span class="nw">ความมั่นใจ</span>เต็มร้อย</p>
+    <div class="mood warm"></div>
+    <div class="mood-label"><span>โทนสี: ทองอุ่นเต็มที่</span><span>อารมณ์: มั่นใจ สง่า</span></div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag old">ภาพเดิม</span><img src="img/p14.jpg"></div>
+    <div class="txt">
+      <div class="head"><span class="num">14</span><span class="time">0:25.5–0:28</span></div>
+      <div class="story">ม่านเปิด เธอก้าวออกไปท่ามกลางแสงแฟลชที่รัวมาจากทั่วห้อง</div>
+      <div class="meta"><div>🔊 <b>เสียง:</b> ดนตรีบิลด์ขึ้นเต็มที่ + ชัตเตอร์รัว</div></div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag fix">ควรเจนใหม่</span><img src="img/p15.jpg"></div>
+    <div class="txt">
+      <div class="head"><span class="num">15</span><span class="time">0:28–0:29.5</span></div>
+      <div class="story">นักข่าวที่เคยจ้องจับผิด ถึงกับหยุดเขียน เงยหน้ามองเธออย่างตะลึง</div>
+      <div class="meta"><div>🎬 เจนใหม่ให้เป็นนักข่าวชุดเดียวกับช็อต 03–04 (ตอนนี้หน้าตาและแสงไม่ต่อเนื่องกัน)</div><div>⚡ ตัดไปช็อตถัดไปด้วยแฟลชขาวเต็มจอ</div></div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag new">ช็อตใหม่</span>
+      <div class="ph"><div class="ic">🥛</div><div class="t">ถ่ายจริง · ใส่หรือไม่ใส่ก็ได้</div><div class="d">นั่งที่โต๊ะแถลง จิบน้ำ<br>วางแก้วลง<br>↓<br>มาโคร<span class="nw">ขอบแก้ว</span><br>ไม่มีรอยลิป</div></div>
+      <div class="ov-sub"><span>ไม่ติดแก้ว</span></div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">16</span><span class="time">0:29.5–0:31</span><span class="key">PROOF</span></div>
+      <div class="story">เธอนั่งลงที่โต๊ะแถลง จิบน้ำหนึ่งอึกแล้ววางแก้ว <span class="nw">ขอบแก้ว</span>ไม่มีรอยลิปเลย</div>
+      <div class="meta"><div>⚠️ ช็อตพิสูจน์ต้องถ่ายจริงด้วยสินค้าจริง</div></div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag old">ภาพเดิม</span><img class="croptop" src="img/p17.jpg">
+      <div class="ov-sub"><span>“วันนี้ฉันไม่ได้เตรียม<span class="nw">สคริปต์</span>มาค่ะ…<br>ฉันเตรียมมาแค่<span class="nw">ความมั่นใจ</span>”</span></div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">17</span><span class="time">0:31–0:35</span><span class="key">PAYOFF</span></div>
+      <div class="story">ทั้งห้องเงียบ เธอหลับตาครู่หนึ่ง แล้วพูดจากใจ ก่อนส่งยิ้มที่มั่นใจที่สุดของวัน</div>
+      <div class="say">บทพูด (เสียงจริงของเธอ):<br><b>“วันนี้ฉันไม่ได้เตรียม<span class="nw">สคริปต์</span>มาค่ะ… ฉันเตรียมมาแค่<span class="nw">ความมั่นใจ</span>”</b></div>
+      <div class="meta"><div>🎬 ครอปตัวหนังสือมั่วด้านบนออก · ใช้แผงไมค์ชุดเดียวกับช็อต 02 · ปากต้องตรงกับบทพูด (ใช้เครื่องมือลิปซิงก์)</div></div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag old">ภาพเดิม + การ์ด</span><img src="img/p18.jpg">
+      <div class="endcard">
+        <div><div class="logo">UZI</div><div class="pn">MATTE LIQUID LIPSTICK</div></div>
+        <div class="bottom">
+          <div class="claim">เบอร์ [ชื่อสี]<br>เนื้อแมทนุ่ม · ไม่ตกร่อง · ไม่ติดแก้ว</div>
+          <div class="promo">[โปรโมชั่น]</div>
+          <div class="cta">กดตะกร้าเลย 🛒</div>
+        </div>
+      </div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">18</span><span class="time">0:35–0:40</span><span class="key">END CARD</span></div>
+      <div class="story">ปิดด้วยภาพลิปท่ามกลางแสงไฟ และประโยคที่ทุกคนเอาไปใช้กับชีวิตตัวเองได้</div>
+      <div class="say">เสียงแบรนด์ปิดท้าย:<br><b>“ทุกคนมีวันแถลงข่าวของตัวเอง… มั่นใจได้ ตั้งแต่<span class="nw">ริมฝีปาก</span>”</b></div>
+      <div class="meta"><div>🎬 ใส่ชื่อรุ่น เบอร์สี จุดเด่น โปร และปุ่มกดตะกร้า (ช่องในวงเล็บให้ทีมเติม)</div></div>
+    </div>
+  </div>
+
+  <div class="alt">
+    <b>ตอนจบทางเลือก (สำหรับ TikTok / ยิงแอด):</b> หลังเธอพูดจบ นักข่าวยกมือ “ขอถามคำถามเดียวค่ะ… <b>ลิปสีอะไรคะ?</b>” เธอยิ้มแล้วยกลิป UZI หันเข้ากล้อง แฟลชรัวทั้งห้อง ก่อนตัดเข้าภาพสินค้าพร้อมข้อความ “คำตอบอยู่ในตะกร้า 🛒”
+  </div>
+  <div class="foot">ภาพเดิมดึงจากคลิปต้นฉบับ · ช่องสีทอง = ช็อตที่ต้องถ่าย/เจนเพิ่ม · รายละเอียดเต็มดูใน README.md</div>
+</section>
+
+</body>
+</html>
