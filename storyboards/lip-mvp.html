@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UZI Cosmetic · Storyboard “ลิป MVP” · MVP ไม่ได้แปลว่าไม่เคยร้องไห้</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Itim&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --rose:#b76e79; --gold:#d4af37; --dark:#2c2c2c; --paper:#fcf9f9;
+    --line:#ecdfdc; --muted:#7c706e; --ink:#2f2a29;
+    --a1:#6f7d93; --a2:#b76e79; --a3:#b8902a;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:'Prompt','Sarabun','Noto Sans Thai','Loma',sans-serif;background:var(--paper);color:var(--ink);line-height:1.7;font-size:15px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  nav{background:var(--dark);color:#fff;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;position:sticky;top:0;z-index:20}
+  nav .brand{font-weight:700;letter-spacing:.2em;font-size:19px}
+  nav .brand b{color:var(--gold)}
+  nav .brand small{font-weight:300;letter-spacing:.04em;color:#bdb5b3;font-size:12px;margin-left:10px}
+  nav .tools{display:flex;gap:14px;align-items:center;font-size:13px;flex-wrap:wrap}
+  nav label{display:flex;gap:6px;align-items:center;color:#ddd;cursor:pointer}
+  nav button{font:inherit;background:var(--rose);color:#fff;border:0;border-radius:999px;padding:6px 14px;cursor:pointer}
+  nav button:hover{background:#a35f6a}
+  main{max-width:1180px;margin:0 auto;padding:28px 18px 64px}
+  section{margin-top:44px}
+  h2{font-size:22px;margin:0 0 6px;display:flex;align-items:center;gap:10px}
+  h2 .n{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--dark);color:var(--gold);font-size:14px}
+  .lead{color:var(--muted);margin:0 0 18px}
+
+  /* hero */
+  .hero{background:radial-gradient(120% 140% at 85% 0%,#f4e3df 0%,#fbf6f5 55%,#fff 100%);border:1px solid var(--line);border-radius:22px;padding:30px 28px;position:relative;overflow:hidden}
+  .hero:after{content:"";position:absolute;right:-40px;top:-40px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,#b8364f33,transparent 70%)}
+  .eyebrow{font-size:12px;letter-spacing:.14em;color:var(--rose);font-weight:600;margin:0 0 6px}
+  .hero h1{font-size:clamp(30px,5.4vw,50px);line-height:1.18;margin:0 0 10px;font-weight:700}
+  .hero h1 em{font-style:normal;color:var(--rose)}
+  .tagline{font-size:clamp(17px,2.4vw,21px);margin:0 0 18px;color:#5b4b49}
+  .tagline b{color:var(--a3)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chips span{background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:13px}
+
+  /* cards */
+  .grid{display:grid;gap:14px}
+  .g2{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+  .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}
+  .card h3{margin:0 0 6px;font-size:16px}
+  .card p{margin:0}
+  .card .k{font-size:12px;letter-spacing:.12em;color:var(--rose);font-weight:600;text-transform:uppercase}
+  .card ul,.card ol{margin:6px 0 0;padding-left:20px}
+  .card li{margin:3px 0}
+  .quote{font-size:19px;font-weight:600;color:var(--dark)}
+
+  /* acts strip */
+  .acts{display:flex;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#fff}
+  .acts div{padding:14px 14px 12px;color:#fff;min-width:0}
+  .acts b{display:block;font-size:15px}
+  .acts small{display:block;opacity:.9;font-size:12.5px;line-height:1.5}
+  .acts .t{font-size:11.5px;letter-spacing:.06em;opacity:.85}
+  .acts .x1{background:linear-gradient(135deg,#6f7d93,#4d586a);flex:13}
+  .acts .x2{background:linear-gradient(135deg,#b76e79,#7a3e52);flex:26}
+  .acts .x3{background:linear-gradient(135deg,#d4af37,#a5781c);flex:21}
+
+  /* motif */
+  .motif .ico{font-size:24px;line-height:1}
+  .motif .shots{display:inline-block;margin-top:8px;font-size:12px;background:#f7eeec;border-radius:999px;padding:2px 10px;color:#7a4a52}
+
+  /* frame */
+  .frame{position:relative;aspect-ratio:9/16;border-radius:12px;overflow:hidden;container-type:inline-size;box-shadow:0 6px 18px #2c2c2c22;background:#333;isolation:isolate}
+  .frame svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .frame svg text{font-family:'Prompt','Sarabun','Noto Sans Thai','Loma',sans-serif}
+  .super{position:absolute;left:6%;right:6%;text-align:center;color:#fff;font-weight:600;font-size:6.8cqw;line-height:1.38;text-shadow:0 1px 2px #000a,0 0 10px #0008;z-index:3}
+  .lt{position:absolute;left:5%;bottom:22%;display:flex;align-items:stretch;font-size:4.6cqw;z-index:3;box-shadow:0 2px 8px #0006}
+  .lt b{background:#fff;color:#1d1d1d;padding:.35em .7em;font-weight:700}
+  .lt span{background:var(--gold);color:#1d1d1d;padding:.35em .6em;font-weight:600}
+  .hud{position:absolute;left:6%;top:6%;font-family:ui-monospace,Menlo,monospace;font-size:4.4cqw;color:#fff;display:flex;align-items:center;gap:.4em;z-index:3;text-shadow:0 1px 2px #000}
+  .hud i{width:.7em;height:.7em;border-radius:50%;background:#ff3b3b;display:inline-block;box-shadow:0 0 6px #ff3b3b}
+  .safe{position:absolute;inset:0;pointer-events:none;display:none;z-index:4;background:linear-gradient(to top,#ff2d6a40 0 18%,transparent 18%),linear-gradient(to left,#ff2d6a33 0 13%,transparent 13%)}
+  .safe:after{content:"UI TikTok";position:absolute;bottom:2%;left:4%;font-size:4cqw;color:#fff;font-weight:600}
+  body.show-safe .safe{display:block}
+  .endcard .ec-top{position:absolute;top:4.5%;left:0;right:0;text-align:center;z-index:3}
+  .endcard .ec-logo{font-weight:700;letter-spacing:.32em;color:var(--gold);font-size:9cqw;line-height:1.1;padding-left:.32em}
+  .endcard .ec-title{font-size:6.6cqw;font-weight:600;color:#2c2c2c;line-height:1.3}
+  .endcard .ec-sub{font-size:4cqw;color:#7a5a5f}
+  .endcard .ec-bottom{position:absolute;top:73%;left:4%;right:4%;text-align:center;z-index:3}
+  .endcard .ec-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:1.4cqw}
+  .endcard .ec-chips span{background:#fff;border:1px solid #e3c3c9;color:#7a3e52;border-radius:99px;padding:.2em .7em;font-size:3.7cqw;font-weight:500}
+  .endcard .ec-cta{display:inline-block;margin-top:2.6cqw;background:var(--rose);color:#fff;border-radius:99px;padding:.3em 1.2em;font-size:4.8cqw;font-weight:600}
+
+  /* overview strip */
+  .strip{display:flex;gap:10px;overflow-x:auto;padding:6px 2px 14px;scroll-snap-type:x proximity}
+  .strip a{flex:0 0 96px;text-decoration:none;color:var(--ink);scroll-snap-align:start}
+  .strip .frame{border-radius:8px;box-shadow:0 3px 8px #2c2c2c22}
+  .strip .cap{font-size:11.5px;text-align:center;margin-top:4px;color:var(--muted)}
+  .strip .cap b{color:var(--ink)}
+  .strip .act-sep{flex:0 0 auto;writing-mode:vertical-rl;transform:rotate(180deg);font-size:11px;font-weight:600;letter-spacing:.08em;padding:4px 2px;border-radius:6px;color:#fff;align-self:stretch;text-align:center}
+
+  /* shot cards */
+  .act-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:34px 0 14px;padding:12px 16px;border-radius:14px;color:#fff}
+  .act-head b{font-size:18px}
+  .act-head span{opacity:.9;font-size:14px}
+  .act-head.a1{background:linear-gradient(135deg,#6f7d93,#4d586a)}
+  .act-head.a2{background:linear-gradient(135deg,#b76e79,#7a3e52)}
+  .act-head.a3{background:linear-gradient(135deg,#d4af37,#a5781c)}
+  .shots{display:grid;grid-template-columns:repeat(auto-fill,minmax(520px,1fr));gap:16px}
+  .shot{background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px;break-inside:avoid;page-break-inside:avoid;scroll-margin-top:70px}
+  .shot-head{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+  .shot-head .no{background:var(--dark);color:var(--gold);font-weight:700;border-radius:8px;padding:1px 9px;font-size:14px}
+  .shot-head h3{margin:0;font-size:16.5px;flex:1 1 200px}
+  .shot-head .tc{font-family:ui-monospace,Menlo,monospace;font-size:12.5px;color:var(--muted)}
+  .shot-head .dur{font-size:12px;background:#f7eeec;border-radius:99px;padding:1px 9px;color:#7a4a52}
+  .shot-body{display:grid;grid-template-columns:200px 1fr;gap:16px;align-items:start}
+  .meta{margin:0;display:grid;gap:8px}
+  .meta dt{font-size:11.5px;font-weight:600;letter-spacing:.08em;color:var(--rose)}
+  .meta dd{margin:0;font-size:14px;line-height:1.6}
+  .meta dd.sup{font-weight:600;color:var(--dark)}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+  .tags span{font-size:12px;border-radius:99px;padding:2px 10px}
+  .tags .mood{background:#eef0f5;color:#47536a}
+  .tags .proof{background:#fbf3dc;color:#7a5a10;border:1px solid #efdc9f}
+  .tip{font-size:13px;background:#faf5f5;border-left:3px solid var(--rose);padding:6px 10px;border-radius:0 8px 8px 0;color:#5b4b49}
+
+  /* table */
+  .tbl{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:14px}
+  .tbl th,.tbl td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  .tbl th{background:#2c2c2c;color:#fff;font-weight:500;font-size:13px}
+  .tbl tr:last-child td{border-bottom:0}
+  .tbl td:first-child{font-weight:600;white-space:nowrap}
+  .tbl .s{font-family:ui-monospace,Menlo,monospace;color:var(--rose);white-space:nowrap}
+  .tblwrap{overflow-x:auto}
+
+  /* 789 */
+  .score .k{display:flex;align-items:center;gap:8px}
+  .score .k b{font-size:26px;line-height:1}
+  .score.w .k{color:#b8902a}.score.o .k{color:#2f6fc2}.score.a .k{color:var(--rose)}
+
+  /* cutdowns */
+  .cut{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:14px}
+  .cut h3{margin:0 0 2px;font-size:16px}
+  .cut p{margin:0 0 10px;color:var(--muted);font-size:14px}
+  .cut .row{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px}
+  .cut .row > div{flex:0 0 78px;text-align:center;font-size:11px;color:var(--muted)}
+  .cut .frame{border-radius:7px;box-shadow:none}
+
+  pre.caption{white-space:pre-wrap;font-family:inherit;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;margin:0;font-size:14.5px}
+  .copy{font:inherit;font-size:13px;margin-top:8px;background:var(--dark);color:#fff;border:0;border-radius:99px;padding:6px 14px;cursor:pointer}
+  footer{margin-top:40px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
+
+  @media (max-width:640px){
+    body{font-size:14.5px}
+    main{padding:18px 12px 48px}
+    .hero{padding:22px 18px}
+    .shots{grid-template-columns:1fr}
+    .shot-body{grid-template-columns:1fr}
+    .shot-body .frame{width:min(250px,78%);margin:0 auto}
+    .acts{flex-direction:column}
+    nav .brand small{display:none}
+  }
+  @media print{
+    nav{position:static}
+    nav .tools{display:none}
+    body{background:#fff}
+    .strip{flex-wrap:wrap;overflow:visible}
+    .shots{grid-template-columns:1fr 1fr}
+    .shot-body{grid-template-columns:150px 1fr}
+    section{break-inside:auto}
+    .card,.cut,.score{break-inside:avoid}
+    .copy{display:none}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand"><b>UZI</b> COSMETIC <small>Storyboard · Content Team</small></div>
+  <div class="tools">
+    <label><input type="checkbox" id="safeToggle"> แสดง Safe zone TikTok</label>
+    <button onclick="window.print()">พิมพ์ / บันทึกเป็น PDF</button>
+  </div>
+</nav>
+
+<main>
+
+  <header class="hero">
+    <p class="eyebrow">STORYBOARD · UZI MATTE LIQUID LIPSTICK · แคมเปญ “ลิป MVP”</p>
+    <h1>MVP ไม่ได้แปลว่า<br><em>ไม่เคยร้องไห้</em></h1>
+    <p class="tagline">Key message: <b>“น้ำตาหลุดได้… แต่ความมั่นใจไม่เคยหลุด”</b></p>
+    <div class="chips">
+      <span>แนวตั้ง 9:16</span>
+      <span>60 วิ + คัท 30 / 15 วิ</span>
+      <span>TikTok · Reels · Shorts</span>
+      <span>แทบไม่มีบทพูด เล่าด้วยภาพ</span>
+      <span>โทน: ซึ้ง อบอุ่น จบด้วยความภูมิใจ</span>
+    </div>
+  </header>
+
+  <!-- 1. Brief -->
+  <section id="brief">
+    <h2><span class="n">1</span>โจทย์ &amp; ไอเดียหลัก</h2>
+    <p class="lead">เรื่องทั้งเรื่องคือการทดสอบลิป แต่คนดูจะรู้สึกว่ากำลังดูการเติบโตของผู้หญิงคนหนึ่ง</p>
+    <div class="grid g2">
+      <div class="card">
+        <div class="k">โจทย์</div>
+        <p>ตอนแรกเธอไม่มั่นใจ ได้ออกรายการดราม่ามาหลายรายการ แต่สุดท้ายก็ยังเป็น <b>MVP</b> เพราะเธอมั่นใจเวลาทาลิปแมท</p>
+        <p style="margin-top:8px;font-size:13.5px;color:var(--muted)">สินค้า: UZI Matte Liquid Lipstick · เบอร์สีที่ใช้ทั้งเรื่อง: <b>[ระบุเบอร์]</b></p>
+      </div>
+      <div class="card">
+        <div class="k">Insight</div>
+        <p>ผู้หญิงหลายคนไม่ได้กลัวการร้องไห้ แต่กลัว “หน้าพัง” ตอนร้องไห้ต่อหน้าคนอื่น ลิปเยิ้ม ลิปหลุด ลิปตกร่อง หรือโดนทักว่าปากคล้ำ เป็นความไม่มั่นใจเล็กๆ ที่ทำให้ไม่กล้ายิ้มเต็มที่</p>
+      </div>
+      <div class="card">
+        <div class="k">Big idea</div>
+        <p class="quote">ลิปที่ไม่หลุด = ความมั่นใจที่ไม่หลุด</p>
+        <p style="margin-top:6px">ทุกรายการทดสอบ “ใจ” ของเธอด้วยน้ำตา น้ำ แรงกดดัน และเวลา และทดสอบ “ลิป” ไปพร้อมกัน เดโมสินค้าจึงเป็นส่วนหนึ่งของเนื้อเรื่อง ไม่ได้เป็นโฆษณาที่แทรกเข้ามา</p>
+      </div>
+      <div class="card">
+        <div class="k">เรื่องย่อ</div>
+        <p>ผู้หญิงคนหนึ่งที่เคยใช้มือปิดปากทุกครั้งที่ยิ้ม ได้รับลิป UZI จากมือแม่ในวันแรกที่ออกรายการ เธอผ่านรายการดราม่ามา 4 รายการ ทั้งร้องไห้ เปียก โดนกดดัน และตกรอบ แต่สีปากของเธอไม่เคยหลุด และความมั่นใจของเธอก็ไม่หลุดเหมือนกัน จนถึงวันที่คนทั้งประเทศโหวตให้เธอเป็น MVP เธอลดมือลง แล้วยิ้มเต็มที่เป็นครั้งแรก</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Acts -->
+  <section id="acts">
+    <h2><span class="n">2</span>โครงเรื่อง 3 องก์</h2>
+    <p class="lead">ความกว้างของแต่ละช่องเท่ากับสัดส่วนเวลาจริงในคลิป 60 วินาที</p>
+    <div class="acts">
+      <div class="x1"><span class="t">องก์ 1 · 0:00–0:13</span><b>วันแรก</b><small>ไม่กล้ายิ้ม · ได้ลิปจากแม่ · ช็อต 1–5</small></div>
+      <div class="x2"><span class="t">องก์ 2 · 0:13–0:39</span><b>รายการดราม่า 4 รายการ</b><small>ร้องไห้ เปียก โดนกดดัน ตกรอบ แต่ลิปไม่หลุด · ช็อต 6–14</small></div>
+      <div class="x3"><span class="t">องก์ 3 · 0:39–1:00</span><b>MVP</b><small>ยิ้มเต็มที่ครั้งแรก · หอมแก้มแม่ · ช็อต 15–20</small></div>
+    </div>
+  </section>
+
+  <!-- 3. Motifs -->
+  <section id="motifs">
+    <h2><span class="n">3</span>ภาษาภาพ: 4 สัญลักษณ์ที่เล่าเรื่องแทนคำพูด</h2>
+    <p class="lead">คนดูไม่จำเป็นต้องอ่านซูเปอร์ก็เข้าใจเรื่องได้จากสัญลักษณ์เหล่านี้</p>
+    <div class="grid g2">
+      <div class="card motif"><div class="ico">💄</div><h3>สีปากเป็นสีเดียวที่ไม่เคยซีด</h3><p>ฉากรอบตัวเปลี่ยนสีตามรายการ (ม่วง ฟ้า แดง น้ำเงิน) แต่สีปากชัดและเหมือนเดิมทุกเฟรม ในช็อต 13 ทั้งภาพเกือบเป็นขาวดำ เหลือสีปากอยู่สีเดียว</p><span class="shots">ทุกช็อต · พีคที่ช็อต 13</span></div>
+      <div class="card motif"><div class="ico">✋</div><h3>มือปิดปาก → มือที่ลดลง</h3><p>ช็อต 2 เธอปิดปากเพราะอาย ช็อต 16 เธอปิดปากเพราะดีใจจนไม่อยากเชื่อ แล้วค่อยๆ ลดมือลงยิ้มให้โลกเห็น ท่าเดียวกันแต่ความหมายตรงข้าม</p><span class="shots">ช็อต 2 → 16</span></div>
+      <div class="card motif"><div class="ico">🪞</div><h3>กระจกบานเดิม</h3><p>ถ่ายมุมเดิมทุกครั้ง บัตรผ่านหลังเวทีที่ติดเพิ่มรอบกระจกบอกว่าเธอผ่านมากี่เวทีแล้ว ส่วนท่านั่งที่ตั้งตรงขึ้นเรื่อยๆ บอกว่าเธอมั่นใจขึ้น</p><span class="shots">ช็อต 2 → 14 → 19</span></div>
+      <div class="card motif"><div class="ico">💌</div><h3>โน้ตจากแม่</h3><p>“ยิ้มให้เต็มที่นะลูก แม่นั่งแถวหน้า” ตอนจบแม่นั่งแถวหน้าจริงๆ และลูกยิ้มเต็มที่จริงๆ เป็นคำสัญญาที่ไม่ต้องมีบทพูด</p><span class="shots">ช็อต 4 → 18 → 19</span></div>
+    </div>
+  </section>
+
+  <!-- 4. Storyboard -->
+  <section id="board">
+    <h2><span class="n">4</span>สตอรี่บอร์ด 20 ช็อต</h2>
+    <p class="lead">ภาพในกรอบเป็นสเก็ตช์องค์ประกอบภาพและมุมกล้อง ไม่ใช่ภาพจริง · ปัดดูภาพรวมทั้งเรื่องได้ด้านล่าง แล้วแตะช็อตเพื่อข้ามไปดูรายละเอียด</p>
+    <div class="strip" id="strip"></div>
+    <div id="shots"></div>
+  </section>
+
+  <!-- 5. Proof map -->
+  <section id="proof">
+    <h2><span class="n">5</span>จุดพิสูจน์สินค้าที่ฝังอยู่ในเรื่อง</h2>
+    <p class="lead">ทุกจุดต้องถ่ายจริง เพราะความน่าเชื่อถือของคลิปทั้งคลิปขึ้นอยู่กับตรงนี้</p>
+    <div class="tblwrap">
+    <table class="tbl">
+      <thead><tr><th>จุดเด่น</th><th>ช็อต</th><th>วิธีถ่ายให้คนดูเชื่อ</th></tr></thead>
+      <tbody>
+        <tr><td>กลบปากคล้ำมิด</td><td class="s">2 → 5</td><td>ใช้ปากจริงของนักแสดงในช็อต 2 ห้ามใช้ฟิลเตอร์ แล้วโชว์ปาดเดียวในช็อต 5</td></tr>
+        <tr><td>เนื้อแมทเนียน ไม่ตกร่อง</td><td class="s">3 → 5</td><td>ถ่ายมาโครก่อนและหลังด้วยแสงเดียวกัน มุมเดียวกัน</td></tr>
+        <tr><td>น้ำตาไม่ทำให้เยิ้ม</td><td class="s">1</td><td>ใช้น้ำตาจริงหรือหยดน้ำเกลือ ถ่าย slow-mo ต่อเนื่องไม่ตัด</td></tr>
+        <tr><td>ไม่ติดทิชชู่</td><td class="s">7</td><td>ใช้ทิชชู่ขาวล้วน กดที่ปากจริง ถ่ายเทคเดียวไม่ตัดกลาง</td></tr>
+        <tr><td>กันน้ำ</td><td class="s">8 → 9</td><td>สาดน้ำจริง แล้วถ่ายต่อเป็นโคลสอัพทันที ห้ามเติมลิประหว่างเทค</td></tr>
+        <tr><td>ไม่ติดแก้ว</td><td class="s">11</td><td>ใช้แก้วใส ไฟ backlight พื้นหลังดำ ให้เห็นขอบแก้วชัด</td></tr>
+        <tr><td>ติดทนทั้งกอง</td><td class="s">17</td><td>ทาครั้งเดียวตั้งแต่เช้า (ช็อต 5) ถ่ายช็อตนี้ตอนท้ายกองจริง เวลาบนจอต้องเป็นเวลาจริง</td></tr>
+        <tr><td>Kissproof</td><td class="s">18</td><td>หอมแก้มจริง แล้วซูมแก้มกับนิ้วแม่ทันที</td></tr>
+        <tr><td>ออร์แกนิก ปลอดภัย</td><td class="s">4 · 20</td><td>สื่อผ่าน “แม่เลือกให้” แล้วขึ้นเคลมที่ end card</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <!-- 6. 7Wow 8Offer 9Angel -->
+  <section id="score">
+    <h2><span class="n">6</span>เช็คกับเกณฑ์ 7 Wow · 8 Offer · 9 Angel</h2>
+    <p class="lead">ใช้เกณฑ์เดียวกับระบบประเมินคลิปของทีม</p>
+    <div class="grid g3">
+      <div class="card score w"><div class="k"><b>7</b> WOW · Hook</div><p>3 วินาทีแรกเป็นภาพที่คนไม่ค่อยได้เห็น คือน้ำตากลิ้งผ่านลิปแบบ slow-mo พร้อมประโยคที่ยังไม่จบ “ร้องไห้มาทุกรายการ…” ภาพนี้จี้ pain point “ร้องไห้แล้วลิปเยิ้ม” และทำให้คนดูอยากรู้ต่อ</p></div>
+      <div class="card score o"><div class="k"><b>8</b> OFFER · Value</div><p>มีเดโม 8 จุดซ่อนอยู่ในเนื้อเรื่อง (ปากคล้ำ ตกร่อง น้ำตา ทิชชู่ น้ำ แก้ว 12 ชม. หอมแก้ม) คนดูเห็นสินค้าทำงานจริงโดยไม่รู้สึกว่าโดนขาย แล้วปิดด้วย end card กับปุ่มตะกร้า <b>[ใส่โปรประจำแคมเปญ]</b></p></div>
+      <div class="card score a"><div class="k"><b>9</b> ANGEL · Brand</div><p>องก์ 3 เกรดโทนทองกับโรสโกลด์ตามสีแบรนด์ ภาพมินิมอลแบบ Accessible Luxury เรื่องความปลอดภัยแบบออร์แกนิกเล่าผ่าน “แม่เลือกให้” แทนการพูดเคลมตรงๆ และเรื่องจบแบบอบอุ่น ไม่ทิ้งคนดูไว้กับความเศร้า</p></div>
+    </div>
+  </section>
+
+  <!-- 7. Cutdowns -->
+  <section id="cuts">
+    <h2><span class="n">7</span>คัทสั้นสำหรับยิงแอด</h2>
+    <p class="lead">ใช้ฟุตเทจชุดเดียวกัน ไม่ต้องถ่ายเพิ่ม</p>
+    <div id="cutdowns"></div>
+  </section>
+
+  <!-- 8. Production -->
+  <section id="prod">
+    <h2><span class="n">8</span>หมายเหตุโปรดักชัน</h2>
+    <p class="lead">วางแผนให้ถ่ายจบใน 1 วันที่สตูดิโอเดียว</p>
+    <div class="grid g2">
+      <div class="card">
+        <h3>🎭 นักแสดง</h3>
+        <ul>
+          <li><b>เธอ (ตัวเอก)</b> อายุ 20–28 ปี ต้องเล่นด้วยสายตาได้ดี เพราะทั้งเรื่องแทบไม่มีบทพูด ถ้าเป็นครีเอเตอร์หรือคนดังที่เคยออกรายการจริง ใช้บัตรผ่านหรือภาพจริงประกอบจะยิ่งซึ้ง</li>
+          <li><b>แม่</b> อายุ 45–55 ปี ใส่เสื้อตัวเดิมและถือกระเป๋าใบเดิมทุกฉาก เพื่อบอกว่าแม่ไม่เคยเปลี่ยนและมาทุกครั้ง</li>
+          <li>พิธีกร 1 คน · ผู้ร่วมรายการ 3–4 คน · คนดู 10–20 คน (ใช้ไฟโบเก้กับเสียงคนดูช่วยให้ดูเต็ม)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>👗 ชุด &amp; เมคอัพ</h3>
+        <ul>
+          <li>ชุดค่อยๆ ดูมั่นใจขึ้น: ฮู้ดดี้เทาตัวโคร่ง (วันแรก) → ไหมพรมนู้ด (EP.1) → ชุดกีฬา ×2 (EP.2) → เบลเซอร์ดำ (EP.3) → เดรสเรียบ (EP.4) → เดรสแชมเปญโกลด์ (ไฟนอล)</li>
+          <li>ใช้ UZI Matte เบอร์เดียวทั้งเรื่อง ให้คนดูจำ “ปากคู่นี้” ได้</li>
+          <li>ช็อต 2–3 ใช้ปากจริงของนักแสดงหรือลิปคอนซีลเลอร์ ห้ามใช้ฟิลเตอร์</li>
+          <li>เมคอัพตาใช้แบบกันน้ำ เพราะมีฉากร้องไห้และสาดน้ำ ไม่ให้ตาเลอะจนแย่งซีนปาก</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🎬 โลเคชัน</h3>
+        <ul>
+          <li>สตูดิโอเดียว แต่ง 4 ลุคด้วยไฟ LED และพร็อพ: โซฟา (EP.1) · พื้นกันน้ำกับถัง (EP.2) · โพเดียม 3 ตัว (EP.3) · เวทีสปอตไลท์กับจอ (EP.4 และไฟนอล)</li>
+          <li>ห้องแต่งตัวที่มีกระจกไฟรอบบาน 1 ห้อง</li>
+          <li>ทางเดินหลังสตูดิโอ กับกระจกหรือบานประตูกระจกสีเข้ม</li>
+          <li>ชื่อรายการขึ้นด้วยกราฟิก lower third ฉากเดียวจึงกลายเป็น 4 รายการได้</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🗓️ ลำดับถ่าย (1 วัน)</h3>
+        <ol>
+          <li>เช้า · ห้องแต่งตัว: ช็อต 2 → 3 → 4 → 5 (ทา UZI ครั้งเดียวในช็อต 5 · จดเวลา · ถ่าย BTS เก็บไว้)</li>
+          <li>ทอล์กโชว์ EP.1: ช็อต 6 → 7 → 1 (เก็บน้ำตาตอนอารมณ์ยังอยู่)</li>
+          <li>ดีเบต EP.3: ช็อต 10 → 11</li>
+          <li>คืนตัดสิน EP.4 และทางเดิน: ช็อต 12 → 13</li>
+          <li>ห้องแต่งตัว (เปลี่ยนชุด 4 รอบ): ช็อต 14</li>
+          <li>เย็น · ไฟนอล: ช็อต 15 → 16 → 17 → 18 → 19</li>
+          <li>ปิดกอง · เกมน้ำ EP.2: ช็อต 8 → 9 (ถ่ายท้ายสุดเพราะผมและชุดเปียก)</li>
+          <li>แยกโต๊ะ · Packshot: ช็อต 20</li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3>✅ กฎการถ่ายเดโม (สำคัญ)</h3>
+        <ul>
+          <li>ทุกช็อตที่พิสูจน์สินค้าต้องถ่ายจริง ห้ามใช้ CG หรือรีทัชที่ปาก</li>
+          <li>ทาลิปครั้งเดียวในช็อต 5 และห้ามเติมก่อนถ่ายช็อตพิสูจน์ (1, 7, 9, 11, 17, 18)</li>
+          <li>ตัวเลข “12 ชั่วโมง” ในช็อต 17 ต้องตรงกับเวลาจริงของกอง ถ้าถ่ายไม่ถึงให้แก้ตัวเลขตามจริง</li>
+          <li>เกรดสีได้เฉพาะฉาก ห้ามเปลี่ยนสีปากให้ต่างจากสีจริงของเบอร์นั้น</li>
+          <li>ลิปในช็อต 3 ใช้แท่งที่ไม่มีแบรนด์หรือปิดโลโก้ ไม่พาดพิงแบรนด์อื่น</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🎨 สี &amp; แสง</h3>
+        <ul>
+          <li>องก์ 1: ฟ้าเทา ซีด เย็น มีแค่ไฟหลอดรอบกระจกที่อุ่น</li>
+          <li>EP.1 ม่วง · EP.2 ฟ้าน้ำทะเล · EP.3 แดง · EP.4 และทางเดิน น้ำเงินเข้มเกือบขาวดำ</li>
+          <li>ช็อต 14 อุ่นขึ้นทีละคัท</li>
+          <li>องก์ 3: ทองกับโรสโกลด์ตามสีแบรนด์ (#b76e79 · #d4af37)</li>
+          <li>กฎข้อเดียว: สีปากต้องเด่นที่สุดในเฟรมเสมอ</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🎵 เพลง &amp; เสียง</h3>
+        <ul>
+          <li>ใช้เพลงเดียวทั้งเรื่อง: เปียโนเดี่ยว → เครื่องสาย → เต็มวงในช็อต 16 (ใช้เพลงที่มีสิทธิ์ถูกต้องหรือ royalty-free)</li>
+          <li>ใช้ความเงียบให้เป็นประโยชน์: ช็อต 1 ไม่มีเพลง · ช็อต 6 เสียงคนดูหายไป · ช็อต 16 เงียบ 1 วินาทีก่อนพีค</li>
+          <li>เสียง ASMR ของสินค้า: คลิกขวดและเม้มปาก (ช็อต 5) · ปิดฝา (ช็อต 20)</li>
+          <li>ไม่มีบทพูด ปิดเสียงดูก็ยังเข้าใจ เพราะซูเปอร์เล่าเรื่องแทน</li>
+          <li>ทางเลือก: ทำอีกเวอร์ชันที่มี VO ประโยคเดียวตอนจบด้วยเสียงตัวเอก “ฉันร้องไห้มาทุกเวที… แต่ไม่เคยหลุด”</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Caption -->
+  <section id="caption">
+    <h2><span class="n">9</span>แคปชันโพสต์ (ร่าง)</h2>
+    <pre class="caption" id="capText">วันแรกที่ออกรายการ ฉันไม่กล้าแม้แต่จะยิ้ม 🥹
+ร้องไห้มาทุกเวที เปียกทั้งตัว โดนกดดันทั้งวัน…
+น้ำตาหลุดได้ แต่ความมั่นใจไม่เคยหลุด 💄✨
+
+UZI Matte Liquid Lipstick ลิปแมทออร์แกนิก
+กลบปากคล้ำมิด · กันน้ำ · ไม่ติดแก้ว · หอมแก้มไม่มีรอย
+🛒 กดตะกร้าได้เลย
+
+#ลิปMVP #UZICosmetic #ลิปแมท #ลิปออร์แกนิก #ลิปกันน้ำ #ลิปไม่ติดแก้ว</pre>
+    <button class="copy" id="copyBtn">คัดลอกแคปชัน</button>
+  </section>
+
+  <footer>
+    * เคลม “ออร์แกนิก 100%” และ “คุณแม่ตั้งครรภ์ใช้ได้” มาจากข้อมูลสินค้าในระบบประเมินคอนเทนต์ของทีม ก่อนเผยแพร่ให้ตรวจกับเอกสารรับรองและข้อกำหนดการโฆษณาเครื่องสำอางของ อย. อีกครั้ง
+    <br>UZI Cosmetic · Content Storyboard · “ลิป MVP”
+  </footer>
+</main>
+
+<script>
+/* ---------- drawing helpers (viewBox 0 0 180 320) ---------- */
+const n = v => typeof v === 'number' ? Math.round(v * 10) / 10 : v;
+const T = (s, ...v) => s.reduce((a, str, i) => a + str + (i < v.length ? n(v[i]) : ''), '');
+const LINE = '#2b2422', SKIN = '#f1dcd1', SKIN_MOM = '#e8cfc0', HAIR = '#3a2a25',
+      ROSE = '#b8364f', PALE = '#c79a94', GOLD = '#d4af37', CHAMP = '#e8d3a6';
+const st = (w = 1.2, c = LINE) => T`stroke="${c}" stroke-width="${w}" stroke-linejoin="round" stroke-linecap="round"`;
+const shade = (hex, f = .8) => { const v = parseInt(hex.slice(1), 16); return '#' + [v >> 16, (v >> 8) & 255, v & 255].map(x => Math.round(x * f).toString(16).padStart(2, '0')).join(''); };
+const rng = seed => { let r = seed; return () => (r = (r * 16807) % 2147483647) / 2147483647; };
+const clip = (id, x, y, w, h, inner) => T`<clipPath id="${id}"><rect x="${x}" y="${y}" width="${w}" height="${h}"/></clipPath><g clip-path="url(#${id})">` + inner + '</g>';
+
+function limb(pts, w, color, sw = 1, lc = LINE) {
+  const d = 'M' + pts.map(p => n(p[0]) + ',' + n(p[1])).join(' L');
+  return `<path d="${d}" fill="none" stroke="${lc}" stroke-width="${n(w + sw * 2)}" stroke-linecap="round" stroke-linejoin="round"/><path d="${d}" fill="none" stroke="${color}" stroke-width="${n(w)}" stroke-linecap="round" stroke-linejoin="round"/>`;
+}
+const tearDrop = (x, y, r) => T`<path d="M${x},${y - 2.6 * r} C${x + 1.2 * r},${y - .8 * r} ${x + r},${y + r} ${x},${y + r} C${x - r},${y + r} ${x - 1.2 * r},${y - .8 * r} ${x},${y - 2.6 * r}Z" fill="#d7ecfb" fill-opacity=".9" stroke="#7fb0d6" stroke-width="${Math.max(.4, r * .16)}"/><circle cx="${x - r * .35}" cy="${y - r * .1}" r="${r * .25}" fill="#fff"/>`;
+const sparkle = (x, y, r, c = '#fff') => T`<path d="M${x},${y - r} Q${x},${y} ${x + r},${y} Q${x},${y} ${x},${y + r} Q${x},${y} ${x - r},${y} Q${x},${y} ${x},${y - r}Z" fill="${c}"/>`;
+function bokeh(seed, count, color, op = .12) { const r = rng(seed); let g = ''; for (let i = 0; i < count; i++) g += T`<circle cx="${r() * 180}" cy="${r() * 320}" r="${4 + r() * 12}" fill="${color}" opacity="${op * (.5 + r())}"/>`; return g; }
+function confetti(seed, count, colors, y0 = 0, y1 = 320) { const r = rng(seed); let g = ''; for (let i = 0; i < count; i++) { const x = r() * 180, y = y0 + r() * (y1 - y0), a = r() * 180; g += T`<rect x="${x}" y="${y}" width="3.2" height="6.4" rx=".6" fill="${colors[i % colors.length]}" transform="rotate(${a} ${x + 1.6} ${y + 3.2})" opacity=".92"/>`; } return g; }
+
+function lips(cx, cy, w, o = {}) {
+  const fill = o.fill || ROSE, k = o.k || 0, g = o.gap || 0, sw = o.sw || Math.max(.7, w / 80);
+  const h = w * .34, L = cx - w / 2, R = cx + w / 2, yc = cy - k, mid = cy + h * .15 + k * .6;
+  let s = '';
+  if (g) s += T`<path d="M${L},${yc} Q${cx},${mid} ${R},${yc} Q${cx},${mid + g} ${L},${yc}Z" fill="#fffdf8" ${st(sw)}/>`;
+  s += T`<path d="M${L},${yc} C${L + w * .12},${cy - h * .35} ${cx - w * .22},${cy - h * .95} ${cx - w * .1},${cy - h * .75} Q${cx},${cy - h * .5} ${cx + w * .1},${cy - h * .75} C${cx + w * .22},${cy - h * .95} ${R - w * .12},${cy - h * .35} ${R},${yc} Q${cx},${mid} ${L},${yc}Z" fill="${fill}" ${st(sw)}/>`;
+  s += T`<path d="M${L},${yc} Q${cx},${mid + g} ${R},${yc} C${R - w * .1},${cy + h * 1.15 + g} ${L + w * .1},${cy + h * 1.15 + g} ${L},${yc}Z" fill="${fill}" ${st(sw)}/>`;
+  if (o.cracks) {
+    for (let i = 0; i < 8; i++) {
+      const x = L + w * (.16 + .68 * i / 7), d = (i % 2 ? 1 : -1) * w * .012;
+      s += T`<path d="M${x},${cy - h * .58} l${d},${h * .42} M${x + d},${cy + h * .3} l${-d},${h * .55}" stroke="#7a4744" stroke-width="${sw * .7}" opacity=".65" fill="none" stroke-linecap="round"/>`;
+    }
+    s += T`<ellipse cx="${cx - w * .2}" cy="${cy + h * .6}" rx="${w * .08}" ry="${h * .12}" fill="#e6c9c2" opacity=".6"/><ellipse cx="${cx + w * .18}" cy="${cy - h * .35}" rx="${w * .06}" ry="${h * .1}" fill="#e6c9c2" opacity=".55"/>`;
+  }
+  return s;
+}
+
+function eye(x, y, s, type = 'open', side = 1, look = 0) {
+  const w = 5 * s;
+  if (type === 'happy') return T`<path d="M${x - w},${y + 1.2 * s} Q${x},${y - 4.5 * s} ${x + w},${y + 1.2 * s}" fill="none" ${st(1.4 * s)}/>`;
+  if (type === 'closed') return T`<path d="M${x - w},${y} Q${x},${y + 3.6 * s} ${x + w},${y}" fill="none" ${st(1.3 * s)}/><path d="M${x + side * w},${y} l${side * 1.6 * s},${1.2 * s}" ${st(.8 * s)}/>`;
+  if (type === 'down') return T`<path d="M${x - w},${y} Q${x},${y - 1 * s} ${x + w},${y} Q${x},${y + 3 * s} ${x - w},${y}Z" fill="#fff" ${st(.7 * s)}/><circle cx="${x}" cy="${y + 1.1 * s}" r="${1.5 * s}" fill="${LINE}"/><path d="M${x - w},${y} Q${x},${y - 1.4 * s} ${x + w},${y}" fill="none" ${st(1.5 * s)}/><path d="M${x + side * w},${y} l${side * 1.4 * s},${1.4 * s}" ${st(.7 * s)}/>`;
+  return T`<path d="M${x - w},${y} Q${x},${y - 4.2 * s} ${x + w},${y} Q${x},${y + 3 * s} ${x - w},${y}Z" fill="#fff" ${st(.7 * s)}/><circle cx="${x}" cy="${y - .4 * s + look * s}" r="${2.2 * s}" fill="${LINE}"/><circle cx="${x + .8 * s}" cy="${y - 1.3 * s + look * s}" r="${.65 * s}" fill="#fff"/><path d="M${x - w},${y} Q${x},${y - 4.2 * s} ${x + w},${y}" fill="none" ${st(1.5 * s)}/><path d="M${x + side * w},${y - .4 * s} l${side * 1.6 * s},${-1.4 * s}" ${st(.8 * s)}/>`;
+}
+
+function brows(cx, y, s, type, ex, color) {
+  let g = '';
+  for (const side of [-1, 1]) {
+    const xo = cx + side * (ex + 6 * s), xi = cx + side * (ex - 5 * s), xm = cx + side * ex;
+    let d;
+    if (type === 'worried') d = T`M${xo},${y + 2 * s} Q${xm},${y + 1.2 * s} ${xi},${y - 2.6 * s}`;
+    else if (type === 'happy') d = T`M${xo},${y + .5 * s} Q${xm},${y - 4.2 * s} ${xi},${y - .8 * s}`;
+    else d = T`M${xo},${y + .8 * s} Q${xm},${y - 2.6 * s} ${xi},${y}`;
+    g += `<path d="${d}" fill="none" stroke="${color}" stroke-width="${n(1.7 * s)}" stroke-linecap="round"/>`;
+  }
+  return g;
+}
+
+function handOverMouth(cx, y, s, cloth) {
+  return T`<path d="M${cx + 10 * s},${y + 8 * s} L${cx + 30 * s},${y + 70 * s} L${cx + 52 * s},${y + 70 * s} L${cx + 26 * s},${y + 2 * s}Z" fill="${cloth}" ${st(1 * s)}/>` +
+    T`<path d="M${cx - 17 * s},${y - 8 * s} L${cx + 14 * s},${y - 10 * s} C${cx + 27 * s},${y - 10 * s} ${cx + 30 * s},${y + 12 * s} ${cx + 16 * s},${y + 13 * s} L${cx - 15 * s},${y + 11 * s} C${cx - 22 * s},${y + 11 * s} ${cx - 22 * s},${y - 8 * s} ${cx - 17 * s},${y - 8 * s}Z" fill="${SKIN}" ${st(1 * s)}/>` +
+    T`<path d="M${cx - 18 * s},${y - 3.4 * s} L${cx + 8 * s},${y - 4 * s} M${cx - 19 * s},${y + 1.4 * s} L${cx + 8 * s},${y + 1 * s} M${cx - 18 * s},${y + 6.2 * s} L${cx + 7 * s},${y + 6 * s}" fill="none" stroke="${LINE}" stroke-opacity=".5" stroke-width="${.8 * s}" stroke-linecap="round"/>`;
+}
+
+function handsLowering(cx, y, s) {
+  let g = '';
+  for (const side of [-1, 1]) {
+    const x = cx + side * 30 * s;
+    g += T`<path d="M${x - 7 * s},${y + 18 * s} L${x - 7 * s},${y - 4 * s} C${x - 7 * s},${y - 13 * s} ${x + 7 * s},${y - 13 * s} ${x + 7 * s},${y - 4 * s} L${x + 7 * s},${y + 18 * s}Z" fill="${SKIN}" ${st(1 * s)}/>`;
+    g += T`<path d="M${x - 2.4 * s},${y - 9 * s} L${x - 2.4 * s},${y + 2 * s} M${x + 2.4 * s},${y - 9 * s} L${x + 2.4 * s},${y + 2 * s}" stroke="${LINE}" stroke-opacity=".45" stroke-width="${.7 * s}"/>`;
+    g += T`<path d="M${x + side * 13 * s},${y - 8 * s} l0,${15 * s} m${-3.4 * s},${-4.4 * s} l${3.4 * s},${4.4 * s} l${3.4 * s},${-4.4 * s}" fill="none" stroke="#fff" stroke-width="${1.2 * s}" stroke-linecap="round" stroke-linejoin="round" opacity=".95"/>`;
+  }
+  return g;
+}
+
+/* close-up / medium face with shoulders */
+function face(cx, cy, s, o = {}) {
+  const rx = 34 * s, ry = 40 * s, skin = o.skin || SKIN, hair = o.hair || HAIR, cloth = o.cloth || '#9aa0aa', sw = 1.1 * s;
+  let g = '';
+  if (o.bun) g += T`<circle cx="${cx}" cy="${cy - ry - 3 * s}" r="${11 * s}" fill="${hair}" ${st(sw)}/>`;
+  else g += T`<path d="M${cx - 30 * s},${cy - 8 * s} C${cx - 36 * s},${cy - ry - 16 * s} ${cx + 36 * s},${cy - ry - 16 * s} ${cx + 30 * s},${cy - 8 * s} C${cx + 36 * s},${cy + 20 * s} ${cx + 40 * s},${cy + ry + 16 * s} ${cx + 36 * s},${cy + ry + 36 * s} L${cx - 36 * s},${cy + ry + 36 * s} C${cx - 40 * s},${cy + ry + 16 * s} ${cx - 36 * s},${cy + 20 * s} ${cx - 30 * s},${cy - 8 * s}Z" fill="${hair}" ${st(sw)}/>`;
+  const sy = cy + ry + 12 * s;
+  if (o.hoodie) g += T`<path d="M${cx - 27 * s},${sy + 6 * s} C${cx - 25 * s},${sy - 16 * s} ${cx + 25 * s},${sy - 16 * s} ${cx + 27 * s},${sy + 6 * s}Z" fill="${shade(cloth)}" ${st(sw)}/>`;
+  g += T`<path d="M${cx - 8 * s},${cy + ry * .6} L${cx - 8.5 * s},${sy + 8 * s} L${cx + 8.5 * s},${sy + 8 * s} L${cx + 8 * s},${cy + ry * .6}Z" fill="${skin}" ${st(sw)}/>`;
+  g += T`<path d="M${cx - 9 * s},${sy} C${cx - 26 * s},${sy + 3 * s} ${cx - 52 * s},${sy + 6 * s} ${cx - 60 * s},${sy + 30 * s} L${cx - 66 * s},${sy + 110 * s} L${cx + 66 * s},${sy + 110 * s} L${cx + 60 * s},${sy + 30 * s} C${cx + 52 * s},${sy + 6 * s} ${cx + 26 * s},${sy + 3 * s} ${cx + 9 * s},${sy} Q${cx},${sy + 9 * s} ${cx - 9 * s},${sy}Z" fill="${cloth}" ${st(sw)}/>`;
+  if (o.hoodie) g += T`<path d="M${cx - 5 * s},${sy + 6 * s} L${cx - 6 * s},${sy + 30 * s} M${cx + 5 * s},${sy + 6 * s} L${cx + 6 * s},${sy + 30 * s}" ${st(1.3 * s, '#eceae6')}/>`;
+  if (o.blazer) g += T`<path d="M${cx - 9 * s},${sy} L${cx + 9 * s},${sy} L${cx},${sy + 30 * s}Z" fill="#f4efe9" ${st(sw)}/><path d="M${cx - 9 * s},${sy} L${cx - 1 * s},${sy + 38 * s} L${cx - 17 * s},${sy + 20 * s}Z M${cx + 9 * s},${sy} L${cx + 1 * s},${sy + 38 * s} L${cx + 17 * s},${sy + 20 * s}Z" fill="${shade(cloth, 1.6)}" ${st(sw)}/>`;
+  if (o.necklace) g += T`<path d="M${cx - 10 * s},${sy + 1 * s} Q${cx},${sy + 13 * s} ${cx + 10 * s},${sy + 1 * s}" fill="none" stroke="${GOLD}" stroke-width="${.9 * s}"/><circle cx="${cx}" cy="${sy + 7.5 * s}" r="${1.4 * s}" fill="${GOLD}"/>`;
+  g += T`<path d="M${cx},${cy - ry} C${cx + rx * 1.35},${cy - ry * .95} ${cx + rx * .95},${cy + ry * .75} ${cx},${cy + ry} C${cx - rx * .95},${cy + ry * .75} ${cx - rx * 1.35},${cy - ry * .95} ${cx},${cy - ry}Z" fill="${skin}" ${st(sw)}/>`;
+  const ex = 11.5 * s, ey = cy - 1 * s;
+  g += brows(cx, cy - 10 * s, s, o.brow, ex, o.browC || hair);
+  g += eye(cx - ex, ey, s, o.eyes, -1, o.look || 0) + eye(cx + ex, ey, s, o.eyes, 1, o.look || 0);
+  g += T`<path d="M${cx - .5 * s},${cy + 4 * s} Q${cx + 3 * s},${cy + 10 * s} ${cx - 2 * s},${cy + 11.5 * s}" fill="none" stroke="${LINE}" stroke-opacity=".55" stroke-width="${.9 * s}" stroke-linecap="round"/>`;
+  if (o.blush) g += T`<ellipse cx="${cx - 18 * s}" cy="${cy + 10 * s}" rx="${6 * s}" ry="${3 * s}" fill="#e88a98" opacity=".35"/><ellipse cx="${cx + 18 * s}" cy="${cy + 10 * s}" rx="${6 * s}" ry="${3 * s}" fill="#e88a98" opacity=".35"/>`;
+  g += lips(cx, cy + 21 * s, 15 * s * (o.lipW || 1), { fill: o.lip || ROSE, k: (o.smile || 0) * s, gap: (o.gap || 0) * s, cracks: o.cracks, sw: .9 * s });
+  if (o.bun) g += T`<path d="M${cx - rx * .86},${cy - 2 * s} C${cx - rx * 1.12},${cy - ry * 1.22} ${cx + rx * 1.12},${cy - ry * 1.22} ${cx + rx * .86},${cy - 2 * s} C${cx + rx * .72},${cy - ry * .58} ${cx - rx * .72},${cy - ry * .58} ${cx - rx * .86},${cy - 2 * s}Z" fill="${hair}" ${st(sw)}/>`;
+  else g += T`<path d="M${cx - rx * .9},${cy + 4 * s} C${cx - rx * 1.12},${cy - ry * 1.22} ${cx + rx * 1.12},${cy - ry * 1.22} ${cx + rx * .9},${cy + 4 * s} C${cx + rx * .78},${cy - ry * .45} ${cx + rx * .3},${cy - ry * .6} ${cx - rx * .1},${cy - ry * .66} C${cx - rx * .45},${cy - ry * .5} ${cx - rx * .72},${cy - ry * .3} ${cx - rx * .9},${cy + 4 * s}Z" fill="${hair}" ${st(sw)}/>`;
+  if (o.wet) {
+    [[-.8, -.15, -.9, .55], [-.55, -.5, -.66, .3], [.75, -.25, .88, .6], [.45, -.55, .6, .2]].forEach(([x0, y0, x1, y1]) => {
+      g += T`<path d="M${cx + rx * x0},${cy + ry * y0} Q${cx + rx * (x0 + x1) / 2 - 3 * s},${cy + ry * (y0 + y1) / 2} ${cx + rx * x1},${cy + ry * y1}" fill="none" stroke="${hair}" stroke-width="${2.6 * s}" stroke-linecap="round"/>`;
+    });
+    [[-18, -22], [21, -8], [-7, 9], [24, 22], [-24, 27], [9, -30], [-28, 4]].forEach(([dx, dy]) => g += tearDrop(cx + dx * s, cy + dy * s, 1.5 * s));
+  }
+  (o.tears || []).forEach(([dx, dy, r]) => {
+    g += T`<path d="M${cx + dx * s},${ey + 3 * s} L${cx + dx * s},${cy + dy * s - r * 2.4 * s}" stroke="#d7ecfb" stroke-width="${1 * s}" opacity=".85"/>` + tearDrop(cx + dx * s, cy + dy * s, r * s);
+  });
+  if (o.hand === 'mouth') g += handOverMouth(cx, cy + 21 * s, s, cloth);
+  return g;
+}
+
+/* full-body figure for wide shots (y = floor) */
+function person(x, y, s, o = {}) {
+  const pose = o.pose || 'stand', skin = o.skin || SKIN, cloth = o.cloth || '#8a8f99', hair = o.hair || HAIR, lc = o.line || LINE;
+  const hr = 7.5 * s, hy = y - 86 * s, sh = y - 73 * s, sw = Math.max(.6, .75 * s), seat = pose === 'sit' || pose === 'cry';
+  const S = w => st(w, lc);
+  let g = '';
+  if (o.bun) g += T`<circle cx="${x}" cy="${hy - hr * .95}" r="${hr * .5}" fill="${hair}" ${S(sw)}/>`;
+  else g += T`<path d="M${x - hr * 1.1},${hy - hr * .2} C${x - hr * 1.3},${hy + hr * 1.6} ${x - hr * 1.1},${hy + hr * 2.4} ${x - hr * .8},${hy + hr * 2.6} L${x + hr * .8},${hy + hr * 2.6} C${x + hr * 1.1},${hy + hr * 2.4} ${x + hr * 1.3},${hy + hr * 1.6} ${x + hr * 1.1},${hy - hr * .2}Z" fill="${hair}" ${S(sw)}/>`;
+  const legTop = seat ? y - 40 * s : y - 32 * s, legC = o.legs || skin;
+  g += limb([[x - 5 * s, legTop], [x - 5.5 * s, y]], 3.6 * s, legC, sw, lc) + limb([[x + 5 * s, legTop], [x + 5.5 * s, y]], 3.6 * s, legC, sw, lc);
+  g += T`<rect x="${x - 2.4 * s}" y="${hy + hr * .6}" width="${4.8 * s}" height="${sh - hy - hr * .6 + 2 * s}" fill="${skin}" ${S(sw)}/>`;
+  if (seat) g += T`<path d="M${x - 8.5 * s},${sh} L${x + 8.5 * s},${sh} L${x + 10 * s},${y - 47 * s} L${x + 14 * s},${y - 37 * s} L${x - 14 * s},${y - 37 * s} L${x - 10 * s},${y - 47 * s}Z" fill="${cloth}" ${S(sw)}/>`;
+  else { const hw = o.pants ? 10 : 15; g += T`<path d="M${x - 8.5 * s},${sh} L${x + 8.5 * s},${sh} L${x + hw * s},${y - 30 * s} L${x - hw * s},${y - 30 * s}Z" fill="${cloth}" ${S(sw)}/>`; }
+  g += T`<circle cx="${x}" cy="${hy}" r="${hr}" fill="${o.back ? hair : skin}" ${S(sw)}/>`;
+  if (!o.back) {
+    g += T`<path d="M${x - hr * 1.05},${hy + hr * .2} C${x - hr * 1.15},${hy - hr * 1.45} ${x + hr * 1.15},${hy - hr * 1.45} ${x + hr * 1.05},${hy + hr * .2} C${x + hr * .7},${hy - hr * .5} ${x - hr * .2},${hy - hr * .75} ${x - hr * 1.05},${hy + hr * .2}Z" fill="${hair}" ${S(sw)}/>`;
+    if (pose === 'cry' || o.eyesClosed) g += T`<path d="M${x - hr * .55},${hy} q${hr * .2},${hr * .2} ${hr * .4},0 M${x + hr * .15},${hy} q${hr * .2},${hr * .2} ${hr * .4},0" fill="none" ${S(sw * .8)}/>`;
+    else g += T`<circle cx="${x - hr * .36}" cy="${hy}" r="${hr * .1}" fill="${LINE}"/><circle cx="${x + hr * .36}" cy="${hy}" r="${hr * .1}" fill="${LINE}"/>`;
+    g += T`<ellipse cx="${x}" cy="${hy + hr * .52}" rx="${hr * .3}" ry="${hr * .13}" fill="${o.lip || ROSE}"/>`;
+  }
+  const L0 = [x - 8 * s, sh + 2 * s], R0 = [x + 8 * s, sh + 2 * s], P = (dx, dy) => [x + dx * s, sh + dy * s];
+  const down = [[L0, P(-12, 18), P(-13, 36)], [R0, P(12, 18), P(13, 36)]];
+  const poses = {
+    stand: down,
+    sit: [[L0, P(-12, 16), P(-6, 30)], [R0, P(12, 16), P(6, 30)]],
+    cry: [[L0, P(-13, 12), [x - 3 * s, hy + hr * .5]], [R0, P(13, 12), [x + 3 * s, hy + hr * .5]]],
+    armsUp: [[L0, P(-15, -12), P(-17, -30)], [R0, P(15, -12), P(17, -30)]],
+    flinch: [[L0, P(-16, -8), [x - 5 * s, hy - hr * 1.5]], [R0, P(16, -8), [x + 5 * s, hy - hr * 1.5]]],
+    pointR: [down[0], [R0, P(18, -2), P(34, -6)]],
+    pointL: [[L0, P(-18, -2), P(-34, -6)], down[1]],
+    holdR: [down[0], [R0, P(12, 16), P(22, 24)]],
+    holdL: [[L0, P(-12, 16), P(-22, 24)], down[1]],
+    clasp: [[L0, P(-11, 16), P(-1, 28)], [R0, P(11, 16), P(1, 28)]],
+    podium: [[L0, P(-11, 14), P(-13, 26)], [R0, P(11, 14), P(13, 26)]]
+  };
+  for (const arm of poses[pose] || down) {
+    g += limb(arm, 3 * s, o.sleeve || cloth, sw, lc);
+    const e = arm[arm.length - 1];
+    g += T`<circle cx="${e[0]}" cy="${e[1]}" r="${1.9 * s}" fill="${skin}" ${S(sw * .8)}/>`;
+  }
+  return g;
+}
+
+function mirror(x, y, w, h, o = {}) {
+  let g = T`<rect x="${x - 7}" y="${y - 7}" width="${w + 14}" height="${h + 14}" rx="3" fill="#3a2f29" ${st(.9)}/><rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${o.glass || '#4b5566'}" ${st(.8)}/>`;
+  const bulb = (bx, by) => T`<circle cx="${bx}" cy="${by}" r="7" fill="#ffe7a3" opacity=".3"/><circle cx="${bx}" cy="${by}" r="3.4" fill="#fff6d8" ${st(.5)}/>`;
+  for (let bx = x + 8; bx <= x + w - 6; bx += 18) g += bulb(bx, y - 7);
+  for (let by = y + 16; by <= y + h - 8; by += 24) g += bulb(x - 7, by) + bulb(x + w + 7, by);
+  return g;
+}
+const pass = ([x, y, r, c, t]) => T`<g transform="translate(${x},${y}) rotate(${r})"><rect x="-8" y="-11" width="16" height="22" rx="1.5" fill="${c}" ${st(.6)}/><rect x="-6" y="-6" width="12" height="8" fill="#fff" opacity=".85"/><rect x="-3" y="-9.5" width="6" height="1.6" rx=".8" fill="#0006"/><text x="0" y="8.2" font-size="4.2" font-weight="700" fill="#fff" text-anchor="middle">${t}</text><rect x="-5" y="-14" width="10" height="5" fill="#efe3c8" opacity=".8" transform="rotate(-8)"/></g>`;
+
+function tube(x, y, s = 1, rot = 0) {
+  const w = 12 * s, capH = 36 * s, bodyH = 30 * s, top = -(capH + bodyH) / 2, ty = top + capH * .45;
+  return T`<g transform="translate(${x},${y}) rotate(${rot})"><rect x="${-w / 2 - 1 * s}" y="${top + capH - 2 * s}" width="${w + 2 * s}" height="${bodyH + 2 * s}" rx="${3.5 * s}" fill="${ROSE}" stroke="${LINE}" stroke-width="${.9 * s}"/><rect x="${-w / 2 + 1.2 * s}" y="${top + capH + 2 * s}" width="${1.8 * s}" height="${bodyH - 6 * s}" rx="${.9 * s}" fill="#fff" opacity=".35"/><rect x="${-w / 2}" y="${top}" width="${w}" height="${capH}" rx="${2.5 * s}" fill="#2c2c2c" stroke="${LINE}" stroke-width="${.9 * s}"/><rect x="${-w / 2}" y="${top + capH - 4.4 * s}" width="${w}" height="${2.4 * s}" fill="${GOLD}"/><text x="0" y="${ty}" font-size="${4.6 * s}" font-weight="700" fill="${GOLD}" text-anchor="middle" dominant-baseline="middle" letter-spacing="${.5 * s}" transform="rotate(-90 0 ${ty})">UZI</text><text x="0" y="${top + capH + bodyH * .62}" font-size="${2.6 * s}" fill="#fff" text-anchor="middle" font-weight="600">MATTE</text></g>`;
+}
+function note(x, y, s, rot, lines) {
+  const w = 56 * s, h = 30 * s;
+  return T`<g transform="translate(${x},${y}) rotate(${rot})"><rect x="${-w / 2}" y="${-h / 2}" width="${w}" height="${h}" rx="${1.5 * s}" fill="#fffaf0" stroke="${LINE}" stroke-width="${.7 * s}"/>` +
+    lines.map((l, i) => T`<text x="0" y="${-h / 2 + 12.5 * s + i * 9 * s}" font-size="${6.4 * s}" fill="#6a4e44" text-anchor="middle" style="font-family:'Itim','Prompt',sans-serif">${l}</text>`).join('') + '</g>';
+}
+function trophy(x, y, s = 1) {
+  return T`<path d="M${x - 13 * s},${y - 47 * s} C${x - 25 * s},${y - 47 * s} ${x - 24 * s},${y - 29 * s} ${x - 9 * s},${y - 27 * s} M${x + 13 * s},${y - 47 * s} C${x + 25 * s},${y - 47 * s} ${x + 24 * s},${y - 29 * s} ${x + 9 * s},${y - 27 * s}" fill="none" stroke="${GOLD}" stroke-width="${2.6 * s}" stroke-linecap="round"/>` +
+    T`<path d="M${x - 14 * s},${y - 50 * s} L${x + 14 * s},${y - 50 * s} C${x + 14 * s},${y - 30 * s} ${x + 8 * s},${y - 22 * s} ${x + 3 * s},${y - 20 * s} L${x + 3 * s},${y - 12 * s} L${x + 9 * s},${y - 8 * s} L${x - 9 * s},${y - 8 * s} L${x - 3 * s},${y - 12 * s} L${x - 3 * s},${y - 20 * s} C${x - 8 * s},${y - 22 * s} ${x - 14 * s},${y - 30 * s} ${x - 14 * s},${y - 50 * s}Z" fill="${GOLD}" stroke="${LINE}" stroke-width="${.8 * s}"/>` +
+    T`<path d="M${x - 10 * s},${y - 46 * s} C${x - 10 * s},${y - 34 * s} ${x - 7 * s},${y - 28 * s} ${x - 4 * s},${y - 25 * s}" fill="none" stroke="#fff" stroke-width="${1.4 * s}" opacity=".45" stroke-linecap="round"/>` +
+    T`<rect x="${x - 12 * s}" y="${y - 8 * s}" width="${24 * s}" height="${8 * s}" rx="${1 * s}" fill="#3a2f29" stroke="${LINE}" stroke-width="${.8 * s}"/><text x="${x}" y="${y - 36 * s}" font-size="${7 * s}" font-weight="700" fill="#6b5212" text-anchor="middle">MVP</text>`;
+}
+const podium = cx => T`<path d="M${cx - 24},226 L${cx + 24},226 L${cx + 20},322 L${cx - 20},322Z" fill="#2a0d10" ${st(.9)}/><rect x="${cx - 25}" y="221" width="50" height="6" fill="#4a1a1e" ${st(.7)}/><path d="M${cx + 9},221 L${cx + 5},205" stroke="#8a8a8a" stroke-width="1.2"/><circle cx="${cx + 5}" cy="204" r="2.2" fill="#555"/>`;
+
+/* ---------- shots ---------- */
+const SHOTS = [
+  { no: 1, act: 1, t: '0:00–0:03', d: 3, title: 'Hook: น้ำตาบนริมฝีปาก', bg: '#cfb5ac',
+    cam: 'ECU ริมฝีปาก · เลนส์มาโคร 100mm · Slow-mo 120fps · กล้องนิ่ง',
+    see: 'เปิดด้วยริมฝีปากสีแมทเต็มจอ น้ำตาหนึ่งหยดไหลลงจากแก้มช้าๆ แล้วกลิ้งผ่านริมฝีปาก สีไม่เยิ้ม ไม่ซึม ไม่เป็นคราบ ริมฝีปากสั่นเบาๆ เพราะกลั้นสะอื้น',
+    sup: 'ร้องไห้มาทุกรายการ…', pos: 'low',
+    snd: 'ไม่มีเพลง ได้ยินแค่เสียงสะอื้นเบาๆ กับเสียงน้ำตาหยด “ติ๋ง” ที่ขยายให้ดังกว่าจริง',
+    mood: 'สะดุดตา · อยากรู้ต่อ', proof: 'น้ำตาไหลผ่าน ลิปไม่เยิ้ม',
+    tip: 'ประโยคยังไม่จบ ปล่อยให้คนดูถามในใจว่า “แล้วทำไม?” แล้วตัดย้อนไปวันแรกทันที',
+    draw: id => `<rect width="180" height="320" fill="#cfb5ac"/><ellipse cx="90" cy="150" rx="120" ry="160" fill="#dcc3ba" opacity=".7"/>` +
+      `<path d="M52,36 C66,60 80,66 90,63 C100,66 114,60 128,36" fill="none" stroke="${LINE}" stroke-width="1.3" opacity=".45" stroke-linecap="round"/>` +
+      `<path d="M70,50 q8,8 15,4 M110,50 q-8,8 -15,4" fill="none" stroke="${LINE}" stroke-width="1.1" opacity=".35" stroke-linecap="round"/>` +
+      `<path d="M83,68 L80,104 M97,68 L100,104" stroke="${LINE}" stroke-width="1" opacity=".16"/>` +
+      `<path d="M6,40 C0,140 18,250 64,316 M174,40 C180,140 162,250 116,316" fill="none" stroke="${LINE}" stroke-width="1" opacity=".16"/>` +
+      lips(90, 150, 150, { sw: 1.5 }) +
+      `<path d="M158,0 C154,40 143,78 130,108" fill="none" stroke="#f3f9ff" stroke-width="2.8" opacity=".6" stroke-linecap="round"/>` + tearDrop(128, 120, 6.5) },
+
+  { no: 2, act: 1, t: '0:03–0:06', d: 3, title: 'ย้อนไปวันแรก: ไม่กล้ายิ้ม', bg: 'linear-gradient(180deg,#5d6878,#38404d)',
+    cam: 'OTS ข้ามไหล่เข้ากระจกแต่งหน้า · Medium · Push-in ช้าๆ',
+    see: 'ห้องแต่งตัวหลังเวที กระจกไฟรอบบานยังว่าง ไม่มีบัตรผ่านสักใบ เธอใส่ฮู้ดดี้ตัวโคร่ง นั่งห่อไหล่ ใช้มือปิดปากขณะมองเงาตัวเอง ริมฝีปากซีดคล้ำไม่สม่ำเสมอ',
+    sup: 'ย้อนกลับไป… วันแรกที่ฉันออกรายการ', pos: 'low',
+    snd: 'เสียงฟลอร์จากนอกห้อง “สแตนด์บาย 5 นาทีครับ” กับเสียงหัวใจเต้นตุบๆ',
+    mood: 'ประหม่า · ไม่มั่นใจ',
+    tip: 'จดมุมกล้อง เลนส์ และตำแหน่งเก้าอี้ไว้ เพราะต้องถ่ายซ้ำมุมเดิมในช็อต 14 และ 19',
+    draw: id => mirror(30, 34, 120, 156, { glass: '#465062' }) +
+      clip(id + 'm', 30, 34, 120, 156, face(90, 116, .8, { brow: 'worried', eyes: 'down', hand: 'mouth', hoodie: true, cloth: '#8b8f98', lip: PALE }) + `<rect x="30" y="34" width="120" height="156" fill="#9fb3d1" opacity=".14"/>`) +
+      `<rect x="-4" y="196" width="188" height="16" fill="#5a4638" ${st(.9)}/><rect x="-4" y="212" width="188" height="120" fill="#3b2e26"/>` +
+      `<g transform="translate(134,191) rotate(80)"><rect x="-3" y="-9" width="6" height="16" rx="1" fill="#857a75" ${st(.6)}/></g><rect x="100" y="190" width="22" height="7" fill="#efe9df" ${st(.5)} transform="rotate(-4 111 193)"/>` +
+      `<path d="M-34,330 L-24,292 C-14,272 18,262 58,262 C98,262 128,272 138,292 L150,330Z" fill="#7a7e87" ${st(1.1)}/>` +
+      `<ellipse cx="58" cy="236" rx="27" ry="31" fill="${HAIR}" ${st(1.1)}/>` +
+      `<path d="M22,270 C30,250 86,250 94,270 C80,282 36,282 22,270Z" fill="#6a6e77" ${st(1)}/>` },
+
+  { no: 3, act: 1, t: '0:06–0:08', d: 2, title: 'ลิปเดิมที่ไม่เคยช่วย', bg: '#cdb4ab',
+    cam: 'CU ริมฝีปาก → Tilt ลงที่หลังมือ',
+    see: 'เธอทาลิปแท่งเดิม สีเป็นคราบและตกร่องตามริ้วปาก เธอถอนหายใจ แล้วใช้หลังมือปาดออกแรงๆ จนเปื้อนเป็นทางยาว',
+    sup: 'ทาทีไร… ก็ไม่เคยมั่นใจ', pos: 'mid',
+    snd: 'เสียงถูผิว กับเสียงถอนหายใจยาว',
+    mood: 'ท้อ', proof: '(Pain point) ลิปทั่วไปตกร่อง ปาดแล้วเลอะ',
+    tip: 'ใช้ลิปที่ไม่มีแบรนด์หรือปิดโลโก้ ห้ามพาดพิงแบรนด์อื่น',
+    draw: id => `<rect width="180" height="320" fill="#cdb4ab"/>` + lips(90, 96, 128, { fill: '#bc7f78', cracks: true, sw: 1.4 }) +
+      `<g transform="translate(162,52) rotate(-38)"><rect x="-6.5" y="-6" width="13" height="40" rx="2" fill="#7d7470" ${st(.9)}/><path d="M-5,-6 L-5,-18 Q0,-26 5,-22 L5,-6Z" fill="#a8565c" ${st(.9)}/></g>` +
+      `<path d="M-10,252 C18,232 66,224 112,228 C134,230 156,238 192,244 L192,330 L-10,330Z" fill="${SKIN}" ${st(1.2)}/>` +
+      `<path d="M100,236 q6,-6 12,0 M120,238 q6,-6 12,0 M140,242 q6,-6 12,0" fill="none" stroke="${LINE}" stroke-width=".8" opacity=".4"/>` +
+      `<path d="M20,264 C58,248 104,246 156,258" fill="none" stroke="#ad5560" stroke-width="10" stroke-linecap="round" opacity=".72"/><path d="M30,268 C64,256 104,254 146,264" fill="none" stroke="#c97a83" stroke-width="2.5" stroke-linecap="round" opacity=".7"/>` +
+      `<path d="M150,206 q14,8 20,22 M138,212 q12,8 16,20" fill="none" stroke="#fff" stroke-width="1.4" stroke-linecap="round" opacity=".75"/>` },
+
+  { no: 4, act: 1, t: '0:08–0:11', d: 3, title: 'มือของแม่', bg: 'linear-gradient(#56606f,#3b4350)',
+    cam: 'MCU ในกระจก → Insert ฝ่ามือ (มุมบน)',
+    see: 'เงาของแม่ปรากฏข้างหลังในกระจก แม่วางมือบนไหล่ลูกเบาๆ ไม่พูดอะไร แค่วาง UZI Matte Liquid Lipstick กับโน้ตพับเล็กๆ ลงในฝ่ามือ ลายมือแม่เขียนว่า “ยิ้มให้เต็มที่นะลูก แม่นั่งแถวหน้า ♥”',
+    snd: 'เปียโนโน้ตแรกเข้ามา ช้าและเบา',
+    mood: 'อบอุ่น · มีคนอยู่ข้างๆ', proof: 'แม่เลือกให้ = ปลอดภัย ออร์แกนิก (ปูไว้ให้ end card)',
+    tip: 'ไม่ต้องมีบทพูด ให้ลายมือในโน้ตพูดแทน ถ่าย insert โน้ตให้อ่านออกชัดอย่างน้อย 1 วินาที',
+    draw: id => `<rect width="180" height="200" fill="#566170"/>` +
+      clip(id + 'm', 0, 0, 180, 198,
+        face(50, 92, .64, { bun: true, hair: '#64574f', browC: '#5c5049', skin: SKIN_MOM, eyes: 'open', brow: 'neutral', smile: 1.5, lip: '#b48580', cloth: '#c4b19d' }) +
+        face(112, 118, .74, { brow: 'worried', eyes: 'open', look: -.6, hoodie: true, cloth: '#8b8f98', lip: PALE }) +
+        limb([[30, 150], [56, 170], [74, 172]], 8, '#c4b19d', .8) +
+        `<path d="M70,166 C76,160 90,160 95,167 C97,172 92,176 86,176 L72,177Z" fill="${SKIN_MOM}" ${st(.8)}/>` +
+        `<rect width="180" height="198" fill="#9fb3d1" opacity=".1"/>`) +
+      `<rect x="0" y="196" width="180" height="8" fill="#3a2f29"/><rect x="0" y="204" width="180" height="120" fill="#4a3a30"/>` +
+      [0, 1, 2, 3].map(i => limb([[64 + i * 17, 248], [66 + i * 17, 212 + Math.abs(i - 1.5) * 6]], 12, SKIN, 1)).join('') +
+      limb([[54, 280], [30, 254]], 13, SKIN, 1) +
+      `<path d="M40,324 C30,284 44,246 76,242 C112,238 142,248 140,284 L136,324Z" fill="${SKIN}" ${st(1.1)}/>` +
+      `<path d="M60,272 q30,-12 62,2 M64,294 q24,-6 50,4" fill="none" stroke="${LINE}" stroke-width=".8" opacity=".25"/>` +
+      tube(80, 274, .95, -58) + note(128, 262, .95, 9, ['ยิ้มให้เต็มที่นะลูก', 'แม่นั่งแถวหน้า ♥']) },
+
+  { no: 5, act: 1, t: '0:11–0:13', d: 2, title: 'ปาดเดียว', bg: '#d2b9b0',
+    cam: 'ECU มาโคร · ASMR',
+    see: 'ดึงแปรงออกจากขวด (คลิก) ปาดลงริมฝีปากครั้งเดียว สีเปลี่ยนจากซีดเป็นสีชัดทันที เนื้อเนียนไม่ตกร่อง เม้มปาก “ป๊อป” แล้วตัดไปที่ดวงตาในกระจก เป็นรอยยิ้มเล็กๆ ครั้งแรก',
+    sup: 'ปาดเดียว… สีชัด ไม่ตกร่อง', pos: 'low',
+    snd: 'ASMR เสียงคลิกเปิดขวด กับเสียงเม้มปาก',
+    mood: 'ความหวัง', proof: 'กลบปากคล้ำ เนื้อแมทเนียน ไม่ตกร่อง (ตัดเทียบช็อต 3)',
+    tip: 'ถ่ายช็อต 3 กับ 5 ด้วยแสงและมุมเดียวกัน ภาพก่อน/หลังจะเทียบกันได้จริง',
+    draw: id => `<rect width="180" height="320" fill="#d2b9b0"/>` +
+      `<path d="M58,30 C70,52 80,58 90,55 C100,58 110,52 122,30" fill="none" stroke="${LINE}" stroke-width="1.2" opacity=".35"/>` +
+      lips(90, 140, 146, { fill: PALE, sw: 1.5 }) +
+      `<clipPath id="${id}h"><rect x="0" y="0" width="92" height="320"/></clipPath><g clip-path="url(#${id}h)">${lips(90, 140, 146, { fill: ROSE, sw: 1.5 })}</g>` +
+      `<path d="M150,72 L96,160" stroke="#d9d2cc" stroke-width="2.6" stroke-linecap="round"/>` +
+      `<ellipse cx="94" cy="163" rx="9" ry="4.6" transform="rotate(-58 94 163)" fill="${ROSE}" ${st(1)}/>` +
+      `<path d="M200,-8 L150,74" stroke="#1f1f1f" stroke-width="15" stroke-linecap="round"/><path d="M158.4,60.9 L155.5,65.6" stroke="${GOLD}" stroke-width="15"/>` +
+      `<path d="M52,198 Q90,212 128,196" fill="none" stroke="#fff" stroke-width="1.6" stroke-dasharray="4 4"/><path d="M121,192 L129,196 L123,203" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>` },
+
+  { no: 6, act: 2, t: '0:13–0:17', d: 4, title: 'รายการที่ 1 · “เปิดใจ”', bg: 'radial-gradient(120% 80% at 70% 25%,#5b2f6e,#1e1028)',
+    cam: 'Medium Wide · ข้ามไหล่พิธีกร · ไฟสปอตแข็ง',
+    see: 'ทอล์กโชว์ไฟม่วง เธอนั่งโซฟาใต้สปอตไลท์ พิธีกรโน้มตัวเข้าหา คำถามขึ้นจอ เธอพยายามยิ้มแต่กลั้นไม่อยู่ ยกมือขึ้นซับน้ำตา',
+    sup: '“เคยโดนล้อว่า ‘ปากดำ’ ใช่ไหม?”', pos: 'top', lt: ['เปิดใจ', 'EP.1'],
+    snd: 'เสียงคนดูค่อยๆ เงียบหาย (subjective sound) เหลือแต่เสียงลมหายใจของเธอ',
+    mood: 'เจ็บ · เปราะบาง',
+    tip: 'ให้แม่ปรากฏเบลอๆ ในแถวหน้าของคนดู 1 แว้บ ตามที่เขียนไว้ในโน้ต',
+    draw: id => `<polygon points="110,0 142,0 180,268 80,268" fill="#fff" opacity=".08"/>` +
+      `<circle cx="132" cy="112" r="24" fill="none" stroke="#f39ad8" stroke-width="7" opacity=".18"/><circle cx="132" cy="112" r="24" fill="none" stroke="#f7b3e3" stroke-width="2"/><text x="132" y="116.5" font-size="12" font-weight="600" fill="#fbd3ef" text-anchor="middle">เปิดใจ</text>` +
+      `<rect x="0" y="258" width="180" height="64" fill="#1b1022"/>` +
+      `<rect x="84" y="196" width="100" height="46" rx="9" fill="#6d4a7e" ${st(1)}/><rect x="76" y="232" width="110" height="24" rx="7" fill="#7f5a91" ${st(1)}/><rect x="76" y="212" width="16" height="44" rx="7" fill="#76528a" ${st(1)}/>` +
+      person(134, 284, 1.25, { pose: 'cry', cloth: '#d9c4b2' }) +
+      `<path d="M-24,330 L-14,266 C-4,248 16,240 36,240 C56,240 76,250 86,272 L96,330Z" fill="#120a17"/><circle cx="36" cy="212" r="24" fill="#120a17"/><path d="M52,195 A24,24 0 0 1 59,221" fill="none" stroke="#f39ad8" stroke-width="1.4" opacity=".6"/>` +
+      `<rect x="70" y="240" width="18" height="24" rx="2" fill="#e9e1f0" transform="rotate(14 79 252)" ${st(.6)}/>` },
+
+  { no: 7, act: 2, t: '0:17–0:19', d: 2, title: 'ทิชชู่ที่ไม่มีสี', bg: 'radial-gradient(circle at 50% 40%,#4a2a58,#190d20)',
+    cam: 'Insert CU · Rack focus จากริมฝีปาก → ทิชชู่',
+    see: 'เธอซับน้ำตาและกดทิชชู่ขาวที่ริมฝีปาก แล้ววางลงบนตัก กล้องโฟกัสที่ทิชชู่ มีแต่รอยน้ำตาเปียก ไม่มีสีลิปติดเลย',
+    sup: 'ซับน้ำตา… ทิชชู่ไม่มีสีลิปติด', pos: 'low',
+    snd: 'เปียโนต่อเนื่อง', mood: 'เริ่มตั้งหลักได้', proof: 'ไม่ติดทิชชู่ (Transfer-proof)',
+    tip: 'ถ่ายเทคเดียวต่อเนื่องตั้งแต่กดทิชชู่จนเปิดให้ดู ไม่ตัดกลาง คนดูจะเชื่อ',
+    draw: id => bokeh(11, 9, '#f39ad8', .1) +
+      limb([[178, 116], [146, 122]], 11, SKIN, 1) + limb([[180, 136], [146, 140]], 11, SKIN, 1) + limb([[178, 156], [148, 158]], 11, SKIN, 1) +
+      `<g transform="translate(0,-26) rotate(-7 90 168)"><path d="M36,112 L144,106 L148,226 L34,230Z" fill="#fbfbfb" ${st(1)}/><path d="M36,170 L146,166" stroke="${LINE}" stroke-width=".6" opacity=".18"/><path d="M90,109 L91,228" stroke="${LINE}" stroke-width=".6" opacity=".14"/>` +
+      [[70, 150, 13], [106, 190, 9], [120, 140, 6], [62, 198, 5]].map(([x, y, r]) => `<circle cx="${x}" cy="${y}" r="${r}" fill="#c6dbee" opacity=".55" stroke="#8fb3d3" stroke-width=".8" stroke-dasharray="2 2"/>`).join('') + `</g>` +
+      limb([[28, 226], [58, 188]], 14, SKIN, 1) +
+      `<clipPath id="${id}c"><circle cx="136" cy="54" r="30"/></clipPath><g clip-path="url(#${id}c)"><rect x="100" y="20" width="80" height="70" fill="#d6bcb3"/>${lips(136, 54, 48, { sw: 1 })}</g><circle cx="136" cy="54" r="30" fill="none" stroke="#fff" stroke-width="2"/>` +
+      `<text x="136" y="96" font-size="7.5" fill="#fff" text-anchor="middle" font-weight="500">ปากยังชัด</text>` },
+
+  { no: 8, act: 2, t: '0:19–0:22', d: 3, title: 'รายการที่ 2 · “เกมโหด ท้าใจ”', bg: 'linear-gradient(#1b6b7c,#0b3440)',
+    cam: 'Wide · Low angle · Slow-mo 120fps',
+    see: 'เกมโชว์ไฟฟ้า ถังน้ำเย็นเทลงมาทั้งถัง น้ำแตกกระจายเป็นละอองรอบตัวเธอ',
+    lt: ['เกมโหด ท้าใจ', 'EP.2'],
+    snd: 'เสียงน้ำซ่ากับเสียงคนดูกรี๊ด แล้วทุกเสียงช้าลงตาม slow-mo',
+    mood: 'โดนกระหน่ำ',
+    tip: 'ใช้น้ำอุ่น ปูแผ่นกันลื่น และเตรียมชุดสำรอง 2 ชุด',
+    draw: id => `<ellipse cx="90" cy="304" rx="96" ry="20" fill="#0a3039"/>` +
+      person(90, 300, 1.45, { pose: 'flinch', cloth: '#ec7a66', pants: true, legs: '#2d3b55' }) +
+      `<polygon points="78,48 110,46 140,206 42,206" fill="#c4eef6" opacity=".2"/>` +
+      [[82, 50, 72, 172, 5], [92, 49, 90, 180, 6], [102, 49, 112, 174, 4.5], [88, 50, 58, 162, 3], [100, 49, 128, 166, 3]].map(([x1, y1, x2, y2, w]) => T`<path d="M${x1},${y1} C${x1 - 2},${(y1 + y2) / 2} ${x2 + 4},${(y1 + y2) / 2} ${x2},${y2}" fill="none" stroke="#d8f6fb" stroke-width="${w}" opacity=".78" stroke-linecap="round"/>`).join('') +
+      [[52, 168], [130, 160], [40, 200], [142, 206], [62, 140], [120, 132], [30, 240], [152, 250], [70, 116], [112, 112]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="2.4" fill="#e3fbff" opacity=".9"/>`).join('') +
+      `<path d="M38,300 q10,-14 20,0 M122,300 q10,-14 20,0" fill="none" stroke="#d8f6fb" stroke-width="1.4"/>` +
+      `<g transform="translate(94,28) rotate(165)"><path d="M-22,-18 L22,-18 L16,18 L-16,18Z" fill="#f08a3c" ${st(1)}/><ellipse cx="0" cy="-18" rx="22" ry="5.5" fill="#ffb27a" ${st(1)}/></g><path d="M40,-4 L76,16" stroke="#cfd8dc" stroke-width="1.2"/>` },
+
+  { no: 9, act: 2, t: '0:22–0:24', d: 2, title: 'เปียกทั้งตัว แต่ยังหัวเราะ', bg: 'radial-gradient(circle at 50% 35%,#2a8193,#0c3a46)',
+    cam: 'CU ใบหน้า · Handheld เล็กน้อย',
+    see: 'ผมเปียกแนบหน้า หยดน้ำเกาะทั่วหน้า เธอปาดน้ำออกจากหน้า ลืมตา แล้วหัวเราะออกมา ริมฝีปากยังคมชัด สีไม่ด่าง ไม่ไหลเยิ้ม',
+    sup: 'เปียกทั้งตัว… ลิปยังอยู่ครบ', pos: 'low',
+    snd: 'เสียงหัวเราะของเธอแทรกขึ้นมา', mood: 'ฮึดสู้', proof: 'กันน้ำ (Waterproof)',
+    tip: 'ถ่ายต่อจากช็อต 8 ทันที ห้ามเติมลิประหว่างเทค',
+    draw: id => bokeh(23, 14, '#d8f6fb', .14) + face(90, 136, 1.45, { eyes: 'happy', brow: 'happy', smile: 3, gap: 3.2, cloth: '#ec7a66', wet: true, blush: true }) },
+
+  { no: 10, act: 2, t: '0:24–0:27', d: 3, title: 'รายการที่ 3 · “ศึกห้องเดือด”', bg: 'radial-gradient(circle at 50% 20%,#7a1d22,#250809)',
+    cam: 'Medium Wide · Static · ไฟแดง',
+    see: 'รายการดีเบตไฟแดง ผู้ร่วมรายการสองฝั่งชี้หน้าเถียงกันเสียงดัง เธอยืนตรงกลาง นิ่ง เชิดหน้า ไม่หลบกล้อง มุมจอขึ้นว่าถ่ายมาถึงชั่วโมงที่ 9',
+    lt: ['ศึกห้องเดือด', 'EP.3'], hud: 'REC 09:14:22',
+    snd: 'เสียงเถียงซ้อนกันหลายเสียง ค่อยๆ เบาลงจนเหลือแค่เสียงนาฬิกา ติ๊ก-ต๊อก',
+    mood: 'กดดัน → นิ่ง',
+    tip: 'ให้เธอเป็นคนเดียวในเฟรมที่ไม่ขยับ คนดูจะเห็นความมั่นใจจากความนิ่งของเธอ',
+    draw: id => `<rect x="14" y="40" width="152" height="60" rx="4" fill="#3a0c10" stroke="#ff6b6b" stroke-opacity=".5"/><text x="90" y="76" font-size="15" font-weight="700" fill="#ff8f8f" text-anchor="middle">ศึกห้องเดือด</text>` +
+      [34, 90, 146].map(c => `<polygon points="${c - 6},0 ${c + 6},0 ${c + 28},300 ${c - 28},300" fill="#ff6b6b" opacity=".07"/>`).join('') +
+      person(34, 300, 1.32, { pose: 'pointR', cloth: '#3c404b' }) + person(146, 300, 1.32, { pose: 'pointL', cloth: '#5b4b3f', bun: true }) + person(90, 296, 1.4, { pose: 'podium', cloth: '#1f1f23' }) +
+      `<path d="M44,166 l4,-5 l2,6 l4,-6 M128,166 l4,-5 l2,6 l4,-6" fill="none" stroke="#ff8f8f" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>` +
+      [34, 90, 146].map(podium).join('') },
+
+  { no: 11, act: 2, t: '0:27–0:29', d: 2, title: 'แก้วที่ยังใส', bg: 'radial-gradient(circle at 50% 45%,#4a1416,#0b0505)',
+    cam: 'Insert ECU · Backlight พื้นหลังดำ',
+    see: 'ช่วงพักเบรก เธอจิบน้ำจากแก้วใส วางแก้วลง กล้องซูมที่ขอบแก้ว ใสสะอาด ไม่มีรอยลิปติดขอบ',
+    sup: 'จิบน้ำระหว่างเทป… ไม่ติดแก้ว', pos: 'low',
+    snd: 'เสียงวางแก้วบนโต๊ะ “กริ๊ง”', mood: 'มั่นคง', proof: 'ไม่ติดแก้ว',
+    tip: 'ใช้แก้วใสผนังบาง ยิงไฟ backlight จากด้านหลังให้ขอบแก้วเรืองแสง ถ้ามีรอยจะเห็นทันที',
+    draw: id => `<ellipse cx="90" cy="160" rx="70" ry="120" fill="#ff8a7a" opacity=".1"/><rect x="0" y="262" width="180" height="60" fill="#140708"/>` +
+      `<path d="M56,80 L124,80 L115,262 L65,262Z" fill="#fff" fill-opacity=".08" stroke="#f1e4e4" stroke-width="1.6"/><path d="M60,150 L120,150 L115,262 L65,262Z" fill="#bcd9ee" opacity=".22"/><ellipse cx="90" cy="150" rx="30" ry="4.5" fill="none" stroke="#d6ecf7" stroke-width=".8" opacity=".7"/>` +
+      `<ellipse cx="90" cy="80" rx="34" ry="6.5" fill="none" stroke="#fff" stroke-width="1.8"/><path d="M64,96 L70,246" stroke="#fff" stroke-width="2.4" opacity=".35" stroke-linecap="round"/><ellipse cx="90" cy="262" rx="25" ry="4" fill="none" stroke="#f1e4e4" stroke-width="1.4"/>` +
+      sparkle(119, 78, 7) + sparkle(61, 82, 4) +
+      `<path d="M48,72 V64 H56 M124,64 H132 V72 M132,90 V98 H124 M56,98 H48 V90" fill="none" stroke="#fff" stroke-width="1.2" opacity=".85"/><text x="90" y="56" font-size="7.5" fill="#fff" text-anchor="middle">ขอบแก้วใสสะอาด</text>` },
+
+  { no: 12, act: 2, t: '0:29–0:32', d: 3, title: 'รายการที่ 4 · “คืนตัดสิน”', bg: 'radial-gradient(circle at 50% 30%,#1d2c4d,#070b16)',
+    cam: 'Wide สมมาตร · สปอตไลท์ 2 ดวง',
+    see: 'เธอกับคู่แข่งจับมือกันกลางเวที จอด้านหลังประกาศผล รูปของเธอกลายเป็นสีเทาพร้อมคำว่า “ตกรอบ” เธอสูดหายใจ ยิ้มทั้งที่ตาแดง แล้วโค้งขอบคุณคนดู',
+    lt: ['คืนตัดสิน', 'EP.4'],
+    snd: 'กลองรัว → หยุดกึก → เงียบ 1 วินาที',
+    mood: 'แพ้ · จุดต่ำสุดของเรื่อง',
+    tip: 'ให้เธอโค้งอย่างสง่า ไม่ฟูมฟาย การแพ้อย่างมีศักดิ์ศรีเป็นจุดที่คนดูเริ่มรักเธอ',
+    draw: id => `<rect x="22" y="24" width="136" height="94" rx="4" fill="#0d1a33" stroke="#5b7bb5" stroke-width="1"/>` +
+      `<rect x="34" y="34" width="50" height="64" rx="2" fill="#2b313c"/><circle cx="59" cy="58" r="10" fill="#6b707a"/><path d="M41,98 C43,78 75,78 77,98Z" fill="#6b707a"/><text x="59" y="111" font-size="8" font-weight="700" fill="#ff7486" text-anchor="middle">ตกรอบ</text>` +
+      `<rect x="96" y="34" width="50" height="64" rx="2" fill="#1f4b7a"/><circle cx="121" cy="58" r="10" fill="#cfe0f5"/><path d="M103,98 C105,78 137,78 139,98Z" fill="#cfe0f5"/><text x="121" y="111" font-size="8" font-weight="700" fill="#9fd3ff" text-anchor="middle">ไปต่อ</text>` +
+      `<polygon points="56,0 70,0 94,302 30,302" fill="#cfe0ff" opacity=".1"/><polygon points="110,0 124,0 150,302 86,302" fill="#cfe0ff" opacity=".1"/>` +
+      `<ellipse cx="62" cy="302" rx="30" ry="6" fill="#cfe0ff" opacity=".15"/><ellipse cx="118" cy="302" rx="30" ry="6" fill="#cfe0ff" opacity=".15"/>` +
+      person(62, 300, 1.5, { pose: 'holdR', cloth: '#e3ddd6' }) + person(118, 300, 1.5, { pose: 'holdL', cloth: '#3f5c8a', bun: true }) },
+
+  { no: 13, act: 2, t: '0:32–0:35', d: 3, title: 'ในความมืด สีปากยังชัด', bg: 'linear-gradient(#0c0e13,#05060a)', ink: '#c9d0dd',
+    cam: 'Medium · ทางเดินหลังเวที · ไฟดวงเดียว',
+    see: 'เธอเดินออกมาคนเดียวในทางเดินมืด แล้วหยุดหน้ากระจกดำ เงาสะท้อนซีดหม่นทั้งเฟรม มีแค่สีปากที่ยังชัด เธอค่อยๆ ยืดหลังตรง แล้วเงยหน้าขึ้น',
+    sup: 'แพ้เกม… แต่ไม่ยอมแพ้ใจตัวเอง', pos: 'low',
+    snd: 'เสียงฝีเท้าก้องในทางเดิน แล้วเปียโนเบาๆ กลับเข้ามา',
+    mood: 'เจ็บ แต่ไม่ยอมแพ้',
+    tip: 'เกรดเฟรมนี้ให้เกือบขาวดำ เหลือสีปากอยู่สีเดียว และต้องเป็นสีจริงของเบอร์ ห้ามดันสีปาก',
+    draw: id => `<g stroke="currentColor" stroke-width="1" opacity=".28" fill="none"><path d="M0,30 L84,128 M0,300 L84,158 M180,22 L108,128 M180,308 L108,158 M84,128 H108 M84,158 H108"/></g>` +
+      `<rect x="84" y="128" width="24" height="30" fill="#ffe7b0" opacity=".35"/><ellipse cx="92" cy="84" rx="14" ry="3" fill="#fff4d8" opacity=".5"/>` +
+      `<rect x="102" y="40" width="74" height="214" fill="#0b0d12" stroke="#7d8594" stroke-opacity=".6"/>` +
+      clip(id + 'g', 102, 40, 74, 214, face(139, 128, .86, { skin: '#8d8f95', hair: '#24252b', browC: '#24252b', cloth: '#4e5159', eyes: 'open', brow: 'neutral' }) + `<rect x="102" y="40" width="74" height="214" fill="#05070c" opacity=".35"/>` + lips(139, 128 + 21 * .86, 15 * .86, { sw: .8 })) +
+      person(54, 340, 2.0, { back: true, cloth: '#17181d', hair: '#121318', skin: '#121318', line: '#9aa3b5' }) },
+
+  { no: 14, act: 2, t: '0:35–0:39', d: 4, title: 'กระจกบานเดิม คนไม่เหมือนเดิม', bg: 'linear-gradient(#6b5442,#3d2f26)',
+    cam: 'Match cut ×4 ผ่านกระจกบานเดิม (มุมเดียวกับช็อต 2)',
+    see: 'ตัดสลับเร็ว 4 ครั้งที่กระจกบานเดิม บัตรผ่านเพิ่มทีละใบตั้งแต่ EP.1 ถึง EP.4 ชุดเปลี่ยนตามรายการ (ไหมพรม → ชุดกีฬา → เบลเซอร์ → เดรส) ท่านั่งตั้งตรงขึ้นทุกครั้ง ส่วนลิป UZI กับโน้ตของแม่วางอยู่ที่เดิมบนโต๊ะเสมอ',
+    sup: 'ทุกเวทีไม่เคยง่าย… แต่ฉันไม่เคยหลุด', pos: 'low',
+    snd: 'เครื่องสายเริ่มเข้า บิวด์อารมณ์ขึ้น',
+    mood: 'เติบโต · มั่นใจขึ้น',
+    tip: 'คำว่า “หลุด” มีสองความหมาย ลิปไม่หลุด และตัวเธอก็ไม่หลุด ประโยคนี้คือหัวใจของแคมเปญ',
+    draw: id => mirror(30, 34, 120, 156, { glass: '#5b5048' }) +
+      clip(id + 'm', 30, 34, 120, 156, face(90, 108, .8, { brow: 'neutral', eyes: 'open', smile: 2.4, blazer: true, cloth: '#26262a', blush: true }) + `<rect x="30" y="34" width="120" height="156" fill="#ffe0b8" opacity=".08"/>`) +
+      [[22, 50, -10, '#7b4d9a', 'EP.1'], [158, 62, 8, '#1f8a9a', 'EP.2'], [22, 150, 6, '#b23b3b', 'EP.3'], [158, 164, -7, '#3f5c8a', 'EP.4']].map(pass).join('') +
+      `<rect x="-4" y="196" width="188" height="16" fill="#5a4638" ${st(.9)}/><rect x="-4" y="212" width="188" height="120" fill="#3b2e26"/>` +
+      tube(132, 182, .55, 0) + note(118, 196, .38, -6, ['ยิ้มให้เต็มที่นะลูก', 'แม่นั่งแถวหน้า ♥']) +
+      `<rect x="48" y="258" width="20" height="22" fill="${SKIN}" ${st(1)}/>` +
+      `<path d="M-30,330 L-22,298 C-12,282 18,276 58,276 C98,276 128,282 138,298 L148,330Z" fill="#26262a" ${st(1.1)}/>` +
+      `<ellipse cx="58" cy="236" rx="26" ry="30" fill="${HAIR}" ${st(1.1)}/>` },
+
+  { no: 15, act: 3, t: '0:39–0:43', d: 4, title: 'ไฟนอล · ประกาศ MVP', bg: 'radial-gradient(circle at 50% 30%,#5a4318,#1a1208)',
+    cam: 'Wide หน้าเวที → ตัดสลับ ECU ริมฝีปากเม้มแน่น (ล้อช็อต 1)',
+    see: 'รายการรวมดาวปิดซีซั่น ผู้เข้าแข่งขันทุกคนยืนเรียงหน้าเวที สปอตไลท์กวาดไปมา จอใหญ่ขึ้นคำว่า MVP เธอเม้มปากแน่นแล้วหลับตา',
+    sup: '“และ MVP ประจำซีซั่น จากโหวตทั้งประเทศ คือ…”', pos: 'top',
+    snd: 'กลองรัว กับเสียงคนดูลุ้น', mood: 'ลุ้นสุดตัว',
+    tip: 'ช็อต ECU ริมฝีปากเม้มให้ถ่ายมุมเดียวกับช็อต 1 คนดูจะรู้สึกว่าเรื่องเดินมาครบวง',
+    draw: id => `<text x="90" y="128" font-size="34" font-weight="700" fill="none" stroke="${GOLD}" stroke-width="6" opacity=".15" text-anchor="middle" letter-spacing="3">MVP</text><text x="90" y="128" font-size="34" font-weight="700" fill="${GOLD}" text-anchor="middle" letter-spacing="3" opacity=".92">MVP</text>` +
+      `<polygon points="24,0 36,0 122,290 70,290" fill="#fff3c4" opacity=".09"/><polygon points="84,0 96,0 62,290 10,290" fill="#fff3c4" opacity=".07"/><polygon points="144,0 156,0 178,290 122,290" fill="#fff3c4" opacity=".09"/>` +
+      `<path d="M30,282 Q90,268 150,282" fill="none" stroke="#fff3c4" stroke-width="1" stroke-dasharray="3 3" opacity=".7"/>` +
+      `<rect x="0" y="288" width="180" height="40" fill="#120c05"/><path d="M0,288 H180" stroke="${GOLD}" stroke-opacity=".5"/>` +
+      [[28, '#3f5c8a', 1], [66, '#5b4b3f', 0], [108, CHAMP, 0], [148, '#7b4d9a', 1]].map(([x, c, b], i) => person(x, 290, 1.25, { pose: 'clasp', cloth: c, bun: !!b, eyesClosed: i === 2 })).join('') +
+      sparkle(20, 150, 4, GOLD) + sparkle(160, 140, 5, GOLD) + sparkle(130, 94, 3, '#fff3c4') },
+
+  { no: 16, act: 3, t: '0:43–0:48', d: 5, title: 'ยิ้มเต็มที่ครั้งแรก', bg: 'radial-gradient(circle at 50% 35%,#fff1c9 0%,#d9a94a 45%,#5a3b12 100%)',
+    cam: 'MCU → CU · Gimbal push-in ช้าๆ · Confetti สีทอง',
+    see: 'สปอตไลท์หยุดที่เธอ กระดาษทองโปรยลงมา เธอยกมือสองข้างปิดปากเพราะไม่อยากเชื่อ (ท่าเดียวกับช็อต 2) แล้วค่อยๆ ลดมือลง ยิ้มกว้างเต็มที่เป็นครั้งแรก ทั้งที่น้ำตายังไหล',
+    snd: 'เงียบสนิท 1 วินาที → ดนตรีเต็มวง',
+    mood: 'พีคที่สุด · ปลดปล่อย',
+    tip: 'ช็อตนี้สำคัญที่สุดของเรื่อง เผื่อเวลาถ่ายหลายเทคให้ได้รอยยิ้มและน้ำตาจริง',
+    draw: id => `<polygon points="66,0 114,0 178,320 2,320" fill="#fff8e1" opacity=".16"/>` +
+      confetti(7, 26, [GOLD, '#f4d77a', '#e7a3ae', '#fff'], 0, 120) +
+      face(90, 132, 1.5, { eyes: 'happy', brow: 'happy', smile: 4.2, gap: 4.4, blush: true, cloth: CHAMP, necklace: true, tears: [[-17, 7, 2.3], [18, 9, 2]] }) +
+      handsLowering(90, 250, 1.3) + confetti(19, 20, [GOLD, '#f4d77a', '#e7a3ae', '#fff'], 120, 320) },
+
+  { no: 17, act: 3, t: '0:48–0:50', d: 2, title: '12 ชั่วโมงต่อมา', bg: 'linear-gradient(#1a1714,#0d0b0a)',
+    cam: 'Insert จอมอนิเตอร์กล้อง · ไหล่ตากล้องเบลออยู่ด้านหน้า',
+    see: 'จอมอนิเตอร์ของตากล้องโชว์ใบหน้าเธอแบบโคลสอัพ มุมจอขึ้น REC 12:47:03 กรอบโฟกัสอยู่ที่ริมฝีปาก ขอบปากยังคม สีไม่จาง ไม่ซีด',
+    sup: 'ถ่ายมา 12 ชั่วโมง… ยังชัดเหมือนเพิ่งทา', pos: 'low',
+    snd: 'ดนตรีต่อเนื่อง', mood: 'ภูมิใจ', proof: 'ติดทนนาน',
+    tip: 'เวลาบนจอต้องเป็นเวลาจริงของกอง ถ้าถ่ายไม่ถึง 12 ชม. ให้แก้ตัวเลขในซูเปอร์ตามจริง',
+    draw: id => `<rect x="8" y="92" width="164" height="104" rx="6" fill="#0b0b0b" stroke="#5a554f" stroke-width="1.2"/>` +
+      clip(id + 's', 14, 98, 152, 88, `<rect x="14" y="98" width="152" height="88" fill="#3a2c22"/>` + face(90, 150, 1.0, { eyes: 'open', brow: 'neutral', smile: 2.2, cloth: CHAMP, blush: true, necklace: true })) +
+      `<circle cx="22" cy="106" r="2.6" fill="#ff3b3b"/><text x="27" y="108.6" font-size="7" fill="#fff" font-weight="600">REC</text><text x="160" y="108.6" font-size="7" fill="#fff" text-anchor="end" font-family="monospace">12:47:03</text>` +
+      `<path d="M74,165 V161 H78 M102,161 H106 V165 M106,177 V181 H102 M78,181 H74 V177" stroke="#ffd34d" stroke-width="1.1" fill="none"/>` +
+      `<rect x="84" y="196" width="12" height="44" fill="#2b2724"/><rect x="70" y="238" width="40" height="8" rx="2" fill="#2b2724"/>` +
+      `<path d="M-34,330 C-34,248 8,224 46,230 C72,234 84,262 88,330Z" fill="#070605" opacity=".92"/>` },
+
+  { no: 18, act: 3, t: '0:50–0:54', d: 4, title: 'หอมแก้มแม่', bg: 'radial-gradient(circle at 50% 40%,#f3d9b8,#b9875a)',
+    cam: 'MS → CU แก้มแม่ · Handheld อบอุ่น',
+    see: 'เธอวิ่งลงจากเวทีไปแถวหน้า กอดแม่แน่น แล้วหอมแก้มแม่ฟอดใหญ่ แม่เอานิ้วแตะแก้มแล้วมองนิ้วตัวเอง ไม่มีรอยลิปเลย แม่หัวเราะทั้งน้ำตา ลูกก็หัวเราะตาม',
+    snd: 'เสียงหัวเราะปนสะอื้นของแม่ลูก', mood: 'ซึ้งที่สุด · อบอุ่น', proof: 'Kissproof หอมแก้มแล้วไม่มีรอย',
+    tip: 'ไม่ต้องใส่ซูเปอร์ ให้ภาพแม่มองนิ้วตัวเองเล่าเรื่องเอง คนดูจะยิ้มตาม',
+    draw: id => face(66, 158, 1.12, { bun: true, hair: '#64574f', browC: '#5c5049', skin: SKIN_MOM, eyes: 'happy', brow: 'happy', smile: 3, gap: 2.4, lip: '#b48580', cloth: '#c4b19d', tears: [[-15, 7, 2]], blush: true }) +
+      face(128, 132, 1.0, { eyes: 'closed', brow: 'happy', smile: 1.6, cloth: CHAMP, blush: true, necklace: true }) +
+      `<path d="M10,214 C10,206 22,204 30,208 L34,222 C30,228 16,228 12,224Z" fill="${SKIN}" ${st(1)}/><path d="M16,210 L18,224 M22,208 L24,225 M28,208 L29,224" stroke="${LINE}" stroke-opacity=".45" stroke-width=".8"/>` +
+      `<circle cx="40" cy="46" r="31" fill="#f6e3d6" stroke="#fff" stroke-width="2.2"/>` +
+      `<clipPath id="${id}c"><circle cx="40" cy="46" r="30"/></clipPath><g clip-path="url(#${id}c)">` + limb([[30, 92], [31, 44]], 9, SKIN_MOM, .9) + limb([[43, 94], [44, 38]], 9, SKIN_MOM, .9) + limb([[56, 92], [55, 48]], 9, SKIN_MOM, .9) + `</g>` +
+      sparkle(18, 30, 4, GOLD) + sparkle(62, 28, 3, GOLD) +
+      `<text x="40" y="91" font-size="7.5" fill="#4a2c1f" text-anchor="middle" font-weight="600">นิ้วแม่: ไม่มีรอยลิป</text>` },
+
+  { no: 19, act: 3, t: '0:54–0:57', d: 3, title: 'กระจกบานเดิม ครั้งสุดท้าย', bg: 'linear-gradient(#e9cdbf,#b98f7e)',
+    cam: 'มุมเดียวกับช็อต 2 (bookend) · Static · โฟกัสของบนโต๊ะ → เงาในกระจก',
+    see: 'กลับมาที่กระจกบานเดิม บัตรผ่านติดเต็มขอบกระจก ถ้วย MVP วางข้างลิป UZI และโน้ตของแม่ เธอมองเงาตัวเองแล้วยิ้มกว้าง ไม่มีมือปิดปากอีกแล้ว',
+    sup: 'น้ำตาหลุดได้… แต่ความมั่นใจไม่เคยหลุด', at: 72,
+    snd: 'ดนตรีคลี่คลาย จบด้วยโน้ตเปียโนตัวเดียวกับช็อต 4', mood: 'อิ่มใจ',
+    tip: 'ใช้ประโยคนี้เป็น key message ของแคมเปญ ทั้งในแคปชันและแอดทุกชิ้น',
+    draw: id => mirror(28, 22, 124, 150, { glass: '#7a5f55' }) +
+      clip(id + 'm', 28, 22, 124, 150, face(90, 98, .74, { eyes: 'happy', brow: 'happy', smile: 4, gap: 3.6, cloth: CHAMP, blush: true, necklace: true }) + `<rect x="28" y="22" width="124" height="150" fill="#ffe6c8" opacity=".1"/>`) +
+      [[20, 38, -10, '#7b4d9a', 'EP.1'], [160, 48, 8, '#1f8a9a', 'EP.2'], [20, 126, 6, '#b23b3b', 'EP.3'], [160, 138, -7, '#3f5c8a', 'EP.4'], [160, 96, 5, '#b8902a', 'FINAL']].map(pass).join('') +
+      `<rect x="-4" y="222" width="188" height="14" fill="#6a4e3e" ${st(.9)}/><rect x="-4" y="236" width="188" height="90" fill="#4a362b"/>` +
+      trophy(130, 224, 1.25) + tube(62, 224 - 32 * .9, .9) + note(96, 212, .6, -8, ['ยิ้มให้เต็มที่นะลูก', 'แม่นั่งแถวหน้า ♥']) },
+
+  { no: 20, act: 3, t: '0:57–1:00', d: 3, title: 'End card', bg: 'linear-gradient(#f8eeea,#ecd5ce)', end: true,
+    cam: 'Packshot บนหินอ่อนหรือผ้าซาตินสีนู้ด · Slow orbit',
+    see: 'UZI Matte Liquid Lipstick ตั้งกลางเฟรม มีสวอชสีเดียวกับในเรื่องเป็นฉากหลัง แล้วขึ้นจุดเด่นสินค้าและปุ่มตะกร้า',
+    snd: 'ASMR เสียงคลิกปิดฝา แล้วปิดเพลง', mood: 'จดจำแบรนด์', proof: 'สรุปจุดเด่น + CTA',
+    tip: 'ใส่โปรประจำแคมเปญตรงนี้ได้ [ระบุโปร]',
+    draw: id => `<rect x="0" y="236" width="180" height="90" fill="#f1e6e1"/><path d="M0,236 H180" stroke="#d9c3bb"/><path d="M10,262 C50,252 70,280 120,270 S170,286 186,280 M-4,296 C40,286 90,306 130,296" fill="none" stroke="#d8c8c2" stroke-width=".8"/>` +
+      `<path d="M22,206 C62,184 118,194 162,160" fill="none" stroke="${ROSE}" stroke-width="24" stroke-linecap="round" opacity=".92"/><path d="M30,200 C66,184 116,190 154,164" fill="none" stroke="#d0566c" stroke-width="3" opacity=".5" stroke-linecap="round"/>` +
+      [[34, 120, 30], [150, 228, -20], [150, 92, 60]].map(([x, y, r]) => `<ellipse cx="${x}" cy="${y}" rx="7" ry="4" fill="#eab3bd" opacity=".75" transform="rotate(${r} ${x} ${y})"/>`).join('') +
+      tube(90, 160, 2.2, 0) + sparkle(128, 98, 6, GOLD) + sparkle(52, 150, 4, GOLD) + sparkle(134, 210, 3.5, GOLD) }
+];
+
+const ACTS = {
+  1: { cls: 'a1', name: 'องก์ 1 · วันแรก', time: '0:00–0:13', desc: 'ไม่กล้ายิ้ม จนได้ลิปจากมือแม่' },
+  2: { cls: 'a2', name: 'องก์ 2 · รายการดราม่า 4 รายการ', time: '0:13–0:39', desc: 'ร้องไห้ เปียก โดนกดดัน ตกรอบ แต่ลิปไม่หลุด' },
+  3: { cls: 'a3', name: 'องก์ 3 · MVP', time: '0:39–1:00', desc: 'ยิ้มเต็มที่เป็นครั้งแรก' }
+};
+const ACT_COLOR = { 1: '#5f6b7e', 2: '#9a5563', 3: '#b8902a' };
+const POS = { top: 9, mid: 50, low: 67 };
+
+function frameHTML(sh, id) {
+  const ov = [];
+  if (sh.sup) ov.push(`<div class="super" style="top:${sh.at ?? POS[sh.pos || 'low']}%">${sh.sup}</div>`);
+  if (sh.lt) ov.push(`<div class="lt"><b>${sh.lt[0]}</b><span>${sh.lt[1]}</span></div>`);
+  if (sh.hud) ov.push(`<div class="hud"><i></i>${sh.hud}</div>`);
+  if (sh.end) ov.push(`<div class="endcard"><div class="ec-top"><div class="ec-logo">UZI</div><div class="ec-title">ลิป MVP ของทุกเวที</div><div class="ec-sub">Matte Liquid Lipstick</div></div><div class="ec-bottom"><div class="ec-chips"><span>ออร์แกนิก 100%</span><span>กลบปากคล้ำมิด</span><span>กันน้ำ</span><span>ไม่ติดแก้ว</span><span>ไม่ตกร่อง</span><span>คุณแม่ตั้งครรภ์ใช้ได้*</span></div><div class="ec-cta">🛒 กดตะกร้าเลย</div></div></div>`);
+  return `<div class="frame" style="background:${sh.bg};color:${sh.ink || '#e9e4e2'}"><svg viewBox="0 0 180 320" preserveAspectRatio="xMidYMid slice" aria-hidden="true">${sh.draw(id)}</svg>${ov.join('')}<div class="safe"></div></div>`;
+}
+
+/* overview strip */
+const strip = document.getElementById('strip');
+let lastAct = 0, stripHTML = '';
+for (const sh of SHOTS) {
+  if (sh.act !== lastAct) { stripHTML += `<div class="act-sep" style="background:${ACT_COLOR[sh.act]}">องก์ ${sh.act}</div>`; lastAct = sh.act; }
+  stripHTML += `<a href="#shot-${sh.no}">${frameHTML(sh, 'o' + sh.no)}<div class="cap"><b>${String(sh.no).padStart(2, '0')}</b> · ${sh.t}</div></a>`;
+}
+strip.innerHTML = stripHTML;
+
+/* shot cards */
+const wrap = document.getElementById('shots');
+let html = '';
+for (const a of [1, 2, 3]) {
+  const A = ACTS[a];
+  html += `<div class="act-head ${A.cls}"><b>${A.name}</b><span>${A.time} · ${A.desc}</span></div><div class="shots">`;
+  for (const sh of SHOTS.filter(s => s.act === a)) {
+    html += `<article class="shot" id="shot-${sh.no}">
+      <div class="shot-head"><span class="no">${String(sh.no).padStart(2, '0')}</span><h3>${sh.title}</h3><span class="tc">${sh.t}</span><span class="dur">${sh.d} วิ</span></div>
+      <div class="shot-body">
+        ${frameHTML(sh, 's' + sh.no)}
+        <dl class="meta">
+          <div><dt>ช็อต / กล้อง</dt><dd>${sh.cam}</dd></div>
+          <div><dt>ภาพที่เห็น</dt><dd>${sh.see}</dd></div>
+          <div><dt>ข้อความบนจอ</dt><dd class="sup">${sh.sup || (sh.end ? 'UZI · ลิป MVP ของทุกเวที + จุดเด่นสินค้า + ปุ่มตะกร้า' : (sh.lt ? 'กราฟิกชื่อรายการ: ' + sh.lt.join(' | ') : '— ไม่มี ให้ภาพเล่าเอง —'))}</dd></div>
+          <div><dt>เสียง / เพลง</dt><dd>${sh.snd}</dd></div>
+          <div class="tags"><span class="mood">อารมณ์: ${sh.mood}</span>${sh.proof ? `<span class="proof">พิสูจน์: ${sh.proof}</span>` : ''}</div>
+          ${sh.tip ? `<div class="tip">💡 ${sh.tip}</div>` : ''}
+        </dl>
+      </div>
+    </article>`;
+  }
+  html += `</div>`;
+}
+wrap.innerHTML = html;
+
+/* cutdowns */
+const CUTS = [
+  { name: '30 วินาที · เวอร์ชันเล่าเรื่อง (Organic / Reels)', note: 'ตัดดีเบตเหลือแค่ช็อตแก้ว และตัดคืนตัดสินเหลือแค่ทางเดินมืด เส้นเรื่องยังครบ: ไม่มั่นใจ → โดนทดสอบ → MVP', shots: [[1, 3], [2, 2], [4, 2], [5, 2], [6, 2], [7, 2], [9, 2], [11, 2], [13, 2], [16, 5], [18, 3], [20, 3]] },
+  { name: '15 วินาที · เวอร์ชันพิสูจน์ (ยิงแอด Conversion)', note: 'เน้นเดโมล้วนๆ ซูเปอร์เปิด: “ร้องไห้ · เปียก · กดดัน 12 ชม.” ซูเปอร์ปิด: “ลิปไม่หลุด ความมั่นใจก็ไม่หลุด”', shots: [[1, 2], [7, 2], [9, 2], [11, 2], [16, 3], [18, 2], [20, 2]] }
+];
+document.getElementById('cutdowns').innerHTML = CUTS.map((c, ci) => {
+  const total = c.shots.reduce((a, [, d]) => a + d, 0);
+  return `<div class="cut"><h3>${c.name}</h3><p>${c.note} · รวม ${total} วิ</p><div class="row">` +
+    c.shots.map(([no, d]) => `<div>${frameHTML(SHOTS[no - 1], 'c' + ci + '-' + no)}<b>ช็อต ${no}</b> · ${d} วิ</div>`).join('') + `</div></div>`;
+}).join('');
+
+/* UI */
+document.getElementById('safeToggle').addEventListener('change', e => document.body.classList.toggle('show-safe', e.target.checked));
+document.getElementById('copyBtn').addEventListener('click', async e => {
+  try { await navigator.clipboard.writeText(document.getElementById('capText').innerText); e.target.textContent = 'คัดลอกแล้ว ✓'; }
+  catch { e.target.textContent = 'คัดลอกไม่ได้ ให้เลือกข้อความเอง'; }
+  setTimeout(() => e.target.textContent = 'คัดลอกแคปชัน', 2000);
+});
+</script>
+</body>
+</html>
