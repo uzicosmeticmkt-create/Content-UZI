@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>สตอรี่บอร์ด v2: ลิปของแม่ × UZI Matte Liquid Lipstick</title>
+<style>
+  @font-face { font-family: "Prompt"; font-weight: 400; src: url(../visual/fonts/prompt-thai-400-normal.woff2) format("woff2"); unicode-range: U+0E01-0E5B, U+200C-200D, U+25CC; }
+  @font-face { font-family: "Prompt"; font-weight: 600; src: url(../visual/fonts/prompt-thai-600-normal.woff2) format("woff2"); unicode-range: U+0E01-0E5B, U+200C-200D, U+25CC; }
+  @font-face { font-family: "Prompt"; font-weight: 700; src: url(../visual/fonts/prompt-thai-700-normal.woff2) format("woff2"); unicode-range: U+0E01-0E5B, U+200C-200D, U+25CC; }
+  @font-face { font-family: "Prompt"; font-weight: 400; src: url(../visual/fonts/prompt-latin-400-normal.woff2) format("woff2"); unicode-range: U+0000-00FF, U+2000-206F, U+20AC, U+2122; }
+  @font-face { font-family: "Prompt"; font-weight: 600; src: url(../visual/fonts/prompt-latin-600-normal.woff2) format("woff2"); unicode-range: U+0000-00FF, U+2000-206F, U+20AC, U+2122; }
+  @font-face { font-family: "Prompt"; font-weight: 700; src: url(../visual/fonts/prompt-latin-700-normal.woff2) format("woff2"); unicode-range: U+0000-00FF, U+2000-206F, U+20AC, U+2122; }
+  @font-face { font-family: "Sriracha"; font-weight: 400; src: url(../visual/fonts/sriracha-thai-400-normal.woff2) format("woff2"); }
+
+  :root { --gold: #d4af37; --rose: #b76e79; --dark: #2c2c2c; --bg: #fcf9f9; --ink: #2b2526; --muted: #7b6f71; --line: #eadfe0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "Prompt", "Noto Color Emoji", sans-serif; background: #e9e3e4; color: var(--ink); }
+  .page { width: 640px; margin: 0 auto 24px; background: var(--bg); padding: 28px 26px 22px; }
+  .nw { white-space: nowrap; }
+
+  .brand { display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; color: var(--muted); letter-spacing: .5px; }
+  .brand b { color: var(--dark); letter-spacing: 3px; font-weight: 700; }
+  .brand b span { color: var(--gold); }
+  h1 { font-size: 34px; font-weight: 700; line-height: 1.2; margin: 14px 0 4px; }
+  h1 small { display: block; font-size: 16px; font-weight: 400; color: var(--rose); margin-top: 4px; }
+  h3 { font-size: 19px; font-weight: 700; margin: 22px 0 10px; }
+  h3 em { font-style: normal; color: var(--rose); }
+  .logline { font-size: 17px; line-height: 1.7; background: #fff; border-left: 4px solid var(--rose); padding: 14px 16px; border-radius: 6px; margin: 14px 0 6px; }
+
+  /* Story chain */
+  .chain { position: relative; }
+  .step { display: flex; gap: 12px; align-items: flex-start; }
+  .dot { flex: 0 0 34px; height: 34px; border-radius: 50%; background: var(--rose); color: #fff; font-weight: 700; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+  .step.mom .dot { background: var(--gold); color: #2b2100; }
+  .step .body { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; font-size: 16px; line-height: 1.6; flex: 1; }
+  .because { margin: 2px 0 2px 46px; font-size: 13.5px; color: var(--rose); font-weight: 600; }
+  .because::before { content: "↓ "; }
+
+  /* Plant & payoff */
+  .pp { width: 100%; border-collapse: separate; border-spacing: 0 6px; font-size: 14.5px; }
+  .pp td { background: #fff; padding: 9px 10px; line-height: 1.5; vertical-align: middle; }
+  .pp td:first-child { border-radius: 8px 0 0 8px; width: 46%; }
+  .pp td:last-child { border-radius: 0 8px 8px 0; }
+  .pp td.arrow { width: 26px; text-align: center; color: var(--gold); font-weight: 700; padding: 0; }
+  .pp th { font-size: 12.5px; color: var(--muted); text-align: left; font-weight: 600; padding: 0 10px; }
+  .pp tr.big td { background: #fff6dc; font-weight: 600; }
+  .why { background: var(--dark); color: #f3e6c8; border-radius: 12px; padding: 14px 16px; font-size: 15.5px; line-height: 1.7; margin-top: 16px; }
+  .why b { color: var(--gold); }
+
+  /* Acts */
+  .act { margin: 18px 0 12px; }
+  .act .no { font-size: 13px; font-weight: 600; letter-spacing: 2px; color: var(--muted); }
+  .act h2 { font-size: 24px; font-weight: 700; line-height: 1.2; }
+  .act p { font-size: 14px; color: var(--muted); margin-top: 2px; }
+  .mood { height: 8px; border-radius: 8px; margin-top: 8px; }
+  .mood.cold { background: linear-gradient(90deg, #4b5a6b, #8fa1b3); }
+  .mood.shift { background: linear-gradient(90deg, #6f8396, #b59a7c, #e8b96a); }
+  .mood.warm { background: linear-gradient(90deg, #e8b96a, var(--gold), #f6d98e); }
+  .mood-label { display: flex; justify-content: space-between; font-size: 11.5px; color: var(--muted); margin-top: 3px; }
+
+  /* Shot cards */
+  .shot { display: flex; gap: 16px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 12px; margin-bottom: 12px; }
+  .shot.key { border: 2px solid var(--gold); box-shadow: 0 0 0 4px #fff3cf; }
+  .frame { position: relative; flex: 0 0 200px; height: 356px; border-radius: 10px; overflow: hidden; background: #111; }
+  .frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .frame img.croptop { object-position: center 85%; transform: scale(1.12); transform-origin: center bottom; }
+  .tag { position: absolute; top: 8px; left: 8px; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 20px; z-index: 4; }
+  .tag.old { background: rgba(255,255,255,.88); color: #555; }
+  .tag.new { background: var(--gold); color: #2b2100; }
+  .tag.fix { background: var(--rose); color: #fff; }
+
+  .ov-title { position: absolute; left: 10px; right: 10px; top: 12%; text-align: center; color: #fff; font-weight: 700; font-size: 17px; line-height: 1.3; text-shadow: 0 2px 8px rgba(0,0,0,.85), 0 0 2px #000; z-index: 2; }
+  .ov-small { position: absolute; left: 10px; right: 10px; top: 40px; text-align: center; color: #fff; font-size: 12px; font-weight: 600; text-shadow: 0 1px 6px rgba(0,0,0,.9); z-index: 3; }
+  .ov-sub { position: absolute; left: 8px; right: 8px; bottom: 12px; text-align: center; z-index: 3; }
+  .ov-sub span { background: rgba(0,0,0,.62); color: #fff; font-size: 12.5px; line-height: 1.75; padding: 2px 6px; border-radius: 4px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+  .ov-sub.mom span { background: rgba(80,50,10,.75); color: #ffe7a3; }
+  .ov-live { position: absolute; top: 34px; right: 10px; background: #e0262b; color: #fff; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 4px; z-index: 2; letter-spacing: 1px; }
+
+  /* Handwritten card mockup */
+  .cardmock { position: absolute; left: 16px; right: 16px; top: 24%; background: #fffdf6; border-radius: 3px; transform: rotate(-3deg); padding: 16px 14px 14px; box-shadow: 0 8px 22px rgba(0,0,0,.45); z-index: 2;
+    background-image: repeating-linear-gradient(#fffdf6 0 25px, #e6e0f0 25px 26px); }
+  .cardmock p { font-family: "Sriracha", cursive; color: #2f3f8f; font-size: 15.5px; line-height: 26px; white-space: nowrap; }
+  .cardmock .sign { text-align: right; margin-top: 2px; }
+  .cardmock .heart { color: #c0392b; }
+
+  /* Placeholders */
+  .ph { position: absolute; inset: 0; border: 2px dashed var(--gold); border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 18px 14px; color: #f3e6c8; }
+  .ph.home { background: radial-gradient(circle at 50% 30%, #7a5a3c 0%, #2a1d14 75%); }
+  .ph.memory { background: radial-gradient(circle at 50% 35%, #b89a6e 0%, #4a3a26 80%); filter: saturate(.8); }
+  .ph.desk { background: radial-gradient(circle at 50% 35%, #5a4a3a 0%, #241d18 70%); }
+  .ph .ic { font-size: 44px; line-height: 1; margin-bottom: 10px; }
+  .ph .t { font-size: 13px; font-weight: 600; color: var(--gold); letter-spacing: 1px; margin-bottom: 6px; }
+  .ph.memory .t { color: #fff3cf; }
+  .ph .d { font-size: 12.5px; line-height: 1.55; }
+
+  .txt { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+  .head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 6px; flex-wrap: wrap; }
+  .num { font-size: 30px; font-weight: 700; color: var(--rose); line-height: 1; }
+  .time { font-size: 13px; color: var(--muted); }
+  .key-l { font-size: 11px; font-weight: 700; color: #fff; background: var(--dark); padding: 1px 7px; border-radius: 4px; }
+  .key-l.aha { background: var(--gold); color: #2b2100; }
+  .story { font-size: 18.5px; line-height: 1.65; margin-bottom: 10px; }
+  .say { font-size: 15px; color: var(--ink); background: #faf3f4; border-radius: 8px; padding: 6px 10px; margin-bottom: 10px; line-height: 1.6; }
+  .say.mom { background: #fff6dc; }
+  .link { font-size: 14px; color: var(--rose); font-weight: 600; line-height: 1.55; margin-bottom: 8px; }
+  .meta { margin-top: auto; font-size: 13.5px; line-height: 1.6; color: var(--muted); border-top: 1px dashed var(--line); padding-top: 8px; }
+  .meta b { color: var(--ink); font-weight: 600; }
+
+  .endcard { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; justify-content: space-between; padding: 44px 10px 12px; text-align: center; color: #fff; }
+  .endcard .quote { font-size: 14px; font-weight: 600; line-height: 1.5; text-shadow: 0 2px 8px rgba(0,0,0,.9); }
+  .endcard .logo { font-size: 24px; font-weight: 700; letter-spacing: 6px; text-shadow: 0 2px 10px rgba(0,0,0,.7); margin-top: 8px; }
+  .endcard .pn { font-size: 11px; letter-spacing: 1px; text-shadow: 0 1px 6px rgba(0,0,0,.9); }
+  .endcard .bottom { background: rgba(20,14,10,.74); border-radius: 10px; padding: 8px 6px; }
+  .endcard .claim { font-size: 12px; line-height: 1.5; color: #f3e6c8; }
+  .endcard .promo { font-size: 11px; color: #ffe7a3; margin: 3px 0 6px; }
+  .endcard .cta { display: inline-block; background: var(--gold); color: #2b2100; font-weight: 700; font-size: 13px; padding: 4px 14px; border-radius: 20px; }
+  .foot { text-align: center; font-size: 12px; color: var(--muted); margin-top: 14px; line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<!-- ================= PAGE 1: แนวคิด + จุดเชื่อม ================= -->
+<section class="page" id="page1">
+  <div class="brand"><b><span>UZI</span> COSMETIC</b><span>สตอรี่บอร์ด v2 · หน้า 1/4</span></div>
+  <h1>“ลิปของแม่”<small>วันแถลงข่าว × UZI Matte Liquid Lipstick · แนวตั้ง 9:16 · ~45 วินาที</small></h1>
+  <div class="logline">
+    วันที่เธอต้องแถลงข่าวออกทีวีครั้งแรก เธอกลัวจนร้องไห้ จนกระทั่งเจอ <b>การ์ดจากแม่</b> ในกระเป๋า
+    ข้อความในการ์ดพาเธอนึกถึงสิ่งที่แม่เคยทำให้ก่อนขึ้นเวทีตอนเด็ก นั่นคือ <b>“ทาลิปแล้วยิ้มนะลูก… ไม่มีใครเห็นหรอกว่าหนูกลัว”</b>
+  </div>
+
+  <h3>เส้นเรื่องใหม่: <em>ทุกฉากมีเหตุผลส่งต่อกัน</em></h3>
+  <div class="chain">
+    <div class="step"><div class="dot">1</div><div class="body">เธอต้องแถลงข่าวครั้งแรกในชีวิต <b>ถ่ายทอดสดทั่วประเทศ</b></div></div>
+    <div class="because">เพราะออกทีวีสด</div>
+    <div class="step mom"><div class="dot">2</div><div class="body">ที่บ้านต่างจังหวัด <b>แม่เปิดทีวีรอดู</b> มือกำลิปแท่งเล็กไว้แน่น</div></div>
+    <div class="because">เพราะรู้ว่าแม่ดูอยู่</div>
+    <div class="step"><div class="dot">3</div><div class="body">เธอ <b>กลัวทำให้แม่ผิดหวัง</b> เขียนสคริปต์กี่รอบก็ไม่ดีพอ จนน้ำตาไหล</div></div>
+    <div class="because">เพราะต้องไปซ่อมหน้าที่เปื้อนน้ำตา</div>
+    <div class="step"><div class="dot">4</div><div class="body">เธอเปิดกระเป๋าแล้ว <b>เจอการ์ดลายมือแม่</b> ที่แอบใส่ไว้ข้างลิป</div></div>
+    <div class="because">เพราะข้อความในการ์ดเป็นประโยคเดิมของแม่</div>
+    <div class="step mom"><div class="dot">5</div><div class="body">เธอ <b>นึกถึงวันเด็ก</b> วันที่แม่ทาลิปให้ก่อนขึ้นเวทีโรงเรียน แล้วเด็กหญิงก็ยิ้มออก</div></div>
+    <div class="because">เพราะนี่คือวิธีที่แม่สอนให้กล้า</div>
+    <div class="step"><div class="dot">6</div><div class="body">เธอ <b>ทาลิปท่าเดียวกับที่แม่เคยทาให้</b> แล้วยิ้มได้ จากนั้นวางสคริปต์ทิ้งไว้</div></div>
+    <div class="because">เพราะไม่ต้องพูดให้สมบูรณ์แบบ แค่ยิ้มให้แม่เห็นก็พอ</div>
+    <div class="step"><div class="dot">7</div><div class="body">บนเวที เธอมองกล้องแล้วพูดว่า <b>“แม่… หนูยิ้มแล้วนะ”</b></div></div>
+    <div class="because">เพราะไฟ LIVE ส่งภาพไปถึงบ้าน</div>
+    <div class="step mom"><div class="dot">8</div><div class="body">ที่บ้าน <b>แม่ก็ทาลิปสีเดียวกันไว้</b> นั่งยิ้มทั้งน้ำตาอยู่หน้าจอ</div></div>
+  </div>
+
+  <h3>ปูไว้ → เฉลย: <em>จุดที่ทำให้คนดู “อ๋อ!”</em></h3>
+  <table class="pp">
+    <tr><th>ปูไว้ตอนต้น</th><th></th><th>เฉลยตอนหลัง</th></tr>
+    <tr class="big"><td>แม่กำลิปไว้ในมือหน้าทีวี (ช็อต 3) คนดูจะสงสัยว่าถือไว้ทำไม</td><td class="arrow">→</td><td>แม่ทาลิปสีเดียวกับลูก ยิ้มไปพร้อมกันหน้าจอ (ช็อต 19) <b>อ๋อ!</b></td></tr>
+    <tr><td>กระดาษขาวในกระเป๋า (ภาพเดิมวินาทีที่ 20 ซึ่งตอนนี้ไม่มีความหมาย)</td><td class="arrow">→</td><td>การ์ดลายมือแม่ ใช้เป็นตัวเปลี่ยนเรื่อง (ช็อต 8–9)</td></tr>
+    <tr><td>เด็กหญิงยิ้มออกหลังแม่ทาลิปให้ (ช็อต 10)</td><td class="arrow">→</td><td>ผู้ใหญ่ยิ้มแบบเดียวกันในกระจก (ช็อต 13)</td></tr>
+    <tr><td>สคริปต์ที่ขีดฆ่าจนยับ (ช็อต 5)</td><td class="arrow">→</td><td>วางทิ้งไว้ แล้วพูดจากใจแค่ประโยคเดียว (ช็อต 14, 16)</td></tr>
+    <tr><td>ไฟแดง LIVE บนกล้อง (ช็อต 2) ตอนแรกเป็นแรงกดดัน</td><td class="arrow">→</td><td>กลายเป็นทางที่เธอส่งยิ้มถึงแม่ (ช็อต 16–18)</td></tr>
+  </table>
+
+  <div class="why">
+    <b>ทำไมถึงซึ้ง:</b> ลิปในเรื่องนี้ไม่ได้มีไว้แค่ให้สวย แต่เป็น <b>ความกล้าที่แม่ส่งต่อมา</b> แม่สอนให้ทาลิปแล้วยิ้ม แม้ในวันที่กลัวที่สุด
+    และตอนจบคนดูจะรู้ว่า วันนี้ <b>แม่ก็กลัวแทนลูกเหมือนกัน</b> แม่จึงทาลิปแล้วยิ้มไปพร้อมลูก แม้จะอยู่ห่างกัน 500 กิโล
+  </div>
+</section>
+
+<!-- ================= PAGE 2: องก์ 1 ================= -->
+<section class="page" id="page2">
+  <div class="brand"><b><span>UZI</span> COSMETIC</b><span>สตอรี่บอร์ด v2 · หน้า 2/4</span></div>
+  <div class="act">
+    <div class="no">องก์ 1</div>
+    <h2>วันที่ทั้งประเทศดูอยู่… รวมทั้งแม่</h2>
+    <p>ปูเหตุผลว่าทำไมเธอกลัวขนาดนี้</p>
+    <div class="mood cold"></div>
+    <div class="mood-label"><span>โทนสี: เย็น เทาฟ้า (ฝั่งลูก) · อุ่นซีด (ฝั่งบ้านแม่)</span><span>อารมณ์: กลัว กดดัน</span></div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag old">ภาพเดิม</span><img src="../visual/img/p01.jpg">
+      <div class="ov-title">แถลงข่าว<br>ครั้งแรกในชีวิต</div>
+      <div class="ov-sub"><span>“อีกสามนาที…”</span></div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">01</span><span class="time">0:00–0:02</span><span class="key-l">HOOK</span></div>
+      <div class="story">อีกสามนาที เธอต้องออกไปแถลงข่าวครั้งแรกในชีวิต เธอแอบมองผ่านช่องม่าน มือเย็นเฉียบ</div>
+      <div class="meta">🔊 ชัตเตอร์รัว + เสียงหัวใจเต้น</div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag old">ภาพเดิม</span><img src="../visual/img/p02.jpg">
+      <div class="ov-live">● LIVE</div>
+      <div class="ov-sub"><span>ถ่ายทอดสดทั่วประเทศ</span></div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">02</span><span class="time">0:02–0:04</span></div>
+      <div class="story">ไมค์ทุกช่องตั้งรอ ไฟแดงบนกล้องติดแล้ว ภาพของเธอกำลังจะถูกส่งออกไปทั่วประเทศ</div>
+      <div class="link">ปูไว้: ไฟแดง LIVE (เฉลยช็อต 18)</div>
+      <div class="meta">🔊 เสียงจี่ไมค์เบาๆ</div>
+    </div>
+  </div>
+
+  <div class="shot key">
+    <div class="frame"><span class="tag new">ช็อตใหม่</span>
+      <div class="ph home"><div class="ic">📺</div><div class="t">บ้านต่างจังหวัด · ห้องนั่งเล่น</div><div class="d">ทีวีเครื่องเก่าเปิดภาพห้องแถลงข่าว<br>แม่วัยห้าสิบกว่านั่งชิดจอ<br>↓<br>ซูมเข้ามือแม่<br><b>กำลิป UZI แท่งเล็กไว้แน่น</b></div></div>
+      <div class="ov-small">บ้านเกิด · 500 กม. จากกรุงเทพฯ</div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">03</span><span class="time">0:04–0:07</span><span class="key-l aha">ปูไว้ ★</span></div>
+      <div class="story">ไกลออกไป 500 กิโล แม่เปิดทีวีรอตั้งแต่เช้า นั่งชิดจอ มือกำอะไรบางอย่างไว้แน่น… ลิปแท่งเล็กๆ</div>
+      <div class="link">ให้คนดูสงสัยว่า “แม่ถือลิปไว้ทำไม” แล้วเฉลยในช็อต 19</div>
+      <div class="meta">🎬 ถ่ายช็อตนี้กับช็อต 19 ในฉากเดียวกัน จะประหยัดกว่า</div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag old">ภาพเดิม</span><img src="../visual/img/p04.jpg"></div>
+    <div class="txt">
+      <div class="head"><span class="num">04</span><span class="time">0:07–0:08.5</span></div>
+      <div class="story">ในห้องแถลงข่าว นักข่าวหันมามองทางม่าน สายตาพร้อมจับผิดทุกคำ</div>
+      <div class="meta">🔊 เสียงจอแจเงียบลงทันที</div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag old">ภาพเดิม</span><img src="../visual/img/p05.jpg">
+      <div class="ov-sub"><span>“เขียนกี่รอบ… ก็ยังไม่ดีพอ”</span></div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">05</span><span class="time">0:08.5–0:10.5</span></div>
+      <div class="story">เธอเขียนสคริปต์ ขีดฆ่า แล้วเขียนใหม่ อยากให้ทุกคำออกมาสมบูรณ์แบบ เพราะวันนี้… แม่ดูอยู่</div>
+      <div class="meta">🔊 เสียงขยำกระดาษ</div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag old">ภาพเดิม</span><img src="../visual/img/p06.jpg">
+      <div class="ov-sub"><span>“ถ้าหนูพูดผิด… แม่จะอายไหม”</span></div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">06</span><span class="time">0:10.5–0:12.5</span></div>
+      <div class="story">ความกลัวว่าจะทำให้แม่ผิดหวัง ทำให้น้ำตาไหลออกมาเอง</div>
+      <div class="link">จุดเชื่อม: เธอร้องไห้เพราะห่วงแม่ ไม่ใช่แค่ตื่นเต้น</div>
+      <div class="meta">🔊 เสียงหัวใจหยุด แล้วเงียบสนิท</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PAGE 3: องก์ 2 ================= -->
+<section class="page" id="page3">
+  <div class="brand"><b><span>UZI</span> COSMETIC</b><span>สตอรี่บอร์ด v2 · หน้า 3/4</span></div>
+  <div class="act">
+    <div class="no">องก์ 2</div>
+    <h2>การ์ดในกระเป๋า</h2>
+    <p>จุดเปลี่ยน: ความกล้าที่แม่ฝากไว้</p>
+    <div class="mood shift"></div>
+    <div class="mood-label"><span>โทนสี: ค่อยๆ อุ่นขึ้น · ฉากความทรงจำเป็นโทนฟิล์มเก่า</span><span>อารมณ์: ตื้นตัน ฮึบ</span></div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag old">ภาพเดิม</span><img src="../visual/img/p07.jpg"></div>
+    <div class="txt">
+      <div class="head"><span class="num">07</span><span class="time">0:12.5–0:14</span></div>
+      <div class="story">เธอรีบกลับมาที่หน้ากระจกเพื่อซ่อมหน้าที่เปื้อนน้ำตา แล้วเปิดกระเป๋าหาเครื่องสำอาง</div>
+      <div class="meta">🔊 ดนตรีเงียบ เหลือแค่เสียงลมหายใจ</div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag old">ภาพเดิม</span><img src="../visual/img/p13.jpg"></div>
+    <div class="txt">
+      <div class="head"><span class="num">08</span><span class="time">0:14–0:15.5</span></div>
+      <div class="story">ในกระเป๋า นิ้วเธอไปเจอการ์ดใบเล็กที่พับไว้ข้างลิป ซึ่งเธอไม่รู้มาก่อนเลยว่ามีใครแอบใส่ไว้</div>
+      <div class="meta">🎬 ภาพเดิมวินาทีที่ 20 ย้ายมาไว้ตรงนี้ กระดาษขาวที่ไม่มีความหมายจึงกลายเป็นตัวเปลี่ยนเรื่อง</div>
+    </div>
+  </div>
+
+  <div class="shot key">
+    <div class="frame"><span class="tag old">ภาพเดิม + ซ้อนลายมือ</span><img src="img/card_bg.jpg">
+      <div class="cardmock">
+        <p>ทาลิปแล้วยิ้มนะลูก</p>
+        <p>ไม่มีใครเห็นหรอก</p>
+        <p>ว่าหนูกลัว</p>
+        <p>วันนี้แม่ดูอยู่หน้าจอนะ</p>
+        <p class="sign">— แม่ <span class="heart">♥</span></p>
+      </div>
+      <div class="ov-sub mom"><span>(เสียงแม่อ่านการ์ด)</span></div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">09</span><span class="time">0:15.5–0:18</span><span class="key-l aha">จุดเปลี่ยน</span></div>
+      <div class="story">ลายมือแม่… ประโยคเดียวกับที่แม่พูดกับเธอมาตั้งแต่เด็ก</div>
+      <div class="say mom">เสียงแม่ (VO):<br><b>“ทาลิปแล้วยิ้มนะลูก… ไม่มีใครเห็นหรอกว่าหนูกลัว”</b></div>
+      <div class="meta">🎬 เขียนการ์ดจริงด้วยลายมือ หรือซ้อนตัวหนังสือตอนตัดต่อ</div>
+    </div>
+  </div>
+
+  <div class="shot key">
+    <div class="frame"><span class="tag new">ช็อตใหม่</span>
+      <div class="ph memory"><div class="ic">💄</div><div class="t">ความทรงจำ · โทนฟิล์มเก่า</div><div class="d">หลังเวทีงานโรงเรียน<br>เด็กหญิงในชุดรำตัวสั่น<br>↓<br>แม่ (ตอนสาว) คุกเข่าลง<br><b>ทาลิปให้ลูกเบาๆ</b><br>↓<br>เด็กหญิงยิ้มออก</div></div>
+      <div class="ov-small">20 ปีก่อน</div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">10</span><span class="time">0:18–0:21</span><span class="key-l aha">อ๋อ ①</span></div>
+      <div class="story">ภาพเมื่อ 20 ปีก่อนย้อนกลับมา วันที่เธอกลัวการขึ้นเวทีครั้งแรก แม่คุกเข่าลงทาลิปให้แล้วยิ้ม… และเด็กหญิงตัวเล็กก็ยิ้มตาม</div>
+      <div class="link">ถึงตรงนี้คนดูจะเข้าใจทันทีว่าทำไมลิปถึงทำให้เธอกล้า</div>
+      <div class="meta">🎬 ช็อตสุดท้ายจบที่ริมฝีปากเด็กกลางเฟรม แล้วตัดเข้าช็อต 11</div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag old">ภาพเดิม</span><img src="../visual/img/p09.jpg">
+      <div class="ov-small">UZI Matte Liquid Lipstick</div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">11</span><span class="time">0:21–0:24</span></div>
+      <div class="story">ตัดกลับมาปัจจุบันด้วยภาพปากที่ซ้อนกันพอดี เธอทาลิปท่าเดียวกับที่แม่เคยทาให้</div>
+      <div class="meta">🎬 <b>Match cut:</b> ตัดจากปากเด็กเป็นปากผู้ใหญ่ ให้อยู่ตำแหน่งเดียวกันในเฟรม · 🔊 เสียงปาดลิป ASMR</div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag old">ภาพเดิม</span><img src="../visual/img/p10.jpg"></div>
+    <div class="txt">
+      <div class="head"><span class="num">12</span><span class="time">0:24–0:25</span></div>
+      <div class="story">เม้มปากหนึ่งที… หายใจลึกๆ</div>
+      <div class="meta">🔊 เสียงเม้มปาก “ป๊อบ” แล้วเปียโนเริ่มเข้ามา</div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag old">ภาพเดิม</span><img src="../visual/img/p12.jpg"></div>
+    <div class="txt">
+      <div class="head"><span class="num">13</span><span class="time">0:25–0:27</span></div>
+      <div class="story">แล้วยิ้ม… ยิ้มแบบเดียวกับเด็กหญิงคนนั้นเมื่อ 20 ปีก่อน</div>
+      <div class="link">เชื่อมกับช็อต 10: ยิ้มเดียวกัน คนละวัย</div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag new">ช็อตใหม่</span>
+      <div class="ph desk"><div class="ic">📄</div><div class="t">เจนเพิ่มได้</div><div class="d">สคริปต์ที่ขีดฆ่าวางทิ้งบนโต๊ะ<br>↓<br>มือเธอสอดการ์ดของแม่<br>เข้ากระเป๋าคู่กับลิป<br>แล้วเดินออกไป</div></div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">14</span><span class="time">0:27–0:28.5</span></div>
+      <div class="story">เธอวางสคริปต์ทิ้งไว้บนโต๊ะ แล้วเก็บการ์ดของแม่ไว้กับตัวแทน</div>
+      <div class="link">จุดเชื่อม: ไม่ต้องพูดให้สมบูรณ์แบบแล้ว แค่ยิ้มให้แม่เห็นก็พอ</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PAGE 4: องก์ 3 ================= -->
+<section class="page" id="page4">
+  <div class="brand"><b><span>UZI</span> COSMETIC</b><span>สตอรี่บอร์ด v2 · หน้า 4/4</span></div>
+  <div class="act">
+    <div class="no">องก์ 3</div>
+    <h2>ยิ้มให้แม่เห็น</h2>
+    <p>เฉลยทุกอย่างที่ปูไว้</p>
+    <div class="mood warm"></div>
+    <div class="mood-label"><span>โทนสี: ทองอุ่นเต็มที่</span><span>อารมณ์: มั่นใจ ซึ้ง</span></div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag old">ภาพเดิม</span><img src="../visual/img/p14.jpg"></div>
+    <div class="txt">
+      <div class="head"><span class="num">15</span><span class="time">0:28.5–0:31</span></div>
+      <div class="story">ม่านเปิด เธอเดินออกไปท่ามกลางแสงแฟลช ครั้งนี้ในมือไม่มีสคริปต์</div>
+      <div class="meta">🔊 ดนตรีบิลด์ขึ้น + ชัตเตอร์รัว</div>
+    </div>
+  </div>
+
+  <div class="shot key">
+    <div class="frame"><span class="tag old">ภาพเดิม</span><img class="croptop" src="../visual/img/p17.jpg">
+      <div class="ov-sub"><span>“ก่อนเริ่ม… ขอพูดกับคนคนหนึ่งก่อนนะคะ”<br>“แม่… หนูยิ้มแล้วนะ”</span></div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">16</span><span class="time">0:31–0:35</span><span class="key-l">PAYOFF</span></div>
+      <div class="story">แทนที่จะอ่านสคริปต์ เธอมองตรงไปที่กล้องถ่ายทอดสด แล้วพูดกับคนแค่คนเดียว</div>
+      <div class="say">บทพูด (เสียงจริง):<br>“ก่อนเริ่ม… ขอพูดกับคนคนหนึ่งก่อนนะคะ”<br><b>“แม่… หนูยิ้มแล้วนะ”</b></div>
+      <div class="meta">🎬 ใช้เครื่องมือลิปซิงก์ให้ปากตรงกับบท · ครอปตัวหนังสือมั่วด้านบนออก</div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag fix">ควรเจนใหม่</span><img src="../visual/img/p15.jpg"></div>
+    <div class="txt">
+      <div class="head"><span class="num">17</span><span class="time">0:35–0:36</span></div>
+      <div class="story">นักข่าวที่เคยจ้องจับผิด วางปากกาลง ทั้งห้องเงียบกริบ</div>
+      <div class="meta">🎬 เจนใหม่ให้เป็นนักข่าวชุดเดียวกับช็อต 04</div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag old">ภาพเดิม (ครอป)</span><img src="img/redlight.jpg">
+      <div class="ov-live">● LIVE</div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">18</span><span class="time">0:36–0:37</span></div>
+      <div class="story">ไฟแดงบนกล้องยังติดอยู่… ส่งรอยยิ้มนั้นออกไปไกล 500 กิโล</div>
+      <div class="link">เฉลย: ไฟ LIVE ที่เคยน่ากลัว กลายเป็นสะพานถึงแม่</div>
+    </div>
+  </div>
+
+  <div class="shot key">
+    <div class="frame"><span class="tag new">ช็อตใหม่</span>
+      <div class="ph home"><div class="ic">🥹</div><div class="t">ฉากเดียวกับช็อต 3</div><div class="d">บนจอทีวี ลูกสาวกำลังยิ้ม<br>แม่น้ำตาไหลแต่ยิ้ม<br><b>ปากแม่ทาลิปสีเดียวกับลูก</b><br>↓<br>แม่ยื่นมือแตะจอเบาๆ<br>ข้างตัวมีลิป UZI แท่งเดียวกัน</div></div>
+      <div class="ov-sub mom"><span>“ยิ้มสวยแล้วลูก”</span></div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">19</span><span class="time">0:37–0:41</span><span class="key-l aha">อ๋อ ② ★</span></div>
+      <div class="story">ที่บ้าน แม่ก็ทาลิปสีเดียวกันไว้แล้ว… เพราะวันนี้แม่ก็กลัวแทนลูกเหมือนกัน แม่จึงทาลิปแล้วยิ้มไปพร้อมลูก</div>
+      <div class="link">เฉลยช็อต 3: ลิปที่แม่กำไว้คือลิปที่แม่ทาเพื่อยิ้มไปพร้อมลูก</div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag old">ภาพเดิม + การ์ด</span><img src="../visual/img/p18.jpg">
+      <div class="endcard">
+        <div><div class="quote">ทาลิปแล้วยิ้ม…<br>ไม่มีใครเห็นหรอกว่าเรากลัว</div><div class="logo">UZI</div><div class="pn">MATTE LIQUID LIPSTICK</div></div>
+        <div class="bottom">
+          <div class="claim">ส่งความมั่นใจ ให้คนที่คุณรัก</div>
+          <div class="promo">[โปรเซ็ตคู่ แท่งของคุณ + แท่งของแม่]</div>
+          <div class="cta">กดตะกร้าเลย 🛒</div>
+        </div>
+      </div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">20</span><span class="time">0:41–0:46</span><span class="key-l">END CARD</span></div>
+      <div class="story">ปิดด้วยลิปท่ามกลางแสงไฟ และประโยคของแม่ที่ทุกคนเอาไปใช้กับชีวิตตัวเองได้</div>
+      <div class="say">เสียงแบรนด์ปิดท้าย:<br><b>“ทาลิปแล้วยิ้ม… ไม่มีใครเห็นหรอกว่าเรากลัว”</b></div>
+      <div class="meta">🎬 ถ้าถ่ายใหม่ ให้วางลิป 2 แท่งคู่กัน (แท่งของแม่กับแท่งของลูก) · ช่องในวงเล็บให้ทีมเติม</div>
+    </div>
+  </div>
+
+  <div class="foot">ภาพเดิมดึงจากคลิปต้นฉบับ · กรอบทอง = ช็อตสำคัญของเรื่อง · ช็อตใหม่ที่ต้องทำเพิ่ม 4 ช็อต: แม่ที่บ้าน (2 ช็อต ฉากเดียวกัน), ความทรงจำวันเด็ก, วางสคริปต์ทิ้ง</div>
+</section>
+
+</body>
+</html>
