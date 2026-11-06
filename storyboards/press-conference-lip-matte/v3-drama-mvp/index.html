@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>สตอรี่บอร์ด v3: ดราม่าแค่ไหน ก็ไม่หลุด × UZI Matte Liquid Lipstick</title>
+<style>
+  @font-face { font-family: "Prompt"; font-weight: 400; src: url(../visual/fonts/prompt-thai-400-normal.woff2) format("woff2"); unicode-range: U+0E01-0E5B, U+200C-200D, U+25CC; }
+  @font-face { font-family: "Prompt"; font-weight: 600; src: url(../visual/fonts/prompt-thai-600-normal.woff2) format("woff2"); unicode-range: U+0E01-0E5B, U+200C-200D, U+25CC; }
+  @font-face { font-family: "Prompt"; font-weight: 700; src: url(../visual/fonts/prompt-thai-700-normal.woff2) format("woff2"); unicode-range: U+0E01-0E5B, U+200C-200D, U+25CC; }
+  @font-face { font-family: "Prompt"; font-weight: 400; src: url(../visual/fonts/prompt-latin-400-normal.woff2) format("woff2"); unicode-range: U+0000-00FF, U+2000-206F, U+20AC, U+2122; }
+  @font-face { font-family: "Prompt"; font-weight: 600; src: url(../visual/fonts/prompt-latin-600-normal.woff2) format("woff2"); unicode-range: U+0000-00FF, U+2000-206F, U+20AC, U+2122; }
+  @font-face { font-family: "Prompt"; font-weight: 700; src: url(../visual/fonts/prompt-latin-700-normal.woff2) format("woff2"); unicode-range: U+0000-00FF, U+2000-206F, U+20AC, U+2122; }
+
+  :root { --gold: #d4af37; --rose: #b76e79; --dark: #2c2c2c; --bg: #fcf9f9; --ink: #2b2526; --muted: #7b6f71; --line: #eadfe0; --red: #d7263d; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "Prompt", "Noto Color Emoji", sans-serif; background: #e9e3e4; color: var(--ink); }
+  .page { width: 640px; margin: 0 auto 24px; background: var(--bg); padding: 28px 26px 22px; }
+  .nw { white-space: nowrap; }
+
+  .brand { display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; color: var(--muted); letter-spacing: .5px; }
+  .brand b { color: var(--dark); letter-spacing: 3px; font-weight: 700; }
+  .brand b span { color: var(--gold); }
+  h1 { font-size: 34px; font-weight: 700; line-height: 1.2; margin: 14px 0 4px; }
+  h1 small { display: block; font-size: 16px; font-weight: 400; color: var(--rose); margin-top: 4px; }
+  h3 { font-size: 19px; font-weight: 700; margin: 22px 0 10px; }
+  h3 em { font-style: normal; color: var(--rose); }
+  .brief { font-size: 16px; line-height: 1.6; background: var(--dark); color: #f3e6c8; padding: 12px 16px; border-radius: 10px; margin: 14px 0 0; }
+  .brief b { color: var(--gold); }
+
+  /* Wordplay box */
+  .wp { display: flex; gap: 10px; margin-top: 12px; }
+  .wp div { flex: 1; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 12px; font-size: 15px; line-height: 1.55; }
+  .wp div h4 { font-size: 13px; color: var(--muted); font-weight: 600; margin-bottom: 4px; }
+  .wp .eq { flex: 0 0 auto; background: none; border: none; display: flex; align-items: center; font-size: 22px; color: var(--gold); font-weight: 700; padding: 0; }
+  .tagline { margin-top: 12px; text-align: center; background: linear-gradient(90deg, #fff6dc, #ffeec2, #fff6dc); border: 2px solid var(--gold); border-radius: 12px; padding: 12px; }
+  .tagline small { display: block; font-size: 12.5px; color: var(--muted); }
+  .tagline b { font-size: 26px; font-weight: 700; color: var(--dark); letter-spacing: .5px; }
+
+  /* Story chain */
+  .step { display: flex; gap: 12px; align-items: flex-start; }
+  .dot { flex: 0 0 34px; height: 34px; border-radius: 50%; background: var(--rose); color: #fff; font-weight: 700; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+  .step.gold .dot { background: var(--gold); color: #2b2100; }
+  .step .body { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; font-size: 16px; line-height: 1.6; flex: 1; }
+  .because { margin: 2px 0 2px 46px; font-size: 13.5px; color: var(--rose); font-weight: 600; }
+  .because::before { content: "↓ "; }
+
+  .pp { width: 100%; border-collapse: separate; border-spacing: 0 6px; font-size: 14.5px; }
+  .pp td { background: #fff; padding: 9px 10px; line-height: 1.5; vertical-align: middle; }
+  .pp td:first-child { border-radius: 8px 0 0 8px; width: 46%; }
+  .pp td:last-child { border-radius: 0 8px 8px 0; }
+  .pp td.arrow { width: 26px; text-align: center; color: var(--gold); font-weight: 700; padding: 0; }
+  .pp th { font-size: 12.5px; color: var(--muted); text-align: left; font-weight: 600; padding: 0 10px; }
+  .pp tr.big td { background: #fff6dc; font-weight: 600; }
+
+  /* Acts */
+  .act { margin: 18px 0 12px; }
+  .act .no { font-size: 13px; font-weight: 600; letter-spacing: 2px; color: var(--muted); }
+  .act h2 { font-size: 24px; font-weight: 700; line-height: 1.2; }
+  .act p { font-size: 14px; color: var(--muted); margin-top: 2px; }
+  .mood { height: 8px; border-radius: 8px; margin-top: 8px; }
+  .mood.loud { background: linear-gradient(90deg, #7a1f2b, var(--red), #6a2a7a); }
+  .mood.cold { background: linear-gradient(90deg, #4b5a6b, #8fa1b3, #c9a27a); }
+  .mood.warm { background: linear-gradient(90deg, #e8b96a, var(--gold), #f6d98e); }
+  .mood-label { display: flex; justify-content: space-between; font-size: 11.5px; color: var(--muted); margin-top: 3px; }
+
+  /* Shot cards */
+  .shot { display: flex; gap: 16px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 12px; margin-bottom: 12px; }
+  .shot.key { border: 2px solid var(--gold); box-shadow: 0 0 0 4px #fff3cf; }
+  .frame { position: relative; flex: 0 0 200px; height: 356px; border-radius: 10px; overflow: hidden; background: #111; }
+  .frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .frame img.croptop { object-position: center 85%; transform: scale(1.12); transform-origin: center bottom; }
+  .frame img.dim { filter: brightness(.55) saturate(.9); }
+  .tag { position: absolute; top: 8px; left: 8px; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 20px; z-index: 6; }
+  .tag.old { background: rgba(255,255,255,.88); color: #555; }
+  .tag.new { background: var(--gold); color: #2b2100; }
+  .tag.fix { background: var(--rose); color: #fff; }
+  .tag.gfx { background: #6a2a7a; color: #fff; }
+
+  .ov-title { position: absolute; left: 10px; right: 10px; top: 13%; text-align: center; color: #fff; font-weight: 700; font-size: 17px; line-height: 1.35; text-shadow: 0 2px 8px rgba(0,0,0,.85), 0 0 2px #000; z-index: 3; }
+  .ov-small { position: absolute; left: 10px; right: 10px; top: 40px; text-align: center; color: #fff; font-size: 12px; font-weight: 600; text-shadow: 0 1px 6px rgba(0,0,0,.9); z-index: 3; }
+  .ov-sub { position: absolute; left: 8px; right: 8px; bottom: 12px; text-align: center; z-index: 3; }
+  .ov-sub span { background: rgba(0,0,0,.62); color: #fff; font-size: 12.5px; line-height: 1.75; padding: 2px 6px; border-radius: 4px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+  .ov-sub.q span { background: rgba(215,38,61,.85); }
+  .ov-live { position: absolute; top: 34px; right: 10px; background: var(--red); color: #fff; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 4px; z-index: 3; letter-spacing: 1px; }
+
+  /* TV chyron (lower third) */
+  .chyron { position: absolute; left: 0; right: 0; bottom: 46px; z-index: 4; display: flex; align-items: stretch; font-size: 12px; font-weight: 700; }
+  .chyron .k { background: var(--red); color: #fff; padding: 4px 7px; white-space: nowrap; }
+  .chyron .v { background: rgba(255,255,255,.95); color: #1b1b1b; padding: 4px 8px; flex: 1; white-space: nowrap; overflow: hidden; }
+  .chyron.top { top: 64px; bottom: auto; }
+
+  /* MVP stamp */
+  .mvp { position: absolute; right: 8px; top: 38px; z-index: 5; width: 62px; height: 62px; border-radius: 50%; border: 3px solid var(--gold); background: rgba(20,14,0,.75); color: var(--gold);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; transform: rotate(-12deg); font-weight: 700; line-height: 1; box-shadow: 0 0 14px rgba(212,175,55,.6); }
+  .mvp b { font-size: 17px; letter-spacing: 1px; }
+  .mvp i { font-style: normal; font-size: 10px; margin-top: 2px; }
+  .mvp.q { border-style: dashed; color: #fff; border-color: #fff; box-shadow: none; }
+
+  /* Placeholders */
+  .ph { position: absolute; inset: 0; border: 2px dashed var(--gold); border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 18px 14px 80px; color: #f3e6c8; }
+  .ph.talk { background: radial-gradient(circle at 50% 30%, #6b2a5a 0%, #1d0d1a 75%); }
+  .ph.fight { background: radial-gradient(circle at 50% 30%, #7a1f2b 0%, #1d0b0e 75%); }
+  .ph.ambush { background: radial-gradient(circle at 50% 30%, #2b4a7a 0%, #0b1220 75%); }
+  .ph.desk { background: radial-gradient(circle at 50% 35%, #5a4a3a 0%, #241d18 70%); padding-bottom: 40px; }
+  .ph .ic { font-size: 40px; line-height: 1; margin-bottom: 8px; }
+  .ph .t { font-size: 12.5px; font-weight: 600; color: var(--gold); letter-spacing: 1px; margin-bottom: 5px; }
+  .ph .d { font-size: 12px; line-height: 1.5; }
+
+  /* Comment flood */
+  .cmts { position: absolute; left: 8px; right: 8px; top: 64px; z-index: 4; display: flex; flex-direction: column; gap: 7px; }
+  .cmt { background: rgba(255,255,255,.95); border-radius: 12px; padding: 5px 9px; font-size: 11.5px; line-height: 1.4; color: #222; display: flex; gap: 6px; align-items: flex-start; box-shadow: 0 3px 10px rgba(0,0,0,.35); }
+  .cmt i { flex: 0 0 18px; height: 18px; border-radius: 50%; display: block; }
+  .cmt:nth-child(2) { margin-left: 16px; } .cmt:nth-child(3) { margin-right: 14px; } .cmt:nth-child(4) { margin-left: 10px; }
+  .hearts { position: absolute; right: 10px; bottom: 14px; z-index: 4; color: #fff; font-weight: 700; font-size: 13px; text-shadow: 0 1px 6px #000; }
+
+  /* MVP stat card */
+  .stat { position: absolute; inset: 0; background: radial-gradient(circle at 50% 18%, #4a3a10 0%, #141008 70%); color: #f3e6c8; display: flex; flex-direction: column; align-items: center; padding: 34px 14px 14px; text-align: center; }
+  .stat .crown { font-size: 30px; line-height: 1; }
+  .stat .big { font-size: 46px; font-weight: 700; color: var(--gold); letter-spacing: 4px; line-height: 1.05; text-shadow: 0 0 18px rgba(212,175,55,.5); }
+  .stat .sub { font-size: 12px; margin: 2px 0 12px; }
+  .stat table { width: 100%; font-size: 13px; border-collapse: collapse; }
+  .stat td { padding: 5px 4px; border-bottom: 1px solid rgba(212,175,55,.25); text-align: left; }
+  .stat td:last-child { text-align: right; font-weight: 700; color: #fff; }
+  .stat tr.hl td { color: var(--gold); font-size: 15px; border-bottom: none; padding-top: 8px; }
+  .stat tr.hl td:last-child { color: var(--gold); }
+  .stat .note { font-size: 10.5px; color: #b9a984; margin-top: auto; }
+
+  .txt { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+  .head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 6px; flex-wrap: wrap; }
+  .num { font-size: 30px; font-weight: 700; color: var(--rose); line-height: 1; }
+  .time { font-size: 13px; color: var(--muted); }
+  .key-l { font-size: 11px; font-weight: 700; color: #fff; background: var(--dark); padding: 1px 7px; border-radius: 4px; }
+  .key-l.aha { background: var(--gold); color: #2b2100; }
+  .story { font-size: 18.5px; line-height: 1.65; margin-bottom: 10px; }
+  .say { font-size: 15px; color: var(--ink); background: #faf3f4; border-radius: 8px; padding: 6px 10px; margin-bottom: 10px; line-height: 1.6; }
+  .link { font-size: 14px; color: var(--rose); font-weight: 600; line-height: 1.55; margin-bottom: 8px; }
+  .meta { margin-top: auto; font-size: 13.5px; line-height: 1.6; color: var(--muted); border-top: 1px dashed var(--line); padding-top: 8px; }
+  .meta b { color: var(--ink); font-weight: 600; }
+
+  .endcard { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; justify-content: space-between; padding: 44px 10px 12px; text-align: center; color: #fff; }
+  .endcard .quote { font-size: 17px; font-weight: 700; line-height: 1.4; text-shadow: 0 2px 8px rgba(0,0,0,.9); }
+  .endcard .logo { font-size: 24px; font-weight: 700; letter-spacing: 6px; text-shadow: 0 2px 10px rgba(0,0,0,.7); margin-top: 8px; }
+  .endcard .pn { font-size: 11px; letter-spacing: 1px; text-shadow: 0 1px 6px rgba(0,0,0,.9); }
+  .endcard .bottom { background: rgba(20,14,10,.74); border-radius: 10px; padding: 8px 6px; }
+  .endcard .claim { font-size: 12px; line-height: 1.5; color: #f3e6c8; }
+  .endcard .promo { font-size: 11px; color: #ffe7a3; margin: 3px 0 6px; }
+  .endcard .cta { display: inline-block; background: var(--gold); color: #2b2100; font-weight: 700; font-size: 13px; padding: 4px 14px; border-radius: 20px; }
+  .foot { text-align: center; font-size: 12px; color: var(--muted); margin-top: 14px; line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<!-- ================= PAGE 1: แนวคิด ================= -->
+<section class="page" id="page1">
+  <div class="brand"><b><span>UZI</span> COSMETIC</b><span>สตอรี่บอร์ด v3 · หน้า 1/4</span></div>
+  <h1>“ดราม่าแค่ไหน ก็ไม่หลุด”<small>UZI Matte Liquid Lipstick · แนวตั้ง 9:16 · ~42 วินาที</small></h1>
+  <div class="brief"><b>โจทย์:</b> เธอออกรายการดราม่ามาหลายรายการ แต่ก็ยังเป็น <b>MVP</b> ทุกครั้ง เพราะเธอมั่นใจ เมื่อทา <b>ลิปแมท</b></div>
+
+  <h3>ตัวเชื่อมทั้งเรื่อง: <em>คำว่า “หลุด”</em></h3>
+  <div class="wp">
+    <div><h4>ในรายการดราม่า</h4>คนที่ <b>“หลุด”</b> คือคนที่คุมอารมณ์ไม่อยู่ ร้องไห้ฟูมฟาย หรือตะโกนใส่กัน แล้วกลายเป็น <b>คนแพ้</b></div>
+    <div class="eq">+</div>
+    <div><h4>ลิปแมท UZI</h4><b>“ไม่หลุด”</b> ไม่ว่าจะร้องไห้ จิบน้ำ หรือโดนไฟสตูดิโอนานหลายชั่วโมง ลิปก็ยังเป๊ะ</div>
+  </div>
+  <div class="tagline"><small>เธอไม่หลุดทั้งคนทั้งลิป จึงเป็น MVP ทุกรายการ</small><b>ดราม่าแค่ไหน ก็ไม่หลุด</b></div>
+
+  <h3>เส้นเรื่อง: <em>ทุกฉากมีเหตุผลส่งต่อกัน</em></h3>
+  <div class="step gold"><div class="dot">1</div><div class="body">ดราม่า #1, #2, #3 คนอื่นหลุดกันหมด แต่ <b>เธอไม่หลุดเลย</b> จึงได้ MVP ทุกรายการ</div></div>
+  <div class="because">คนดูสงสัยว่า “ทำไมเธอนิ่งได้ทุกครั้ง?”</div>
+  <div class="step"><div class="dot">2</div><div class="body">ดราม่า #4 เป็น <b>แถลงข่าวสด</b> ซึ่งหนักที่สุด ทุกคนรอดูเธอหลุด</div></div>
+  <div class="because">เพราะแรงกดดันมากที่สุดเท่าที่เคยเจอ</div>
+  <div class="step"><div class="dot">3</div><div class="body">หลังเวที เธอ <b>เกือบหลุด</b> คำตอบที่เตรียมมาใช้ไม่ได้ จนน้ำตาไหล</div></div>
+  <div class="because">เพราะเธอรู้ว่าอาวุธลับของตัวเองคืออะไร</div>
+  <div class="step gold"><div class="dot">4</div><div class="body">หน้ากระจก เธอบอกตัวเองว่า <b>“ข่าวฉันห้ามไม่ได้… แต่ฉันเลือกได้ว่าจะไม่หลุด”</b> แล้วทาลิปแมท UZI</div></div>
+  <div class="because">เพราะแม้น้ำตาไหล ลิปก็ไม่หลุด (มีช็อตพิสูจน์ด้วยทิชชู่)</div>
+  <div class="step"><div class="dot">5</div><div class="body">ความมั่นใจกลับมา เธอออกไปตอบคำถามแรงด้วยรอยยิ้มว่า <b>“ดราม่าแค่ไหน… ฉันก็ไม่หลุดค่ะ”</b></div></div>
+  <div class="because">เพราะเธอนิ่งและเป๊ะที่สุดในห้อง</div>
+  <div class="step gold"><div class="dot">6</div><div class="body">คอมเมนต์ถล่มว่า <b>“MVP ตัวจริง”</b> และ <b>“ลิปอะไรคะ ร้องไห้ยังไม่หลุด”</b> ปิดด้วยการ์ด MVP #4 และสินค้า</div></div>
+
+  <h3>ปูไว้ → เฉลย: <em>จุดที่ทำให้คนดู “อ๋อ!”</em></h3>
+  <table class="pp">
+    <tr><th>ปูไว้</th><th></th><th>เฉลย</th></tr>
+    <tr class="big"><td>ตรา MVP ทุกรายการ ทำให้คนดูถามว่าทำไม (ช็อต 1–4)</td><td class="arrow">→</td><td>หน้ากระจก: เธอไม่หลุดเพราะลิปแมท (ช็อต 9–10) <b>อ๋อ!</b></td></tr>
+    <tr><td>VO “ทุกคนรอดูฉันหลุด” (ช็อต 6)</td><td class="arrow">→</td><td>“ดราม่าแค่ไหน… ฉันก็ไม่หลุดค่ะ” (ช็อต 15)</td></tr>
+    <tr><td>น้ำตาไหลหลังเวที (ช็อต 8)</td><td class="arrow">→</td><td>ทิชชู่สะอาด ลิปไม่หลุด (ช็อต 12)</td></tr>
+    <tr><td>รายการ #1 เธอจิบน้ำ ขอบแก้วสะอาด (ช็อต 1)</td><td class="arrow">→</td><td>สถิติ MVP “ลิปหลุด: 0” (ช็อต 18)</td></tr>
+  </table>
+</section>
+
+<!-- ================= PAGE 2: องก์ 1 ================= -->
+<section class="page" id="page2">
+  <div class="brand"><b><span>UZI</span> COSMETIC</b><span>สตอรี่บอร์ด v3 · หน้า 2/4</span></div>
+  <div class="act">
+    <div class="no">องก์ 1</div>
+    <h2>ดราม่ามาแล้ว 3 รายการ</h2>
+    <p>ตัดเร็ว จังหวะสนุก ให้เห็นว่าเธอไม่หลุดและได้ MVP ทุกครั้ง</p>
+    <div class="mood loud"></div>
+    <div class="mood-label"><span>โทนสี: ไฟสตูดิโอจัด แดง ม่วง</span><span>อารมณ์: ร้อนแรง ตัวแม่</span></div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag new">ช็อตใหม่</span>
+      <div class="ph talk"><div class="ic">🛋️</div><div class="t">ฉากทอล์กโชว์</div><div class="d">พิธีกรโน้มตัวจี้คำถาม<br>เธอนั่งไขว่ห้าง ยิ้ม จิบน้ำ<br>วางแก้วลง <b>ขอบแก้วสะอาด</b></div></div>
+      <div class="mvp"><b>MVP</b><i>✔</i></div>
+      <div class="chyron"><span class="k">ดราม่า #1</span><span class="v">เคลียร์ปมร้อน</span></div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">01</span><span class="time">0:00–0:01.5</span><span class="key-l">HOOK</span></div>
+      <div class="story">รายการแรก พิธีกรจี้ทุกคำถาม เธอแค่ยิ้ม จิบน้ำ แล้วตอบนิ่งๆ</div>
+      <div class="meta">🔊 เสียงดนตรีบีตหนัก + เสียงปั๊มตรา MVP “ปึ้ง!”</div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag new">ช็อตใหม่</span>
+      <div class="ph fight"><div class="ic">🗣️</div><div class="t">ฉากเผชิญหน้า</div><div class="d">อีกฝ่ายลุกขึ้นชี้หน้า ตะโกน<br>(หลุด)<br>เธอเลิกคิ้ว ยิ้มมุมปาก</div></div>
+      <div class="mvp"><b>MVP</b><i>✔</i></div>
+      <div class="chyron"><span class="k">ดราม่า #2</span><span class="v">เผชิญหน้าคู่กรณี</span></div>
+      <div class="ov-sub"><span>อีกฝ่ายหลุด… เธอไม่หลุด</span></div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">02</span><span class="time">0:01.5–0:03</span></div>
+      <div class="story">รายการที่สอง อีกฝ่ายหลุดตะโกนใส่ แต่เธอแค่ยิ้มมุมปาก</div>
+      <div class="meta">🔊 เสียงตะโกนถูกตัดเงียบ + “ปึ้ง!”</div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag new">ช็อตใหม่</span>
+      <div class="ph ambush"><div class="ic">🎤</div><div class="t">ดักสัมภาษณ์หน้าตึก</div><div class="d">ไมค์นับสิบยื่นเข้าหน้า<br>แฟลชรัว<br>เธอหันมายิ้มให้กล้อง</div></div>
+      <div class="mvp"><b>MVP</b><i>✔</i></div>
+      <div class="chyron"><span class="k">ดราม่า #3</span><span class="v">ดักสัมภาษณ์ด่วน</span></div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">03</span><span class="time">0:03–0:04.5</span></div>
+      <div class="story">รายการที่สาม นักข่าวรุมดักสัมภาษณ์ เธอหันมายิ้มให้กล้อง ไม่มีหลุดสักคำ</div>
+      <div class="meta">🔊 ชัตเตอร์รัว + “ปึ้ง!”</div>
+    </div>
+  </div>
+
+  <div class="shot key">
+    <div class="frame"><span class="tag old">ภาพเดิม</span><img src="../visual/img/p01.jpg">
+      <div class="ov-title">ดราม่ามาแล้ว 3 รายการ<br>MVP ทุกรายการ</div>
+      <div class="ov-sub q"><span>แต่วันนี้… หนักที่สุด</span></div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">04</span><span class="time">0:04.5–0:06.5</span><span class="key-l aha">คำถามของเรื่อง</span></div>
+      <div class="story">ตัดมาเงียบทันที เธอแอบมองผ่านช่องม่าน วันนี้ไม่เหมือนทุกครั้ง</div>
+      <div class="link">คนดูจะสงสัยว่า “ทำไมเธอนิ่งได้ทุกรายการ?” แล้วเฉลยในช็อต 9–10</div>
+      <div class="meta">🔊 ดนตรีหยุดกึก เหลือเสียงหัวใจ</div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag old">ภาพเดิม</span><img src="../visual/img/p02.jpg">
+      <div class="ov-live">● LIVE</div>
+      <div class="chyron"><span class="k">ดราม่า #4</span><span class="v">แถลงข่าวสด ทั่วประเทศ</span></div>
+      <div class="mvp q"><b>MVP</b><i>?</i></div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">05</span><span class="time">0:06.5–0:08</span></div>
+      <div class="story">ดราม่า #4 คือแถลงข่าวสดทั่วประเทศ ไมค์ทุกช่องรออยู่ ครั้งนี้จะยังได้ MVP ไหม?</div>
+      <div class="meta">🎬 ตรา MVP เป็นเครื่องหมายคำถาม ยังไม่ปั๊ม</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PAGE 3: องก์ 2 ================= -->
+<section class="page" id="page3">
+  <div class="brand"><b><span>UZI</span> COSMETIC</b><span>สตอรี่บอร์ด v3 · หน้า 3/4</span></div>
+  <div class="act">
+    <div class="no">องก์ 2</div>
+    <h2>เกือบหลุด</h2>
+    <p>หลังเวทีของดราม่า #4 และเหตุผลที่เธอไม่เคยหลุด</p>
+    <div class="mood cold"></div>
+    <div class="mood-label"><span>โทนสี: เย็น เทาฟ้า แล้วค่อยอุ่นขึ้นที่หน้ากระจก</span><span>อารมณ์: กดดัน แล้วฮึบ</span></div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag old">ภาพเดิม</span><img src="../visual/img/p04.jpg">
+      <div class="ov-sub"><span>“ทุกคนรอดูฉันหลุด”</span></div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">06</span><span class="time">0:08–0:09.5</span></div>
+      <div class="story">นักข่าวหันมามองทางม่าน ทุกสายตารอดูว่าวันนี้เธอจะหลุดไหม</div>
+      <div class="link">ปูไว้: “หลุด” (เฉลยช็อต 15)</div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag old">ภาพเดิม</span><img src="../visual/img/p05.jpg">
+      <div class="ov-sub"><span>“คำตอบที่เตรียมมา… ใช้ไม่ได้สักข้อ”</span></div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">07</span><span class="time">0:09.5–0:11</span></div>
+      <div class="story">คำตอบที่เตรียมมา เธอขีดฆ่าทิ้งทีละข้อจนกระดาษยับ</div>
+      <div class="meta">🔊 เสียงขยำกระดาษ</div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag old">ภาพเดิม</span><img src="../visual/img/p06.jpg">
+      <div class="ov-title">ครั้งแรก…<br>ที่เธอเกือบหลุด</div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">08</span><span class="time">0:11–0:13</span></div>
+      <div class="story">เป็นครั้งแรกที่ตัวแม่เกือบหลุด น้ำตาไหลลงมาหนึ่งหยด</div>
+      <div class="link">ปูไว้: น้ำตา (เฉลยช็อต 12 ว่าลิปไม่หลุด)</div>
+      <div class="meta">🔊 เงียบสนิท 1 จังหวะ</div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag old">ภาพเดิม</span><img src="../visual/img/p07.jpg">
+      <div class="ov-sub"><span>“ข่าวจะแรงแค่ไหน… ฉันห้ามไม่ได้”</span></div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">09</span><span class="time">0:13–0:14.5</span></div>
+      <div class="story">เธอเดินกลับมาที่หน้ากระจก หายใจลึก แล้วเปิดกล่องเครื่องสำอาง</div>
+      <div class="meta">🔊 เสียงหัวใจช้าลง</div>
+    </div>
+  </div>
+
+  <div class="shot key">
+    <div class="frame"><span class="tag old">ภาพเดิม</span><img src="../visual/img/p08.jpg">
+      <div class="ov-title">UZI<br>Matte Liquid Lipstick</div>
+      <div class="ov-sub"><span>“…แต่ฉันเลือกได้ ว่าจะไม่หลุด”</span></div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">10</span><span class="time">0:14.5–0:16</span><span class="key-l aha">อ๋อ!</span></div>
+      <div class="story">เธอหยิบอาวุธลับที่ใช้มาทุกรายการขึ้นมา นั่นคือลิปแมท UZI</div>
+      <div class="link">เฉลยคำถามช็อต 4: เธอนิ่งได้ทุกรายการ เพราะลิปแมทไม่เคยหลุด</div>
+      <div class="meta">🔊 เปิดฝาลิป “คลิก” ดังชัด แล้วดนตรีเริ่มกลับมา</div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag old">ภาพเดิม</span><img src="../visual/img/p09.jpg">
+      <div class="ov-title" style="top:58%;font-size:14px">เนื้อแมทนุ่ม · ไม่ตกร่อง<br>ติดทนทั้งรายการ</div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">11</span><span class="time">0:16–0:19</span></div>
+      <div class="story">ปาดลิปทีละนิด เหมือนติดเกราะก่อนออกไปสู้</div>
+      <div class="meta">🔊 เสียงปาดลิป ASMR · ⚠️ ใช้เฉพาะเคลมที่แบรนด์ยืนยันได้</div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag new">ช็อตใหม่ · ถ่ายจริง</span>
+      <div class="ph desk"><div class="ic">🧻</div><div class="t">ช็อตพิสูจน์</div><div class="d">ซับน้ำตาด้วยทิชชู่<br>แล้วกดทิชชู่ลงบนปาก<br>↓<br><b>ทิชชู่ขาวสะอาด</b></div></div>
+      <div class="ov-sub"><span>ร้องไห้ได้… แต่ลิปไม่หลุด</span></div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">12</span><span class="time">0:19–0:21.5</span><span class="key-l">PROOF</span></div>
+      <div class="story">เธอซับน้ำตา แล้วกดทิชชู่ลงบนปาก ทิชชู่ยังขาวสะอาด</div>
+      <div class="link">เฉลยช็อต 8: น้ำตาไหลได้ แต่ลิปไม่หลุด</div>
+      <div class="meta">⚠️ ต้องถ่ายจริงด้วยสินค้าจริง ห้ามใช้ AI เจน</div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag old">ภาพเดิม</span><img src="../visual/img/p12.jpg">
+      <div class="ov-sub"><span>ตัวแม่… กลับมาแล้ว 💅</span></div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">13</span><span class="time">0:21.5–0:23.5</span></div>
+      <div class="story">เม้มปากหนึ่งที แล้วยิ้มให้ตัวเองในกระจก ตัวแม่กลับมาแล้ว</div>
+      <div class="meta">🎬 ใช้ภาพเม้มปาก (วินาทีที่ 17.5) ต่อด้วยภาพยิ้ม · 🔊 บีตดนตรีกลับมาเต็ม</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PAGE 4: องก์ 3 ================= -->
+<section class="page" id="page4">
+  <div class="brand"><b><span>UZI</span> COSMETIC</b><span>สตอรี่บอร์ด v3 · หน้า 4/4</span></div>
+  <div class="act">
+    <div class="no">องก์ 3</div>
+    <h2>MVP #4</h2>
+    <p>ออกไปแบบไม่หลุด แล้วได้ MVP อีกครั้ง</p>
+    <div class="mood warm"></div>
+    <div class="mood-label"><span>โทนสี: ทองอุ่นเต็มที่</span><span>อารมณ์: มั่นใจ สะใจ</span></div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag old">ภาพเดิม</span><img src="../visual/img/p14.jpg"></div>
+    <div class="txt">
+      <div class="head"><span class="num">14</span><span class="time">0:23.5–0:26</span></div>
+      <div class="story">ม่านเปิด เธอเดินออกไปเหมือนเดินแบบ ท่ามกลางแฟลชที่รัวทั้งห้อง</div>
+      <div class="meta">🔊 บีตดรอป + ชัตเตอร์รัว</div>
+    </div>
+  </div>
+
+  <div class="shot key">
+    <div class="frame"><span class="tag old">ภาพเดิม</span><img class="croptop" src="../visual/img/p17.jpg">
+      <div class="ov-sub q" style="bottom:auto;top:60px"><span>นักข่าว: “โดนดราม่าหนักขนาดนี้<br>ทำไมยังนิ่งได้คะ?”</span></div>
+      <div class="ov-sub"><span>“ดราม่าแค่ไหน… ฉันก็ไม่หลุดค่ะ”</span></div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">15</span><span class="time">0:26–0:30</span><span class="key-l aha">PAYOFF</span></div>
+      <div class="story">นักข่าวยิงคำถามแรงที่สุด เธอยิ้มก่อนตอบ ทั้งสงบและคม</div>
+      <div class="say">นักข่าว: “โดนดราม่าหนักขนาดนี้ ทำไมยังนิ่งได้คะ?”<br>เธอ (ยิ้ม): <b>“ดราม่าแค่ไหน… ฉันก็ไม่หลุดค่ะ”</b></div>
+      <div class="meta">🎬 คำว่า “ไม่หลุด” หมายถึงทั้งตัวเธอและลิป · ใช้เครื่องมือลิปซิงก์ให้ปากตรงบท</div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag fix">ควรเจนใหม่</span><img src="../visual/img/p15.jpg"></div>
+    <div class="txt">
+      <div class="head"><span class="num">16</span><span class="time">0:30–0:31</span></div>
+      <div class="story">นักข่าวที่ตั้งใจมาจับผิด ถึงกับวางปากกา หาอะไรเขียนต่อไม่ได้</div>
+      <div class="meta">🎬 เจนใหม่ให้เป็นนักข่าวชุดเดียวกับช็อต 6</div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag gfx">กราฟิกตอนตัดต่อ</span><img class="croptop dim" src="../visual/img/p17.jpg">
+      <div class="cmts">
+        <div class="cmt"><i style="background:#e8a0b4"></i><span><b>MVP ตัวจริง</b> 👑 ดราม่ากี่รอบก็ไม่หลุด</span></div>
+        <div class="cmt"><i style="background:#a0c4e8"></i><span>ร้องไห้มายังไม่หลุด <b>ลิปอะไรคะ??</b></span></div>
+        <div class="cmt"><i style="background:#c8e8a0"></i><span>ไม่หลุดทั้งคนทั้งลิป 555</span></div>
+        <div class="cmt"><i style="background:#e8d0a0"></i><span>ขอชื่อลิปด่วน 🙏</span></div>
+      </div>
+      <div class="hearts">❤ 128K</div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">17</span><span class="time">0:31–0:34</span></div>
+      <div class="story">คอมเมนต์ถล่มเข้ามา ทุกคนยกให้เธอเป็น MVP และทุกคนอยากรู้ว่าเธอใช้ลิปอะไร</div>
+      <div class="meta">🎬 ทำเป็นกราฟิกคอมเมนต์เด้งขึ้นทีละอัน ไม่ต้องถ่ายเพิ่ม · 🔊 เสียงแจ้งเตือนรัวๆ</div>
+    </div>
+  </div>
+
+  <div class="shot key">
+    <div class="frame"><span class="tag gfx">กราฟิกตอนตัดต่อ</span>
+      <div class="stat">
+        <div class="crown">👑</div>
+        <div class="big">MVP</div>
+        <div class="sub">ดราม่า #4 · แถลงข่าวสด</div>
+        <table>
+          <tr><td>ออกรายการดราม่า</td><td>4</td></tr>
+          <tr><td>คำถามแรง</td><td>47</td></tr>
+          <tr><td>น้ำตา</td><td>1 หยด</td></tr>
+          <tr class="hl"><td>ลิปหลุด</td><td>0 ✔</td></tr>
+        </table>
+        <div class="note">*ตัวเลขสมมติเพื่อความสนุก</div>
+      </div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">18</span><span class="time">0:34–0:37</span><span class="key-l aha">อ๋อ ★</span></div>
+      <div class="story">การ์ด MVP แบบนักกีฬาเด้งขึ้นมา ตัวเลขทุกช่องดราม่าหมด ยกเว้นช่องสุดท้าย <span class="nw">“ลิปหลุด: 0”</span></div>
+      <div class="link">สรุปเรื่องในภาพเดียว: เธอเป็น MVP เพราะไม่หลุด</div>
+      <div class="meta">🔊 เสียงปั๊มตรา “ปึ้ง!” แบบเดียวกับองก์ 1</div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="frame"><span class="tag old">ภาพเดิม + การ์ด</span><img src="../visual/img/p18.jpg">
+      <div class="endcard">
+        <div><div class="quote">ดราม่าแค่ไหน<br>ก็ไม่หลุด</div><div class="logo">UZI</div><div class="pn">MATTE LIQUID LIPSTICK</div></div>
+        <div class="bottom">
+          <div class="claim">เบอร์ [ชื่อสี] · เนื้อแมทนุ่ม · ไม่ตกร่อง</div>
+          <div class="promo">[โปรโมชั่น]</div>
+          <div class="cta">กดตะกร้าเลย 🛒</div>
+        </div>
+      </div>
+    </div>
+    <div class="txt">
+      <div class="head"><span class="num">19</span><span class="time">0:37–0:42</span><span class="key-l">END CARD</span></div>
+      <div class="story">ปิดด้วยลิปท่ามกลางแสงไฟ พร้อมคำตอบที่ทุกคนถามหา</div>
+      <div class="say">เสียงเธอปิดท้าย (ยิ้มมุมปาก):<br><b>“ดราม่าแค่ไหน… ก็ไม่หลุด”</b></div>
+      <div class="meta">🎬 ช่องในวงเล็บให้ทีมเติม</div>
+    </div>
+  </div>
+
+  <div class="foot">ภาพเดิมดึงจากคลิปต้นฉบับ · กรอบทอง = ช็อตสำคัญของเรื่อง<br>ต้องทำเพิ่ม: ฉากรายการดราม่า 3 ช็อต (เจน AI) · ทิชชู่ 1 ช็อต (ถ่ายจริง) · กราฟิกคอมเมนต์และการ์ด MVP (ทำตอนตัดต่อ)</div>
+</section>
+
+</body>
+</html>

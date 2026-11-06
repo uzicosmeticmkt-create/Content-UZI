@@ -3,7 +3,7 @@
 > สินค้า: **UZI Matte Liquid Lipstick** (SKU 1 · ลิปแมท) · รูปแบบ: วิดีโอแนวตั้ง 9:16 · ความยาวใหม่ประมาณ **40 วินาที** (มีเวอร์ชันตัด 15 วิ สำหรับยิงแอด)
 > อ้างอิงจากคลิปเดิม 29 วินาที (เจนด้วย AI / Dreamina) · 🆕 = ช็อตที่ต้องถ่ายหรือเจนเพิ่ม
 >
-> ⭐ **เวอร์ชันแนะนำ (v2): “ลิปของแม่”** เส้นเรื่องใหม่ที่ทุกฉากมีเหตุผลเชื่อมกัน มีจุดอ๋อและจบแบบซึ้ง ดูได้ที่ [หน้า 1: แนวคิด + จุดเชื่อม](v2-moms-lipstick/page1.jpg) · [หน้า 2](v2-moms-lipstick/page2.jpg) · [หน้า 3](v2-moms-lipstick/page3.jpg) · [หน้า 4](v2-moms-lipstick/page4.jpg) · [ไฟล์ต้นฉบับ](v2-moms-lipstick/index.html)
+> ⭐ **เวอร์ชันล่าสุด (v3): “ดราม่าแค่ไหน ก็ไม่หลุด”** โจทย์: ออกรายการดราม่ามาหลายรายการ แต่ยังเป็น MVP เพราะมั่นใจด้วยลิปแมท ดูได้ที่ [หน้า 1: แนวคิด + จุดเชื่อม](v3-drama-mvp/page1.jpg) · [หน้า 2](v3-drama-mvp/page2.jpg) · [หน้า 3](v3-drama-mvp/page3.jpg) · [หน้า 4](v3-drama-mvp/page4.jpg) · [ไฟล์ต้นฉบับ](v3-drama-mvp/index.html) · [Prompt ช็อตใหม่ v3](#prompt-v3)
 >
 > 🖼️ **เวอร์ชัน 1 แบบเล่าเรื่องจากภาพ:** [หน้า 1: ก่อนม่านเปิด](visual/page1.jpg) · [หน้า 2: หน้ากระจก](visual/page2.jpg) · [หน้า 3: ม่านเปิด](visual/page3.jpg) · ไฟล์ต้นฉบับแก้ไขได้: [visual/index.html](visual/index.html)
 
@@ -182,3 +182,18 @@
 
 ### ต่อยอดเป็นซีรีส์
 "ทุกคนมีวันแถลงข่าวของตัวเอง" ทำต่อได้เป็นตอนๆ ใช้โครงเรื่องเดิม (กลัว → ลิป → มั่นใจ) เปลี่ยนแค่เวที เช่น **EP2 สัมภาษณ์งาน** · **EP3 พรีเซนต์ลูกค้าใหญ่** · **EP4 เจอพ่อแม่แฟนครั้งแรก**
+
+---
+
+<a id="prompt-v3"></a>
+## Prompt ช็อตใหม่สำหรับ v3 (“ดราม่าแค่ไหน ก็ไม่หลุด”)
+
+ใส่คำอธิบายตัวละครเดิม (ดูข้อ 7) และแนบภาพอ้างอิงหน้าเธอทุกครั้ง ทุกช็อตยาวประมาณ 1.5 วินาที ส่วนตัวหนังสือแถบรายการ (ดราม่า #1–#3) และตรา MVP ให้ใส่ตอนตัดต่อ ไม่ต้องให้ AI เจน
+
+| ช็อต | Prompt |
+|---|---|
+| **01 ทอล์กโชว์** | `TV talk-show studio with dramatic magenta and red lighting, a male host leans forward pressing a tough question; the woman sits cross-legged on a velvet sofa, calm and smiling, sips water from a clear glass and sets it down, coral-rose matte lips flawless, 9:16, cinematic` |
+| **02 เผชิญหน้า** | `Confrontation TV set with two chairs facing each other under hard red light, another woman stands up shouting and pointing angrily; the woman stays seated, raises one eyebrow and gives a slight confident smirk, perfect matte lips, 9:16, cinematic` |
+| **03 ดักสัมภาษณ์** | `Night street outside a building, a crowd of reporters shoves a dozen microphones toward the woman, camera flashes popping, she turns to the lens with a composed confident smile, perfect matte lips, 9:16, cinematic` |
+
+> ห้ามใส่ชื่อหรือโลโก้ของรายการทีวีที่มีอยู่จริง ให้ใช้ชื่อรายการสมมติเท่านั้น ส่วนช็อตทิชชู่ (ช็อต 12) ต้องถ่ายจริงด้วยสินค้าจริง
