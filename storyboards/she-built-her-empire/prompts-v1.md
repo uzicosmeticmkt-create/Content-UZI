@@ -8,7 +8,8 @@
 | รหัส | asset_id |
 |---|---|
 | REF-A character sheet | f39a82b1-04d8-4f10-908c-cd4c43c30036 |
-| REF-B staircase | 01fc523d-ad09-4701-8629-ff13fc69c137 |
+| ~~REF-B staircase v1~~ (ไม่ใช้) | 01fc523d-ad09-4701-8629-ff13fc69c137 |
+| REF-B2 staircase (ผู้ใช้ทำ, ไม่มีสินค้า) | 60ee68aa-78c0-4141-abdc-106ff2b51574 |
 | IMG1 Lip Matte | d5c68a25-2c52-419a-98bb-8a97995da4dc |
 | IMG2 Rose Crystal Lip Gloss | 302ee9d5-30fb-4580-b6b7-452bbb739a94 |
 | IMG3 Cushion | 02dcbb58-7a9d-4d01-8147-8899b0fb3498 |
@@ -53,29 +54,32 @@ Exclusions: no on-screen text or subtitles, no other people, no logos other than
 
 ---
 
-## CLIP 2 — บันไดแห่งความสำเร็จ → โชว์รูม ⭐
-**ลำดับภาพ:** 1 REF-A · 2 IMG9 · 3 REF-B · 4 IMG1 · 5 IMG2 · 6 IMG3 · 7 IMG4 · 8 IMG6 · 9 IMG12
+## CLIP 2 — บันไดแห่งความสำเร็จ → โชว์รูม ⭐ (แก้ 10 พ.ย.: บันไดไม่มีสินค้า, ใช้ REF-B2)
+**ลำดับภาพ:** 1 REF-A · 2 IMG9 · 3 REF-B2 · 4 IMG1 · 5 IMG2 · 6 IMG3 · 7 IMG4 · 8 IMG6 · 9 IMG12
+(ไม่ใส่ IMG5 เพราะซองมีหน้าผู้หญิงอีกคน เสี่ยงทำให้หน้านางแบบเพี้ยน)
 
 ```
-A 15-second vertical cinematic luxury-cosmetics brand film, part 2 of 3: the founder climbs a staircase made of her own products and enters the empire she built. No dialogue, no voiceover, no on-screen text.
+A 15-second vertical cinematic luxury-cosmetics brand film, part 2 of 3: the founder climbs a monumental staircase of light and walks into the empire she built. No dialogue, no voiceover, no on-screen text.
 
 References:
 - Image 1: the woman's identity, hairstyle and outfit. Image 2: her face — keep her face exactly like this photo.
-- Image 3: the staircase location and the product on each step (bottom to top: row of lip matte tubes, rose lip glosses, tweed cushion compact, white contour compact, hair-removal sachets, cleansing-water bottles), golden doors at the top.
-- Images 4–8: exact packaging of the UZI Lip Matte, Rose Crystal Lip Gloss, cushion compact, contour powder compact and cleansing water.
+- Image 3: the staircase location — colossal white marble staircase with glowing gold step edges, giant columns, sheer pink drapes, open golden doors at the summit pouring light. The steps stay clean and empty.
+- Image 4: the UZI Lip Matte tube (clear cap, gold band, nude-brown liquid, gold "UZI LIP MATTE" text) — her first product.
+- Images 5–8: exact packaging of the UZI Rose Crystal Lip Gloss, cushion compact, contour powder compact and cleansing water, displayed in the showroom.
 - Image 9: the UZ monogram logo with "UZI COSMETIC" beneath — shown in gold on the showroom wall.
 Same woman throughout: long straight copper-brown hair worn down with a side part, light grey-blue eyes, winged eyeliner, nude matte lips, cream-white tailored pantsuit over a cream silk camisole, pearl necklace, pearl stud earrings, nude heels.
 
-Look: warm and bright, white / cream / champagne-gold / soft pink, glowing gold step-edge lights, photoreal global beauty campaign.
+Look: warm and radiant, white / cream / champagne gold / soft pink, volumetric god rays from the doors, photoreal, epic and powerful.
 
-0–2s: Low-angle close-up at the bottom of the white marble staircase: her hand sets a single UZI Lip Matte tube down on the first step; the gold light along that step's edge flares on.
-2–6s: Camera low behind her, tracking as she climbs with confident, steady strides. As she reaches each step, its gold edge light ignites and the products on it catch the light, in order: the row of lip matte tubes, the rose lip glosses, the tweed cushion, the white contour compact, the hair-removal sachets, the cleansing-water bottles.
-6–8s: Wide shot, camera rising and pulling back from the side: the whole staircase glows gold, every step lit with UZI products; she is near the top, small against the tall golden doors.
-8–10s: Medium shot from behind at the top: she pushes the tall golden double doors open with both hands; warm light floods out around her silhouette.
-10–15s: Wide reveal inside: a grand cream-marble showroom with gold-rimmed round display podiums holding UZI products, the gold UZ / UZI COSMETIC logo on the far wall. She walks to the centre and stops. The camera slowly orbits half-way around her, ending on a three-quarter front view: she looks around, lifts her chin slightly, a small proud smile.
+0–2s: Low-angle close-up at the foot of the staircase: her hand sets the single UZI Lip Matte tube down on the first step; the gold light line on that step flares brighter.
+2–3s: From that step, a wave of brighter gold light races up the staircase, step after step, all the way to the open golden doors.
+3–7s: Camera low behind her, tracking as she climbs the centre of the staircase with confident, steady strides; gold light pulses under each step she takes; the sheer pink drapes stir in the light.
+7–9s: Wide shot from the foot of the stairs, camera rising: the colossal staircase between giant columns; she is a small figure near the summit, silhouetted against the blaze of light in the open golden doors.
+9–10.5s: Medium shot from behind at the top: she steps through the open golden doors into the light; the light flares to white.
+10.5–15s: Out of the white, wide reveal: a grand cream-marble showroom with gold-rimmed round display podiums holding UZI products, the gold UZ / UZI COSMETIC logo on the far wall. She walks to the centre and stops. The camera slowly orbits half-way around her, ending on a three-quarter front view: she looks around, lifts her chin slightly, a small proud smile.
 
 End state: she stands at the centre of the showroom.
-Exclusions: no on-screen text or subtitles, no other people, no product transformation effects, keep every package's shape, colour and logo as in the references.
+Exclusions: no on-screen text or subtitles, no other people, no products on the staircase except the one lipstick she placed, keep every package's shape, colour and logo as in the references.
 ```
 
 ---
