@@ -109,7 +109,7 @@ Exclusions: no on-screen text or subtitles, no other people on the terrace, no e
 
 ---
 
-## CLIP 1 v2 — แก้ตามผู้ใช้ (มีคนเดินชนจนกล่องร่วง + ลิปเล็กลง ฝาใส) · รออนุมัติ 48 เครดิต
+## CLIP 1 v2 — แก้ตามผู้ใช้ (คนเดินชน หันกลับมามองแต่ไม่ช่วย + ลิปเล็กลง ฝาใส) · รออนุมัติ 48 เครดิต
 **ลำดับภาพ:** เหมือน Clip 1 (1 REF-A · 2 IMG9 · 3 IMG7 · 4 IMG1 · 5 IMG3)
 
 ```
@@ -123,15 +123,15 @@ Same woman throughout: long straight copper-brown hair worn down with a side par
 
 Look: night, cool muted tones with one warm practical light, shallow depth of field, photoreal, cinematic.
 
-0–3s: A small, plain home office at night, lit only by a warm desk lamp from screen-left; dark background. One small UZI Lip Matte tube stands upright on the bare desk in the foreground, small against the desk; she sits behind it, chin resting on her folded hands, studying it in silence. Slow push-in toward the lipstick and her face.
-3–4.5s: Close-up: her fingertips pick up the small lipstick and slowly turn it until the gold UZI logo faces the camera; the tube is no longer than her finger.
-4.5–6s: Hard cut. Bright white laboratory. Macro: her gloved hand squeezes a pipette; a drop of pink liquid falls into a glass dish.
-6–8s: Hard cut. Close-up of her inner forearm: she draws three short swatch lines of nude-brown lip colour with the small applicator, side by side.
-8–9.5s: Hard cut. Medium shot back at the night desk: she leans in, sketching a round compact design on paper with a pencil; the UZI cushion compact sits beside her hand.
-9.5–11.5s: Hard cut. A long, cold corridor. Side tracking shot: she walks carrying a tall stack of plain nude-pink product boxes. A man in a dark business suit hurries toward her from the opposite direction, eyes on his phone, and bumps hard into her shoulder. Slow motion: the boxes fly from her arms, burst open, and small lipstick tubes scatter across the glossy floor. The man keeps walking out of frame without looking back; his face is never shown clearly.
-11.5–13s: Low angle from floor level among the scattered boxes: alone now, she sinks to her knees, shoulders dropping, tired and hurt; she exhales.
+0–2.5s: A small, plain home office at night, lit only by a warm desk lamp from screen-left; dark background. One small UZI Lip Matte tube stands upright on the bare desk in the foreground, small against the desk; she sits behind it, chin resting on her folded hands, studying it in silence. Slow push-in toward the lipstick and her face.
+2.5–4s: Close-up: her fingertips pick up the small lipstick and slowly turn it until the gold UZI logo faces the camera; the tube is no longer than her finger.
+4–5.5s: Hard cut. Bright white laboratory. Macro: her gloved hand squeezes a pipette; a drop of pink liquid falls into a glass dish.
+5.5–7s: Hard cut. Close-up of her inner forearm: she draws three short swatch lines of nude-brown lip colour with the small applicator, side by side.
+7–8.5s: Hard cut. Medium shot back at the night desk: she leans in, sketching a round compact design on paper with a pencil; the UZI cushion compact sits beside her hand.
+8.5–11s: Hard cut. A long, cold corridor. Side tracking shot: she walks carrying a tall stack of plain nude-pink product boxes. A man in a dark business suit hurries toward her from the opposite direction, eyes on his phone, and bumps hard into her shoulder. Slow motion: the boxes fly from her arms, burst open, and small lipstick tubes scatter across the glossy floor.
+11–13s: Low angle from floor level: she has sunk to her knees in the foreground among the scattered boxes, shoulders dropping, hurt. In the background the man stops, turns his head and looks back at her over his shoulder with a cold, indifferent expression — then turns away and walks off without helping, leaving her alone.
 13–15s: Close-up on the floor: her fingertips pick up one small UZI Lip Matte tube. The camera tilts up to her face: she lifts her eyes, jaw set, gaze firm and determined. Hold.
 
-End state: she kneels alone in the corridor holding the small lipstick, determined.
-Exclusions: no on-screen text or subtitles; the only other person is the passer-by in the corridor shot; the lipstick cap is clear transparent plastic, never silver or metal; the lipstick is always small, never oversized; no logos other than UZI on the products.
+End state: she kneels alone in the corridor holding the small lipstick, determined; the man is gone.
+Exclusions: no on-screen text or subtitles; the only other person is the man in the corridor; he never helps her or touches the boxes; the lipstick cap is clear transparent plastic, never silver or metal; the lipstick is always small, never oversized; no logos other than UZI on the products.
 ```
