@@ -105,3 +105,33 @@ Look: golden-hour sunset, pink-gold sky, warm rim light, photoreal, cinematic.
 
 Exclusions: no on-screen text or subtitles, no other people on the terrace, no extra logos or brand names, keep the lipstick packaging exactly as in image 4.
 ```
+
+
+---
+
+## CLIP 1 v2 — แก้ตามผู้ใช้ (มีคนเดินชนจนกล่องร่วง + ลิปเล็กลง ฝาใส) · รออนุมัติ 48 เครดิต
+**ลำดับภาพ:** เหมือน Clip 1 (1 REF-A · 2 IMG9 · 3 IMG7 · 4 IMG1 · 5 IMG3)
+
+```
+A 15-second vertical cinematic luxury-cosmetics brand film, part 1 of 3: a young brand founder alone at the very start of her journey. No dialogue, no voiceover, no on-screen text.
+
+References:
+- Image 1: the woman's identity, hairstyle and outfit. Images 2 and 3: her face — keep her face exactly like these photos.
+- Image 4: the UZI Lip Matte — her first product, the hero prop. It is SMALL: a slim tube about 8 cm tall and 2 cm wide, roughly the length of her index finger, with a fully transparent clear acrylic cap (not metal, not silver), a thin gold band, nude-brown liquid inside and gold "UZI LIP MATTE" text. Whenever she holds it, it sits between her thumb and fingertips and looks small in her hand.
+- Image 5: the UZI cushion compact (pink-cream tweed lid, silver UZ monogram).
+Same woman throughout: long straight copper-brown hair worn down with a side part, light grey-blue eyes, winged eyeliner, nude matte lips, long nude almond nails, cream-white tailored pantsuit over a cream silk camisole, pearl necklace, pearl stud earrings.
+
+Look: night, cool muted tones with one warm practical light, shallow depth of field, photoreal, cinematic.
+
+0–3s: A small, plain home office at night, lit only by a warm desk lamp from screen-left; dark background. One small UZI Lip Matte tube stands upright on the bare desk in the foreground, small against the desk; she sits behind it, chin resting on her folded hands, studying it in silence. Slow push-in toward the lipstick and her face.
+3–4.5s: Close-up: her fingertips pick up the small lipstick and slowly turn it until the gold UZI logo faces the camera; the tube is no longer than her finger.
+4.5–6s: Hard cut. Bright white laboratory. Macro: her gloved hand squeezes a pipette; a drop of pink liquid falls into a glass dish.
+6–8s: Hard cut. Close-up of her inner forearm: she draws three short swatch lines of nude-brown lip colour with the small applicator, side by side.
+8–9.5s: Hard cut. Medium shot back at the night desk: she leans in, sketching a round compact design on paper with a pencil; the UZI cushion compact sits beside her hand.
+9.5–11.5s: Hard cut. A long, cold corridor. Side tracking shot: she walks carrying a tall stack of plain nude-pink product boxes. A man in a dark business suit hurries toward her from the opposite direction, eyes on his phone, and bumps hard into her shoulder. Slow motion: the boxes fly from her arms, burst open, and small lipstick tubes scatter across the glossy floor. The man keeps walking out of frame without looking back; his face is never shown clearly.
+11.5–13s: Low angle from floor level among the scattered boxes: alone now, she sinks to her knees, shoulders dropping, tired and hurt; she exhales.
+13–15s: Close-up on the floor: her fingertips pick up one small UZI Lip Matte tube. The camera tilts up to her face: she lifts her eyes, jaw set, gaze firm and determined. Hold.
+
+End state: she kneels alone in the corridor holding the small lipstick, determined.
+Exclusions: no on-screen text or subtitles; the only other person is the passer-by in the corridor shot; the lipstick cap is clear transparent plastic, never silver or metal; the lipstick is always small, never oversized; no logos other than UZI on the products.
+```
