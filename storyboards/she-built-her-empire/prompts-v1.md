@@ -22,6 +22,8 @@
 | IMG10 model front + hand | 0359bf93-dcc7-4da9-8ba9-2395f667dfa0 |
 | IMG11 model 3/4 half body | f1f3b312-cde7-40c3-afdb-ac7b6dbedad1 |
 | IMG12 logo | fe76f294-03d9-4d51-b184-cdfb0d3d7fe2 |
+| IMG2 lip gloss (เติมขอบเป็น 3:4 — ใช้แทนตัวเดิมที่สูงเกินลิมิต) | 8b0a4cb2-4cd3-4cbe-91bd-37e05d51be23 |
+| IMG13 ลิปแพ็กเกจเก่า 2016 (เติมขอบเป็น 3:4) | e5a6b86f-c5b2-451b-9d31-9ebc6c22344c |
 
 ---
 
@@ -134,4 +136,27 @@ Look: night, cool muted tones with one warm practical light, shallow depth of fi
 
 End state: she kneels alone in the corridor holding the small lipstick, determined; the man is gone.
 Exclusions: no on-screen text or subtitles; the only other person is the man in the corridor; he never helps her or touches the boxes; the lipstick cap is clear transparent plastic, never silver or metal; the lipstick is always small, never oversized; no logos other than UZI on the products.
+```
+
+
+---
+
+## INSERT 2016 — ลิปแพ็กเกจเก่า (แทนช็อตลิปใน Clip 1 v2) · รออนุมัติ 26 เครดิต
+**ลำดับภาพ:** 1 REF-A · 2 IMG9 · 3 IMG7 · 4 IMG13 · 8 วิ
+**ใช้ในตัดต่อ:** ช็อต 0–3 วิ แทนช็อตเปิดของ Clip 1 v2 (0–2 วิ) · ช็อต 3–8 วิ แทนช่วงเก็บลิป + หน้า (11–15 วิ)
+
+```
+An 8-second vertical cinematic insert for a luxury-cosmetics brand film, set ten years ago: two separate shots of the founder with her very first lipstick. No dialogue, no voiceover, no on-screen text.
+
+References:
+- Image 1: the woman's identity, hairstyle and outfit. Images 2 and 3: her face — keep her face exactly like these photos.
+- Image 4: her first UZI lipstick from ten years ago — the hero prop. Keep its packaging exactly: ornate polished gold crown-shaped cap with an oval opening on top, embossed gold floral collar, a transparent tapered middle filled with coral-pink colour and white "UZI" letters, and a flared polished gold base. It is small — about the length of her finger — and looks small in her hand.
+Same woman throughout: long straight copper-brown hair worn down with a side part, light grey-blue eyes, winged eyeliner, nude matte lips, long nude almond nails, cream-white tailored pantsuit over a cream silk camisole, pearl necklace, pearl stud earrings.
+
+Look: night, cool muted tones with one warm practical light, shallow depth of field, photoreal, cinematic.
+
+0–3s: A small, plain home office at night, lit only by a warm desk lamp from screen-left; dark background. The single small ornate gold UZI lipstick from image 4 stands upright on the bare desk, sharp in the foreground; she sits behind it, chin resting on her folded hands, studying it in silence. Slow push-in toward the lipstick and her face.
+3–8s: Hard cut. A cold corridor floor scattered with fallen nude-pink product boxes. Close-up: her fingertips pick up the small ornate gold UZI lipstick from the glossy floor. The camera tilts up to her face as she kneels: her eyes are wet, then she lifts her gaze, jaw set, determined. Hold.
+
+Exclusions: no on-screen text or subtitles, no other people, keep the lipstick's ornate gold packaging exactly as in image 4, keep it small, never oversized.
 ```
