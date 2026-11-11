@@ -1,155 +1,153 @@
 # UZ Micellar Cleansing Water: Luxury Beauty Campaign Video Brief
 
 > แนว **Luxury Beauty Campaign / Editorial Cosmetic Ad**, ไม่มีข้อความในคลิป, นางแบบตามรูปอ้างอิง, ชุดสีขาว (เสื้อคลุมผ้าวาฟเฟิลสีขาว)
-> สัดส่วน 9:16 (Reels / TikTok / Pinterest), ความยาว 15 วินาที, 24fps, ส่งออก 4K
-
-> ⚠️ หมายเหตุ: ระบบเปิดลิงก์ Pinterest (pin.it/5rvPlUf4O) ไม่ได้ เพราะเครือข่ายถูกบล็อก
-> โครงสร้างด้านล่างจึงเป็นโครงแบบคลิปโฆษณาคลีนเซอร์หัวแปรงสายลักชัวรีที่ใช้กันบ่อย
-> ถ้าส่งไฟล์ .mp4 มา จะปรับเวลาและมุมกล้องให้ตรงกับคลิปต้นฉบับทีละช็อตได้
+> สัดส่วน 9:16, ความยาว 15 วินาที, ส่งออก 4K
 
 ---
 
-## 1. ภาพรวมโครงสร้างคลิป (Story Arc)
+## 0. วิเคราะห์คลิปต้นฉบับ (Pinterest: "My Skin, My Foam" / novaclear Facial Foams)
 
-| ช่วง | เวลา | หน้าที่ | อารมณ์ |
+- ความยาว **14.7 วินาที**, แนวตั้ง 720×1280, 29.97fps, มีเพลงเต็มคลิป (ไม่มีเสียงพูด)
+- จุดตัดซีนจริง (scene detection): **2.87s** และ **3.80s**, ช่วงหลังใช้ cross-dissolve/ไหลต่อเนื่อง
+- Contact sheet: `briefs/reference/novaclear-reference-contact-sheet.jpg`
+
+| ช่วง | เวลา | สิ่งที่เห็นในคลิปต้นฉบับ | เทคนิค |
 |---|---|---|---|
-| HOOK | 0.0–2.5s | สินค้าเป็นพระเอกตั้งแต่เฟรมแรก + แสงเงาหรูหรา | ลึกลับ, น่ามอง |
-| REVEAL | 2.5–5.0s | เปิดตัวนางแบบในเสื้อคลุมขาว, สบตากล้อง | มั่นใจ, สง่า |
-| RITUAL | 5.0–10.0s | กดโฟม → หัวแปรงนวดหน้า → ฟองเนียนละเอียด | ผ่อนคลาย, sensorial |
-| RESULT | 10.0–13.0s | ล้างออก → ผิวโกลว์ ฉ่ำ ใส | สดชื่น, เปล่งประกาย |
-| HERO END | 13.0–15.0s | นางแบบถือขวดข้างแก้ม + packshot ปิด | พรีเมียม, จดจำแบรนด์ |
+| 1 | 0.0–2.9s | ECU ครึ่งหน้า (ตา + แก้ม) หัวแปรงซิลิโคนวนบนแก้มพร้อมฟอง นางแบบยิ้มตอนท้าย, มีข้อความ "Exfoliates Dead Epidermis / Deeply Cleanses" พิมพ์ขึ้น | กล้องนิ่ง, ระยะชิดมาก, เห็นรูขุมขนจริง |
+| 2 | 2.9–3.8s | Macro หัวแปรง นิ้วเล็บนู้ดกดขนแปรงให้เด้ง ด้านหลังเบลอเห็นริมฝีปาก | Hard cut, ชัดตื้นมาก |
+| 3 | 3.8–6.3s | ฟองพุ่งออกจากหัวแปรง พองฟูขยายจนเต็มเฟรม กลายเป็นจอขาว | Macro + slow motion, ฟองเป็นตัวเปลี่ยนซีน (foam wipe) |
+| 4 | 6.3–11.2s | ไลน์อัปสินค้า 4 ตัวบนพื้นหลังไล่สีชมพูนู้ด-ขาว ตัวละ ~1.2s | Packshot หน้าตรง, dissolve ต่อกัน |
+| 5 | 11.2–14.7s | โลโก้ + สโลแกนลายมือ "My Skin, My Foam." เขียนขึ้นทีละตัว แล้วจบด้วยเฟรมดำ | Logo end card |
 
-จังหวะตัดต่อ: ช้า-ช้า-เร็วขึ้น-ช้า ตัดตามบีตเพลง ใช้ speed ramp (เร็ว→สโลว์ 50%) ช่วงสาดน้ำและฟอง
-
----
-
-## 2. Look & Feel
-
-- **ฉาก:** ห้องน้ำ/ห้องแต่งตัวหรูโทนขาว-ครีม หินอ่อนขาวลายเทาอ่อน, ผ้าม่านซาตินครีม, กระจกกรอบทองแชมเปญ, ดอกพีโอนีขาว
-- **ชุด:** เสื้อคลุมผ้าวาฟเฟิลสีขาวคอผ้าคลุมไหล่ (shawl collar) คาดเอว ตามรูปอ้างอิง
-- **ผม/หน้า:** ผมสีน้ำตาลเกาลัดมุ่นมวยต่ำ มีปอยผมข้างหน้า (ตามรูปนางแบบ), ต่างหูมุกเล็ก
-  - ช่วงก่อนล้าง: แต่งหน้าแบบในรูป (อายไลเนอร์หางเชิด, บลัชพีช, ปากชมพูฉ่ำ)
-  - ช่วงหลังล้าง: หน้าเปลือย ผิวฉ่ำโกลว์ (dewy glass skin)
-- **แสง:** Key light softbox ใหญ่ 45° ด้านหน้า + rim light อุ่น 3200K ด้านหลัง ให้ขอบผมและไหล่เรือง, fill ขาว 5600K เบาๆ
-- **สี/เกรด:** โทน cream-white, ไฮไลต์อุ่น, ชมพูอมม่วงเล็กน้อยให้เข้ากับฉลากสีบานเย็นของขวด, คอนทราสต์ต่ำ ผิวเนียนแต่เห็นเท็กซ์เจอร์จริง
-- **เลนส์:** 85mm / 100mm macro, f/2–2.8, ฉากหลังละลายนุ่ม (creamy bokeh)
-- **เพลง:** Ambient piano + soft synth pad, มี ASMR เสียงกดปั๊มโฟม, ฟองฟู่, น้ำกระเซ็น (ไม่มีเสียงพูด ไม่มีข้อความ)
+**สูตรของคลิป:** ใบหน้าจริงใกล้มาก → รายละเอียดหัวแปรง → ฟองฟูเป็นทรานซิชัน → สินค้า → แบรนด์
+(Sensorial ล้วน ไม่มีคนพูด ขายด้วย texture ของฟอง)
 
 ---
 
-## 3. Shot List แบบละเอียด (8 ช็อต / 15 วินาที)
+## 1. โครงคลิปใหม่สำหรับ UZ (ตามจังหวะเดิม แต่ยกระดับเป็น Luxury)
 
-| # | เวลา | ช็อต | กล้อง | รายละเอียดการกระทำ |
-|---|---|---|---|---|
-| 1 | 0.0–1.5 | ECU สินค้า | Macro, slow push-in | ขวด UZ Micellar ตั้งบนแท่นหินอ่อนขาว แสงไล้ผ่านขวดใสเห็นน้ำเคลื่อนไหวเบาๆ ฉลากบานเย็นสะท้อนแสง |
-| 2 | 1.5–2.5 | Detail หัวแปรง | Macro orbit 30° | หัวแปรงซิลิโคนขาวหมุนช้าๆ หยดน้ำเกาะขนแปรง แสงรีมวิบวับ |
-| 3 | 2.5–5.0 | MCU นางแบบ | Slow dolly-in, 85mm | นางแบบในเสื้อคลุมขาวหันจากด้านข้างมาสบตากล้อง ปลายนิ้วแตะกรอบหน้า ปอยผมไหวเบาๆ |
-| 4 | 5.0–6.5 | CU มือ + ปั๊ม | Top 3/4, สโลว์ 50% | มือเล็บเจลนู้ดกดปั๊ม 2 ครั้ง ฟองไมเซลล่าขาวเนียนพองขึ้นบนหัวแปรง (ASMR ฟู่) |
-| 5 | 6.5–9.0 | CU ใบหน้า | Locked-off, 100mm | นางแบบหลับตา นวดหัวแปรงวนบนแก้มและสันจมูก ฟองละเอียดละลายเมคอัพ สีหน้าผ่อนคลาย ยิ้มบาง |
-| 6 | 9.0–10.0 | Macro texture | Macro push | ฟองไมโครบับเบิลบนผิวแก้มแตกตัวช้าๆ |
-| 7 | 10.0–13.0 | MCU สาดน้ำ → โกลว์ | Speed ramp 120fps | วักน้ำสาดหน้า ละอองน้ำกระจายเป็นประกายย้อนแสง → ตัดเป็นใบหน้าสะอาด ผิวฉ่ำโกลว์ ซับด้วยผ้าขนหนูขาว เงยหน้ามองกล้อง |
-| 8 | 13.0–15.0 | Hero + Packshot | Slow pull-back → cut | นางแบบถือขวดชิดแก้ม ยิ้มมั่นใจ → ตัดเป็น packshot ขวดบนหินอ่อน กลีบพีโอนีขาวโปรยรอบ แสงปิดนุ่ม (ไม่มีข้อความ, โลโก้ปรากฏจากฉลากขวดเท่านั้น) |
+ปรับให้ตรงกับเงื่อนไข: **ไม่มีข้อความ**, นางแบบตามรูป, **ชุดขาว**, สินค้ามีตัวเดียว (จึงแทนช่วงไลน์อัป 4 ตัวด้วย hero ขวด UZ หลายมุม)
+
+| # | เวลา | ช็อต (อ้างอิงคลิปเดิม) | รายละเอียด UZ Luxury |
+|---|---|---|---|
+| 1A | 0.0–1.5 | ECU ครึ่งหน้า + แปรง | ครึ่งหน้าขวาของนางแบบ (ตา + แก้ม) ผิวยังมีเมคอัพตามรูปอ้างอิง หัวแปรงขาวพร้อมฟองวนช้าๆ บนโหนกแก้ม |
+| 1B | 1.5–2.9 | ECU เดิม ต่อเนื่อง | นางแบบยิ้มบางๆ ขนตากะพริบ ปลายคอเสื้อคลุมวาฟเฟิลขาวโผล่ขอบล่างเฟรม แสงเรืองโทนอุ่น |
+| 2 | 2.9–3.8 | Macro หัวแปรง | Hard cut: นิ้วเล็บนู้ดกดขนซิลิโคนให้เด้ง ฉากหลังเบลอเห็นริมฝีปากชมพูฉ่ำของนางแบบ |
+| 3 | 3.8–6.3 | ฟองพองเต็มเฟรม | กดปั๊ม ฟองไมเซลล่าขาวเนียนพุ่งพองฟูจากหัวแปรง ขยายจนเต็มจอเป็นสีขาว (foam wipe) |
+| 4 | 6.3–8.8 | Packshot หน้าตรง | ฟองจางออก เผยขวด UZ Micellar บนแท่นหินอ่อนขาว พื้นหลังไล่สีครีม-ชมพูนู้ด slow push-in |
+| 5 | 8.8–11.2 | Packshot มุม 3/4 + ฟอง | ขวดหมุนช้า 20° ฟองนุ่มกองข้างฐาน กลีบพีโอนีขาวลอยผ่าน แสงไล้ฉลากบานเย็น |
+| 6 | 11.2–14.7 | End card (แทนโลโก้+สโลแกน) | นางแบบในเสื้อคลุมขาว หน้าสด ผิวฉ่ำโกลว์ ถือขวดชิดแก้ม มองกล้อง → ค่อยๆ เฟดเป็นขาวนวล (ไม่มีข้อความ, โลโก้มาจากฉลากขวดเท่านั้น) |
+
+**จังหวะตัด:** คงจุดตัดเดิม 2.9s และ 3.8s ไว้ให้ลงบีตเพลง หลังจากนั้นใช้ทรานซิชันแบบไหล (ฟอง, dissolve) เหมือนต้นฉบับ
 
 ---
 
-## 4. Prompt สำหรับ AI Video (ภาษาอังกฤษ, ใช้ได้กับ Seedance / Kling / Veo / Runway)
+## 2. Look & Feel (ยกระดับจากต้นฉบับ)
 
-**ไฟล์อ้างอิงที่ต้องแนบทุกช็อต:** รูปนางแบบ 2 รูป (หน้าตรง + 3/4), รูปขวด UZ Micellar, รูปเสื้อคลุมขาว
+| | ต้นฉบับ | เวอร์ชัน UZ Luxury |
+|---|---|---|
+| ผิว | ผิวจริง รูขุมขนชัด แสงแบน | ผิวจริงแต่โกลว์ ฉ่ำ (dewy) แสงนุ่มมีมิติ |
+| แสง | แสงขาวกลางๆ | Key softbox 45° + rim อุ่น 3200K + ไฮไลต์เรืองที่โหนกแก้ม |
+| พื้นหลังสินค้า | Gradient ชมพูนู้ดเรียบ | หินอ่อนขาว + ซาตินครีม + พีโอนีขาว |
+| สี | ชมพูนู้ด/ขาว | ครีม-แชมเปญ + บานเย็นอ่อน (เข้ากับฉลาก UZ) |
+| ข้อความ | มีข้อความ + โลโก้ + สโลแกน | **ไม่มีข้อความเลย** |
+| ชุด | ไม่เห็นชุด | เสื้อคลุมผ้าวาฟเฟิลขาว คอผ้าคลุมไหล่ (ตามรูปอ้างอิง) |
+| ผม | - | มวยต่ำสีน้ำตาลเกาลัด ปอยผมข้างหน้า ต่างหูมุก |
+
+**เสียง:** เพลงแนว ambient/luxury piano เบาๆ + ASMR ฟองฟู่ช่วง 3.8–6.3s
+
+---
+
+## 3. Prompt สำหรับ AI Video (Seedance / Kling / Veo / Runway)
+
+**แนบทุกช็อต:** รูปนางแบบ 2 รูป, รูปขวด UZ Micellar, รูปเสื้อคลุมขาว
+**แนะนำ:** แนบคลิปต้นฉบับเป็น motion reference ด้วย (โหมด reference video) เพื่อให้จังหวะกล้องและฟองเหมือนเดิม
 
 ### Global style (ใส่ต่อท้ายทุก prompt)
 ```
-Luxury beauty campaign, editorial cosmetic commercial, 9:16 vertical, 4K, 24fps,
-shot on ARRI Alexa 35 with 85mm and 100mm macro lenses, shallow depth of field,
-creamy bokeh, soft diffused key light with warm golden rim light, cream-white and
-champagne palette with subtle magenta accents, white marble and satin drapes,
-ultra-sharp detail, natural skin texture, dewy glass skin, cinematic color grade,
-high-end Dior / Chanel beauty ad aesthetic. No text, no subtitles, no captions,
-no watermark. Keep the model's face identical to the reference images.
+Luxury beauty campaign, editorial cosmetic commercial, 9:16 vertical, 4K, shot on ARRI
+Alexa 35 with 100mm macro lens, shallow depth of field, creamy bokeh, soft diffused key
+light with warm golden rim light, cream-white and champagne palette with subtle magenta
+accents, ultra-sharp detail, real natural skin texture with dewy glow, cinematic grade,
+high-end prestige skincare ad. No text, no subtitles, no captions, no watermark.
+Keep the model's face identical to the reference images.
 ```
 
-### Shot 1: Product hook
+### Shot 1 (0.0–2.9s): Face ECU cleansing
 ```
-Extreme close-up macro of a clear UZ Micellar cleansing water foam-pump bottle with a white
-silicone brush head and magenta-trimmed label, standing on white marble. Slow push-in.
-Soft light glides across the transparent bottle, liquid inside shimmering gently.
-```
-
-### Shot 2: Brush detail
-```
-Macro 30-degree orbit around the white silicone facial brush head on top of the bottle,
-tiny water droplets clinging to the bristles, sparkling warm rim light, slow motion.
+Extreme close-up of the right half of the Asian woman's face from the reference images:
+one eye with soft brown eyeshadow and winged liner, cheek and nose. A white silicone
+facial brush head covered in dense silky white foam massages slow small circles on her
+cheekbone. Static camera. Near the end she gives a soft, relaxed smile and blinks.
+The collar of a white waffle shawl-collar bathrobe is just visible at the bottom edge.
+Warm glowing beauty light.
 ```
 
-### Shot 3: Model reveal
+### Shot 2 (2.9–3.8s): Brush macro
 ```
-Medium close-up of the Asian woman from the reference images, chestnut-brown hair in a low
-messy bun with soft face-framing strands, small pearl earrings, wearing a plush white waffle
-shawl-collar bathrobe. She slowly turns from profile to look directly into the camera with a
-calm confident gaze, fingertips lightly touching her jawline. Slow dolly-in, luxury bathroom
-background with cream satin curtains and gold-framed mirror, softly blurred.
+Macro close-up of the round white silicone bristle brush head on the UZ foam pump.
+A finger with a nude manicure gently presses the soft bristles and they bounce back.
+Background heavily blurred, showing her glossy peach-pink lips. Very shallow focus.
 ```
 
-### Shot 4: Pump & foam (ASMR)
+### Shot 3 (3.8–6.3s): Foam bloom transition
 ```
-Close-up top three-quarter angle, slow motion: an elegant hand with nude manicure presses the
-pump of the UZ Micellar bottle twice; rich, dense, silky white micro-foam blooms over the
-silicone brush head. Clean white marble countertop, soft light.
-```
-
-### Shot 5: Cleansing ritual
-```
-Close-up of the same woman, eyes closed, relaxed serene expression with a faint smile,
-gently massaging the foaming silicone brush in small circles over her cheek and nose bridge.
-Fine creamy foam melts her makeup. White waffle bathrobe collar visible. Locked-off camera,
-100mm lens, soft beauty lighting.
+Macro slow motion: rich, airy, ultra-fine white micellar foam pushes out through the
+silicone brush head and blooms upward, swelling into large soft cloud-like folds until
+it fills the entire frame in pure creamy white. Soft backlight, satin-smooth foam texture.
 ```
 
-### Shot 6: Foam macro
+### Shot 4 (6.3–8.8s): Packshot front
 ```
-Extreme macro of fine micro-bubble foam on smooth skin, bubbles slowly popping, soft focus
-transitions, glistening highlights, slow motion.
-```
-
-### Shot 7: Splash & glow
-```
-Medium close-up, high-speed 120fps slow motion: the woman splashes clear water onto her face,
-crystalline droplets backlit with warm golden light sparkling in the air. Cut to her fresh,
-makeup-free, glowing dewy skin as she gently pats her face with a soft white towel, then
-lifts her eyes to the camera with a radiant look.
+The white foam dissolves to reveal the clear UZ Micellar cleansing water foam-pump bottle
+with a white silicone brush head and magenta-trimmed label, standing centered on a white
+marble pedestal against a soft cream-to-nude-pink gradient. Slow push-in, gentle light
+sweep across the transparent bottle. Label sharp and legible exactly as the reference.
 ```
 
-### Shot 8: Hero ending + packshot
+### Shot 5 (8.8–11.2s): Packshot 3/4 with foam
 ```
-The woman in the white waffle bathrobe holds the UZ Micellar bottle beside her cheek, label
-facing camera, soft confident smile, slow pull-back. Then cut to a hero packshot of the bottle
-on white marble surrounded by drifting white peony petals, soft glowing light, elegant finish.
+The UZ Micellar bottle slowly rotates 20 degrees on white marble, a soft mound of white foam
+at its base, white peony petals drifting past in slow motion, warm light gliding over the
+magenta label. Cream satin drapes softly blurred behind.
+```
+
+### Shot 6 (11.2–14.7s): Hero end
+```
+Medium close-up of the same woman, makeup-free with fresh, glowing, dewy skin, hair in a low
+chestnut bun with face-framing strands, small pearl earrings, wearing the plush white waffle
+shawl-collar bathrobe. She holds the UZ Micellar bottle beside her cheek with the label facing
+camera, looks into the lens with a calm confident smile. Slow pull-back, then a gentle fade
+to soft creamy white.
 ```
 
 ### Negative prompt
 ```
-text, letters, subtitles, captions, watermark, logo distortion, misspelled label, extra fingers,
-deformed hands, plastic skin, over-smoothed face, face change, different person, colored robe,
-harsh shadows, low resolution, blur, noise, flicker, jitter, cartoon, CGI look
+text, letters, typography, subtitles, captions, slogan, watermark, extra logos,
+misspelled label, extra fingers, deformed hands, plastic skin, over-smoothed face,
+face change, different person, colored robe, harsh shadows, low resolution,
+blur, noise, flicker, jitter, cartoon, CGI look
 ```
 
 ---
 
-## 5. การทำให้วิดีโอคมชัด (Post-production)
+## 4. การทำให้วิดีโอคมชัด (ต้นฉบับแค่ 720p, ของเราต้องดีกว่า)
 
-1. **Generate** ที่ความละเอียดสูงสุดของโมเดล (1080p ขึ้นไป) ทีละช็อต 2–5 วินาที แล้วค่อยต่อกัน (หน้านางแบบเพี้ยนน้อยกว่าทำยาวทีเดียว)
-2. **Upscale เป็น 4K:** Topaz Video AI (โมเดล *Proteus* หรือ *Rhea*, ตั้ง Recover Detail 20–30, Sharpen 10–15, Reduce Noise 10)
-3. **Frame interpolation:** Topaz *Apollo* / *Chronos* สำหรับช็อตสโลว์ (สาดน้ำ, ฟอง) ให้ลื่น
-4. **Face restore เบาๆ:** ถ้าหน้าเพี้ยนในบางเฟรม ใช้ face-swap/face-restore จากรูปอ้างอิง ความแรง ≤ 40% เพื่อเก็บเท็กซ์เจอร์ผิวจริง
-5. **Color grade (DaVinci / CapCut Pro):** Highlights อุ่น +5, Shadows ยกเล็กน้อย, Saturation -5, เพิ่ม Glow/Bloom 10–15% เฉพาะไฮไลต์, ใส่ film grain ละเอียด 3–5% กันภาพดูเป็น AI
-6. **ตรวจฉลากขวด:** ถ้า AI ทำฉลากเพี้ยน ให้ใช้ packshot จริง (รูปขวดที่แนบ) ทำ 2.5D parallax หรือ motion track ฉลากจริงทับ
-7. **Export:** H.265, 2160×3840, 24fps, bitrate 40–60 Mbps (สำหรับอัปโหลด Reels/TikTok ใช้ H.264 1080×1920, 20 Mbps)
+1. Generate ทีละช็อตที่ **1080p** ขึ้นไป แล้วต่อกันตามเวลาในตารางข้อ 1
+2. **Upscale 4K:** Topaz Video AI, *Proteus* (Recover Detail 20–30, Sharpen 10–15, Reduce Noise 10); ช็อตผิวหน้าใช้ *Iris* เพื่อเก็บใบหน้า
+3. **Slow-motion ฟอง (ช็อต 3):** Topaz *Apollo* / *Chronos* เพิ่มเฟรมให้ลื่น
+4. **Face restore เบาๆ** ≤ 40% เฉพาะเฟรมที่หน้าเพี้ยน (เก็บเท็กซ์เจอร์ผิวไว้แบบต้นฉบับ)
+5. **Color grade:** Highlights อุ่น +5, Saturation -5, Glow 10–15% เฉพาะไฮไลต์, film grain 3–5%
+6. **ฉลากขวด:** ถ้า AI ทำเพี้ยน ให้ใช้รูปขวดจริงทำ packshot 2.5D parallax ในช็อต 4–5 แทน
+7. **Export:** H.265 2160×3840 40–60 Mbps (มาสเตอร์), H.264 1080×1920 20 Mbps (อัปโหลด)
 
 ---
 
-## 6. Checklist ก่อนปล่อย
+## 5. Checklist ก่อนปล่อย
+- [ ] จุดตัด 2.9s / 3.8s ลงบีตเพลง
 - [ ] หน้านางแบบตรงกับรูปอ้างอิงทุกช็อต
-- [ ] เสื้อคลุมสีขาวต่อเนื่องทุกช็อต
-- [ ] ไม่มีตัวอักษร/ซับไตเติลในคลิป (ยกเว้นฉลากขวดจริง)
+- [ ] เสื้อคลุมสีขาวต่อเนื่อง
+- [ ] ไม่มีตัวอักษรในคลิป (ยกเว้นฉลากขวดจริง)
 - [ ] ฉลาก "UZ / MICELLAR" อ่านได้ ไม่เพี้ยน
-- [ ] มือ/นิ้วปกติ 5 นิ้ว
-- [ ] ความยาว 15 วินาที, 9:16, คมชัดระดับ 4K
+- [ ] มือ/นิ้วปกติ
+- [ ] 15 วินาที, 9:16, คมระดับ 4K
