@@ -35,11 +35,12 @@
 - **อารมณ์:** สงบ ละมุน
 
 ### Shot 2 — Product Lineup Reveal (0.53–5.10s, ~4.6s)
-- **เฟรม:** สินค้าทั้งเซ็ตวางบนโต๊ะผิวเรียบสีขาว-เทา (ขวด toner สูง, หลอดครีม, แท่ง balm, ขวดแอมพูล, ซองมาสก์/กล่องด้านหลัง)
+- **เฟรม:** สินค้าทั้งเซ็ตวางบนโต๊ะผิวเรียบสีขาว-เทา (ต้นฉบับ: ขวด toner, หลอดครีม, แท่ง balm, แอมพูล, ซองมาสก์)
+- **ใหม่ — UZ Floral Skin Repair Serum:** แอมพูลแก้วสีดำ 3 หลอดเรียงระยะต่างกัน (หลอดหน้าคมชัด หลอดหลังโฟกัสละลาย) + ซองบรรจุภัณฑ์ทรงขวดสีขาวใสตั้งพิงอยู่ด้านหลัง, พร็อพเสริม: หยดเซรั่มใส/กลีบดอกไม้สีครีมไม่กี่กลีบ (สื่อ Floral Oil)
 - **กล้อง:** **Lateral truck/slide จากซ้ายไปขวา** ช้าและนิ่ง (slider) ระดับสายตาสินค้า พร้อม parallax เล็กน้อย
 - **แสง:** แสงนุ่มจากด้านบน-หลัง ไล่โทนสว่างด้านบนเป็นเทาด้านล่าง มีเงาตกนุ่มบนโต๊ะ, ขอบขวดมี rim light
 - **ท้ายช็อต:** fade/dissolve ไปช็อตถัดไป
-- **ใหม่:** ใช้สินค้า UZI ของเรา (แนบรูปสินค้าจริงเป็น reference) — **ไม่มีข้อความลอย ไม่มีโลโก้ overlay**
+- **ใหม่:** ใช้รูปซอง UZ Floral Skin Repair Serum เป็น reference — **ไม่มีข้อความลอย ไม่มีโลโก้ overlay**
 
 ### Shot 3 — Model Profile (5.10–6.37s, ~1.3s)
 - **เฟรม:** Medium close-up หัว-ไหล่ ไหล่เปลือย (เกาะอก/เปิดไหล่) มุม 3/4
@@ -48,7 +49,7 @@
 - **จุดเน้น:** แนวกราม-คอเรียว (สื่อ lifting)
 
 ### Shot 4 — Model ถือสินค้า (6.37–~9.5s, ~3s)
-- **จังหวะแรก:** นางแบบถือแท่งสินค้า (stick/balm) ไว้ใกล้ริมฝีปาก/คาง มองตรงกล้อง
+- **จังหวะแรก:** นางแบบถือ**แอมพูลสีดำ UZ** ในแนวตั้ง ไว้ใกล้ริมฝีปาก/คาง มองตรงกล้อง
 - **จังหวะสอง:** ลดมือลง ประสานมือทั้งสองข้างใต้คาง นิ้วจับสินค้าเอียงทแยง (เฟรมกรอบหน้า)
 - **กล้อง:** push-in ช้า
 - **แสง:** ไฮไลต์ฉ่ำบนโหนกแก้มชัดมาก (glow)
@@ -69,11 +70,11 @@
 - **แสง:** side light นุ่ม เน้นเส้นโครงหน้า
 
 ### Shot 7 — ถือสินค้าแตะคาง มองกล้อง (15.73–17.03s, ~1.3s)
-- **ท่าทาง:** ยกแท่งสินค้าแตะใกล้ริมฝีปาก แล้วเลื่อนลงแตะคาง/กราม มองกล้อง
+- **ท่าทาง:** ยกแอมพูลสีดำ UZ แตะใกล้ริมฝีปาก แล้วเลื่อนลงแตะคาง/กราม มองกล้อง
 - **กล้อง:** นิ่ง
 
 ### Shot 8 — Product Hero End (17.03–17.70s, ~0.7s)
-- **เฟรม:** สินค้าแท่งเดี่ยวตั้งกลางเฟรม บนพื้นหลังมืดโทนน้ำตาล-เทาเข้ม มี rim light บางๆ
+- **เฟรม:** แอมพูลสีดำ UZ ตั้งเดี่ยวกลางเฟรม (หันโลโก้ UZ ทองเข้ากล้อง) บนพื้นหลังมืดโทนน้ำตาล-เทาเข้ม มี rim light บางๆ
 - **จบ:** ตัดเป็นจอดำ
 
 ## 4) สเปกนางแบบใหม่ (ล็อกจากรูปที่แนบ)
@@ -87,7 +88,7 @@
 
 ## 5) Prompt สำหรับ AI Video (ภาษาอังกฤษ ใช้กับ Kling / Seedance / Veo / Runway)
 
-> ใช้ทุก prompt ร่วมกับรูปนางแบบที่แนบเป็น reference image และรูปสินค้า UZI จริงเป็น reference
+> ใช้ทุก prompt ร่วมกับรูปนางแบบที่แนบเป็น reference image และรูปสินค้า UZ Floral Skin Repair Serum เป็น reference (เน้นตัวแอมพูลสีดำ)
 > ตั้งค่า: 9:16, 1080p (หรือสูงสุดที่โมเดลรองรับ), 24–30fps
 
 **Global style (ต่อท้ายทุก prompt):**
@@ -107,7 +108,7 @@ Extreme close-up of the reference woman's face, head slightly tilted, fingertips
 
 **Shot 2 (5s):**
 ```
-Product lineup of [UZI skincare products from reference] arranged on a smooth white-grey tabletop, camera slowly slides from left to right on a slider at product eye level, soft top-back lighting with gentle gradient background, soft shadows, subtle rim light on bottles, premium minimal still life.
+Product lineup of three slim black glass serum ampoules with a small gold UZ logo, plus a white translucent bottle-shaped sachet standing behind them, a few cream flower petals and a clear serum droplet, arranged on a smooth white-grey tabletop, camera slowly slides from left to right on a slider at product eye level, soft top-back lighting with gentle gradient background, soft shadows, subtle rim light on bottles, premium minimal still life.
 ```
 
 **Shot 3 (2s):**
@@ -117,7 +118,7 @@ Medium close-up of the reference woman with bare shoulders in a nude strapless t
 
 **Shot 4 (3–4s):**
 ```
-The reference woman holds a slim skincare stick [UZI product] near her lips looking into the camera, then lowers it and rests both hands gracefully under her chin holding the product diagonally, strong dewy highlight on cheekbones, slow push-in.
+The reference woman holds a slim black glass serum ampoule with a gold UZ logo vertically near her lips looking into the camera, then lowers it and rests both hands gracefully under her chin holding the black ampoule diagonally, strong dewy highlight on cheekbones, slow push-in.
 ```
 
 **Transition (1–2s):** ทำในโปรแกรมตัดต่อ — Gaussian blur + cross-dissolve เข้าสีพื้น (เช่น #6B5560 ม่วงหม่น หรือ #E9D3C8 นู้ดพีช) ไม่ใส่โลโก้
@@ -134,12 +135,12 @@ Full side profile of the reference woman lifting her chin upward, looking up to 
 
 **Shot 7 (2s):**
 ```
-The reference woman raises a slim skincare stick [UZI product] to her lips, then glides it down to touch her chin and jawline, looking into the camera, static camera.
+The reference woman raises the slim black glass serum ampoule to her lips, then glides it down to touch her chin and jawline, looking into the camera, static camera.
 ```
 
 **Shot 8 (1s):**
 ```
-Single [UZI product] standing upright centered on a dark brown-grey surface with dark background, thin elegant rim light, minimal luxury product hero shot, static, then fade to black.
+A single slim black glass serum ampoule with a small gold UZ logo standing upright centered on a dark brown-grey surface with dark background, thin elegant rim light, minimal luxury product hero shot, static, then fade to black.
 ```
 
 ## 6) แผนตัดต่อ (Timeline ใหม่ ~17–18s)
@@ -171,3 +172,18 @@ Single [UZI product] standing upright centered on a dark brown-grey surface with
 ```bash
 ffmpeg -i input.mp4 -vf "scale=1080:1920:flags=lanczos,unsharp=5:5:0.6:5:5:0.0,hqdn3d=1.5:1.5:6:6" -c:v libx264 -crf 16 -preset slow -r 30 -c:a copy output_1080p.mp4
 ```
+
+## 8) ข้อมูลสินค้า: UZ Floral Skin Repair Serum
+
+- **ตัวสินค้า:** แอมพูลแก้วสีดำ ทรงหลอดเรียวยาว ปลายหักได้ มีโลโก้ UZ สีทองตัวเล็ก
+- **บรรจุภัณฑ์:** ซองทรงขวด สีขาวใส ตัวอักษรทองและดำ
+- **จุดขายที่ควรสื่อผ่านภาพ (ไม่ใช้ข้อความ):**
+  - Dual-Peptide Complex (ลดริ้วรอย กระชับ) → ช็อตมุมข้างเชิดคาง โชว์กรามคมชัด (Shot 6)
+  - Luxury Ingredient (ชุ่มชื้น อิ่มฟู) → ช็อตผิวฉ่ำ glass skin (Shot 1, 5)
+  - Floral Oil Blend (เสริมเกราะป้องกันผิว) → กลีบดอกไม้และหยดเซรั่มในช็อตสินค้า (Shot 2)
+- **ช็อตเสริมที่แนะนำ (แทรกได้ถ้าต้องการ):** มาโครหยดเซรั่มใสไหลลงจากปลายแอมพูล หรือนางแบบแตะเซรั่มลงบนโหนกแก้ม (1–1.5 วินาที แทรกหลัง Shot 4)
+
+### ข้อควรระวัง: โลโก้บนสินค้า
+AI วิดีโอมักทำให้ตัวอักษรหรือโลโก้บนสินค้าเพี้ยน แนะนำให้ทำแบบนี้:
+1. ถ่ายแอมพูลจริงสำหรับช็อตสินค้า (Shot 2 และ 8) ซึ่งจะได้ภาพคมชัดที่สุด
+2. หรือให้ AI สร้างแอมพูลสีดำแบบไม่มีโลโก้ แล้ว track/composite โลโก้ UZ จริงทับในโปรแกรมตัดต่อ (After Effects / CapCut)
