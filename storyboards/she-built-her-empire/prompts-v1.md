@@ -160,3 +160,28 @@ Look: night, cool muted tones with one warm practical light, shallow depth of fi
 
 Exclusions: no on-screen text or subtitles, no other people, keep the lipstick's ornate gold packaging exactly as in image 4, keep it small, never oversized.
 ```
+
+
+---
+
+## TRANSFORM — ลิปแท่งแรก → แพ็กเกจใหม่ (6 วิ) · รออนุมัติ 19 เครดิต
+**ใช้ในตัดต่อของผู้ใช้:** แทนช่วงวางลิปใหม่บนบันได (~0:19.5–0:21.5 ในไฟล์ของผู้ใช้) · คำบรรยาย "จากลิปแท่งแรก" → "กลายเป็นก้าวแรก"
+**ลำดับภาพ:** 1 REF-A · 2 REF-B2 · 3 IMG13 (ลิปเก่า) · 4 IMG1 (ลิปใหม่)
+
+```
+A 6-second vertical cinematic macro shot for a luxury cosmetics film: the brand's very first lipstick from ten years ago transforms into today's packaging. No dialogue, no voiceover, no on-screen text.
+
+References:
+- Image 1: the woman's hand and sleeve only — cream-white blazer cuff, long nude almond nails.
+- Image 2: the location — the first step of the white marble staircase, its edge glowing with a thin gold light line, warm god rays and soft pink drapes in the blurred background.
+- Image 3: the OLD lipstick — ornate polished gold crown-shaped cap with an oval opening, embossed gold floral collar, transparent tapered middle with coral-pink colour and white "UZI" letters, flared polished gold base.
+- Image 4: the NEW UZI Lip Matte — slim tube with a fully transparent clear acrylic cap (not metal, not silver), a thin gold band, nude-brown liquid and gold vertical "UZI LIP MATTE" text.
+Both lipsticks are small, about the length of a finger.
+
+0–1.5s: Low-angle close-up on the first marble step: her hand sets the old ornate gold lipstick down on the step, then withdraws out of frame.
+1.5–4s: The gold light line along the step flares brighter; warm golden light rises and swirls around the lipstick. The ornate gold packaging dissolves into drifting gold particles and, in the same spot, re-forms as the new clear-cap UZI Lip Matte.
+4–6s: The light settles. The new UZI Lip Matte stands alone on the glowing step, logo facing the camera; slow gentle push-in. Hold.
+
+Look: warm and radiant, white / cream / champagne gold / soft pink, shallow depth of field, photoreal, elegant and magical but not cartoonish.
+Exclusions: no on-screen text, no other people, no other products; keep both packagings exactly as in the references; the new lipstick's cap is clear transparent plastic, never silver or metal.
+```
