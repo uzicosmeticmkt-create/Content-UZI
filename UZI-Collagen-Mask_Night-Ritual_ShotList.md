@@ -155,3 +155,54 @@ a soft light sweep glides across the glossy pearl-white mask, serene confident e
 - เจนทีละช็อต (3–5 วิ/ช็อต) แล้วตัดต่อรวม จะคุมความคมและหน้าได้ดีกว่าเจนยาวรวดเดียว
 - อัปสเกลเป็น 4K + ปรับ sharpen เบา ๆ หลังตัดต่อ
 - เพลงแนะนำ: Ambient piano / soft electronic ลักเซอรี่ + ASMR เสียงฉีกซอง เสียงเจลแนบผิว
+
+---
+
+# ฉบับย่อ 3 วินาที: ช่วง 0:07–0:10 เท่านั้น
+
+วิเคราะห์ต้นฉบับละเอียด 8 เฟรม/วินาที (ทุก 0.125 วิ)
+
+## โครงสร้างต้นฉบับ
+
+| เวลา | ช็อต | กล้อง / องค์ประกอบ | การกระทำละเอียด |
+|---|---|---|---|
+| 7.00–7.55 | Cleanse | Close-up หน้าเอียง 3/4 ไปทางซ้ายเฟรม, ตา–ปากอยู่กลางเฟรม, กล้องนิ่ง | มือขวาถือสำลีแผ่นสี่เหลี่ยม กดที่แก้มซ้าย แล้วลากลงมาที่กราม–คาง ตามองกล้องนิ่ง ผิวฉ่ำวาว |
+| 7.60–8.10 | Pouch reveal | ตัดชน (hard cut) ซองบังหน้าเกือบเต็มเฟรม เห็นแค่ผมด้านข้าง | ยกซองขึ้นตรงหน้ากล้อง ปากซองฉีกแล้ว มือหนึ่งจับขอบบนขวา ดึงฝาซองเปิด |
+| 8.10–9.05 | Pull-out | ซองคงที่กลาง–ล่างเฟรม | มือข้างเดียวถือซองด้านล่าง แผ่นเจลค่อย ๆ ถูกดึงขึ้นจากปากซองจนออกจากขอบบนเฟรม ช้า ๆ ลื่น ๆ |
+| 9.10–9.75 | Upper mask | ตัดชน Close-up หน้าตรง | แผ่นบน (หน้าผาก–รอบตา–สันจมูก) แปะแล้ว ปลายนิ้วสองข้างกดใต้ตาจากหัวตาไปหางตา → เลื่อนไปกดขมับ ตาเหลือบมองขวา |
+| 9.85–10.00 | Lower mask | ตัดชน Close-up หน้าตรง | สองมือจับขอบแผ่นล่างที่แก้มสองข้าง ยืดกางแนวนอน วางทาบปาก–คาง |
+
+**จังหวะ:** 4 cut ใน 3 วินาที (~0.5 / 1.5 / 0.65 / 0.35 วิ) — ช็อตแกะซองยาวสุด เป็น "product moment"
+
+## Prompt ฉบับ UZI (3 วินาที, 9:16, 4K)
+
+**Global:** ใช้ Global Style Prompt + Negative Prompt ด้านบน (หน้าสด ไม่แต่งหน้า, ไม่มีข้อความ, ห้องหรูโทนครีม–แชมเปญ)
+
+**SHOT A | 0:00.0–0:00.5 | Cleanse**
+```
+Extreme close-up three-quarter portrait facing left, Thai woman (Kwan Usamanee likeness), completely bare makeup-free 
+glass skin, she presses a soft square white cotton pad on her left cheek and glides it down to her jaw and chin, 
+calm gaze into camera, soft champagne window light, glossy dewy skin, static camera, 4K vertical 9:16.
+```
+
+**SHOT B | 0:00.5–0:02.0 | Pouch reveal + pull-out (Product moment)**
+```
+Hard cut. Front shot, a premium white and lavender-blue UZI Collagen Firming Facial Mask sachet with black "UZ" monogram 
+fills most of the frame, covering her face, only her long dark hair visible at the sides. The top is torn open; 
+her fingers peel the flap back, then one hand holds the sachet steady while a translucent pearl-white hydrogel mask 
+sheet is slowly drawn upward out of the pouch and exits the top of frame, glistening essence, crisp sharp packaging detail, 
+nude natural nails, static camera.
+```
+
+**SHOT C | 0:02.0–0:02.65 | Upper mask**
+```
+Hard cut. Front close-up, upper piece of a pearl-white translucent hydrogel mask covers forehead, under-eyes and nose bridge, 
+bare natural eyes with no makeup through the eye openings, both fingertips press under the eyes from inner to outer corners 
+then slide to the temples, eyes glance to the right, wet glossy highlights on the gel.
+```
+
+**SHOT D | 0:02.65–0:03.0 | Lower mask**
+```
+Hard cut. Front close-up, both hands hold the edges of the lower hydrogel mask piece at her cheeks and stretch it horizontally, 
+laying it over her bare natural lips and chin, clean separation line under the nose, glossy gel texture.
+```
