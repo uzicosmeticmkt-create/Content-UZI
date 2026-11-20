@@ -1,9 +1,11 @@
 import sys, numpy as np, cv2
 S = '/tmp/claude-0/-home-user-Content-UZI/1b687bd6-9481-56fc-bce1-0bad3a8bf317'
 W_ = S + '/scratchpad/work/'
-B = cv2.imread(S + '/images/1.webp').astype(np.float32)
+import os
+BN = os.environ.get('BANNER', '1')
+B = cv2.imread(S + f'/images/{BN}.webp').astype(np.float32)
 R = cv2.imread(S + '/images/2.webp').astype(np.float32)
-LB = np.load(W_ + 'lm1.npy').astype(np.float32)
+LB = np.load(W_ + f'lm{BN}.npy').astype(np.float32)
 LR = np.load(W_ + 'lm2.npy').astype(np.float32)
 H, Wd = B.shape[:2]
 
