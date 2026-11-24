@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>UZI Lip Collagen — 9:16 (1080×1920)</title>
+<!--
+  Source for uzi-lip-collagen-9x16.png
+  Canvas: 1080 × 1920 px (9:16). Open in Chrome at 1080×1920 and screenshot,
+  or render headless (Playwright): viewport 1080×1920, deviceScaleFactor 1.
+  Ingredients are listed in the order printed on the pack.
+-->
+<style>
+  @font-face { font-family: "Prompt"; font-weight: 300; src: url(fonts/prompt-thai-300-normal.woff2) format("woff2"); unicode-range: U+0E01-0E5B, U+200C-200D, U+25CC; }
+  @font-face { font-family: "Prompt"; font-weight: 400; src: url(fonts/prompt-thai-400-normal.woff2) format("woff2"); unicode-range: U+0E01-0E5B, U+200C-200D, U+25CC; }
+  @font-face { font-family: "Prompt"; font-weight: 500; src: url(fonts/prompt-thai-500-normal.woff2) format("woff2"); unicode-range: U+0E01-0E5B, U+200C-200D, U+25CC; }
+  @font-face { font-family: "Prompt"; font-weight: 600; src: url(fonts/prompt-thai-600-normal.woff2) format("woff2"); unicode-range: U+0E01-0E5B, U+200C-200D, U+25CC; }
+  @font-face { font-family: "Prompt"; font-weight: 300; src: url(fonts/prompt-latin-300-normal.woff2) format("woff2"); unicode-range: U+0000-00FF, U+2000-206F; }
+  @font-face { font-family: "Prompt"; font-weight: 400; src: url(fonts/prompt-latin-400-normal.woff2) format("woff2"); unicode-range: U+0000-00FF, U+2000-206F; }
+  @font-face { font-family: "Prompt"; font-weight: 500; src: url(fonts/prompt-latin-500-normal.woff2) format("woff2"); unicode-range: U+0000-00FF, U+2000-206F; }
+  @font-face { font-family: "Prompt"; font-weight: 600; src: url(fonts/prompt-latin-600-normal.woff2) format("woff2"); unicode-range: U+0000-00FF, U+2000-206F; }
+  @font-face { font-family: "Cormorant"; font-weight: 500; src: url(fonts/cormorant-garamond-latin-500-normal.woff2) format("woff2"); }
+  @font-face { font-family: "Cormorant"; font-weight: 600; src: url(fonts/cormorant-garamond-latin-600-normal.woff2) format("woff2"); }
+  @font-face { font-family: "Cormorant"; font-weight: 500; font-style: italic; src: url(fonts/cormorant-garamond-latin-500-italic.woff2) format("woff2"); }
+
+  :root {
+    --gold: #d4af37;          /* UZI gold */
+    --champagne: #e6cf9c;
+    --rose: #b76e79;          /* UZI rose */
+    --ink: #120d0f;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; height: 1920px; background: var(--ink); }
+
+  .stage {
+    position: relative; width: 1080px; height: 1920px; overflow: hidden;
+    font-family: "Prompt", sans-serif; color: #fff;
+    background:
+      radial-gradient(ellipse 760px 980px at 50% 56%, #4b2f36 0%, #2d1d22 42%, #17100f00 78%),
+      linear-gradient(180deg, #1a1214 0%, #140e10 55%, #0d090a 100%);
+  }
+
+  /* ---------- ambience ---------- */
+  .glow { position: absolute; border-radius: 50%; pointer-events: none; }
+  .glow.rose  { width: 640px; height: 900px; left: 220px; top: 560px;
+                background: radial-gradient(closest-side, rgba(183,110,121,.42), rgba(183,110,121,0)); filter: blur(30px); }
+  .glow.warm  { width: 420px; height: 420px; left: 330px; top: 760px;
+                background: radial-gradient(closest-side, rgba(255,214,170,.20), rgba(255,214,170,0)); filter: blur(20px); }
+  .sheen { position: absolute; inset: 0;
+           background: linear-gradient(118deg, transparent 30%, rgba(255,235,215,.045) 44%, transparent 58%); }
+  .bokeh { position: absolute; border-radius: 50%; background: var(--champagne); }
+  .grain { position: absolute; inset: 0; opacity: .07; mix-blend-mode: overlay;
+           background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"); }
+
+  /* ---------- header ---------- */
+  .brand { position: absolute; top: 112px; left: 0; right: 0; text-align: center;
+           font-family: "Cormorant"; font-weight: 600; font-size: 36px; letter-spacing: .42em;
+           padding-left: .42em; color: var(--gold); }
+  .rule { position: absolute; top: 172px; left: 50%; width: 220px; margin-left: -110px; height: 1px;
+          background: linear-gradient(90deg, transparent, rgba(212,175,55,.8), transparent); }
+  .pain { position: absolute; top: 200px; left: 0; right: 0; text-align: center;
+          font-weight: 500; font-size: 58px; line-height: 1.35; color: rgba(255,255,255,.94); }
+  .hook { position: absolute; top: 282px; left: 0; right: 0; display: flex; justify-content: center; align-items: center; gap: 26px; }
+  .hook .num { font-family: "Cormorant"; font-weight: 600; font-size: 230px; line-height: .8; letter-spacing: -.01em; font-feature-settings: "lnum" 1, "pnum" 1; font-variant-numeric: lining-nums;
+               background: linear-gradient(170deg, #f6e3a8 0%, #d4af37 45%, #9c7a22 100%);
+               -webkit-background-clip: text; background-clip: text; color: transparent;
+               filter: drop-shadow(0 6px 18px rgba(212,175,55,.25)); padding-top: 18px; }
+  .hook .txt { text-align: left; }
+  .hook .t1 { font-weight: 600; font-size: 70px; line-height: 1.25; }
+  .hook .t2 { font-weight: 300; font-size: 46px; line-height: 1.3; color: var(--champagne); }
+  .sub { position: absolute; top: 494px; left: 0; right: 0; text-align: center;
+         font-weight: 300; font-size: 37px; line-height: 1.4; color: rgba(255,255,255,.82); }
+
+  /* ---------- product ---------- */
+  .podium { position: absolute; left: 380px; top: 1378px; width: 320px; height: 84px; border-radius: 50%;
+            background: radial-gradient(closest-side, rgba(255,226,196,.30), rgba(183,110,121,.10) 70%, transparent);
+            box-shadow: 0 0 0 1px rgba(212,175,55,.35), 0 0 60px rgba(212,175,55,.12); }
+  .product { position: absolute; left: 448px; top: 596px; width: 184px; height: 822px;
+             filter: drop-shadow(0 26px 30px rgba(0,0,0,.55)) drop-shadow(0 0 46px rgba(255,220,200,.16)); }
+  .reflection { position: absolute; left: 448px; top: 1420px; width: 184px; height: 822px;
+                transform: scaleY(-1); transform-origin: top; opacity: .16;
+                -webkit-mask-image: linear-gradient(0deg, transparent 82%, #000 100%);
+                        mask-image: linear-gradient(0deg, transparent 82%, #000 100%); }
+
+  /* ---------- ingredient call-outs ---------- */
+  .oil { position: absolute; width: 350px; transform: translateY(-50%); }
+  .oil .th { font-weight: 400; font-size: 31px; line-height: 1.3; color: #fff; }
+  .oil .en { font-weight: 400; font-size: 14px; letter-spacing: .17em; color: #cfa95a; margin-top: 2px; white-space: nowrap; }
+  .oil.l { left: 44px; text-align: right; }
+  .oil.r { left: 686px; text-align: left; }
+  .lead { position: absolute; height: 1px; transform: translateY(-50%); }
+  .lead.l { left: 404px; width: 38px; background: linear-gradient(90deg, rgba(212,175,55,.15), rgba(212,175,55,.85)); }
+  .lead.r { left: 638px; width: 38px; background: linear-gradient(90deg, rgba(212,175,55,.85), rgba(212,175,55,.15)); }
+  .dot { position: absolute; width: 9px; height: 9px; border-radius: 50%; transform: translate(-50%, -50%);
+         background: var(--gold); box-shadow: 0 0 10px rgba(212,175,55,.8); }
+
+  /* ---------- footer ---------- */
+  .name { position: absolute; top: 1500px; left: 0; right: 0; text-align: center;
+          font-family: "Cormorant"; font-style: italic; font-weight: 500; font-size: 54px; color: var(--champagne); letter-spacing: .01em; }
+  .tags { position: absolute; top: 1586px; left: 0; right: 0; display: flex; justify-content: center; gap: 14px; }
+  .tags span { font-size: 17px; letter-spacing: .2em; color: rgba(255,255,255,.78); padding: 9px 20px 8px;
+               border: 1px solid rgba(212,175,55,.45); border-radius: 999px; }
+  .moon { position: absolute; top: 1672px; left: 0; right: 0; text-align: center;
+          font-size: 25px; font-weight: 300; color: rgba(255,255,255,.6); }
+  .moon svg { vertical-align: -4px; margin-right: 10px; }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="glow rose"></div>
+  <div class="glow warm"></div>
+  <div class="sheen"></div>
+  <div class="bokeh" style="left:86px;top:640px;width:16px;height:16px;opacity:.16;filter:blur(3px)"></div>
+  <div class="bokeh" style="left:972px;top:590px;width:28px;height:28px;opacity:.10;filter:blur(6px)"></div>
+  <div class="bokeh" style="left:150px;top:1468px;width:40px;height:40px;opacity:.08;filter:blur(9px)"></div>
+  <div class="bokeh" style="left:930px;top:1440px;width:14px;height:14px;opacity:.20;filter:blur(2px)"></div>
+  <div class="bokeh" style="left:900px;top:300px;width:22px;height:22px;opacity:.10;filter:blur(5px)"></div>
+  <div class="bokeh" style="left:120px;top:380px;width:12px;height:12px;opacity:.16;filter:blur(2px)"></div>
+
+  <!-- header -->
+  <div class="brand">UZI COSMETIC</div>
+  <div class="rule"></div>
+  <div class="pain">ปากพัง ทาลิปตกร่อง?</div>
+  <div class="hook">
+    <div class="num">13</div>
+    <div class="txt">
+      <div class="t1">ออยล์ธรรมชาติ</div>
+      <div class="t2">รวมไว้ในแท่งเดียว</div>
+    </div>
+  </div>
+  <div class="sub">บำรุงริมฝีปากข้ามคืน ให้นุ่ม ชุ่มชื่น</div>
+
+  <!-- product -->
+  <div class="podium"></div>
+  <img class="reflection" src="product.png" alt="">
+  <img class="product" src="product.png" alt="UZI COSMETIC collagen lip organic 3 g">
+
+  <!-- ingredient call-outs (pack order: 1–7 left, 8–13 right) -->
+  <div id="oils"></div>
+
+  <!-- footer -->
+  <div class="name">collagen lip organic</div>
+  <div class="tags"><span>ORGANIC</span><span>13 PLANT OILS</span><span>3 g / 0.10 oz</span></div>
+  <div class="moon">
+    <svg width="26" height="26" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" fill="#d4af37"/></svg>Night Lip Routine
+  </div>
+  <div class="grain"></div>
+</div>
+
+<script>
+  const oils = [
+    ["เรพซีด",        "RAPESEED SEED OIL"],
+    ["แมคคาเดเมีย",   "MACADAMIA SEED OIL"],
+    ["โจโจ้บา",        "JOJOBA SEED OIL"],
+    ["สวีทอัลมอนด์",   "SWEET ALMOND OIL"],
+    ["คามิเลีย",       "CAMELLIA JAPONICA SEED OIL"],
+    ["เมล็ดองุ่น",      "GRAPE SEED OIL"],
+    ["อะโวคาโด",       "AVOCADO OIL"],
+    ["มีโดว์โฟม",       "MEADOWFOAM SEED OIL"],
+    ["เฮเซลนัท",       "HAZELNUT SEED OIL"],
+    ["อีฟนิ่งพริมโรส",  "EVENING PRIMROSE OIL"],
+    ["รำข้าว",          "RICE BRAN OIL"],
+    ["โรสฮิป",         "ROSEHIP OIL"],
+    ["เชียบัตเตอร์",    "SHEA BUTTER OIL"],
+  ];
+  const wrap = document.getElementById("oils");
+  const step = 120, topL = 648, topR = topL + step / 2;
+  oils.forEach(([th, en], i) => {
+    const left = i < 7, k = left ? i : i - 7;
+    const y = (left ? topL : topR) + k * step;
+    const side = left ? "l" : "r";
+    wrap.insertAdjacentHTML("beforeend",
+      `<div class="oil ${side}" style="top:${y}px"><div class="th">${th}</div><div class="en">${en}</div></div>` +
+      `<div class="lead ${side}" style="top:${y}px"></div>` +
+      `<div class="dot" style="left:${left ? 446 : 634}px;top:${y}px"></div>`);
+  });
+</script>
+</body>
+</html>
